@@ -32,7 +32,7 @@ return [/*
 */
     'logo' =>  ' نظام '.'<b>المحاسب الذكي</b> ',
     'logo_img' => 'images/logo.png' ,
-    'logo_img_class' => 'brand-image ',
+    'logo_img_class' => 'brand-image img-fluid w-90',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'AdminLTE',/*
@@ -47,7 +47,7 @@ return [/*
 
     'language_switch_button' => true,
     'language_switch_href' => '',
-    'usermenu_enabled' => true,
+    'usermenu_enabled' => false,
     'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => true,
@@ -96,7 +96,7 @@ return [/*
     'classes_content_wrapper' => '',
     'classes_content_header' => 'container-fluid',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-5 sidebar-dark-primary',
+    'classes_sidebar' => 'sidebar-light-primary elevation-5 sidebar-light-primary',
     'classes_sidebar_nav' => 'nav-child-indent',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand-md',

@@ -1,28 +1,18 @@
-@extends('vendor.adminlte.master')
+@extends('adminlte::page')
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+
 @stop
 
 @section('content')
-{{-- Cards --}}
-<div id="app">
-
-    <router-view></router-view>
-
-<hr>
-
-    <router-link to="/"> About</router-link>
-    <router-link to="/about"> Home</router-link>
-
-</div >
-
-
-@stop
-
-
-
-@section('js')
-    <script src='/js/app.js'> </script>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <p class="mb-0">You are logged in!</p>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop
