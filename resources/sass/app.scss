@@ -1,0 +1,29 @@
+
+// Fonts
+@import 'https://fonts.googleapis.com/css?family=Cairo:300,400,600,700,900';
+@import '~@fortawesome/fontawesome-free/css/all.css';
+// OverlayScrollbars
+@import '~overlayscrollbars/css/OverlayScrollbars.css';
+// iCheck
+@import '~icheck-bootstrap/icheck-bootstrap.css';
+
+
+// Bootstrap
+// ---------------------------------------------------
+@import "~bootstrap/scss/functions";
+@import "bootstrap-variables";
+@import "~bootstrap/scss/bootstrap";
+
+
+
+// Variables and Mixins
+// ---------------------------------------------------
+
+@import "variables";
+@import "mixins";
+@import "parts/core";
+@import "parts/components";
+@import "parts/extra-components";
+@import "parts/pages";
+@import "parts/plugins";
+@import "parts/miscellaneous";

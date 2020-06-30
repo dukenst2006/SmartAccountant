@@ -1,0 +1,136 @@
+.ltr {
+    direction: ltr;
+}
+.dropdown-item {
+    text-align: right;
+}
+.dropdown-footer,
+.dropdown-header {
+    text-align: center;
+}
+.sidebar {
+    direction: rtl;
+}
+.sidebar > div:first-child {
+    direction: rtl;
+}
+.control-sidebar,
+.control-sidebar:before {
+    left: -250px;
+    right: auto;
+    transition: left .3s ease-in-out;
+}
+
+
+.card-header > .card-tools {
+    right: auto;
+    left: 1rem;
+}
+.user-block img {
+    float: right;
+}
+.attachment-block .attachment-img {
+    float: right;
+}
+.attachment-block .attachment-pushed {
+    margin-left: 0px;
+    margin-right: 110px;
+}
+.card-comments .card-comment img,
+.img-lg,
+.img-md,
+.img-sm,
+.user-block.user-block-sm img {
+    float: right;
+}
+.card-comments .comment-text {
+    margin-right: 40px;
+    margin-left: 0;
+}
+.card-comments .card-comment img + .img-push,
+.img-sm + .img-push,
+.user-block.user-block-sm img + .img-push {
+    margin-left: 0px;
+    margin-right: 40px;
+}
+.user-block .comment,
+.user-block .description,
+.user-block .username {
+    margin-right: 50px;
+    margin-left: 0px;
+}
+.btn-group-vertical {
+    align-items: center;
+}
+/*------------------------- Form ----------------------------*/
+.select2-container .select2-search--inline {
+    float: right;
+}
+.select2-container--default .select2-search--inline .select2-search__field {
+    text-align: right;
+}
+
+
+
+.error-page > .headline {
+    float: right;
+}
+.error-page > .error-content {
+    margin-right: 190px;
+    margin-left: 0;
+}
+.lockscreen-image {
+    left: auto;
+    right: -10px;
+}
+.lockscreen-credentials {
+    margin-left: 0px;
+    margin-right: 70px;
+}
+.nav {
+    padding-inline-start: 0px !important;
+
+}
+.sidebar-mini.sidebar-collapse .content-wrapper, .sidebar-mini.sidebar-collapse .main-footer, .sidebar-mini.sidebar-collapse .main-header {
+    margin-right: 4.6rem!important;
+ margin-left: 0px !important;
+}
+.main-header{
+transition: margin-right .3s ease-in-out !important;
+margin-right: 250px !important;
+margin-left: 0px !important;
+
+
+}
+
+
+.content-wrapper{
+    transition: margin-right .3s ease-in-out !important;
+    margin-right: 250px !important;
+    margin-left: 0px !important;
+
+
+
+}
+.nav-sidebar .nav-link>.right, .nav-sidebar .nav-link>p>.right{
+    left: 1rem !important;
+    right: unset !important;
+}
+
+.card-title {
+    float: right !important;
+}
+
+
+.os-host-rtl > .os-scrollbar-vertical {
+
+
+    left: auto !important;
+    right: 0 !important;;
+
+}
+
+.control-sidebar-slide-open .control-sidebar, .control-sidebar-slide-open .control-sidebar::before {
+
+    left: 0;
+}
