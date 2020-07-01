@@ -2,11 +2,10 @@
 
 /** @var Factory $factory */
 
-use App\Models\Marketplace;
 use App\Models\Product;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
-use Illuminate\Support\Str;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,19 +21,24 @@ use Illuminate\Support\Str;
 $factory->define(Product::class, function (Faker $faker) {
 
     return [
+
+
+        'UserID' =>  factory(App\Models\User::class),
         'MarketplacesID' => factory(App\Models\Marketplace::class),
-        'ProductCategoryID' =>factory(App\Models\ProductCategory::class),
-        'ProductSubCategoryID' =>factory(App\Models\ProductSubCategory::class),
-        'Name' => $faker->words(3),
-        'Quantity' => $faker->randomNumber(),
-        'QuantityType' => $faker->randomElement(['Piece', 'Carton', 'Grain']),
-        'PurchasingPrice' => $faker->randomFloat(3),
-        'SellingPrice' =>  $faker->randomFloat(3),
-        'LowPrice' => $faker->randomFloat(3),
+        'ProductCategoryID' => factory(App\Models\ProductCategory::class),
+        'ProductSubCategoryID' => factory(App\Models\ProductSubCategory::class),
+        'Name' => $faker->sentence(3),
+        'Quantity' => $faker->randomNumber(3),
+        'QuantityTypeID' => $faker->numberBetween(1,3),
+        'PurchasingPrice' => $faker->randomFloat(3,1000,3000),
+        'SellingPrice' => $faker->randomFloat(3,1000,3000),
+        'LowPrice' => $faker->randomFloat(3,1000,3000),
         'Image' => $faker->imageUrl(),
-        'ExpiryDate' => $faker->dateTime,
+        'ExpiryDate' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+1 years', $timezone = null),
         'Barcode' => $faker->numerify('##############'),
         'UnlimitedQuantity' => $faker->boolean,
+
+
 
 
     ];

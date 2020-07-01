@@ -17,11 +17,15 @@ class CreateInvoiceItemsTable extends Migration
             $table->bigIncrements('ID');
             $table->unsignedBigInteger('InvoiceID');
             $table->unsignedBigInteger('ProductID');
-
+            $table->unsignedBigInteger('QuantityTypeID');
+            $table->double('Quantity');
+            $table->double('UnitPrice');
+            $table->double('Total');
 
 
             $table->foreign('InvoiceID')->references('ID')->on('invoices')->onDelete('cascade');
             $table->foreign('ProductID')->references('ID')->on('Products')->onDelete('cascade');
+            $table->foreign('QuantityTypeID')->references('ID')->on('quantity_types')->onDelete('cascade');
         });
     }
 

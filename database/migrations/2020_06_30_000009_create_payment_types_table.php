@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStocksTable extends Migration
+class CreatePaymentTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateStocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('stocks', function (Blueprint $table) {
+        Schema::create('payment_types', function (Blueprint $table) {
             $table->bigIncrements('ID');
-            $table->unsignedBigInteger('MarketplacesID');
-            $table->timestamps();
-            $table->foreign('MarketplacesID')->references('ID')->on('marketplaces')->onDelete('cascade');
+            $table->string('Name');
+            $table->string('Description')->nullable()->default('');
 
+            $table->timestamps();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateStocksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stocks');
+        Schema::dropIfExists('payment_types');
     }
 }

@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //auth()->loginUsingId(1);
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/x', function () {
+    return view('admin.pages.index');
+});
 
-Auth::routes();
+
 

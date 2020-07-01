@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
 
             $table->string('Name');
             $table->double('Quantity');
-            $table->enum('QuantityType', ['Piece', 'Carton', 'Grain']);
+            $table->unsignedBigInteger('QuantityTypeID');
             $table->double('PurchasingPrice');
             $table->double('SellingPrice');
             $table->double('LowPrice')->nullable()->default(null);  //  For What ?
@@ -34,6 +34,7 @@ class CreateProductsTable extends Migration
 
             $table->foreign('UserID')->references('ID')->on('Users')->onDelete('cascade');
             $table->foreign('MarketplacesID')->references('ID')->on('marketplaces')->onDelete('cascade');
+            $table->foreign('QuantityTypeID')->references('ID')->on('quantity_types')->onDelete('cascade');
             $table->foreign('ProductCategoryID')->references('ID')->on('product_categories')->onDelete('cascade');
             $table->foreign('ProductSubCategoryID')->references('ID')->on('product_sub_categories')->onDelete('cascade');
         });

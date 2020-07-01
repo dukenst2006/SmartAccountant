@@ -1,11 +1,9 @@
 <?php
 
-/** @var Factory $factory */
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\Marketplace;
-use App\Models\Treasure;
+use App\Models\Safe;
 use Faker\Generator as Faker;
-use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Str;
 
 /*
@@ -19,11 +17,9 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(Treasure::class, function (Faker $faker) {
-
+$factory->define(Safe::class, function (Faker $faker) {
     return [
+        'Balance' => $faker->numberBetween(20000,50000),
         'MarketplacesID' => factory(App\Models\Marketplace::class),
-
-
     ];
 });

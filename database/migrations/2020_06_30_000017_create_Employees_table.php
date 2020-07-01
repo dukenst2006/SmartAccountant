@@ -16,7 +16,8 @@ class CreateEmployeesTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->bigIncrements('ID');
             $table->unsignedBigInteger('UserID');
-            $table->unsignedBigInteger('MarketplacesID');
+            $table->unsignedBigInteger('MarketplaceID');
+            $table->unsignedBigInteger('MarketplaceOwnerID');
 
             $table->string('Nationality');
             $table->string('JobTitle');
@@ -33,7 +34,8 @@ class CreateEmployeesTable extends Migration
 
 
             $table->foreign('UserID')->references('ID')->on('Users')->onDelete('cascade');
-            $table->foreign('MarketplacesID')->references('ID')->on('marketplaces')->onDelete('cascade');
+            $table->foreign('MarketplaceID')->references('ID')->on('marketplaces')->onDelete('cascade');
+            $table->foreign('MarketplaceOwnerID')->references('ID')->on('marketplace_owners')->onDelete('cascade');
         });
     }
 

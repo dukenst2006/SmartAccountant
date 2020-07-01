@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTreasuresTable extends Migration
+class CreateQuantityTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateTreasuresTable extends Migration
      */
     public function up()
     {
-        Schema::create('treasures', function (Blueprint $table) {
+        Schema::create('quantity_types', function (Blueprint $table) {
+
             $table->bigIncrements('ID');
+            $table->string('Name');
+
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateTreasuresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('treasures');
+        Schema::dropIfExists('quantity_types');
     }
 }

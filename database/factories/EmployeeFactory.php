@@ -25,7 +25,7 @@ $factory->define(Employee::class, function (Faker $faker) {
         'MarketplaceOwnerID' => factory(\App\Models\MarketplaceOwner::class),
         'Nationality' => $faker->randomElement(['سعودي', 'مصري', 'سوداني', 'امارتي']),
         'JobTitle' => $faker->randomElement(['محاسب', 'امين خزنه', 'مشرف']),
-        'NationalID' => $faker->randomNumber(15),
+        'NationalID' => $faker->numerify('###############'),
         'PhoneNumber' => $faker->phoneNumber,
         'ProfileImage' => $faker->imageUrl(),
         'IdentityImage' => $faker->imageUrl(),

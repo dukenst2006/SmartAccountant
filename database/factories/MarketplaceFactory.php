@@ -22,7 +22,6 @@ $factory->define(Marketplace::class, function (Faker $faker) {
     return [
 
         'MarketplaceOwnerID' =>factory(\App\Models\MarketplaceOwner::class),
-        'TreasureID' =>factory(\App\Models\Treasure::class),
         'Name' => $faker->streetName,
         'Country' => $faker->country,
         'City' => $faker->city,

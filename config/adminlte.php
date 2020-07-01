@@ -492,14 +492,16 @@ return [/*
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css',
                 ],
             ],
-        ], [
+        ],
+
+        [
             'name' => 'Pace',
             'active' => true,
             'files' => [
                 [
                     'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/red/pace-theme-flash.min.css',
+                    'asset' => true,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-corner-indicator.min.css',
                 ],
                 [
                     'type' => 'js',

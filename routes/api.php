@@ -20,5 +20,5 @@ use Illuminate\Support\Facades\Route;
 //Route::get('products',function (){
 //    return \App\Models\Product::all();
 //})->name('api_products');
-Route::post('newBill','Admin\BillController@newBill')->name('api_new_bill');
-Route::post('moneyBill','Admin\MoneyController@get')->name( 'money_bill');
+//Route::post('newBill','Admin\BillController@newBill')->name('api_new_bill');
+//Route::post('moneyBill','Admin\MoneyController@get')->name( 'money_bill');
