@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use Notifiable;
-
+    use HasRoles;
     /**
      * The attributes that are mass assignable.
      *
@@ -35,4 +36,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function adminlte_image(){
+
+        return "https://rnmu.rw/wp-content/uploads/2019/10/man-300x300.png";
+    }
+    public function adminlte_desc(){
+        return "a system user";
+    }
+
 }

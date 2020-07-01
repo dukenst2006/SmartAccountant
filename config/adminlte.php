@@ -47,7 +47,7 @@ return [/*
 
     'language_switch_button' => true,
     'language_switch_href' => '',
-    'usermenu_enabled' => false,
+    'usermenu_enabled' => true,
     'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => true,
@@ -177,17 +177,17 @@ return [/*
             'icon' => 'fas fa-fw fa-tachometer-alt',
             'icon_color' => 'yellow',
             'submenu' => [
-            [
-                'text' => 'Main Ui',
-                'url' =>'#',
-                'icon' => 'fas fa-fw fa-circle',
+                [
+                    'text' => 'Main Ui',
+                    'url' =>'#',
+                    'icon' => 'fas fa-fw fa-circle',
+                ],
+                [
+                    'text' => 'Statics',
+                    'url' =>'#',
+                    'icon' => 'fas fa-fw fa-circle',
+                ],
             ],
-            [
-                'text' => 'Statics',
-                'url' =>'#',
-                'icon' => 'fas fa-fw fa-circle',
-            ],
-        ],
         ],
         [
             'text' => 'about',
@@ -223,13 +223,13 @@ return [/*
 
             'submenu' =>
                 [
-            [
-                'text' => 'Option',
-                'url' =>'#',
-                'icon' => 'fas fa-fw fa-cubes',
-            ]
+                    [
+                        'text' => 'Option',
+                        'url' =>'#',
+                        'icon' => 'fas fa-fw fa-cubes',
+                    ]
 
-            ]
+                ]
 
         ],
 
@@ -396,7 +396,8 @@ return [/*
 
         JeroenNoten\LaravelAdminLte\Menu\Filters\LangFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\DataFilter::class,
-    ],/*
+    ],
+    /*
 |--------------------------------------------------------------------------
 | Plugins Initialization
 |--------------------------------------------------------------------------

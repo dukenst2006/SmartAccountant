@@ -1,10 +1,11 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+/** @var Factory $factory */
 
-use App\Models\Safe;
-use App\Models\User;
+use App\Models\Marketplace;
+use App\Models\Treasure;
 use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Str;
 
 /*
@@ -18,12 +19,11 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Treasure::class, function (Faker $faker) {
+
     return [
-        'Name' => $faker->name,
-        'Email' => $faker->unique()->safeEmail,
-        'EmailVerifiedAt' => now(),
-        'Password' => '123', // password
-        'remember_token' => Str::random(10),
+        'MarketplacesID' => factory(App\Models\Marketplace::class),
+
+
     ];
 });

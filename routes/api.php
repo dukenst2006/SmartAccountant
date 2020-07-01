@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::get('products',function (){
-    return \App\Product::all();
-})->name('api_products');
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+//Route::get('products',function (){
+//    return \App\Models\Product::all();
+//})->name('api_products');
 Route::post('newBill','Admin\BillController@newBill')->name('api_new_bill');
 Route::post('moneyBill','Admin\MoneyController@get')->name( 'money_bill');

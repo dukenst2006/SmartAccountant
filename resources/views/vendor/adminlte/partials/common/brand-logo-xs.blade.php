@@ -8,21 +8,21 @@
     @php( $dashboard_url = $dashboard_url ? url($dashboard_url) : '' )
 @endif
 
-<div class="row justify-content-center mt-1">
+<div class="row justify-content-center mt-1 logo-adjust">
 
     <img  src="{{ asset(config('adminlte.logo_img', 'vendor/adminlte/dist/img/AdminLTELogo.png')) }}"
-         alt="{{ config('adminlte.logo_img_alt', 'AdminLTE') }}"
-         class="{{ config('adminlte.logo_img_class', 'brand-image img-circle elevation-3') }}"
-         style="opacity:.8">
+          alt="{{ config('adminlte.logo_img_alt', 'AdminLTE') }}"
+          class="{{ config('adminlte.logo_img_class', 'brand-image img-circle elevation-3') }}"
+          style="opacity:.8">
 
 </div>
 
 <a href="{{ $dashboard_url }}"
 
-    @if($layoutHelper->isLayoutTopnavEnabled())
-        class="navbar-brand  text-center {{ config('adminlte.classes_brand') }}"
-    @else
-        class="brand-link text-center   {{ config('adminlte.classes_brand') }}"
+   @if($layoutHelper->isLayoutTopnavEnabled())
+   class="navbar-brand  text-center {{ config('adminlte.classes_brand') }}"
+   @else
+   class="brand-link text-center   {{ config('adminlte.classes_brand') }}"
     @endif>
 
     {{-- Small brand logo --}}
