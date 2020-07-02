@@ -2,12 +2,10 @@
 
 
 namespace App\Repositories;
-
-
 use App\Models\Employee;
 use App\Models\Marketplace;
 
-class EmployeeRepository implements EmployeeRepositoryInterface
+class HomeRepository implements EmployeeRepositoryInterface
 {
 
 

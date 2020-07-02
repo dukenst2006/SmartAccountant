@@ -46,7 +46,7 @@ return [/*
 */
 
     'language_switch_button' => true,
-    'language_switch_href' => '',
+    'language_switch_href' => '/lang',
     'usermenu_enabled' => true,
     'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
@@ -175,12 +175,13 @@ return [/*
         [
             'text' => 'Main',
             'icon' => 'fas fa-fw fa-tachometer-alt',
-            'icon_color' => 'yellow',
+
             'submenu' => [
                 [
                     'text' => 'Main Ui',
-                    'url' =>'#',
+                    'url' =>'\admin',
                     'icon' => 'fas fa-fw fa-circle',
+
                 ],
                 [
                     'text' => 'Statics',
@@ -220,6 +221,8 @@ return [/*
             'url' =>'#',
             'icon' => 'fas fa fa-bell',
             'icon_color' => 'yellow',
+            'label'       => '41',
+            'label_color' => 'danger',
 
             'submenu' =>
                 [
@@ -242,6 +245,7 @@ return [/*
                     'text' => 'Option',
                     'url' =>'#',
                     'icon' => 'fas fa-fw fa-cubes',
+
                 ],
             ],
         ],
@@ -456,17 +460,42 @@ return [/*
                 ],
             ],
         ],
+
+
         [
             'name' => 'Chartjs',
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
                 ],
             ],
         ],
+
+
+        [
+            'name' => 'chartisan',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'https://unpkg.com/@chartisan/chartjs/dist/chartisan_chartjs.js',
+                ],
+
+
+
+
+            ],
+        ],
+
+
+
+
+
+
         [
             'name' => 'Sweetalert2',
             'active' => true,

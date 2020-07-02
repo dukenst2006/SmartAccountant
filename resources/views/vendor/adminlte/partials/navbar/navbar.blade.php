@@ -26,7 +26,7 @@
         {{-- Languages Change Button --}}
         @if(config('adminlte.language_switch_button'))
             <ul class="navbar-nav">
-                <a class="nav-link" href="{{ config('adminlte.language_switch_href') .'/'. app()->getLocale()}}">
+                <a class="nav-link" href="{{ config('adminlte.language_switch_href') .'/'. (app()->getLocale()== 'ar' ? 'en'  : 'ar'  )}}">
                     <i class="fa fa-2x fa-language"></i>
                     <span class="badge  badge-info navbar-badge">{{app()->getLocale()}}</span>
                 </a>

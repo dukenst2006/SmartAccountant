@@ -22,10 +22,7 @@
 }
 
 
-.card-header > .card-tools {
-    right: auto;
-    left: 1rem;
-}
+
 .user-block img {
     float: right;
 }
@@ -133,4 +130,13 @@ margin-left: 0px !important;
 .control-sidebar-slide-open .control-sidebar, .control-sidebar-slide-open .control-sidebar::before {
 
     left: 0;
+}
+
+.card-header > .card-tools {
+    left: auto;
+    right: 1rem;
+}
+.card-header > .card-tools {
+    float: left;
+    margin-right: -0.625rem;
 }

@@ -104,6 +104,8 @@
 <script>
     $('body').overlayScrollbars({});
 </script>
+
+@yield('customejs')
 </body>
 
 </html>
