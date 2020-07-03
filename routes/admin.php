@@ -3,13 +3,14 @@
 use Illuminate\Support\Facades\Route;
 
 auth()->loginUsingId(1);
-
+Route::redirect('/', '/Admin');
 Route::get('lang/{Language}', 'LocalizationController@index')->name('ChangeLanguage');
-Route::group([ 'prefix'=>'admin'], function () {
+Route::group([ 'prefix'=>'Admin'] , function () {
 //'middleware' => ['role:super-admin'] ,
-        Route::get('/', 'HomeController@index')->name('home');
-        Route::resource('settings', 'SettingsController')->except('create', 'edit', 'destroy', 'show', 'store');
-        Route::resource('about', 'AboutController');
+        Route::get('/', 'HomeController@index')->name('Home');
+        Route::get('About', 'AboutController@index')->name('About');
+       Route::resource('settings', 'SettingsController')->except('create', 'edit', 'destroy', 'show', 'store');
+
         Route::resource('brenchs', 'BrenchController');
         Route::resource('employees', 'EmployeeController');
         Route::get('humanR', 'HumanResourceController@index')->name('human_r');

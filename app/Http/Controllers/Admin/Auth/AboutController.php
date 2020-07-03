@@ -1,11 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
-use App\Models\Langs;
-use App\Models\Settings;
-use Hamcrest\Core\Set;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class AboutController extends Controller
@@ -14,7 +9,7 @@ class AboutController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {

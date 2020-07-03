@@ -9,7 +9,7 @@ return [/*
 |
 ||
 */
-    'title' => 'AdminLTE 3',
+    'title' => 'Smart Accountant v1',
     'title_prefix' => '',
     'title_postfix' => '',/*
 |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ return [/*
     'logo_img_class' => 'brand-image img-fluid w-90',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',/*
+    'logo_img_alt' => 'Smart Accountant Logo',/*
 |--------------------------------------------------------------------------
 | User Menu
 |--------------------------------------------------------------------------
@@ -96,8 +96,8 @@ return [/*
     'classes_content_wrapper' => '',
     'classes_content_header' => 'container-fluid',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-light-primary elevation-5 sidebar-light-primary',
-    'classes_sidebar_nav' => 'nav-child-indent',
+    'classes_sidebar' => 'sidebar-light-maroon elevation-5',
+    'classes_sidebar_nav' => 'nav-flat',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand-md',
     'classes_topnav_container' => 'container',/*
@@ -117,8 +117,9 @@ return [/*
     'sidebar_scrollbar_theme' => 'os-theme-light',
     'sidebar_scrollbar_auto_hide' => 'l',
     'sidebar_nav_accordion' => true,
-    'sidebar_nav_animation_speed' => 300,
-    'sidebar_theme' => 'light',/*
+    'sidebar_nav_animation_speed' => 200,
+    'sidebar_theme' => 'light',
+    /*
 |--------------------------------------------------------------------------
 | Control Sidebar (Right Sidebar)
 |--------------------------------------------------------------------------
@@ -171,137 +172,182 @@ return [/*
             'topnav' => true,
         ],
 
-        ['header' => 'هيدر'],
+        ['header' => 'DashboardHeader'],
+
         [
             'text' => 'Main',
             'icon' => 'fas fa-fw fa-tachometer-alt',
-
-            'submenu' => [
-                [
-                    'text' => 'Main Ui',
-                    'url' =>'#',
-                    'icon' => 'fas fa-fw fa-circle',
-
-                ],
-                [
-                    'text' => 'Statics',
-                    'route'=> 'admin.home',
-                    'icon' => 'fas fa-fw fa-circle',
-                ],
-            ],
+            'route'=> 'admin.Home',
         ],
         [
             'text' => 'about',
-            'url' =>'#',
-            'icon' => 'fas fa-fw fa-address-card',
-
+            'route' =>'admin.About',
+            'icon' => 'fas fa-fw fa-code-branch',
+            'icon_color' => 'dark',
         ],
-        [
-            'text' => 'Settings',
-            'عقم'=>'#',
-            'icon' => 'fas fa fa-spin fa-cog',
-            'icon_color' => 'red',
-        ],
-        [
-            'text' => 'storage',
-            'url' =>'#',
-            'icon' => 'fa fa-spin fa-cog',
-            'icon_color' => 'green',
-        ],
-        [
-            'text' => 'safe',
-            'url' =>'#',
-            'icon' => 'fa fa-spin fa-cog',
-            'icon_color' => 'blue',
-        ],
-
-
         [
             'text' => 'Notifications',
             'url' =>'#',
             'icon' => 'fas fa fa-bell',
+
             'icon_color' => 'yellow',
             'label'       => '41',
             'label_color' => 'danger',
-
-            'submenu' =>
-                [
-                    [
-                        'text' => 'Option',
-                        'url' =>'#',
-                        'icon' => 'fas fa-fw fa-cubes',
-                    ]
-
-                ]
-
         ],
 
-        [
-            'text' => 'Admins Management',
-            'url' =>'#',
-            'icon' => 'fas fa fa-bell',
-            'submenu' => [
-                [
-                    'text' => 'Option',
-                    'url' =>'#',
-                    'icon' => 'fas fa-fw fa-cubes',
-
-                ],
-            ],
-        ],
-
-
+        ['header' => 'HumanResources'],
 
         [
-            'text' => 'Branches',
-            'url' =>'#',
-            'icon' => 'fas fa fa-tree',
-
-
+            'text' => 'Supervisors',
+            'url'=>'#',
+            'icon' => 'fas fa fa-user-tie',
             'submenu' => [
                 [
                     'text' => 'create',
                     'route' =>'admin.brenchs.create',
-                    'icon' => 'fas fa-fw fa-cubes',
+                    'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
                     'route' =>'admin.brenchs.index',
-                    'icon' => 'fas fa-fw fa-cubes',
+                    'icon' => 'fas fa-fw fa-layer-group',
                 ],
             ],
 
-
         ],
 
-
-
         [
-            'text' => 'Human resources',
-            'route' =>'admin.human_r',
-            'icon' => 'fab fa-superpowers',
-        ],
-
-
-        [
-            'text' => 'Invoices',
-            'url' =>'#',
-            'icon' => 'fas fa-fw fa-cogs',
+            'text' => 'Employee',
+            'url'=>'#',
+            'icon' => 'fas fa fa-users',
             'submenu' => [
                 [
+                    'text' => 'create',
+                    'route' =>'admin.brenchs.create',
+                    'icon' => 'fas fa-fw fa-plus-circle',
+                ],
+                [
                     'text' => 'all',
-                    'url' =>'#',
-                    'icon' => 'fas fa-fw fa-cubes',
-                ]
-
+                    'route' =>'admin.brenchs.index',
+                    'icon' => 'fas fa-fw fa-layer-group',
+                ],
             ],
         ],
+
+        ['header' => 'PublicAdministration'],
+        [
+            'text' => 'Marketplaces',
+            'url' =>'#',
+            'icon' => 'fas fa fa-store',
+            'icon_color' => 'danger',
+            'submenu' => [
+                [
+                    'text' => 'create',
+                    'route' =>'admin.brenchs.create',
+                    'icon' => 'fas fa-fw fa-plus-circle',
+                ],
+                [
+                    'text' => 'all',
+                    'route' =>'admin.brenchs.index',
+                    'icon' => 'fas fa-fw fa-layer-group',
+                ],
+            ],
+        ],
+
+
+        [
+            'text' => 'Store',
+            'url' =>'#',
+            'icon' => 'fas fa-fw fa-warehouse',
+            'icon_color' => 'primary',
+            'submenu' => [
+                [
+                    'text' => 'create',
+                    'route' =>'admin.brenchs.create',
+                    'icon' => 'fas fa-fw fa-plus-circle',
+                ],
+                [
+                    'text' => 'all',
+                    'route' =>'admin.brenchs.index',
+                    'icon' => 'fas fa-fw fa-layer-group',
+                ],
+            ],
+        ],
+
+
+
+        [
+            'text' => 'Products',
+            'url' =>'#',
+            'icon' => 'fas fa fa-cube',
+            'submenu' => [
+                [
+                    'text' => 'create',
+                    'route' =>'admin.brenchs.create',
+                    'icon' => 'fas fa-fw fa-plus-circle',
+                ],
+                [
+                    'text' => 'all',
+                    'route' =>'admin.brenchs.index',
+                    'icon' => 'fas fa-fw fa-layer-group',
+                ],
+            ],
+        ],
+
+        [
+            'text' => 'Categories',
+            'url' =>'#',
+            'icon' => 'fas fa-fw fa-sitemap',
+            'submenu' => [
+                [
+                    'text' => 'MainCategories',
+                    'route' =>'admin.brenchs.create',
+                    'icon' => 'fas fa-window-minimize',
+                ],
+                [
+                    'text' => 'SubCategories',
+                    'route' =>'admin.brenchs.index',
+                    'icon' => 'fa fa-bars',
+                ],
+            ],
+        ],
+
+
+        ['header' => 'FinancialManagement'],
+
+            [
+            'text' => 'Treasury',
+            'url' =>'#',
+            'icon' => 'fas fa-fw fa-donate',
+                'icon_color' => 'green',
+            ],
+
+        [
+            'text' => 'Safe',
+            'url' =>'#',
+            'icon' => 'fas fa-fw fa-cash-register',
+            'icon_color' => 'green',
+                 ],
+
+        [
+                'text' => 'Invoices',
+                'url' =>'#',
+                'icon' => 'fas fa-fw fa-file-invoice-dollar',
+                'submenu' => [
+            [
+                'text' => 'all',
+                'url' =>'#',
+                'icon' => 'fas fa-fw fa-layer-group',
+            ]
+
+        ],
+            ],
 
 
         [
             'text' => 'Expenses',
             'url' =>'#',
-            'icon' => 'fas fa-fw fa-cogs',
+            'icon' => 'fas fa-fw fa-money-bill-alt',
             'submenu' => [
                 [
                     'text' => 'Expenses',
@@ -322,41 +368,38 @@ return [/*
 
 
 
-        [
-            'text' => 'Store',
-            'url' =>'#',
-            'icon' => 'fas fa-fw fa-home',
 
+        ['header' => 'Reports'],
+        [
+            'text' => 'Financial reports',
+            'url' =>'#',
+            'icon' => 'fas fa fa-chart-pie',
+            'submenu' => [
+                [
+                    'text' => 'Option',
+                    'url' =>'#',
+                    'icon' => 'fas fa-fw fa-cubes',
+                ],
+            ],
         ],
 
+        ['header' => 'SettingsHeader'],
         [
-            'text' => 'group_mange',
-            'url' =>'#',
-            'icon' => 'fas fa-fw fa-times-circle',
-
+            'text' => 'Settings',
+            'icon' => 'fas fa fa-cogs',
+            'submenu' => [
+                [
+                    'text' => 'GeneralSettings',
+                    'route' =>'admin.settings.index',
+                    'icon' => 'fas fa-fw fa-cog',
+                ],
+            ],
         ],
-
-
-
-        [
-            'text' => 'Store',
-            'url' =>'#',
-            'icon' => 'fas fa-fw fa-home',
-
-        ],
-
-        [
-            'text' => 'group_mange',
-            'url' =>'#',
-            'icon' => 'fas fa-fw fa-times-circle',
-
-        ],
-
 
         [
             'text' => 'Backup',
             'url' =>'#',
-            'icon' => 'fas fa fa-bell',
+            'icon' => 'fas fa fa-server',
             'submenu' => [
                 [
                     'text' => 'Option',
@@ -364,22 +407,7 @@ return [/*
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
             ],
-        ],
-
-
-
-        [
-            'text' => 'Financial reports',
-            'url' =>'#',
-            'icon' => 'fas fa fa-bell',
-            'submenu' => [
-                [
-                    'text' => 'Option',
-                    'url' =>'#',
-                    'icon' => 'fas fa-fw fa-cubes',
-                ],
-            ],
-        ],
+        ]
 
     ],/*
 |--------------------------------------------------------------------------
@@ -530,7 +558,7 @@ return [/*
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-corner-indicator.min.css',
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/black/pace-theme-corner-indicator.min.css',
                 ],
                 [
                     'type' => 'js',
@@ -539,5 +567,8 @@ return [/*
                 ],
             ],
         ],
+
+
+
     ],
 ];

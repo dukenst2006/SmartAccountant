@@ -25,7 +25,18 @@ class EmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' =>'required',
+            'image' =>'required',
+            'nation' =>'required',
+            'job' =>'required',
+            'identity_number' =>'required',
+            'identity_img' =>'required',
+            'contract_img' =>'required',
+            'phone' =>'required',
+            'bank_account' =>'required',
+            'sex' =>'required',
+            'salary' =>'required',
+            'brench_id' =>'required',
         ];
     }
 }

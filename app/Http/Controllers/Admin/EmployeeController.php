@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Brench;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EmployeeRequest;
 use App\Models\Employee;
 use App\Repositories\EmployeeRepositoryInterface;
 use Illuminate\Http\Request;
@@ -28,9 +29,22 @@ protected $employeerepository;
      */
     public function index()
     {
+
        $emps= $this->employeerepository->all();
+
+
+
         return view('admin.employees.index',compact('emps'));
     }
+
+
+
+
+
+
+
+
+
     public function stoned()
     {
         $emps = Employee::all()->where('status','stoned');
@@ -59,12 +73,12 @@ protected $employeerepository;
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function store(Request $request)
+    * Store a newly created resource in storage.
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\RedirectResponse
+    */
+
+    public function store(EmployeeRequest $request)
     {
         $data = $request->validate([
             'name' =>'required',
@@ -80,6 +94,7 @@ protected $employeerepository;
             'salary' =>'required',
             'brench_id' =>'required',
         ]);
+
         if ($request->hasFile('image')){
             $data['image'] = Storage::disk('public')
                 ->putFile('images',$request->file('image'));

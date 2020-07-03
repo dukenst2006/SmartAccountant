@@ -1,18 +1,21 @@
 @extends('adminlte::page')
 @section('content')
 
-<div class="py-2 px-3 hager">
-    <h3 class="mb-2">   <i class="fas fa-exclamation-circle"></i>    تعليمات مهمة </h3>
-    <p class="mb-0">-  هنا يمكنك اضافة تعليمات</p>
-</div>
-<div class="mt-1">
-    <p class="copy-am"><i class="fas fa-shield-alt"></i>   انت الان تستخدم نسخه مرخصة 1.0   </p>
-    <p class="text-success px-3"> * لايوجد تحديثات حالية</p>
+
+<div class="alert alert-danger alert-dismissible pr-3">
+    <h1><i class="icon fas fa-exclamation-circle"></i>  تعليمات مهمة</h1>
+     هنا يمكنك اضافة تعليمات
 </div>
 
+
+<div class="alert alert-success alert-dismissible pr-3">
+    <h4> <i class="icon fas fas fas fa-shield-alt"></i> انت الان تستخدم نسخه مرخصة 1.0</h4>
+</div>
+
+
     <div>
-        <div class="card-body storage_table">
-            <table id="salaries" class="table table-bordered text-center">
+
+        <table class="table table-hover table-dark">
                 <thead>
                     <tr>
                         <th>م</th>
@@ -38,5 +41,5 @@
             </table>
 
         </div>
-    </div>
+
 @endsection

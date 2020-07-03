@@ -10,4 +10,5 @@ interface HomeRepositoryInterface
     public function all();
 
 
+
 }

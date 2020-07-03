@@ -12,42 +12,67 @@
 return [
 
     //sidebar tans
+    'DashboardHeader' => 'التحكم الرئيسي',
+    'about' => 'عن البرنامج',
+    'Main' => 'الرئيسية',
+    'Notifications' => 'الاشعارات',
+
+
+
+    'HumanResources' => 'الموارد البشرية',
+    'Supervisors' => 'المشرفين',
+    'Employee' => 'الموظفين',
+
+
+    'PublicAdministration' => 'الإدارة العامة',
+    'Marketplaces' => 'المتاجر',
+    'Store' => 'المخازن',
+    'Products' => 'المنتجات',
+    'Categories' => 'إدارة الأصناف',
+    'MainCategories' => 'الأصناف الرئيسة',
+    'SubCategories' => 'الأصناف الفرعية',
+
+
+    'FinancialManagement' => 'الإدارة المالية',
+    'Treasury' => 'الخزينة',
+    'Safe' =>  'الخزنة',
+
+
+
+
     'Admin Panel' => 'لوحة التحكم',
     'Const Tech' => 'كوكب التقنية',
     'Copy rights' => 'حقوق الملكية محفوظة ل ',
-    'Main' => 'الرئيسية',
-    'safe' =>  'الخزنة',
-    'Settings' => 'الاعدادات',
-    'storage' => 'الخزينة',
-    'about' => 'عن البرنامج',
-    'Notifications' => 'الاشعارات',
-    'Admins Management' => 'التحكم بالمشرفين',
-    'Branches' => 'الفروع',
-    'Human resources' => 'الموارد البشرية',
-    'Employee Management' => 'التحكم بالموظفين',
+
+    'SettingsHeader' => 'الأعدادات والنسخ الأحطياتي',
+    'Settings' => 'الضبط',
+    'GeneralSettings' => 'الأعدات العامة',
+    'EmployeeHeader' => 'طاقم العمل',
+
+
+
+
+
+
     'Invoices' => 'الفواتير',
     'all' => 'الكل',
     'Expenses' => 'المصروفات',
     'Expenses_dep' => 'اقسام المصروفات',
-    'Store' => 'المخزن',
+    'Reports' => 'التقارير والأحصائيات',
     'Financial reports' => 'التقارير المالية',
     'create' =>  'انشاء',
     'Backup' => 'النسخ الاحتياطي',
-    'group_mange' => 'ادارة الاصناف',
+
     'Main Ui'=>'الواجهة الامامية',
     'Pages' =>  'الصفحات',
     // settings trans
+
+
     'is_site_active' => 'حالة الموقع',
     'is_program_active' => 'حالة البرنامج',
     'closing_message' => 'رسالة اغلاق الموقع',
     'program_end_date' => 'تاريخ انتهاء البرنامج ',
 
-    'admins'    =>  'عدد المشرفين',
-    'employees' =>  'عدد الموظفين',
-    'branches'  =>  'عدد الفروع',
-    'bills'     =>  'الفواتير',
-    'expensive' =>  'المصروفات',
-    'Rankings'  =>  'تصنيفات',
-    'Statics'   =>  'الاحصائيات'
+
 
 ];

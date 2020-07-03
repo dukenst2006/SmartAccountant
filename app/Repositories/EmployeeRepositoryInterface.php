@@ -7,7 +7,7 @@ namespace App\Repositories;
 interface EmployeeRepositoryInterface
 {
 
-    public function all();
-
+    public function all();  //Getting All Employees
+    public function GetEmployeeStatics();
 
 }

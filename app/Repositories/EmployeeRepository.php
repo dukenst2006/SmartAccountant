@@ -11,9 +11,21 @@ class EmployeeRepository implements EmployeeRepositoryInterface
 {
 
 
+    public function GetEmployeeStatics(){
+
+
+
+
+    }
+
+
     public function All()
     {
+
+
+
       return Employee::all();
+
     }
 
     public function Stoned()

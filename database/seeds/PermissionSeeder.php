@@ -15,6 +15,7 @@ class PermissionSeeder extends Seeder
 
         $SystemAdminRole= Role::create(['name' => 'SystemAdmin']);
         $MarketplaceOwner= Role::create(['name' => 'MarketplaceOwner']);
+        $MarketplaceOwner= Role::create(['name' => 'Supervisors']);
         $Employee= Role::create(['name' => 'Employee']);
 
 
