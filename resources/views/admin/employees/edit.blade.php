@@ -13,78 +13,67 @@
                 </ul>
             </div>
         @endif
-        <form action="{{route('admin.employees.update',$employee)}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('admin.employees.update',$employee->ID)}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
                         <label for="name">{{__('employee.name')}}</label>
-                        <input class="form-control" value="{{$employee->name}}" type="text" name="name" id="name">
+                        <input class="form-control" type="text" value="{{$employee->User->Name}}" name="Name" id="name">
                     </div>
                     <div class="form-group">
-                        <label for="nation">{{__('employee.nation')}}</label>
-                        <input class="form-control" value="{{$employee->nation}}" type="text" name="nation" id="nation">
+                        <label for="email">{{__('adminlte.email')}}</label>
+                        <input class="form-control" type="email" value="{{$employee->User->Email}}" name="Email" id="email">
                     </div>
                     <div class="form-group">
                         <label for="job">{{__('employee.job')}}</label>
-                        <input class="form-control" value="{{$employee->job}}" type="text" name="job" id="job">
+                        <input class="form-control" type="text" value="{{$employee->JobTitle}}" name="JobTitle" id="job">
                     </div>
                     <div class="form-group">
                         <label for="identity_number">{{__('employee.identity_number')}}</label>
-                        <input class="form-control" value="{{$employee->identity_number}}" type="text" name="identity_number" id="identity_number">
+                        <input class="form-control" type="text" name="NationalID" value="{{$employee->NationalID}}" id="identity_number">
                     </div>
                     <div class="form-group">
                         <label for="phone">{{__('employee.phone')}}</label>
-                        <input class="form-control" value="{{$employee->phone}}" type="text" name="phone" id="phone">
+                        <input class="form-control" type="text" value="{{$employee->PhoneNumber}}" name="PhoneNumber" id="phone">
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="form-group">
-                        <label for="">{{__('employee.image')}}</label>
-                        <div class="custom-file">
-                            <input type="file" name="image" class="custom-file-input" id="image">
-                            <label class="custom-file-label" for="image">Choose file</label>
-                        </div>
-                        <img id="blah" src="{{asset($employee->image)}}" height="120px">
-                    </div>
-                    <div class="form-group">
-                        <label for="">{{__('employee.identity_img')}}</label>
-                        <div class="custom-file">
-                            <input type="file" name="identity_img" class="custom-file-input" id="identity_img">
-                            <label class="custom-file-label" for="identity_img">Choose file</label>
-                        </div>
-                        <img id="blah1" src="{{asset($employee->identity_img)}}" height="120px">
-                    </div>
-                    <div class="form-group">
-                        <label for="">{{__('employee.contract_img')}}</label>
-                        <div class="custom-file">
-                            <input type="file" name="contract_img" class="custom-file-input" id="contract_img">
-                            <label class="custom-file-label" for="contract_img">Choose file</label>
-                        </div>
-                        <img id="blah2" src="{{asset($employee->contract_img)}}" height="120px">
-                    </div>
+{{--                    <div class="form-group">--}}
+{{--                        <label for="">{{__('employee.image')}}</label>--}}
+{{--                        <div class="custom-file">--}}
+{{--                            <input type="file" name="ProfileImage" class="custom-file-input" id="image">--}}
+{{--                            <label class="custom-file-label" for="image">Choose file</label>--}}
+{{--                        </div>--}}
+{{--                        <img id="blah" height="120px">--}}
+{{--                    </div>--}}
+{{--                    <div class="form-group">--}}
+{{--                        <label for="">{{__('employee.identity_img')}}</label>--}}
+{{--                        <div class="custom-file">--}}
+{{--                            <input type="file" name="IdentityImage" class="custom-file-input" id="identity_img">--}}
+{{--                            <label class="custom-file-label" for="identity_img">Choose file</label>--}}
+{{--                        </div>--}}
+{{--                        <img id="blah1" height="120px">--}}
+{{--                    </div>--}}
+{{--                    <div class="form-group">--}}
+{{--                        <label for="">{{__('employee.contract_img')}}</label>--}}
+{{--                        <div class="custom-file">--}}
+{{--                            <input type="file" name="EmploymentContractImage" class="custom-file-input" id="contract_img">--}}
+{{--                            <label class="custom-file-label" for="contract_img">Choose file</label>--}}
+{{--                        </div>--}}
+{{--                        <img id="blah2" height="120px">--}}
+{{--                    </div>--}}
 
                 </div>
                 <div class="col-4">
                     <div class="form-group">
                         <label for="bank_account">{{__('employee.bank_account')}}</label>
-                        <input class="form-control" value="{{$employee->bank_account}}" type="text" name="bank_account" id="bank_account">
+                        <input class="form-control" value="{{$employee->IBAN}}" type="text" name="IBAN" id="bank_account">
                     </div>
                     <div class="form-group">
                         <label for="salary">{{__('employee.salary')}}</label>
-                        <input class="form-control" value="{{$employee->salary}}" type="number" name="salary" id="salary">
-                    </div>
-                    <div class="form-group">
-                        <label for="brench">{{__('employee.brench')}}</label>
-                        <select class="form-control" id="brench" name="brench_id">
-                            <option value="{{$employee->brench_id}}">{{$employee->brench->name}}</option>
-                            @foreach(@App\Brench::all() as $b)
-                                @if($b != $employee->brench)
-                                <option value="{{$b->id}}">{{$b->name}}</option>
-                                @endif
-                            @endforeach
-                        </select>
+                        <input class="form-control" value="{{$employee->Salary}}" type="number" name="Salary" id="salary">
                     </div>
                     <hr>
                     <button type="submit" class="btn-block btn btn-outline-success">{{__('employee.edit')}}</button>

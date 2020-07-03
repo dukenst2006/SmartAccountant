@@ -22,4 +22,6 @@ return [
     'stoned'            => 'موقوف',
     'active'            => 'مفعل',
     'change status'     => 'تغيير الحالة',
+    //new
+    'MarketOwner'       =>  'صاحب المتجر',
 ];

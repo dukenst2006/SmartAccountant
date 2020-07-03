@@ -223,12 +223,12 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'create',
-                    'route' =>'admin.brenchs.create',
+                    'route' =>'admin.employees.create',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
-                    'route' =>'admin.brenchs.index',
+                    'route' =>'admin.employees.index',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
             ],

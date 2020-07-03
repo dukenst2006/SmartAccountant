@@ -13,7 +13,7 @@
                 {{$brench->name}}
             </h3>
         @endif
-        <table id="employee" class="table-striped table">
+        <table id="employee" class="table-bordered table">
             <thead>
                 <th>{{__('employee.name')}}</th>
                 <th>{{__('employee.nation')}}</th>
@@ -23,29 +23,29 @@
                 <th>{{__('employee.bank_account')}}</th>
                 <th>{{__('employee.sex')}}</th>
                 <th>{{__('employee.salary')}}</th>
-                <th>{{__('employee.status')}}</th>
+{{--                <th>{{__('employee.status')}}</th>--}}
                 <th>{{__('employee.brench')}}</th>
                 <th>{{__('branch.controller')}}</th>
             </thead>
             @foreach($emps as $emp)
                 <tr>
-                    <th>{{$emp->name}}</th>
-                    <th>{{$emp->nation}}</th>
-                    <th>{{$emp->job}}</th>
-                    <th>{{$emp->identity_number}}</th>
-                    <th>{{$emp->phone}}</th>
-                    <th>{{$emp->bank_account}}</th>
-                    <th>{{$emp->sex}}</th>
-                    <th>{{$emp->salary}}</th>
-                    <th>{{__('employee.'.$emp->status)}}</th>
-                    <th>{{$emp->brench->name}}</th>
+                    <th>{{$emp->User->Name}}</th>
+                    <th>{{$emp->Nationality}}</th>
+                    <th>{{$emp->JobTitle}}</th>
+                    <th>{{$emp->NationalID}}</th>
+                    <th>{{$emp->PhoneNumber}}</th>
+                    <th>{{$emp->IBAN}}</th>
+                    <th>{{$emp->Sex}}</th>
+                    <th>{{$emp->Salary}}</th>
+{{--                    <th>{{__('employee.'.$emp->status)}}</th>--}}
+                    <th>{{$emp->MarketPlace->Name}}</th>
                     <th>
-                        <a class="btn btn-info" href="{{route('admin.employees.edit',$emp)}}">
+                        <a class="btn btn-info" href="{{route('admin.employees.edit',$emp->ID)}}">
                             {{__('employee.edit')}}
                         </a>
-                        <a class="btn mt-2 btn-warning" href="{{route($emp->status == "stoned"?'admin.activating':'admin.stoning',$emp)}}">
-                            {{__('employee.change status')}}
-                        </a>
+{{--                        <a class="btn mt-2 btn-warning" href="{{route($emp->status == "stoned"?'admin.activating':'admin.stoning',$emp)}}">--}}
+{{--                            {{__('employee.change status')}}--}}
+{{--                        </a>--}}
                     </th>
                 </tr>
 {{--                <tr>--}}

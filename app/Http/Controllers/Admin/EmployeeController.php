@@ -6,6 +6,8 @@ use App\Brench;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EmployeeRequest;
 use App\Models\Employee;
+use App\Models\Marketplace;
+use App\Models\MarketplaceOwner;
 use App\Repositories\EmployeeRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -30,37 +32,27 @@ protected $employeerepository;
     public function index()
     {
 
-       $emps= $this->employeerepository->all();
+       $emps= $this->employeerepository->All();
 
 
 
         return view('admin.employees.index',compact('emps'));
     }
-
-
-
-
-
-
-
-
-
     public function stoned()
     {
-        $emps = Employee::all()->where('status','stoned');
+        $emps = $this->employeerepository->Stoned();
         return view('admin.employees.index',compact('emps'));
     }
     public function active()
     {
-        $emps = Employee::all()->where('status','active');
+        $emps = $this->employeerepository->Active();
         return view('admin.employees.index',compact('emps'));
     }
-    public function byBrench(Request $request)
-    {
-        $brench = Brench::find($request->get('brench_id'));
-        $emps = $brench->employees;
-        return view('admin.employees.index',compact('emps','brench'));
-    }
+//    public function byBrench(Request $request)
+//    {
+//
+//        return view('admin.employees.index',compact('emps','brench'));
+//    }
 
     /**
      * Show the form for creating a new resource.
@@ -69,7 +61,9 @@ protected $employeerepository;
      */
     public function create()
     {
-        return view('admin.employees.create');
+        $MarketPlaces = Marketplace::all();
+        $MarketPlaceOwners = MarketplaceOwner::all();
+        return view('admin.employees.create',compact('MarketPlaces','MarketPlaceOwners'));
     }
 
     /**
@@ -80,34 +74,7 @@ protected $employeerepository;
 
     public function store(EmployeeRequest $request)
     {
-        $data = $request->validate([
-            'name' =>'required',
-            'image' =>'required',
-            'nation' =>'required',
-            'job' =>'required',
-            'identity_number' =>'required',
-            'identity_img' =>'required',
-            'contract_img' =>'required',
-            'phone' =>'required',
-            'bank_account' =>'required',
-            'sex' =>'required',
-            'salary' =>'required',
-            'brench_id' =>'required',
-        ]);
-
-        if ($request->hasFile('image')){
-            $data['image'] = Storage::disk('public')
-                ->putFile('images',$request->file('image'));
-        }
-        if ($request->hasFile('identity_img')){
-            $data['identity_img'] = Storage::disk('public')
-                ->putFile('images',$request->file('identity_img'));
-        }
-        if ($request->hasFile('contract_img')){
-            $data['contract_img'] = Storage::disk('public')
-                ->putFile('images',$request->file('contract_img'));
-        }
-        $employee = Employee::create($data);
+        $this->employeerepository->Create($request);
         return Redirect::route('admin.employees.index');
     }
 
@@ -128,8 +95,9 @@ protected $employeerepository;
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employee $employee)
+    public function edit($empid)
     {
+        $employee = Employee::query()->find($empid);
         return view('admin.employees.edit',compact('employee'));
     }
 
@@ -140,22 +108,10 @@ protected $employeerepository;
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request, $employee)
     {
-        $data = $request->except('_token','_method');
-        if ($request->hasFile('image')){
-            $data['image'] = Storage::disk('public')
-                ->putFile('images',$request->file('image'));
-        }
-        if ($request->hasFile('identity_img')){
-            $data['identity_img'] = Storage::disk('public')
-                ->putFile('images',$request->file('identity_img'));
-        }
-        if ($request->hasFile('contract_img')){
-            $data['contract_img'] = Storage::disk('public')
-                ->putFile('images',$request->file('contract_img'));
-        }
-        $employee->update($data);
+        $emp = Employee::query()->find($employee);
+        $this->employeerepository->Update($emp,$request);
         return Redirect::route('admin.employees.index');
     }
 
@@ -167,19 +123,17 @@ protected $employeerepository;
      */
     public function destroy(Employee $employee)
     {
-        $employee->delete();
+        $employee->query()->delete();
         return Redirect::route('admin.employees.index');
     }
     public function stoning(Employee $employee)
     {
-        $employee->status = "stoned";
-        $employee->save();
+        $this->employeerepository->StoneEmployee($employee);
         return Redirect::back();
     }
     public function activating(Employee $employee)
     {
-        $employee->status = "active";
-        $employee->save();
+        $this->employeerepository->ActiveEmployee($employee);
         return Redirect::back();
     }
 }

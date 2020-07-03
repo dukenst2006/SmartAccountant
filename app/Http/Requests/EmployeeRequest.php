@@ -25,18 +25,21 @@ class EmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' =>'required',
-            'image' =>'required',
-            'nation' =>'required',
-            'job' =>'required',
-            'identity_number' =>'required',
-            'identity_img' =>'required',
-            'contract_img' =>'required',
-            'phone' =>'required',
-            'bank_account' =>'required',
-            'sex' =>'required',
-            'salary' =>'required',
-            'brench_id' =>'required',
+            'Name'                  =>  'required',
+            'Email'                 =>  'required',
+            'Password'              =>  'required',
+            'MarketplaceID'         =>  'required',
+            'MarketplaceOwnerID'    =>  'required',
+            'Nationality'           =>  'required',
+            'JobTitle'              =>  'required',
+            'NationalID'            =>  'required',
+            'PhoneNumber'           =>  'required',
+            'ProfileImage'          =>  'required',
+            'IdentityImage'         =>  'required',
+            'EmploymentContractImage'=> 'required',
+            'IBAN'                  =>  'required',
+            'Sex'                   =>  'required',
+            'Salary'                =>  'required',
         ];
     }
 }
