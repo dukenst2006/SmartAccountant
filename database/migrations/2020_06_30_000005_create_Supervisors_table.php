@@ -21,8 +21,6 @@ class CreateSupervisorsTable extends Migration
             $table->string('PhoneNumber');
             $table->timestamps();
 
-
-
             $table->foreign('UserID')->references('ID')->on('Users')->onDelete('cascade');
             $table->foreign('MarketplaceOwnerID')->references('ID')->on('marketplace_owners')->onDelete('cascade');
         });
