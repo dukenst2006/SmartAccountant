@@ -2,12 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+auth()->loginUsingId(1);
 
 Route::get('lang/{Language}', 'LocalizationController@index')->name('ChangeLanguage');
 Route::group([ 'prefix'=>'admin'], function () {
 //'middleware' => ['role:super-admin'] ,
-        Route::get('/', 'HomeController@index')->name('admin.home');
-        Route::get('home', 'HomeController@index')->name('admin.home');
+        Route::get('/', 'HomeController@index')->name('home');
         Route::resource('settings', 'SettingsController')->except('create', 'edit', 'destroy', 'show', 'store');
         Route::resource('about', 'AboutController');
         Route::resource('brenchs', 'BrenchController');

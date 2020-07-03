@@ -179,13 +179,13 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'Main Ui',
-                    'url' =>'\admin',
+                    'url' =>'#',
                     'icon' => 'fas fa-fw fa-circle',
 
                 ],
                 [
                     'text' => 'Statics',
-                    'url' =>'#',
+                    'route'=> 'admin.home',
                     'icon' => 'fas fa-fw fa-circle',
                 ],
             ],
@@ -198,7 +198,7 @@ return [/*
         ],
         [
             'text' => 'Settings',
-            'url' =>'#',
+            'عقم'=>'#',
             'icon' => 'fas fa fa-spin fa-cog',
             'icon_color' => 'red',
         ],
@@ -261,12 +261,12 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'create',
-                    'url' =>'#',
+                    'route' =>'admin.brenchs.create',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
                 [
                     'text' => 'all',
-                    'url' =>'#',
+                    'route' =>'admin.brenchs.index',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
             ],
@@ -278,7 +278,7 @@ return [/*
 
         [
             'text' => 'Human resources',
-            'url' =>'#',
+            'route' =>'admin.human_r',
             'icon' => 'fab fa-superpowers',
         ],
 
@@ -305,7 +305,7 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'Expenses',
-                    'url' =>'#',
+                    'route' =>'admin.expenses.index',
                     'icon' => 'fas fa-fw fa-cubes',
 
                 ],

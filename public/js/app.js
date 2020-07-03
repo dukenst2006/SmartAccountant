@@ -41724,8 +41724,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\Laravel-Projects\Smart Accountant\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\Laravel-Projects\Smart Accountant\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\SmartAccountant\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\SmartAccountant\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
