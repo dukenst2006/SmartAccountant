@@ -16552,18 +16552,12 @@ html.scroll-smooth {
 html,
 body,
 .wrapper {
-  min-height: auto;
+  min-height: 100%;
 }
 
-.logo-adjust {
+img.brand-image.img-fluid {
   width: 90%;
   margin: auto;
-}
-
-.main-footer {
-  width: 100%;
-  position: relative;
-  z-index: 4000;
 }
 
 .wrapper {
@@ -16571,7 +16565,7 @@ body,
 }
 
 .wrapper .content-wrapper {
-  min-height: calc( 100vh - calc(3.5rem + 1px) - calc(3.5rem + 1px) );
+  min-height: calc(100vh - calc(3.5rem + 1px) - calc(3.5rem + 1px));
 }
 
 .layout-boxed .wrapper {
@@ -16590,11 +16584,11 @@ body,
 
 @supports not (-webkit-touch-callout: none) {
   .layout-fixed .wrapper .sidebar {
-    height: calc( 100vh - ( 3.5rem + 1px ) );
+    height: calc(100vh - (3.5rem + 1px));
   }
 
   .layout-fixed.text-sm .wrapper .sidebar {
-    height: calc( 100vh - ( 2.93725rem + 1px ) );
+    height: calc(100vh - (2.93725rem + 1px));
   }
 }
 
@@ -16653,7 +16647,7 @@ body:not(.layout-fixed).layout-navbar-fixed.text-sm .wrapper .main-sidebar .side
 .layout-navbar-fixed .wrapper a.anchor {
   display: block;
   position: relative;
-  top: calc( ( 3.5rem + 1px + (0.5rem * 2) ) / -1 );
+  top: calc((3.5rem + 1px + (0.5rem * 2)) / -1);
 }
 
 .layout-navbar-fixed .wrapper .main-sidebar:hover .brand-link {
@@ -16804,7 +16798,7 @@ body:not(.layout-fixed).layout-navbar-fixed.text-sm .wrapper .main-sidebar .side
 .layout-navbar-fixed .wrapper a.anchor {
   display: block;
   position: relative;
-  top: calc( ( 3.5rem + 1px + (0.5rem * 2) ) / -1 );
+  top: calc((3.5rem + 1px + (0.5rem * 2)) / -1);
 }
 
 .layout-navbar-fixed .wrapper.sidebar-collapse .brand-link {
@@ -16976,7 +16970,7 @@ body:not(.layout-fixed).layout-navbar-fixed.text-sm .wrapper .main-sidebar .side
   .layout-sm-navbar-fixed .wrapper a.anchor {
     display: block;
     position: relative;
-    top: calc( ( 3.5rem + 1px + (0.5rem * 2) ) / -1 );
+    top: calc((3.5rem + 1px + (0.5rem * 2)) / -1);
   }
 
   .layout-sm-navbar-fixed .wrapper.sidebar-collapse .brand-link {
@@ -17149,7 +17143,7 @@ body:not(.layout-fixed).layout-navbar-fixed.text-sm .wrapper .main-sidebar .side
   .layout-md-navbar-fixed .wrapper a.anchor {
     display: block;
     position: relative;
-    top: calc( ( 3.5rem + 1px + (0.5rem * 2) ) / -1 );
+    top: calc((3.5rem + 1px + (0.5rem * 2)) / -1);
   }
 
   .layout-md-navbar-fixed .wrapper.sidebar-collapse .brand-link {
@@ -17322,7 +17316,7 @@ body:not(.layout-fixed).layout-navbar-fixed.text-sm .wrapper .main-sidebar .side
   .layout-lg-navbar-fixed .wrapper a.anchor {
     display: block;
     position: relative;
-    top: calc( ( 3.5rem + 1px + (0.5rem * 2) ) / -1 );
+    top: calc((3.5rem + 1px + (0.5rem * 2)) / -1);
   }
 
   .layout-lg-navbar-fixed .wrapper.sidebar-collapse .brand-link {
@@ -17495,7 +17489,7 @@ body:not(.layout-fixed).layout-navbar-fixed.text-sm .wrapper .main-sidebar .side
   .layout-xl-navbar-fixed .wrapper a.anchor {
     display: block;
     position: relative;
-    top: calc( ( 3.5rem + 1px + (0.5rem * 2) ) / -1 );
+    top: calc((3.5rem + 1px + (0.5rem * 2)) / -1);
   }
 
   .layout-xl-navbar-fixed .wrapper.sidebar-collapse .brand-link {
@@ -17766,12 +17760,6 @@ body:not(.layout-fixed).layout-navbar-fixed.text-sm .wrapper .main-sidebar .side
   margin-left: 0;
 }
 
-.layout-top-nav .wrapper .main-header .brand-image {
-  margin-top: -0.5rem;
-  margin-right: 0.2rem;
-  height: 33px;
-}
-
 .layout-top-nav .wrapper .main-sidebar {
   bottom: inherit;
   height: inherit;
@@ -17927,7 +17915,7 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
   bottom: 0;
   float: none;
   height: 100vh;
-  overflow: hidden;
+  left: 0;
   position: fixed;
   top: 0;
 }

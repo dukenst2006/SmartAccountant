@@ -9,30 +9,21 @@ html.scroll-smooth {
 html,
 body,
 .wrapper {
-    min-height: auto;
+    min-height: 100%;
 }
-.logo-adjust {
+img.brand-image.img-fluid{
     width: 90%;
     margin: auto;
 }
-.main-footer {
-    width: 100%;
-    position: relative;
-    z-index: 4000;
-}
-
-
 .wrapper {
     position: relative;
 
     & .content-wrapper {
-        min-height: calc(
-            100vh - #{$main-header-height} - #{$main-footer-height}
-        );
+        min-height: calc(100vh - #{$main-header-height} - #{$main-footer-height});
     }
 
     .layout-boxed & {
-        @include box-shadow(0 0 10 rgba($black, 0.3));
+        @include box-shadow(0 0 10 rgba($black, .3));
 
         &,
         &::before {
@@ -47,20 +38,10 @@ body,
 
     @supports not (-webkit-touch-callout: none) {
         .layout-fixed & .sidebar {
-            height: calc(
-                100vh -
-                (
-                #{$main-header-height-inner} + #{$main-header-bottom-border-width}
-                )
-            );
+            height: calc(100vh - (#{$main-header-height-inner} + #{$main-header-bottom-border-width}));
         }
         .layout-fixed.text-sm & .sidebar {
-            height: calc(
-                100vh -
-                (
-                #{$main-header-height-sm-inner} + #{$main-header-bottom-border-width}
-                )
-            );
+            height: calc(100vh - (#{$main-header-height-sm-inner} + #{$main-header-bottom-border-width}));
         }
     }
 
@@ -139,12 +120,7 @@ body,
         a.anchor {
             display: block;
             position: relative;
-            top: calc(
-                (
-                #{$main-header-height-inner} + #{$main-header-bottom-border-width} +
-                (#{$main-header-link-padding-y} * 2)
-                ) / -1
-            );
+            top: calc((#{$main-header-height-inner} + #{$main-header-bottom-border-width} + (#{$main-header-link-padding-y} * 2)) / -1);
         }
 
         .main-sidebar:hover {
@@ -260,12 +236,7 @@ body,
                 a.anchor {
                     display: block;
                     position: relative;
-                    top: calc(
-                        (
-                        #{$main-header-height-inner} + #{$main-header-bottom-border-width} +
-                        (#{$main-header-link-padding-y} * 2)
-                        ) / -1
-                    );
+                    top: calc((#{$main-header-height-inner} + #{$main-header-bottom-border-width} + (#{$main-header-link-padding-y} * 2)) / -1);
                 }
 
                 &.sidebar-collapse {
@@ -436,11 +407,7 @@ body,
         margin-left: 0;
 
         .main-header {
-            .brand-image {
-                margin-top: -0.5rem;
-                margin-right: 0.2rem;
-                height: 33px;
-            }
+
         }
 
         & .main-sidebar {
@@ -455,6 +422,7 @@ body,
         }
     }
 }
+
 
 body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) {
     .content-wrapper,
@@ -524,8 +492,7 @@ body:not(.sidebar-mini-md) {
 .main-sidebar {
     &,
     &::before {
-        $local-sidebar-transition: margin-left $transition-speed $transition-fn,
-        width $transition-speed $transition-fn;
+        $local-sidebar-transition: margin-left $transition-speed $transition-fn, width $transition-speed $transition-fn;
         @include transition($local-sidebar-transition);
         width: $sidebar-width;
     }
@@ -582,7 +549,7 @@ body:not(.sidebar-mini-md) {
         bottom: 0;
         float: none;
         height: 100vh;
-        overflow: hidden;
+        left: 0;
         position: fixed;
         top: 0;
     }
@@ -647,6 +614,7 @@ body:not(.sidebar-mini-md) {
         }
     }
 }
+
 
 .hold-transition {
     .content-wrapper,

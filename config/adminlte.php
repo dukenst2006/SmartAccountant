@@ -32,7 +32,7 @@ return [/*
 */
     'logo' =>  ' نظام '.'<b>المحاسب الذكي</b> ',
     'logo_img' => 'images/logo.png' ,
-    'logo_img_class' => 'brand-image img-fluid w-90',
+    'logo_img_class' => 'brand-image img-fluid',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Smart Accountant Logo',/*
@@ -204,12 +204,12 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'create',
-                    'route' =>'admin.brenchs.create',
+                    'url' =>'#',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
-                    'route' =>'admin.brenchs.index',
+                    'url' =>'#',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
             ],
@@ -243,12 +243,12 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'create',
-                    'route' =>'admin.brenchs.create',
+                    'url' =>'#',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
-                    'route' =>'admin.brenchs.index',
+                    'url' =>'#',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
             ],
@@ -263,12 +263,12 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'create',
-                    'route' =>'admin.brenchs.create',
+                    'url' =>'#',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
-                    'route' =>'admin.brenchs.index',
+                    'url' =>'#',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
             ],
@@ -283,12 +283,12 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'create',
-                    'route' =>'admin.brenchs.create',
+                    'url' =>'#',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
-                    'route' =>'admin.brenchs.index',
+                    'url' =>'#',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
             ],
@@ -301,12 +301,12 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'MainCategories',
-                    'route' =>'admin.brenchs.create',
+                    'url' =>'#',
                     'icon' => 'fas fa-window-minimize',
                 ],
                 [
                     'text' => 'SubCategories',
-                    'route' =>'admin.brenchs.index',
+                    'url' =>'#',
                     'icon' => 'fa fa-bars',
                 ],
             ],
@@ -351,7 +351,7 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'Expenses',
-                    'route' =>'admin.expenses.index',
+                    'url' =>'#',
                     'icon' => 'fas fa-fw fa-cubes',
 
                 ],

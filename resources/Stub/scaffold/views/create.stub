@@ -1,0 +1,31 @@
+@extends('adminlte::page')
+@section('title', '$MODEL_NAME_PLURAL_HUMAN$')
+
+@section('content_header')
+        <h1>    $MODEL_NAME_HUMAN$</h1>
+@stop
+
+@section('content')
+    <section class="content-header">
+        <h1>
+            $MODEL_NAME_HUMAN$
+        </h1>
+    </section>
+    <div class="content">
+        @include('adminlte-templates::common.errors')
+        <div class="card box-primary">
+        <div class="card-header">
+                    <h3 class="card-title">$MODEL_NAME_HUMAN$</h3>
+                </div>
+            <div class="card-body">
+                <div class="row">
+                    {!! Form::open(['route' => '$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.store'$FILES$]) !!}
+
+                        @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
+
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

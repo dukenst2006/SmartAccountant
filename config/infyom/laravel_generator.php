@@ -41,7 +41,7 @@ return [
 
         'schema_files'      => resource_path('model_schemas/'),
 
-        'templates_dir'     => resource_path('infyom/infyom-generator-templates/'),
+        'templates_dir'     => resource_path('Stub/'),
 
         'seeder'            => database_path('seeds/'),
 
@@ -122,9 +122,9 @@ return [
 
     'options' => [
 
-        'softDelete' => true,
+        'softDelete' => false,
 
-        'save_schema_file' => true,
+        'save_schema_file' => false,
 
         'localized' => false,
 
@@ -132,7 +132,7 @@ return [
 
         'repository_pattern' => true,
 
-        'excluded_fields' => ['id'], // Array of columns that doesn't required while creating module
+        'excluded_fields' => ['ID'], // Array of columns that doesn't required while creating module
     ],
 
     /*
@@ -144,7 +144,7 @@ return [
 
     'prefixes' => [
 
-        'route' => '',  // using admin will create route('admin.?.index') type routes
+        'route' => 'Admin',  // using admin will create route('admin.?.index') type routes
 
         'path' => '',
 
@@ -170,7 +170,7 @@ return [
 
         'menu'          => [
 
-            'enabled'       => true,
+            'enabled'       => false,
 
             'menu_file'     => 'layouts/menu.blade.php',
         ],
@@ -191,7 +191,6 @@ return [
 
         'updated_at'    => 'updated_at',
 
-        'deleted_at'    => 'deleted_at',
     ],
 
     /*
