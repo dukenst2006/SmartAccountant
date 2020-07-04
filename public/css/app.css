@@ -18214,7 +18214,7 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
 
 .main-sidebar {
   height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
   z-index: 1038;
   font-weight: 600;
   font-weight: 700;

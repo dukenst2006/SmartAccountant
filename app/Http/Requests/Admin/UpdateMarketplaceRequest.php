@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Marketplace;
+use App\Models\Admin\Marketplace;
 
-class CreateMarketplaceRequest extends FormRequest
+class UpdateMarketplaceRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,8 @@ class CreateMarketplaceRequest extends FormRequest
      */
     public function rules()
     {
-        return Marketplace::$rules;
+        $rules = Marketplace::$rules;
+        
+        return $rules;
     }
 }

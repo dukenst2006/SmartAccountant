@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Admin;
 
-use App\Models\Marketplace;
+use App\Models\Admin\Marketplace;
 use App\Repositories\BaseRepository;
 
 /**
  * Class MarketplaceRepository
- * @package App\Repositories
- * @version July 4, 2020, 12:00 am UTC
+ * @package App\Repositories\Admin
+ * @version July 4, 2020, 6:19 am UTC
 */
 
 class MarketplaceRepository extends BaseRepository

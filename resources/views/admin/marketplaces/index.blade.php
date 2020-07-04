@@ -1,29 +1,32 @@
 @extends('adminlte::page')
 @section('title', 'Marketplaces')
 
+@section('content_header')
+        <h1>Marketplaces</h1>
+@stop
+
 @section('content')
-    <div class="row justify-content-center">
-        <div class="clearfix"></div>
+       <div class="row justify-content-center">
+        <a class="btn btn-success btn-lg mb-3"  href="{{ route('admin.marketplaces.create') }}">
+            <i class="fas fa-2x fa-plus-circle"></i>
+        </a>
 
-        @include('flash::message')
-
-        <div class="clearfix"></div>
-        <div class="card card-primary">
+        {{-- Cards --}}
+        <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Marketplaces </h3>
+                <h3 class="card-title">Marketplaces</h3>
             </div>
-
             <div class="card-body card-body table-responsive p-0">
-                @include('admin.marketplaces.table')
+                @include('flash::message')
+               @include('admin.marketplaces.table')
+
+                <div class="text-center">
+                    
+                </div>
             </div>
-
-        </div>
-
-
-        <div class="text-center">
-            @include('adminlte-templates::common.paginate', ['records' => $marketplaces])
-
         </div>
     </div>
+
+
 @endsection
 

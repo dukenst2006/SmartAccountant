@@ -23,3 +23,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->middleware('verified');
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('marketplaces', 'Admin\MarketplaceController', ["as" => 'admin']);
+});

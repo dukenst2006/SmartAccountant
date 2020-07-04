@@ -18,13 +18,11 @@
                     <h3 class="card-title">Marketplace</h3>
                 </div>
             <div class="card-body">
-                <div class="row">
                     {!! Form::open(['route' => 'admin.marketplaces.store']) !!}
 
-                        @include('marketplaces.fields')
+                        @include('admin.marketplaces.fields')
 
                     {!! Form::close() !!}
-                </div>
             </div>
         </div>
     </div>

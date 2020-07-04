@@ -18,13 +18,11 @@
                     <h3 class="card-title">$MODEL_NAME_HUMAN$</h3>
                 </div>
             <div class="card-body">
-                <div class="row">
                     {!! Form::open(['route' => '$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.store'$FILES$]) !!}
 
                         @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
 
                     {!! Form::close() !!}
-                </div>
             </div>
         </div>
     </div>

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\CreateMarketplaceRequest;
-use App\Http\Requests\UpdateMarketplaceRequest;
-use App\Repositories\MarketplaceRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
+use App\DataTables\Admin\MarketplaceDataTable;
+use App\Http\Requests\Admin;
+use App\Http\Requests\Admin\CreateMarketplaceRequest;
+use App\Http\Requests\Admin\UpdateMarketplaceRequest;
+use App\Repositories\Admin\MarketplaceRepository;
 use Flash;
+use App\Http\Controllers\AppBaseController;
 use Response;
 
 class MarketplaceController extends AppBaseController
@@ -23,16 +24,12 @@ class MarketplaceController extends AppBaseController
     /**
      * Display a listing of the Marketplace.
      *
-     * @param Request $request
-     *
+     * @param MarketplaceDataTable $marketplaceDataTable
      * @return Response
      */
-    public function index(Request $request)
+    public function index(MarketplaceDataTable $marketplaceDataTable)
     {
-        $marketplaces = $this->marketplaceRepository->paginate(25);
-
-        return view('admin.marketplaces.index')
-            ->with('marketplaces', $marketplaces);
+        return $marketplaceDataTable->render('admin.marketplaces.index');
     }
 
     /**
@@ -66,7 +63,7 @@ class MarketplaceController extends AppBaseController
     /**
      * Display the specified Marketplace.
      *
-     * @param int $id
+     * @param  int $id
      *
      * @return Response
      */
@@ -86,7 +83,7 @@ class MarketplaceController extends AppBaseController
     /**
      * Show the form for editing the specified Marketplace.
      *
-     * @param int $id
+     * @param  int $id
      *
      * @return Response
      */
@@ -106,7 +103,7 @@ class MarketplaceController extends AppBaseController
     /**
      * Update the specified Marketplace in storage.
      *
-     * @param int $id
+     * @param  int              $id
      * @param UpdateMarketplaceRequest $request
      *
      * @return Response
@@ -131,9 +128,7 @@ class MarketplaceController extends AppBaseController
     /**
      * Remove the specified Marketplace from storage.
      *
-     * @param int $id
-     *
-     * @throws \Exception
+     * @param  int $id
      *
      * @return Response
      */

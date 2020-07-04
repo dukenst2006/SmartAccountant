@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\Marketplace;
+use App\Models\Admin\Marketplace;
 use Faker\Generator as Faker;
 
 $factory->define(Marketplace::class, function (Faker $faker) {

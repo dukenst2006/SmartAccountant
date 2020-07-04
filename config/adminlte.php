@@ -187,7 +187,6 @@ return [/*
         ],
         [
             'text' => 'Notifications',
-            'url' =>'#',
             'icon' => 'fas fa fa-bell',
 
             'icon_color' => 'yellow',
@@ -199,7 +198,6 @@ return [/*
 
         [
             'text' => 'Supervisors',
-            'url'=>'#',
             'icon' => 'fas fa fa-user-tie',
             'submenu' => [
                 [
@@ -218,7 +216,6 @@ return [/*
 
         [
             'text' => 'Employee',
-            'url'=>'#',
             'icon' => 'fas fa fa-users',
             'submenu' => [
                 [
@@ -237,18 +234,17 @@ return [/*
         ['header' => 'PublicAdministration'],
         [
             'text' => 'Marketplaces',
-            'url' =>'#',
             'icon' => 'fas fa fa-store',
             'icon_color' => 'danger',
             'submenu' => [
                 [
                     'text' => 'create',
-                    'url' =>'#',
+                    'route' =>'admin.marketplaces.create',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
-                    'url' =>'#',
+                    'route' =>'admin.marketplaces.index',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
             ],
@@ -257,28 +253,15 @@ return [/*
 
         [
             'text' => 'Store',
-            'url' =>'#',
             'icon' => 'fas fa-fw fa-warehouse',
             'icon_color' => 'primary',
-            'submenu' => [
-                [
-                    'text' => 'create',
-                    'url' =>'#',
-                    'icon' => 'fas fa-fw fa-plus-circle',
-                ],
-                [
-                    'text' => 'all',
-                    'url' =>'#',
-                    'icon' => 'fas fa-fw fa-layer-group',
-                ],
-            ],
+
         ],
 
 
 
         [
             'text' => 'Products',
-            'url' =>'#',
             'icon' => 'fas fa fa-cube',
             'submenu' => [
                 [
@@ -296,7 +279,6 @@ return [/*
 
         [
             'text' => 'Categories',
-            'url' =>'#',
             'icon' => 'fas fa-fw fa-sitemap',
             'submenu' => [
                 [
