@@ -1,1 +1,0 @@
-<td class="text-center">{{ $$MODEL_NAME_CAMEL$->$FIELD_NAME$ }}</td>
