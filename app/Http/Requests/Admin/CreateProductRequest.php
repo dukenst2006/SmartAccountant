@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\Product;
+use App\Models\Product;
 
 class CreateProductRequest extends FormRequest
 {

@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models;
 
 use Eloquent as Model;
 
 /**
  * Class Marketplace
- * @package App\Models\Admin
+ * @package App\Models\
  * @version July 5, 2020, 3:24 am UTC
  *
- * @property \App\Models\Admin\MarketplaceOwner $marketplaceownerid
+ * @property \App\Models\MarketplaceOwner $marketplaceownerid
  * @property \Illuminate\Database\Eloquent\Collection $employees
  * @property \Illuminate\Database\Eloquent\Collection $expenses
  * @property \Illuminate\Database\Eloquent\Collection $invoices
@@ -34,7 +34,7 @@ class Marketplace extends Model
 {
 
     public $table = 'marketplaces';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -102,7 +102,7 @@ class Marketplace extends Model
      **/
     public function marketplaceownerid()
     {
-        return $this->belongsTo(\App\Models\Admin\MarketplaceOwner::class, 'MarketplaceOwnerID');
+        return $this->belongsTo(\App\Models\MarketplaceOwner::class, 'MarketplaceOwnerID');
     }
 
     /**
@@ -110,7 +110,7 @@ class Marketplace extends Model
      **/
     public function employees()
     {
-        return $this->hasMany(\App\Models\Admin\Employee::class, 'MarketplaceID');
+        return $this->hasMany(\App\Models\Employee::class, 'MarketplaceID');
     }
 
     /**
@@ -118,7 +118,7 @@ class Marketplace extends Model
      **/
     public function expenses()
     {
-        return $this->hasMany(\App\Models\Admin\Expense::class, 'MarketplacesID');
+        return $this->hasMany(\App\Models\Expense::class, 'MarketplacesID');
     }
 
     /**
@@ -126,7 +126,7 @@ class Marketplace extends Model
      **/
     public function invoices()
     {
-        return $this->hasMany(\App\Models\Admin\Invoice::class, 'MarketplacesID');
+        return $this->hasMany(\App\Models\Invoice::class, 'MarketplacesID');
     }
 
     /**
@@ -134,7 +134,7 @@ class Marketplace extends Model
      **/
     public function productCategories()
     {
-        return $this->hasMany(\App\Models\Admin\ProductCategory::class, 'MarketplacesID');
+        return $this->hasMany(\App\Models\ProductCategory::class, 'MarketplacesID');
     }
 
     /**
@@ -142,7 +142,7 @@ class Marketplace extends Model
      **/
     public function products()
     {
-        return $this->hasMany(\App\Models\Admin\Product::class, 'MarketplacesID');
+        return $this->hasMany(\App\Models\Product::class, 'MarketplacesID');
     }
 
     /**
@@ -150,7 +150,7 @@ class Marketplace extends Model
      **/
     public function safes()
     {
-        return $this->hasMany(\App\Models\Admin\Safe::class, 'MarketplacesID');
+        return $this->hasMany(\App\Models\Safe::class, 'MarketplacesID');
     }
 
     /**
@@ -158,6 +158,6 @@ class Marketplace extends Model
      **/
     public function stocks()
     {
-        return $this->hasMany(\App\Models\Admin\Stock::class, 'MarketplacesID');
+        return $this->hasMany(\App\Models\Stock::class, 'MarketplacesID');
     }
 }

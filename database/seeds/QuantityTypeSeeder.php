@@ -1,6 +1,6 @@
 <?php
 
-use App\QuantityType;
+use App\Models\QuantityType;
 use Illuminate\Database\Seeder;
 
 class QuantityTypeSeeder extends Seeder

@@ -2,35 +2,23 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Product;
+use App\Models\ProductCategories;
 use App\Repositories\BaseRepository;
 
 /**
- * Class ProductRepository
+ * Class ProductCategoriesRepository
  * @package App\Repositories\Admin
- * @version July 5, 2020, 8:22 am UTC
+ * @version July 5, 2020, 8:28 am UTC
 */
 
-class ProductRepository extends BaseRepository
+class ProductCategoriesRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'UserID',
         'MarketplacesID',
-        'ProductCategoryID',
-        'ProductSubCategoryID',
-        'Name',
-        'Quantity',
-        'QuantityTypeID',
-        'PurchasingPrice',
-        'SellingPrice',
-        'LowPrice',
-        'Image',
-        'ExpiryDate',
-        'Barcode',
-        'UnlimitedQuantity'
+        'Name'
     ];
 
     /**
@@ -48,6 +36,6 @@ class ProductRepository extends BaseRepository
      **/
     public function model()
     {
-        return Product::class;
+        return ProductCategories::class;
     }
 }

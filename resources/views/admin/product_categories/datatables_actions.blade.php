@@ -1,9 +1,9 @@
-{!! Form::open(['route' => ['admin.products.destroy', $ID], 'method' => 'delete']) !!}
+{!! Form::open(['route' => ['admin.productCategories.destroy', $id], 'method' => 'delete']) !!}
 <div class='btn-group'>
-    <a href="{{ route('admin.products.show', $ID) }}" class='btn btn-default btn-xs'>
+    <a href="{{ route('admin.productCategories.show', $ID) }}" class='btn btn-default btn-xs'>
         <i class="glyphicon glyphicon-eye-open"></i>
     </a>
-    <a href="{{ route('admin.products.edit', $ID) }}" class='btn btn-default btn-xs'>
+    <a href="{{ route('admin.productCategories.edit', $ID) }}" class='btn btn-default btn-xs'>
         <i class="glyphicon glyphicon-edit"></i>
     </a>
     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', [

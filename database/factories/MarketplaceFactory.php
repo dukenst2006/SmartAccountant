@@ -2,25 +2,37 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\Admin\Marketplace;
+use App\Models\Marketplace;
 use Faker\Generator as Faker;
+use Illuminate\Support\Str;
+
+/*
+|--------------------------------------------------------------------------
+| Model Factories
+|--------------------------------------------------------------------------
+|
+| This directory should contain each of the model factory definitions for
+| your application. Factories provide a convenient way to generate new
+| model instances for testing / seeding your application's database.
+|
+*/
 
 $factory->define(Marketplace::class, function (Faker $faker) {
 
     return [
-        'MarketplaceOwnerID' => $faker->word,
-        'Name' => $faker->word,
-        'Country' => $faker->word,
-        'City' => $faker->word,
-        'SupervisorPhoneNumber' => $faker->word,
-        'Address' => $faker->word,
-        'TaxNumber' => $faker->word,
-        'Email' => $faker->word,
-        'Latitude' => $faker->word,
-        'Longitude' => $faker->word,
-        'CompanyRegisterImage' => $faker->word,
-        'Logo' => $faker->word,
-        'created_at' => $faker->date('Y-m-d H:i:s'),
-        'updated_at' => $faker->date('Y-m-d H:i:s')
+
+        'MarketplaceOwnerID' =>factory(\App\Models\MarketplaceOwner::class),
+        'Name' => $faker->streetName,
+        'Country' => $faker->country,
+        'City' => $faker->city,
+        'SupervisorPhoneNumber' => $faker->phoneNumber,
+        'Address' => $faker->address,
+        'TaxNumber' => $faker->numerify('##############'),
+        'Email' => $faker->email,
+        'Latitude' => $faker->latitude,
+        'Longitude' => $faker->longitude,
+        'CompanyRegisterImage' => $faker->imageUrl(),
+        'Logo' => $faker->imageUrl(),
+
     ];
 });

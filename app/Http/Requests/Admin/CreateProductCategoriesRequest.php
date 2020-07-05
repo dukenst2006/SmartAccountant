@@ -3,9 +3,9 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Marketplace;
+use App\Models\ProductCategories;
 
-class UpdateMarketplaceRequest extends FormRequest
+class CreateProductCategoriesRequest extends FormRequest
 {
 
     /**
@@ -25,8 +25,6 @@ class UpdateMarketplaceRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Marketplace::$rules;
-
-        return $rules;
+        return ProductCategories::$rules;
     }
 }

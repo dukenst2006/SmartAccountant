@@ -2,11 +2,11 @@
 
 namespace App\DataTables\Admin;
 
-use App\Models\ProductSubCategory;
+use App\Models\ProductCategories;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class ProductSubCategoryDataTable extends DataTable
+class ProductCategoriesDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,16 +18,16 @@ class ProductSubCategoryDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'admin.product_sub_categories.datatables_actions');
+        return $dataTable->addColumn('action', 'admin.product_categories.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\ProductSubCategory $model
+     * @param \App\Models\ProductCategories $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(ProductSubCategory $model)
+    public function query(ProductCategories $model)
     {
         return $model->newQuery();
     }
@@ -65,7 +65,7 @@ class ProductSubCategoryDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'ProductCategoryID',
+            'MarketplacesID',
             'Name'
         ];
     }
@@ -77,6 +77,6 @@ class ProductSubCategoryDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'product_sub_categories_datatable_' . time();
+        return 'product_categories_datatable_' . time();
     }
 }

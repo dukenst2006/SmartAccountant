@@ -2,7 +2,7 @@
 
 namespace App\DataTables\Admin;
 
-use App\Models\Admin\Marketplace;
+use App\Models\Marketplace;
 use Yajra\DataTables\DataTableAbstract;
 use Yajra\DataTables\Html\Builder;
 use Yajra\DataTables\Html\Column;
@@ -71,7 +71,7 @@ class MarketplaceDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data' => 'MarketplaceOwnerID', 'name' => 'OwnerID', 'title' => 'id'],
+            ['data' => 'MarketplaceOwnerID', 'name' => 'MarketplaceOwnerID', 'title' => 'id'],
             'Name',
             'Country',
             'City',
@@ -82,8 +82,6 @@ class MarketplaceDataTable extends DataTable
             'Latitude',
             'Longitude',
             'CompanyRegisterImage',
-
-
             'Logo'
         ];
     }

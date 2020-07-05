@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Admin\ProductSubCategory;
+use App\Models\ProductSubCategory;
 use App\Repositories\BaseRepository;
 
 /**
