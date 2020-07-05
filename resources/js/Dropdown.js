@@ -46,7 +46,7 @@ const Dropdown = (($) => {
         // Public
 
         toggleSubmenu() {
-            this._element.siblings().show().toggleClass("show")
+            this._element.siblings().show().toggleClass("show");
 
             if (! this._element.next().hasClass('show')) {
                 this._element.parents('.dropdown-menu').first().find('.show').removeClass("show").hide()
@@ -126,7 +126,8 @@ const Dropdown = (($) => {
     });
     // make menu work
     $(document).on('click', '.dropdown-toggle[data-toggle="dropdown"]', function() {
-        $('.dropdown-menu').toggleClass('show')
+        $('.dropdown-menu').toggleClass('show');
+        $('.dropdown-menu').style.visibility='visable';
     })
     /**
      * jQuery API

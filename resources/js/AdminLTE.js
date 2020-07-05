@@ -1,8 +1,8 @@
 import ControlSidebar from './ControlSidebar'
 import Layout from './Layout'
-import PushMenu from './PushMenu'
 import Treeview from './Treeview'
 import DirectChat from './DirectChat'
+import PushMenu from './PushMenu'
 import TodoList from './TodoList'
 import CardWidget from './CardWidget'
 import CardRefresh from './CardRefresh'
@@ -12,9 +12,9 @@ import Toasts from './Toasts'
 export {
     ControlSidebar,
     Layout,
-    PushMenu,
     Treeview,
     DirectChat,
+    PushMenu,
     TodoList,
     CardWidget,
     CardRefresh,

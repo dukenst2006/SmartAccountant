@@ -100,6 +100,8 @@
 </script>
 
 @yield('customejs')
+@stack('scripts')
+
 </body>
 
 </html>

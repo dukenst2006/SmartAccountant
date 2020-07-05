@@ -23,7 +23,7 @@
         "laravelcollective/html": "^6.1",
         "realrashid/sweet-alert": "^3.1",
         "spatie/laravel-permission": "^3.13",
-        "yajra/laravel-datatables-oracle": "~9.0"
+        "yajra/laravel-datatables": "1.5"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.3",
@@ -33,6 +33,7 @@
         "nunomaduro/collision": "^4.1",
         "phpunit/phpunit": "^8.5"
     },
+
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",

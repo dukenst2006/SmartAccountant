@@ -7,7 +7,7 @@ use Eloquent as Model;
 /**
  * Class Marketplace
  * @package App\Models\Admin
- * @version July 4, 2020, 6:19 am UTC
+ * @version July 5, 2020, 3:24 am UTC
  *
  * @property \App\Models\Admin\MarketplaceOwner $marketplaceownerid
  * @property \Illuminate\Database\Eloquent\Collection $employees

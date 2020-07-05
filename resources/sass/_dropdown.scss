@@ -14,6 +14,7 @@
 
 .text-sm {
   .dropdown-menu {
+
     font-size: $font-size-sm !important;
   }
 
@@ -37,6 +38,7 @@
 .dropdown-menu-lg {
   max-width: 300px;
   min-width: 280px;
+
   padding: 0;
 
   .dropdown-divider {
@@ -115,7 +117,7 @@
   text-align: center;
 }
 
-// Add fade animation to dropdown menus by appending 
+// Add fade animation to dropdown menus by appending
 // the class .animated-dropdown-menu to the .dropdown-menu ul (or ol)
 .open:not(.dropup) > .animated-dropdown-menu {
   @include animation(flipInX .7s both);
@@ -186,7 +188,7 @@
     @include border-top-radius(0);
     padding: 0;
     width: 280px;
-
+      position: absolute;
     &,
     > .user-body {
       @include border-bottom-radius(4px);
@@ -197,7 +199,7 @@
       height: 175px;
       padding: 10px;
       text-align: center;
-
+      background-color: #d81b60 !important;
       // User image
       > img {
         z-index: 5;

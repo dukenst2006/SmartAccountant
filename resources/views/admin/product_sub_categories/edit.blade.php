@@ -1,9 +1,9 @@
 @extends('adminlte::page')
-@section('title', 'Product')
+@section('title', 'Product Sub Category')
 
 @section('content_header')
      <h1>
-            Product
+            Product Sub Category
         </h1>
 @stop
 
@@ -13,14 +13,14 @@
        @include('adminlte-templates::common.errors')
         <div class="card box-primary col-12">
             <div class="card-header text-right">
-                   <h3 class="card-title">Product</h3>
+                   <h3 class="card-title">Product Sub Category</h3>
 
                </div>
            <div class="card-body">
 
-                   {!! Form::model($product, ['route' => ['admin.products.update', $product->id], 'method' => 'patch']) !!}
+                   {!! Form::model($productSubCategory, ['route' => ['admin.productSubCategories.update', $productSubCategory->id], 'method' => 'patch']) !!}
 
-                        @include('admin.products.fields')
+                        @include('admin.product_sub_categories.fields')
 
                    {!! Form::close() !!}
 

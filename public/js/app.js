@@ -39435,7 +39435,7 @@ module.exports = function(module) {
 /*!**********************************!*\
   !*** ./resources/js/AdminLTE.js ***!
   \**********************************/
-/*! exports provided: ControlSidebar, Layout, PushMenu, Treeview, DirectChat, TodoList, CardWidget, CardRefresh, Dropdown, Toasts */
+/*! exports provided: ControlSidebar, Layout, Treeview, DirectChat, PushMenu, TodoList, CardWidget, CardRefresh, Dropdown, Toasts */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39446,14 +39446,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Layout */ "./resources/js/Layout.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Layout", function() { return _Layout__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
-/* harmony import */ var _PushMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PushMenu */ "./resources/js/PushMenu.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PushMenu", function() { return _PushMenu__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+/* harmony import */ var _Treeview__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Treeview */ "./resources/js/Treeview.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Treeview", function() { return _Treeview__WEBPACK_IMPORTED_MODULE_2__["default"]; });
 
-/* harmony import */ var _Treeview__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Treeview */ "./resources/js/Treeview.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Treeview", function() { return _Treeview__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+/* harmony import */ var _DirectChat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DirectChat */ "./resources/js/DirectChat.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DirectChat", function() { return _DirectChat__WEBPACK_IMPORTED_MODULE_3__["default"]; });
 
-/* harmony import */ var _DirectChat__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DirectChat */ "./resources/js/DirectChat.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DirectChat", function() { return _DirectChat__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+/* harmony import */ var _PushMenu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./PushMenu */ "./resources/js/PushMenu.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PushMenu", function() { return _PushMenu__WEBPACK_IMPORTED_MODULE_4__["default"]; });
 
 /* harmony import */ var _TodoList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./TodoList */ "./resources/js/TodoList.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TodoList", function() { return _TodoList__WEBPACK_IMPORTED_MODULE_5__["default"]; });
@@ -40501,6 +40501,7 @@ var Dropdown = function ($) {
 
   $(document).on('click', '.dropdown-toggle[data-toggle="dropdown"]', function () {
     $('.dropdown-menu').toggleClass('show');
+    $('.dropdown-menu').style.visibility = 'visable';
   });
   /**
    * jQuery API

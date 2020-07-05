@@ -2,33 +2,23 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Admin\Marketplace;
+use App\Models\Admin\ProductSubCategory;
 use App\Repositories\BaseRepository;
 
 /**
- * Class MarketplaceRepository
+ * Class ProductSubCategoryRepository
  * @package App\Repositories\Admin
- * @version July 5, 2020, 3:24 am UTC
+ * @version July 5, 2020, 8:28 am UTC
 */
 
-class MarketplaceRepository extends BaseRepository
+class ProductSubCategoryRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'MarketplaceOwnerID',
-        'Name',
-        'Country',
-        'City',
-        'SupervisorPhoneNumber',
-        'Address',
-        'TaxNumber',
-        'Email',
-        'Latitude',
-        'Longitude',
-        'CompanyRegisterImage',
-        'Logo'
+        'ProductCategoryID',
+        'Name'
     ];
 
     /**
@@ -46,6 +36,6 @@ class MarketplaceRepository extends BaseRepository
      **/
     public function model()
     {
-        return Marketplace::class;
+        return ProductSubCategory::class;
     }
 }

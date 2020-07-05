@@ -20154,6 +20154,7 @@ body.text-sm .control-sidebar {
   border-top-right-radius: 0;
   padding: 0;
   width: 280px;
+  position: absolute;
 }
 
 .navbar-nav > .user-menu > .dropdown-menu,
@@ -20166,6 +20167,7 @@ body.text-sm .control-sidebar {
   height: 175px;
   padding: 10px;
   text-align: center;
+  background-color: #d81b60 !important;
 }
 
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {

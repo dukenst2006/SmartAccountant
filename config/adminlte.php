@@ -97,7 +97,7 @@ return [/*
     'classes_content_header' => 'container-fluid',
     'classes_content' => '',
     'classes_sidebar' => 'sidebar-light-maroon elevation-5',
-    'classes_sidebar_nav' => 'nav-flat',
+    'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand-md',
     'classes_topnav_container' => 'container',/*
@@ -266,12 +266,12 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'create',
-                    'url' =>'#',
+                    'route' =>'admin.products.create',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
-                    'url' =>'#',
+                    'route' =>'admin.products.index',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
             ],
@@ -421,7 +421,7 @@ return [/*
     'plugins' => [
         [
             'name' => 'Datatables',
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'css',
