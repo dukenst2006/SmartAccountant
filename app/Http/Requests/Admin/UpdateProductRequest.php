@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Product;
+use App\Models\Admin\Product;
 
 class UpdateProductRequest extends FormRequest
 {
@@ -26,7 +26,7 @@ class UpdateProductRequest extends FormRequest
     public function rules()
     {
         $rules = Product::$rules;
-
+        
         return $rules;
     }
 }

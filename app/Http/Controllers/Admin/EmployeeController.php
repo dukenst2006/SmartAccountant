@@ -2,138 +2,150 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Brench;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\EmployeeRequest;
-use App\Models\Employee;
-use App\Models\Marketplace;
-use App\Models\MarketplaceOwner;
-use App\Repositories\EmployeeRepositoryInterface;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Storage;
+use App\DataTables\Admin\EmployeeDataTable;
+use App\Http\Requests\Admin;
+use App\Http\Requests\Admin\CreateEmployeeRequest;
+use App\Http\Requests\Admin\UpdateEmployeeRequest;
+use App\Repositories\Admin\EmployeeRepository;
+use Flash;
+use App\Http\Controllers\AppBaseController;
+use Response;
 
-class EmployeeController extends Controller
+class EmployeeController extends AppBaseController
 {
+    /** @var  EmployeeRepository */
+    private $employeeRepository;
 
-protected $employeerepository;
-    public function __construct(EmployeeRepositoryInterface $employeerepository)
+    public function __construct(EmployeeRepository $employeeRepo)
     {
-       $this->employeerepository= $employeerepository;
+        $this->employeeRepository = $employeeRepo;
     }
 
-
-
     /**
-     * Display a listing of the resource.
+     * Display a listing of the Employee.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
+     * @param EmployeeDataTable $employeeDataTable
+     * @return Response
      */
-    public function index()
+    public function index(EmployeeDataTable $employeeDataTable)
     {
-
-       $emps= $this->employeerepository->All();
-
-
-
-        return view('admin.employees.index',compact('emps'));
+        return $employeeDataTable->render('admin.employees.index');
     }
-    public function stoned()
-    {
-        $emps = $this->employeerepository->Stoned();
-        return view('admin.employees.index',compact('emps'));
-    }
-    public function active()
-    {
-        $emps = $this->employeerepository->Active();
-        return view('admin.employees.index',compact('emps'));
-    }
-//    public function byBrench(Request $request)
-//    {
-//
-//        return view('admin.employees.index',compact('emps','brench'));
-//    }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new Employee.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
-        $MarketPlaces = Marketplace::all();
-        $MarketPlaceOwners = MarketplaceOwner::all();
-        return view('admin.employees.create',compact('MarketPlaces','MarketPlaceOwners'));
+        return view('admin.employees.create');
     }
 
     /**
-    * Store a newly created resource in storage.
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\RedirectResponse
-    */
-
-    public function store(EmployeeRequest $request)
-    {
-        $this->employeerepository->Create($request);
-        return Redirect::route('admin.employees.index');
-    }
-
-    /**
-     * Display the specified resource.
+     * Store a newly created Employee in storage.
      *
-     * @param  \App\Employee  $employee
-     * @return \Illuminate\Http\Response
+     * @param CreateEmployeeRequest $request
+     *
+     * @return Response
      */
-    public function show(Employee $employee)
+    public function store(CreateEmployeeRequest $request)
     {
+        $input = $request->all();
 
+        $employee = $this->employeeRepository->create($input);
+
+        Flash::success('Employee saved successfully.');
+
+        return redirect(route('admin.employees.index'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display the specified Employee.
      *
-     * @param  \App\Employee  $employee
-     * @return \Illuminate\Http\Response
+     * @param  int $ID
+     *
+     * @return Response
      */
-    public function edit($empid)
+    public function show($ID )
     {
-        $employee = Employee::query()->find($empid);
-        return view('admin.employees.edit',compact('employee'));
+        $employee = $this->employeeRepository->find($ID );
+
+        if (empty($employee)) {
+            Flash::error('Employee not found');
+
+            return redirect(route('admin.employees.index'));
+        }
+
+        return view('admin.employees.show')->with('employee', $employee);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Show the form for editing the specified Employee.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Employee  $employee
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  int $ID
+     *
+     * @return Response
      */
-    public function update(Request $request, $employee)
+    public function edit($ID )
     {
-        $emp = Employee::query()->find($employee);
-        $this->employeerepository->Update($emp,$request);
-        return Redirect::route('admin.employees.index');
+        $employee = $this->employeeRepository->find($ID );
+
+        if (empty($employee)) {
+            Flash::error('Employee not found');
+
+            return redirect(route('admin.employees.index'));
+        }
+
+        return view('admin.employees.edit')->with('employee', $employee);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Update the specified Employee in storage.
      *
-     * @param  \App\Employee  $employee
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  int              $ID
+     * @param UpdateEmployeeRequest $request
+     *
+     * @return Response
      */
-    public function destroy(Employee $employee)
+    public function update($ID , UpdateEmployeeRequest $request)
     {
-        $employee->query()->delete();
-        return Redirect::route('admin.employees.index');
+        $employee = $this->employeeRepository->find($ID );
+
+        if (empty($employee)) {
+            Flash::error('Employee not found');
+
+            return redirect(route('admin.employees.index'));
+        }
+
+        $employee = $this->employeeRepository->update($request->all(), $ID );
+
+        Flash::success('Employee updated successfully.');
+
+        return redirect(route('admin.employees.index'));
     }
-    public function stoning(Employee $employee)
+
+    /**
+     * Remove the specified Employee from storage.
+     *
+     * @param  int $ID
+     *
+     * @return Response
+     */
+    public function destroy($ID )
     {
-        $this->employeerepository->StoneEmployee($employee);
-        return Redirect::back();
-    }
-    public function activating(Employee $employee)
-    {
-        $this->employeerepository->ActiveEmployee($employee);
-        return Redirect::back();
+        $employee = $this->employeeRepository->find($ID );
+
+        if (empty($employee)) {
+            Flash::error('Employee not found');
+
+            return redirect(route('admin.employees.index'));
+        }
+
+        $this->employeeRepository->delete($ID );
+
+        Flash::success('Employee deleted successfully.');
+
+        return redirect(route('admin.employees.index'));
     }
 }

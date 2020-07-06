@@ -2,13 +2,13 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Product;
+use App\Models\Admin\Product;
 use App\Repositories\BaseRepository;
 
 /**
  * Class ProductRepository
  * @package App\Repositories\Admin
- * @version July 5, 2020, 8:22 am UTC
+ * @version July 6, 2020, 5:44 am UTC
 */
 
 class ProductRepository extends BaseRepository

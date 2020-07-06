@@ -21,7 +21,7 @@
 @section('auth_header', __('adminlte::adminlte.login_message'))
 
 @section('auth_body')
-    <form action="{{ route('admin.login') }}" method="post">
+    <form action="{{ route('Admin.login') }}" method="post">
         {{ csrf_field() }}
 
         {{-- Email field --}}

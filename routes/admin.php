@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-//auth()->loginUsingId(1);
+auth()->loginUsingId(1);
 Route::redirect('/', '/Admin');
 Route::get('lang/{Language}', 'LocalizationController@index')->name('ChangeLanguage');
 Route::group(['prefix' => 'Admin'], function () {

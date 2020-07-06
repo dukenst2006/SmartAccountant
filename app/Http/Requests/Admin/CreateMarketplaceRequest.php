@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Marketplace;
+use App\Models\Admin\Marketplace;
 
 class CreateMarketplaceRequest extends FormRequest
 {

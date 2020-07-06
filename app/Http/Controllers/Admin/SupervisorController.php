@@ -2,95 +2,150 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\SupervisorRequest;
-use App\Models\Supervisor;
-use App\Repositories\SupervisorRepositoryInterface;
-use Illuminate\Http\Request;
+use App\DataTables\Admin\SupervisorDataTable;
+use App\Http\Requests\Admin;
+use App\Http\Requests\Admin\CreateSupervisorRequest;
+use App\Http\Requests\Admin\UpdateSupervisorRequest;
+use App\Repositories\Admin\SupervisorRepository;
+use Flash;
+use App\Http\Controllers\AppBaseController;
+use Response;
 
-class SupervisorController extends Controller
+class SupervisorController extends AppBaseController
 {
-    protected $SupervisorRepository;
-    public function __construct(SupervisorRepositoryInterface $supervisorRepository)
-    {
-        $this->SupervisorRepository = $supervisorRepository;
-    }
+    /** @var  SupervisorRepository */
+    private $supervisorRepository;
 
-    /**888
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct(SupervisorRepository $supervisorRepo)
     {
-        $supervisors = $this->SupervisorRepository->All();
-        return view('admin.supervisor.index',compact('supervisors'));
+        $this->supervisorRepository = $supervisorRepo;
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the Supervisor.
      *
-     * @return \Illuminate\Http\Response
+     * @param SupervisorDataTable $supervisorDataTable
+     * @return Response
+     */
+    public function index(SupervisorDataTable $supervisorDataTable)
+    {
+        return $supervisorDataTable->render('admin.supervisors.index');
+    }
+
+    /**
+     * Show the form for creating a new Supervisor.
+     *
+     * @return Response
      */
     public function create()
     {
-        return view('admin.supervisor.create');
+        return view('admin.supervisors.create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created Supervisor in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param CreateSupervisorRequest $request
+     *
+     * @return Response
      */
-    public function store(SupervisorRequest $request)
+    public function store(CreateSupervisorRequest $request)
     {
-        $this->SupervisorRepository->Create($request);
+        $input = $request->all();
+
+        $supervisor = $this->supervisorRepository->create($input);
+
+        Flash::success('Supervisor saved successfully.');
+
+        return redirect(route('admin.supervisors.index'));
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified Supervisor.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $ID
+     *
+     * @return Response
      */
-    public function show($id)
+    public function show($ID )
     {
-        //
+        $supervisor = $this->supervisorRepository->find($ID );
+
+        if (empty($supervisor)) {
+            Flash::error('Supervisor not found');
+
+            return redirect(route('admin.supervisors.index'));
+        }
+
+        return view('admin.supervisors.show')->with('supervisor', $supervisor);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified Supervisor.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $ID
+     *
+     * @return Response
      */
-    public function edit(Supervisor $supervisor)
+    public function edit($ID )
     {
-        return view('admin.supervisor.edit',compact('supervisor'));
+        $supervisor = $this->supervisorRepository->find($ID );
+
+        if (empty($supervisor)) {
+            Flash::error('Supervisor not found');
+
+            return redirect(route('admin.supervisors.index'));
+        }
+
+        return view('admin.supervisors.edit')->with('supervisor', $supervisor);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified Supervisor in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int              $ID
+     * @param UpdateSupervisorRequest $request
+     *
+     * @return Response
      */
-    public function update(Request $request,Supervisor $supervisor)
+    public function update($ID , UpdateSupervisorRequest $request)
     {
-        $this->SupervisorRepository->Update($request,$supervisor);
+        $supervisor = $this->supervisorRepository->find($ID );
+
+        if (empty($supervisor)) {
+            Flash::error('Supervisor not found');
+
+            return redirect(route('admin.supervisors.index'));
+        }
+
+        $supervisor = $this->supervisorRepository->update($request->all(), $ID );
+
+        Flash::success('Supervisor updated successfully.');
+
+        return redirect(route('admin.supervisors.index'));
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified Supervisor from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $ID
+     *
+     * @return Response
      */
-    public function destroy(Supervisor $supervisor)
+    public function destroy($ID )
     {
-        $supervisor->delete();
-        return redirect()->back();
+        $supervisor = $this->supervisorRepository->find($ID );
+
+        if (empty($supervisor)) {
+            Flash::error('Supervisor not found');
+
+            return redirect(route('admin.supervisors.index'));
+        }
+
+        $this->supervisorRepository->delete($ID );
+
+        Flash::success('Supervisor deleted successfully.');
+
+        return redirect(route('admin.supervisors.index'));
     }
 }

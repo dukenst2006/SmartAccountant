@@ -20,7 +20,7 @@
 .sidebar {
     height: calc(
         100% -
-        (#{$main-header-height-inner} + #{$main-header-bottom-border-width})
+            (#{$main-header-height-inner} + #{$main-header-bottom-border-width})
     );
     overflow-y: auto;
     padding-bottom: $sidebar-padding-y;
@@ -209,7 +209,6 @@
     top: 0;
     z-index: $zindex-main-sidebar - 1;
 }
-
 
 [class*="sidebar-light-"] {
     // Sidebar background color
@@ -703,7 +702,7 @@
         > .nav-item .nav-link {
             .nav-icon {
                 @include transition(
-                        margin-left $transition-fn $transition-speed
+                    margin-left $transition-fn $transition-speed
                 );
                 margin-left: 0.75rem;
             }
@@ -711,12 +710,12 @@
     }
 
     .sidebar-mini.sidebar-collapse
-    .main-sidebar.sidebar-focused
-    &.nav-child-indent,
+        .main-sidebar.sidebar-focused
+        &.nav-child-indent,
     .sidebar-mini.sidebar-collapse .main-sidebar:hover &.nav-child-indent,
     .sidebar-mini-md.sidebar-collapse
-    .main-sidebar.sidebar-focused
-    &.nav-child-indent,
+        .main-sidebar.sidebar-focused
+        &.nav-child-indent,
     .sidebar-mini-md.sidebar-collapse .main-sidebar:hover &.nav-child-indent {
         .nav-treeview {
             padding-left: 1rem;
@@ -729,17 +728,17 @@
     }
 
     .sidebar-mini.sidebar-collapse.text-sm
-    .main-sidebar.sidebar-focused
-    &.nav-child-indent,
+        .main-sidebar.sidebar-focused
+        &.nav-child-indent,
     .sidebar-mini.sidebar-collapse.text-sm
-    .main-sidebar:hover
-    &.nav-child-indent,
+        .main-sidebar:hover
+        &.nav-child-indent,
     .sidebar-mini-md.sidebar-collapse.text-sm
-    .main-sidebar.sidebar-focused
-    &.nav-child-indent,
+        .main-sidebar.sidebar-focused
+        &.nav-child-indent,
     .sidebar-mini-md.sidebar-collapse.text-sm
-    .main-sidebar:hover
-    &.nav-child-indent {
+        .main-sidebar:hover
+        &.nav-child-indent {
         .nav-treeview {
             padding-left: 0.5rem;
 
@@ -963,3 +962,31 @@
     width: 104%;
     overflow: auto;
 }
+
+.nav-sidebar {
+    .nav-header {
+        border-bottom: 1px solid #d4d4d4;
+        padding-top: 11px !important;
+        padding-right: 8px !important;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+}
+
+.fa-fw {
+    margin-left: 2px;
+}
+.nav-link {
+    .fas {
+        margin-left: 2px;
+    }
+}
+
+    img {
+        .brand-image {
+            @media (max-width: 575.98px) { 
+                 width: 80% !important;
+            }
+        }
+    }
+ 

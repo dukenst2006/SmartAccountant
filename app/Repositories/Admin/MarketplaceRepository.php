@@ -2,13 +2,13 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Marketplace;
+use App\Models\Admin\Marketplace;
 use App\Repositories\BaseRepository;
 
 /**
  * Class MarketplaceRepository
  * @package App\Repositories\Admin
- * @version July 5, 2020, 3:24 am UTC
+ * @version July 6, 2020, 5:37 am UTC
 */
 
 class MarketplaceRepository extends BaseRepository
@@ -27,6 +27,7 @@ class MarketplaceRepository extends BaseRepository
         'Email',
         'Latitude',
         'Longitude',
+        'SafeBalance',
         'CompanyRegisterImage',
         'Logo'
     ];

@@ -58,6 +58,12 @@
     <p>{{ $marketplace->Longitude }}</p>
 </div>
 
+<!-- Safebalance Field -->
+<div class="form-group">
+    {!! Form::label('SafeBalance', 'Safebalance:') !!}
+    <p>{{ $marketplace->SafeBalance }}</p>
+</div>
+
 <!-- Companyregisterimage Field -->
 <div class="form-group">
     {!! Form::label('CompanyRegisterImage', 'Companyregisterimage:') !!}

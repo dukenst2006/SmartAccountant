@@ -25,6 +25,7 @@ class CreateMarketplacesTable extends Migration
             $table->string('Email');
             $table->string('Latitude');
             $table->string('Longitude');
+            $table->double('SafeBalance')->default(0);
             $table->string('CompanyRegisterImage');
             $table->string('Logo');
             $table->timestamps();

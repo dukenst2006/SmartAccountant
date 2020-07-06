@@ -67,8 +67,18 @@
 <!-- Expirydate Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ExpiryDate', 'Expirydate:') !!}
-    {!! Form::text('ExpiryDate', null, ['class' => 'form-control']) !!}
+    {!! Form::text('ExpiryDate', null, ['class' => 'form-control','id'=>'ExpiryDate']) !!}
 </div>
+
+@push('scripts')
+    <script type="text/javascript">
+        $('#ExpiryDate').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm:ss',
+            useCurrent: true,
+            sideBySide: true
+        })
+    </script>
+@endpush
 
 <!-- Barcode Field -->
 <div class="form-group col-sm-6">

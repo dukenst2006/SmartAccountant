@@ -63,13 +63,13 @@ class MarketplaceController extends AppBaseController
     /**
      * Display the specified Marketplace.
      *
-     * @param  int $id
+     * @param  int $ID
      *
      * @return Response
      */
-    public function show($id)
+    public function show($ID )
     {
-        $marketplace = $this->marketplaceRepository->find($id);
+        $marketplace = $this->marketplaceRepository->find($ID );
 
         if (empty($marketplace)) {
             Flash::error('Marketplace not found');
@@ -83,13 +83,13 @@ class MarketplaceController extends AppBaseController
     /**
      * Show the form for editing the specified Marketplace.
      *
-     * @param  int $id
+     * @param  int $ID
      *
      * @return Response
      */
-    public function edit($id)
+    public function edit($ID )
     {
-        $marketplace = $this->marketplaceRepository->find($id);
+        $marketplace = $this->marketplaceRepository->find($ID );
 
         if (empty($marketplace)) {
             Flash::error('Marketplace not found');
@@ -103,14 +103,14 @@ class MarketplaceController extends AppBaseController
     /**
      * Update the specified Marketplace in storage.
      *
-     * @param  int              $id
+     * @param  int              $ID
      * @param UpdateMarketplaceRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateMarketplaceRequest $request)
+    public function update($ID , UpdateMarketplaceRequest $request)
     {
-        $marketplace = $this->marketplaceRepository->find($id);
+        $marketplace = $this->marketplaceRepository->find($ID );
 
         if (empty($marketplace)) {
             Flash::error('Marketplace not found');
@@ -118,7 +118,7 @@ class MarketplaceController extends AppBaseController
             return redirect(route('admin.marketplaces.index'));
         }
 
-        $marketplace = $this->marketplaceRepository->update($request->all(), $id);
+        $marketplace = $this->marketplaceRepository->update($request->all(), $ID );
 
         Flash::success('Marketplace updated successfully.');
 
@@ -128,13 +128,13 @@ class MarketplaceController extends AppBaseController
     /**
      * Remove the specified Marketplace from storage.
      *
-     * @param  int $id
+     * @param  int $ID
      *
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($ID )
     {
-        $marketplace = $this->marketplaceRepository->find($id);
+        $marketplace = $this->marketplaceRepository->find($ID );
 
         if (empty($marketplace)) {
             Flash::error('Marketplace not found');
@@ -142,7 +142,7 @@ class MarketplaceController extends AppBaseController
             return redirect(route('admin.marketplaces.index'));
         }
 
-        $this->marketplaceRepository->delete($id);
+        $this->marketplaceRepository->delete($ID );
 
         Flash::success('Marketplace deleted successfully.');
 

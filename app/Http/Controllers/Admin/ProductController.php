@@ -63,13 +63,13 @@ class ProductController extends AppBaseController
     /**
      * Display the specified Product.
      *
-     * @param  int $id
+     * @param  int $ID
      *
      * @return Response
      */
-    public function show($id)
+    public function show($ID )
     {
-        $product = $this->productRepository->find($id);
+        $product = $this->productRepository->find($ID );
 
         if (empty($product)) {
             Flash::error('Product not found');
@@ -83,13 +83,13 @@ class ProductController extends AppBaseController
     /**
      * Show the form for editing the specified Product.
      *
-     * @param  int $id
+     * @param  int $ID
      *
      * @return Response
      */
-    public function edit($id)
+    public function edit($ID )
     {
-        $product = $this->productRepository->find($id);
+        $product = $this->productRepository->find($ID );
 
         if (empty($product)) {
             Flash::error('Product not found');
@@ -103,14 +103,14 @@ class ProductController extends AppBaseController
     /**
      * Update the specified Product in storage.
      *
-     * @param  int              $id
+     * @param  int              $ID
      * @param UpdateProductRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateProductRequest $request)
+    public function update($ID , UpdateProductRequest $request)
     {
-        $product = $this->productRepository->find($id);
+        $product = $this->productRepository->find($ID );
 
         if (empty($product)) {
             Flash::error('Product not found');
@@ -118,7 +118,7 @@ class ProductController extends AppBaseController
             return redirect(route('admin.products.index'));
         }
 
-        $product = $this->productRepository->update($request->all(), $id);
+        $product = $this->productRepository->update($request->all(), $ID );
 
         Flash::success('Product updated successfully.');
 
@@ -128,13 +128,13 @@ class ProductController extends AppBaseController
     /**
      * Remove the specified Product from storage.
      *
-     * @param  int $id
+     * @param  int $ID
      *
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($ID )
     {
-        $product = $this->productRepository->find($id);
+        $product = $this->productRepository->find($ID );
 
         if (empty($product)) {
             Flash::error('Product not found');
@@ -142,7 +142,7 @@ class ProductController extends AppBaseController
             return redirect(route('admin.products.index'));
         }
 
-        $this->productRepository->delete($id);
+        $this->productRepository->delete($ID );
 
         Flash::success('Product deleted successfully.');
 

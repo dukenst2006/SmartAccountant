@@ -2,7 +2,7 @@
 @section('title', 'Product Categories')
 
 @section('content_header')
-    <h1>Product Categories</h1>
+    <h1>Product Category</h1>
 @stop
 
 
@@ -10,14 +10,12 @@
 @section('content')
 
     <div class="row justify-content-center">
-        <a class="btn btn-success btn-lg mb-3"  href="{{ route('admin.productCategories.create') }}">
-            <i class="fas fa-2x fa-plus-circle"></i>
-        </a>
+
 
 
      <div class="card card-primary col-12">
             <div class="card-header">
-                <h3 class="card-title">Product Categories</h3>
+                <h3 class="card-title">Product Category</h3>
             </div>
 
 

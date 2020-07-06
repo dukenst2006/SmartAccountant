@@ -202,12 +202,12 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'create',
-                    'url' =>'#',
+                    'route' =>'admin.supervisors.create',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
-                    'url' =>'#',
+                    'route' =>'admin.supervisors.index',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
             ],
@@ -316,6 +316,12 @@ return [/*
                 'url' =>'#',
                 'icon' => 'fas fa-fw fa-file-invoice-dollar',
                 'submenu' => [
+
+                    [
+                        'text' => 'create',
+                        'route' =>'admin.products.create',
+                        'icon' => 'fas fa-fw fa-plus-circle',
+                    ],
             [
                 'text' => 'all',
                 'url' =>'#',

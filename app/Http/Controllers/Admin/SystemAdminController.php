@@ -48,10 +48,10 @@ class SystemAdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $ID
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($ID )
     {
 
     }
@@ -59,7 +59,7 @@ class SystemAdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $ID
      * @return \Illuminate\Http\Response
      */
     public function edit(SystemAdmin $admin)
@@ -71,7 +71,7 @@ class SystemAdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $ID
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,SystemAdmin $admin)
@@ -82,7 +82,7 @@ class SystemAdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $ID
      * @return \Illuminate\Http\Response
      */
     public function destroy(SystemAdmin $admin)

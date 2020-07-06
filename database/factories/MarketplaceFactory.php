@@ -20,7 +20,6 @@ use Illuminate\Support\Str;
 $factory->define(Marketplace::class, function (Faker $faker) {
 
     return [
-
         'MarketplaceOwnerID' =>factory(\App\Models\MarketplaceOwner::class),
         'Name' => $faker->streetName,
         'Country' => $faker->country,
@@ -31,8 +30,8 @@ $factory->define(Marketplace::class, function (Faker $faker) {
         'Email' => $faker->email,
         'Latitude' => $faker->latitude,
         'Longitude' => $faker->longitude,
+        'SafeBalance' => $faker->numberBetween(20000,50000),
         'CompanyRegisterImage' => $faker->imageUrl(),
         'Logo' => $faker->imageUrl(),
-
     ];
 });

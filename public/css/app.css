@@ -16556,7 +16556,7 @@ body,
 }
 
 img.brand-image.img-fluid {
-  width: 90%;
+  width: 80%;
   margin: auto;
 }
 
@@ -19277,6 +19277,28 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
   height: 72vh !important;
   width: 104%;
   overflow: auto;
+}
+
+.nav-sidebar .nav-header {
+  border-bottom: 1px solid #d4d4d4;
+  padding-top: 11px !important;
+  padding-right: 8px !important;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.fa-fw {
+  margin-left: 2px;
+}
+
+.nav-link .fas {
+  margin-left: 2px;
+}
+
+@media (max-width: 575.98px) {
+  img .brand-image {
+    width: 80% !important;
+  }
 }
 
 .logo-xs,

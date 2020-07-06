@@ -18,7 +18,7 @@
                </div>
            <div class="card-body">
 
-                   {!! Form::model($marketplace, ['route' => ['admin.marketplaces.update', $marketplace->id], 'method' => 'patch']) !!}
+                   {!! Form::model($marketplace, ['route' => ['admin.marketplaces.update', $marketplace$ID ], 'method' => 'patch']) !!}
 
                         @include('admin.marketplaces.fields')
 

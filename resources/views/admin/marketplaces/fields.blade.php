@@ -58,6 +58,12 @@
     {!! Form::text('Longitude', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Safebalance Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('SafeBalance', 'Safebalance:') !!}
+    {!! Form::number('SafeBalance', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Companyregisterimage Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CompanyRegisterImage', 'Companyregisterimage:') !!}

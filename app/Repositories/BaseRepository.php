@@ -142,31 +142,31 @@ abstract class BaseRepository
     /**
      * Find model record for given id
      *
-     * @param int $id
+     * @param int $ID
      * @param array $columns
      *
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
      */
-    public function find($id, $columns = ['*'])
+    public function find($ID , $columns = ['*'])
     {
         $query = $this->model->newQuery();
 
-        return $query->find($id, $columns);
+        return $query->find($ID , $columns);
     }
 
     /**
      * Update model record for given id
      *
      * @param array $input
-     * @param int $id
+     * @param int $ID
      *
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model
      */
-    public function update($input, $id)
+    public function update($input, $ID )
     {
         $query = $this->model->newQuery();
 
-        $model = $query->findOrFail($id);
+        $model = $query->findOrFail($ID );
 
         $model->fill($input);
 
@@ -176,17 +176,17 @@ abstract class BaseRepository
     }
 
     /**
-     * @param int $id
+     * @param int $ID
      *
      * @throws \Exception
      *
      * @return bool|mixed|null
      */
-    public function delete($id)
+    public function delete($ID )
     {
         $query = $this->model->newQuery();
 
-        $model = $query->findOrFail($id);
+        $model = $query->findOrFail($ID );
 
         return $model->delete();
     }

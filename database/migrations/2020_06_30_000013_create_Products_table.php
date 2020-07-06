@@ -27,7 +27,7 @@ class CreateProductsTable extends Migration
             $table->double('SellingPrice');
             $table->double('LowPrice')->nullable()->default(null);  //  For What ?
             $table->string('Image');
-            $table->string('ExpiryDate')->nullable()->default(null);
+            $table->dateTime('ExpiryDate')->nullable()->default(null);
             $table->string('Barcode');
             $table->boolean('UnlimitedQuantity')->default(false);
             $table->timestamps();

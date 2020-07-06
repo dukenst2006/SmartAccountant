@@ -175,8 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
+        App\Providers\ObserverServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-          Yajra\DataTables\DataTablesServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class
 
 

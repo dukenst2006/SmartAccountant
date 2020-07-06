@@ -10,9 +10,6 @@
 @section('content')
 
     <div class="row justify-content-center">
-        <a class="btn btn-success btn-lg mb-3"  href="{{ route('admin.productSubCategories.create') }}">
-            <i class="fas fa-2x fa-plus-circle"></i>
-        </a>
 
 
      <div class="card card-primary col-12">
