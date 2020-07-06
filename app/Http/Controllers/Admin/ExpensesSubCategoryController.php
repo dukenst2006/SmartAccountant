@@ -39,7 +39,8 @@ class ExpensesSubCategoryController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.expenses_sub_categories.create');
+        $categories = $this->expensesSubCategoryRepository->GetDataForSelect('expenses_categories');
+        return view('admin.expenses_sub_categories.create',compact('categories'));
     }
 
     /**

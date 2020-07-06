@@ -1,7 +1,7 @@
 <!-- Expensescategoryid Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('ExpensesCategoryID', 'Expensescategoryid:') !!}
-    {!! Form::number('ExpensesCategoryID', null, ['class' => 'form-control']) !!}
+    {!! Form::label('ExpensesCategoryID', 'Expensescategory:') !!}
+    {!! Form::select('ExpensesCategoryID',$categories, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Name Field -->

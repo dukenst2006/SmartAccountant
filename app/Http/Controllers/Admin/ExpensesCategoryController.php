@@ -39,7 +39,8 @@ class ExpensesCategoryController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.expenses_categories.create');
+        $marketplaces = $this->expensesCategoryRepository->GetDataForSelect('marketplaces');
+        return view('admin.expenses_categories.create',compact('marketplaces'));
     }
 
     /**
@@ -67,6 +68,7 @@ class ExpensesCategoryController extends AppBaseController
      *
      * @return Response
      */
+
     public function show($ID )
     {
         $expensesCategory = $this->expensesCategoryRepository->find($ID );

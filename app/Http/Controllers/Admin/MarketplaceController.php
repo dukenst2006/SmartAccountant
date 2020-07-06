@@ -39,7 +39,9 @@ class MarketplaceController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.marketplaces.create');
+        $marketplace_owners = $this->marketplaceRepository->GetAllMarketPlaceOwners();
+
+        return view('admin.marketplaces.create',compact('marketplace_owners'));
     }
 
     /**
@@ -52,7 +54,7 @@ class MarketplaceController extends AppBaseController
     public function store(CreateMarketplaceRequest $request)
     {
         $input = $request->all();
-
+        $input['Logo'] = $this->marketplaceRepository->StoreFile($request->file('Logo'),'');
         $marketplace = $this->marketplaceRepository->create($input);
 
         Flash::success('Marketplace saved successfully.');
@@ -111,14 +113,16 @@ class MarketplaceController extends AppBaseController
     public function update($ID , UpdateMarketplaceRequest $request)
     {
         $marketplace = $this->marketplaceRepository->find($ID );
-
+        $input = $request->all();
+        $input['Logo'] = $this->marketplaceRepository
+            ->StoreFile($request->file('Logo'),$marketplace['Logo']);
         if (empty($marketplace)) {
             Flash::error('Marketplace not found');
 
             return redirect(route('admin.marketplaces.index'));
         }
 
-        $marketplace = $this->marketplaceRepository->update($request->all(), $ID );
+        $marketplace = $this->marketplaceRepository->update($input, $ID );
 
         Flash::success('Marketplace updated successfully.');
 

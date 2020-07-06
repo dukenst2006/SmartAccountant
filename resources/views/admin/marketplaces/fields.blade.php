@@ -1,7 +1,7 @@
 <!-- Marketplaceownerid Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('MarketplaceOwnerID', 'Marketplaceownerid:') !!}
-    {!! Form::number('MarketplaceOwnerID', null, ['class' => 'form-control']) !!}
+    {!! Form::label('MarketplaceOwnerID', 'Marketplaceowner:') !!}
+    {!! Form::select('MarketplaceOwnerID',$marketplace_owners ,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Name Field -->
@@ -73,7 +73,7 @@
 <!-- Logo Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Logo', 'Logo:') !!}
-    {!! Form::text('Logo', null, ['class' => 'form-control']) !!}
+    {!! Form::file('Logo', ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

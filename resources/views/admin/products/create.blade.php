@@ -18,7 +18,7 @@
                     <h3 class="card-title">Product</h3>
                 </div>
             <div class="card-body">
-                    {!! Form::open(['route' => 'admin.products.store']) !!}
+                    {!! Form::open(['route' => 'admin.products.store','files'=>true]) !!}
 
                         @include('admin.products.fields')
 

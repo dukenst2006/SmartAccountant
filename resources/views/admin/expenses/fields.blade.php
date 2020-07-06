@@ -1,19 +1,19 @@
 <!-- Marketplacesid Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('MarketplacesID', 'Marketplacesid:') !!}
-    {!! Form::number('MarketplacesID', null, ['class' => 'form-control']) !!}
+    {!! Form::label('MarketplacesID', __('menu.Marketplaces')) !!}
+    {!! Form::select('MarketplacesID',$market_places, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Expensescategoriesid Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ExpensesCategoriesID', 'Expensescategoriesid:') !!}
-    {!! Form::number('ExpensesCategoriesID', null, ['class' => 'form-control']) !!}
+    {!! Form::select('ExpensesCategoriesID',$categories, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Expensessubcategoriesid Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ExpensesSubCategoriesID', 'Expensessubcategoriesid:') !!}
-    {!! Form::number('ExpensesSubCategoriesID', null, ['class' => 'form-control']) !!}
+    {!! Form::select('ExpensesSubCategoriesID',$sub_categories, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Name Field -->
@@ -36,8 +36,8 @@
 
 <!-- Date Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Date', 'Date:') !!}
-    {!! Form::text('Date', null, ['class' => 'form-control','id'=>'Date']) !!}
+    {!! Form::label('Date', __('money.choose date')) !!}
+    {!! Form::date('Date', null, ['class' => 'form-control','id'=>'Date']) !!}
 </div>
 
 @push('scripts')

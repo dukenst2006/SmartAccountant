@@ -6,9 +6,12 @@ use App\DataTables\Admin\EmployeeDataTable;
 use App\Http\Requests\Admin;
 use App\Http\Requests\Admin\CreateEmployeeRequest;
 use App\Http\Requests\Admin\UpdateEmployeeRequest;
+use App\Models\Admin\Marketplace;
+use App\Models\MarketplaceOwner;
 use App\Repositories\Admin\EmployeeRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\DB;
 use Response;
 
 class EmployeeController extends AppBaseController
@@ -39,7 +42,9 @@ class EmployeeController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.employees.create');
+        $marketplaces = $this->employeeRepository->GetDataForSelect('marketplaces');
+        $marketplace_owners = $this->employeeRepository->GetAllMarketPlaceOwners();
+        return view('admin.employees.create',compact('marketplaces','marketplace_owners'));
     }
 
     /**
@@ -52,6 +57,10 @@ class EmployeeController extends AppBaseController
     public function store(CreateEmployeeRequest $request)
     {
         $input = $request->all();
+        $input['UserID']   = 1;
+        $input['ProfileImage'] = $this->employeeRepository->StoreFile($request->file('ProfileImage'),'');
+        $input['IdentityImage'] = $this->employeeRepository->StoreFile($request->file('IdentityImage'),'');
+        $input['EmploymentContractImage'] = $this->employeeRepository->StoreFile($request->file('EmploymentContractImage'),'');
 
         $employee = $this->employeeRepository->create($input);
 
@@ -111,14 +120,20 @@ class EmployeeController extends AppBaseController
     public function update($ID , UpdateEmployeeRequest $request)
     {
         $employee = $this->employeeRepository->find($ID );
-
+        $input = $request->all();
+        $input['ProfileImage'] = $this->employeeRepository
+            ->StoreFile($request->file('ProfileImage'),$employee['ProfileImage']);
+        $input['IdentityImage'] = $this->employeeRepository
+            ->StoreFile($request->file('IdentityImage'),$employee['IdentityImage']);
+        $input['EmploymentContractImage'] = $this->employeeRepository
+            ->StoreFile($request->file('EmploymentContractImage'),$employee['EmploymentContractImage']);
         if (empty($employee)) {
             Flash::error('Employee not found');
 
             return redirect(route('admin.employees.index'));
         }
 
-        $employee = $this->employeeRepository->update($request->all(), $ID );
+        $employee = $this->employeeRepository->update($input, $ID );
 
         Flash::success('Employee updated successfully.');
 
@@ -148,4 +163,5 @@ class EmployeeController extends AppBaseController
 
         return redirect(route('admin.employees.index'));
     }
+
 }

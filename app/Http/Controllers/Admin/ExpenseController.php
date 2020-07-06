@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\UpdateExpenseRequest;
 use App\Repositories\Admin\ExpenseRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\DB;
 use Response;
 
 class ExpenseController extends AppBaseController
@@ -39,7 +40,10 @@ class ExpenseController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.expenses.create');
+        $market_places = $this->expenseRepository->GetDataForSelect('marketplaces');
+        $categories = $this->expenseRepository->GetDataForSelect('expenses_categories');
+        $sub_categories = $this->expenseRepository->GetDataForSelect('expenses_sub_categories');
+        return view('admin.expenses.create',compact('market_places','categories','sub_categories'));
     }
 
     /**
@@ -148,4 +152,5 @@ class ExpenseController extends AppBaseController
 
         return redirect(route('admin.expenses.index'));
     }
+
 }

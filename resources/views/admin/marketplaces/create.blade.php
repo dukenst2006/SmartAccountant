@@ -18,7 +18,7 @@
                     <h3 class="card-title">Marketplace</h3>
                 </div>
             <div class="card-body">
-                    {!! Form::open(['route' => 'admin.marketplaces.store']) !!}
+                    {!! Form::open(['route' => 'admin.marketplaces.store','files'=>true]) !!}
 
                         @include('admin.marketplaces.fields')
 

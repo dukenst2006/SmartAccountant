@@ -39,7 +39,8 @@ class ProductCategoryController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.product_categories.create');
+        $marketplaces = $this->productCategoryRepository->GetDataForSelect('marketplaces');
+        return view('admin.product_categories.create',compact('marketplaces'));
     }
 
     /**

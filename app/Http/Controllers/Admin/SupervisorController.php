@@ -39,7 +39,8 @@ class SupervisorController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.supervisors.create');
+        $marketplace_owners = $this->supervisorRepository->GetAllMarketPlaceOwners();
+        return view('admin.supervisors.create',compact('marketplace_owners'));
     }
 
     /**

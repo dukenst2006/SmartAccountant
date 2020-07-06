@@ -82,7 +82,6 @@ class Employee extends Model
      * @var array
      */
     public static $rules = [
-        'UserID' => 'required',
         'MarketplaceID' => 'required',
         'MarketplaceOwnerID' => 'required',
         'Nationality' => 'required',

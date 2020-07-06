@@ -6,8 +6,8 @@
 
 <!-- Marketplaceownerid Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('MarketplaceOwnerID', 'Marketplaceownerid:') !!}
-    {!! Form::number('MarketplaceOwnerID', null, ['class' => 'form-control']) !!}
+    {!! Form::label('MarketplaceOwnerID', 'Marketplaceowner:') !!}
+    {!! Form::select('MarketplaceOwnerID',$marketplace_owners, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Phonenumber Field -->

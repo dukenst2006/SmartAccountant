@@ -39,7 +39,10 @@ class ProductController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.products.create');
+        $marketplaces = $this->productRepository->GetDataForSelect('marketplaces');
+        $product_categories = $this->productRepository->GetDataForSelect('product_categories');
+        $product_sub_categories = $this->productRepository->GetDataForSelect('product_sub_categories');
+        return view('admin.products.create',compact('marketplaces','product_categories','product_sub_categories'));
     }
 
     /**
@@ -52,9 +55,8 @@ class ProductController extends AppBaseController
     public function store(CreateProductRequest $request)
     {
         $input = $request->all();
-
+        $input['Image'] = $this->productRepository->StoreFile($request->file('Image'),'');
         $product = $this->productRepository->create($input);
-
         Flash::success('Product saved successfully.');
 
         return redirect(route('admin.products.index'));
@@ -111,14 +113,16 @@ class ProductController extends AppBaseController
     public function update($ID , UpdateProductRequest $request)
     {
         $product = $this->productRepository->find($ID );
-
+        $input = $request->all();
+        $input['Image'] = $this->productRepository
+            ->StoreFile($request->file('Image'),$product['Image']);
         if (empty($product)) {
             Flash::error('Product not found');
 
             return redirect(route('admin.products.index'));
         }
 
-        $product = $this->productRepository->update($request->all(), $ID );
+        $product = $this->productRepository->update($input, $ID );
 
         Flash::success('Product updated successfully.');
 

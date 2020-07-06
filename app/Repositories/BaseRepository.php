@@ -2,8 +2,14 @@
 
 namespace App\Repositories;
 
+use App\Models\MarketplaceOwner;
 use Illuminate\Container\Container as Application;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\DB;
+
+use Illuminate\Support\Facades\Storage;
+
 
 
 abstract class BaseRepository
@@ -189,5 +195,29 @@ abstract class BaseRepository
         $model = $query->findOrFail($ID );
 
         return $model->delete();
+    }
+    public function GetDataForSelect($table){
+        $aaa = DB::table($table)->select('ID','Name')->get();
+        $items = array();
+        foreach ($aaa  as $a){
+            $items["$a->ID"] = $a->Name;
+        }
+        return $items;
+    }
+    public function GetAllMarketPlaceOwners(){
+        $aaa = MarketplaceOwner::all();
+        $marketplaces = array();
+        foreach ($aaa  as $a){
+            $marketplaces["$a->ID"] = $a->User->Name;
+        }
+        return $marketplaces;
+    }
+    public function StoreFile(UploadedFile $file,$default = ''){
+        if (isset($file)){
+            $img = Storage::disk('public')->put('storage/images',$file);
+            return $img;
+        }else{
+            return $default;
+        }
     }
 }

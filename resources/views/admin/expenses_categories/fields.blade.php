@@ -1,7 +1,7 @@
 <!-- Marketplacesid Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('MarketplacesID', 'Marketplacesid:') !!}
-    {!! Form::number('MarketplacesID', null, ['class' => 'form-control']) !!}
+    {!! Form::label('MarketplacesID', __('menu.Marketplaces')) !!}
+    {!! Form::select('MarketplacesID',$marketplaces, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Name Field -->

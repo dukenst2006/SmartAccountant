@@ -6,20 +6,20 @@
 
 <!-- Marketplacesid Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('MarketplacesID', 'Marketplacesid:') !!}
-    {!! Form::number('MarketplacesID', null, ['class' => 'form-control']) !!}
+    {!! Form::label('MarketplacesID', 'Marketplaces:') !!}
+    {!! Form::select('MarketplacesID',$marketplaces, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Productcategoryid Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('ProductCategoryID', 'Productcategoryid:') !!}
-    {!! Form::number('ProductCategoryID', null, ['class' => 'form-control']) !!}
+    {!! Form::label('ProductCategoryID', 'Productcategory:') !!}
+    {!! Form::select('ProductCategoryID',$product_categories, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Productsubcategoryid Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('ProductSubCategoryID', 'Productsubcategoryid:') !!}
-    {!! Form::number('ProductSubCategoryID', null, ['class' => 'form-control']) !!}
+    {!! Form::label('ProductSubCategoryID', 'Productsubcategory:') !!}
+    {!! Form::select('ProductSubCategoryID',$product_sub_categories, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Name Field -->
@@ -61,7 +61,7 @@
 <!-- Image Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Image', 'Image:') !!}
-    {!! Form::text('Image', null, ['class' => 'form-control']) !!}
+    {!! Form::file('Image', ['class' => 'form-control']) !!}
 </div>
 
 <!-- Expirydate Field -->
