@@ -35,7 +35,7 @@ class Marketplace extends Model
 {
 
     public $table = 'marketplaces';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -152,7 +152,7 @@ class Marketplace extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function products()
+    public function Products()
     {
         return $this->hasMany(\App\Models\Admin\Product::class, 'MarketplacesID');
     }

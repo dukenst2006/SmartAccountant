@@ -3,6 +3,7 @@
 namespace App\DataTables\Admin;
 
 use App\Models\Admin\Marketplace;
+use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -71,18 +72,31 @@ class MarketplaceDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'Name',
-            'Country',
-            'City',
-            'SupervisorPhoneNumber',
-            'Address',
-            'TaxNumber',
-            'Email',
-            'Latitude',
-            'Longitude',
-            'SafeBalance',
-            'CompanyRegisterImage',
-            'Logo'
+            new Column(['data'=>'Name', 'name'=>'Name' ,'title'=>__('Models/Marketplace.Name')]),
+            new Column(['data'=>'Country', 'name'=>'Country' ,'title'=>__('Models/Marketplace.Country')]),
+            new Column(['data'=>'City', 'name'=>'City' ,'title'=>__('Models/Marketplace.City')]),
+            new Column(['data'=>'SupervisorPhoneNumber', 'name'=>'SupervisorPhoneNumber' ,'title'=>__('Models/Marketplace.SupervisorPhoneNumber')]),
+            new Column(['data'=>'Address', 'name'=>'Address' ,'title'=>__('Models/Marketplace.Address')]),
+            new Column(['data'=>'TaxNumber', 'name'=>'TaxNumber' ,'title'=>__('Models/Marketplace.TaxNumber')]),
+            new Column(['data'=>'Email', 'name'=>'Email' ,'title'=>__('Models/Marketplace.Email')]),
+            new Column(['data'=>'Latitude', 'name'=>'Latitude' ,'title'=>__('Models/Marketplace.Latitude')]),
+            new Column(['data'=>'Longitude', 'name'=>'Longitude' ,'title'=>__('Models/Marketplace.Longitude')]),
+            new Column(['data'=>'SafeBalance', 'name'=>'SafeBalance' ,'title'=>__('Models/Marketplace.SafeBalance')]),
+            new Column(['data'=>'CompanyRegisterImage', 'name'=>'CompanyRegisterImage' ,'title'=>__('Models/Marketplace.CompanyRegisterImage')]),
+            new Column(['data'=>'Logo', 'name'=>'Logo' ,'title'=>__('Models/Marketplace.Logo')]),
+
+
+
+
+
+
+
+
+
+
+
+
+
         ];
     }
 

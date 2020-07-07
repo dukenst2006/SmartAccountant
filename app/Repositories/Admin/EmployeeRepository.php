@@ -3,6 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Admin\Employee;
+use App\Models\Admin\User;
 use App\Repositories\BaseRepository;
 
 /**
@@ -49,4 +50,15 @@ class EmployeeRepository extends BaseRepository
     {
         return Employee::class;
     }
+
+    public function create($input)
+    {
+     //User::create()
+        $model = $this->model->newInstance($input);
+
+        $model->save();
+
+        return $model;
+    }
+
 }

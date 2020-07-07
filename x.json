@@ -1,0 +1,295 @@
+{
+    "draw": 1,
+    "recordsTotal": 100,
+    "recordsFiltered": 100,
+    "data": [
+        {
+            "ID": 1,
+            "UserID": 63,
+            "MarketplaceID": 41,
+            "MarketplaceOwnerID": 52,
+            "Nationality": "\u0633\u0639\u0648\u062f\u064a",
+            "JobTitle": "\u0645\u0634\u0631\u0641",
+            "NationalID": "121020361271875",
+            "PhoneNumber": "1-293-715-4303",
+            "ProfileImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IdentityImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "EmploymentContractImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IBAN": "MK369154737L2RK2480",
+            "Sex": "\u0627\u0646\u062b\u064a",
+            "Salary": 15965.36983,
+            "created_at": "2020-07-06T04:56:30.000000Z",
+            "updated_at": "2020-07-06T04:56:30.000000Z",
+            "user": null,
+            "Hey": null,
+            "action": "<form method=\"POST\" action=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/1\" accept-charset=\"UTF-8\"><input name=\"_method\" type=\"hidden\" value=\"DELETE\"><input name=\"_token\" type=\"hidden\" value=\"AilYbGXzLVStWBCKf1i6Ioe30uc5CxvEsN2ITbAe\">\n<div class='btn-group'>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/1\" class='btn btn-warning btn-sm p-1'>\n        <i class=\"fas fa-2x fa-eye\"><\/i>\n    <\/a>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/1\/edit\" class='btn btn-primary btn-sm p-1'>\n        <i class=\"fas fa-2x fa-edit\"><\/i>\n    <\/a>\n    <button type=\"submit\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm(&#039;Are you sure?&#039;)\"><i class=\"fas fa-2x fa-trash text-white\"><\/i><\/button>\n<\/div>\n<\/form>\n"
+        },
+        {
+            "ID": 2,
+            "UserID": 66,
+            "MarketplaceID": 42,
+            "MarketplaceOwnerID": 54,
+            "Nationality": "\u0633\u0639\u0648\u062f\u064a",
+            "JobTitle": "\u0645\u062d\u0627\u0633\u0628",
+            "NationalID": "933918415948530",
+            "PhoneNumber": "879-638-1937",
+            "ProfileImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IdentityImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "EmploymentContractImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IBAN": "IL787954899615491219445",
+            "Sex": "\u0630\u0643\u0631",
+            "Salary": 86229.04073,
+            "created_at": "2020-07-06T04:56:30.000000Z",
+            "updated_at": "2020-07-06T04:56:30.000000Z",
+            "user": null,
+            "Hey": null,
+            "action": "<form method=\"POST\" action=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/2\" accept-charset=\"UTF-8\"><input name=\"_method\" type=\"hidden\" value=\"DELETE\"><input name=\"_token\" type=\"hidden\" value=\"AilYbGXzLVStWBCKf1i6Ioe30uc5CxvEsN2ITbAe\">\n<div class='btn-group'>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/2\" class='btn btn-warning btn-sm p-1'>\n        <i class=\"fas fa-2x fa-eye\"><\/i>\n    <\/a>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/2\/edit\" class='btn btn-primary btn-sm p-1'>\n        <i class=\"fas fa-2x fa-edit\"><\/i>\n    <\/a>\n    <button type=\"submit\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm(&#039;Are you sure?&#039;)\"><i class=\"fas fa-2x fa-trash text-white\"><\/i><\/button>\n<\/div>\n<\/form>\n"
+        },
+        {
+            "ID": 3,
+            "UserID": 69,
+            "MarketplaceID": 43,
+            "MarketplaceOwnerID": 56,
+            "Nationality": "\u0633\u0648\u062f\u0627\u0646\u064a",
+            "JobTitle": "\u0645\u062d\u0627\u0633\u0628",
+            "NationalID": "397635748743606",
+            "PhoneNumber": "+1.292.574.5352",
+            "ProfileImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IdentityImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "EmploymentContractImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IBAN": "HU40450002859123758102789895",
+            "Sex": "\u0627\u0646\u062b\u064a",
+            "Salary": 34506.35405,
+            "created_at": "2020-07-06T04:56:30.000000Z",
+            "updated_at": "2020-07-06T04:56:30.000000Z",
+            "user": null,
+            "Hey": null,
+            "action": "<form method=\"POST\" action=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/3\" accept-charset=\"UTF-8\"><input name=\"_method\" type=\"hidden\" value=\"DELETE\"><input name=\"_token\" type=\"hidden\" value=\"AilYbGXzLVStWBCKf1i6Ioe30uc5CxvEsN2ITbAe\">\n<div class='btn-group'>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/3\" class='btn btn-warning btn-sm p-1'>\n        <i class=\"fas fa-2x fa-eye\"><\/i>\n    <\/a>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/3\/edit\" class='btn btn-primary btn-sm p-1'>\n        <i class=\"fas fa-2x fa-edit\"><\/i>\n    <\/a>\n    <button type=\"submit\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm(&#039;Are you sure?&#039;)\"><i class=\"fas fa-2x fa-trash text-white\"><\/i><\/button>\n<\/div>\n<\/form>\n"
+        },
+        {
+            "ID": 4,
+            "UserID": 72,
+            "MarketplaceID": 44,
+            "MarketplaceOwnerID": 58,
+            "Nationality": "\u0633\u0639\u0648\u062f\u064a",
+            "JobTitle": "\u0645\u0634\u0631\u0641",
+            "NationalID": "102560280113748",
+            "PhoneNumber": "+1.481.258.8443",
+            "ProfileImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IdentityImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "EmploymentContractImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IBAN": "FI0470647758485729",
+            "Sex": "\u0630\u0643\u0631",
+            "Salary": 79819.20506,
+            "created_at": "2020-07-06T04:56:30.000000Z",
+            "updated_at": "2020-07-06T04:56:30.000000Z",
+            "user": null,
+            "Hey": null,
+            "action": "<form method=\"POST\" action=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/4\" accept-charset=\"UTF-8\"><input name=\"_method\" type=\"hidden\" value=\"DELETE\"><input name=\"_token\" type=\"hidden\" value=\"AilYbGXzLVStWBCKf1i6Ioe30uc5CxvEsN2ITbAe\">\n<div class='btn-group'>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/4\" class='btn btn-warning btn-sm p-1'>\n        <i class=\"fas fa-2x fa-eye\"><\/i>\n    <\/a>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/4\/edit\" class='btn btn-primary btn-sm p-1'>\n        <i class=\"fas fa-2x fa-edit\"><\/i>\n    <\/a>\n    <button type=\"submit\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm(&#039;Are you sure?&#039;)\"><i class=\"fas fa-2x fa-trash text-white\"><\/i><\/button>\n<\/div>\n<\/form>\n"
+        },
+        {
+            "ID": 5,
+            "UserID": 75,
+            "MarketplaceID": 45,
+            "MarketplaceOwnerID": 60,
+            "Nationality": "\u0627\u0645\u0627\u0631\u062a\u064a",
+            "JobTitle": "\u0645\u0634\u0631\u0641",
+            "NationalID": "667309479538383",
+            "PhoneNumber": "+1.536.506.8435",
+            "ProfileImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IdentityImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "EmploymentContractImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IBAN": "DK5566551769299335",
+            "Sex": "\u0630\u0643\u0631",
+            "Salary": 59593.27208,
+            "created_at": "2020-07-06T04:56:30.000000Z",
+            "updated_at": "2020-07-06T04:56:30.000000Z",
+            "user": null,
+            "Hey": null,
+            "action": "<form method=\"POST\" action=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/5\" accept-charset=\"UTF-8\"><input name=\"_method\" type=\"hidden\" value=\"DELETE\"><input name=\"_token\" type=\"hidden\" value=\"AilYbGXzLVStWBCKf1i6Ioe30uc5CxvEsN2ITbAe\">\n<div class='btn-group'>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/5\" class='btn btn-warning btn-sm p-1'>\n        <i class=\"fas fa-2x fa-eye\"><\/i>\n    <\/a>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/5\/edit\" class='btn btn-primary btn-sm p-1'>\n        <i class=\"fas fa-2x fa-edit\"><\/i>\n    <\/a>\n    <button type=\"submit\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm(&#039;Are you sure?&#039;)\"><i class=\"fas fa-2x fa-trash text-white\"><\/i><\/button>\n<\/div>\n<\/form>\n"
+        },
+        {
+            "ID": 6,
+            "UserID": 78,
+            "MarketplaceID": 46,
+            "MarketplaceOwnerID": 62,
+            "Nationality": "\u0627\u0645\u0627\u0631\u062a\u064a",
+            "JobTitle": "\u0645\u0634\u0631\u0641",
+            "NationalID": "374736714903826",
+            "PhoneNumber": "336-661-0660 x2192",
+            "ProfileImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IdentityImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "EmploymentContractImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IBAN": "MD44QR4777H05JOAGMR3EQ1B",
+            "Sex": "\u0630\u0643\u0631",
+            "Salary": 30089.1804,
+            "created_at": "2020-07-06T04:56:30.000000Z",
+            "updated_at": "2020-07-06T04:56:30.000000Z",
+            "user": null,
+            "Hey": null,
+            "action": "<form method=\"POST\" action=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/6\" accept-charset=\"UTF-8\"><input name=\"_method\" type=\"hidden\" value=\"DELETE\"><input name=\"_token\" type=\"hidden\" value=\"AilYbGXzLVStWBCKf1i6Ioe30uc5CxvEsN2ITbAe\">\n<div class='btn-group'>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/6\" class='btn btn-warning btn-sm p-1'>\n        <i class=\"fas fa-2x fa-eye\"><\/i>\n    <\/a>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/6\/edit\" class='btn btn-primary btn-sm p-1'>\n        <i class=\"fas fa-2x fa-edit\"><\/i>\n    <\/a>\n    <button type=\"submit\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm(&#039;Are you sure?&#039;)\"><i class=\"fas fa-2x fa-trash text-white\"><\/i><\/button>\n<\/div>\n<\/form>\n"
+        },
+        {
+            "ID": 7,
+            "UserID": 81,
+            "MarketplaceID": 47,
+            "MarketplaceOwnerID": 64,
+            "Nationality": "\u0633\u0648\u062f\u0627\u0646\u064a",
+            "JobTitle": "\u0627\u0645\u064a\u0646 \u062e\u0632\u0646\u0647",
+            "NationalID": "647178255161171",
+            "PhoneNumber": "+18834452151",
+            "ProfileImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IdentityImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "EmploymentContractImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IBAN": "VG93JEAY2307984815983965",
+            "Sex": "\u0627\u0646\u062b\u064a",
+            "Salary": 26055.80897,
+            "created_at": "2020-07-06T04:56:30.000000Z",
+            "updated_at": "2020-07-06T04:56:30.000000Z",
+            "user": null,
+            "Hey": null,
+            "action": "<form method=\"POST\" action=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/7\" accept-charset=\"UTF-8\"><input name=\"_method\" type=\"hidden\" value=\"DELETE\"><input name=\"_token\" type=\"hidden\" value=\"AilYbGXzLVStWBCKf1i6Ioe30uc5CxvEsN2ITbAe\">\n<div class='btn-group'>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/7\" class='btn btn-warning btn-sm p-1'>\n        <i class=\"fas fa-2x fa-eye\"><\/i>\n    <\/a>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/7\/edit\" class='btn btn-primary btn-sm p-1'>\n        <i class=\"fas fa-2x fa-edit\"><\/i>\n    <\/a>\n    <button type=\"submit\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm(&#039;Are you sure?&#039;)\"><i class=\"fas fa-2x fa-trash text-white\"><\/i><\/button>\n<\/div>\n<\/form>\n"
+        },
+        {
+            "ID": 8,
+            "UserID": 84,
+            "MarketplaceID": 48,
+            "MarketplaceOwnerID": 66,
+            "Nationality": "\u0633\u0639\u0648\u062f\u064a",
+            "JobTitle": "\u0645\u062d\u0627\u0633\u0628",
+            "NationalID": "487229212284291",
+            "PhoneNumber": "+17405297870",
+            "ProfileImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IdentityImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "EmploymentContractImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IBAN": "GR725793429083P9QIHWBX41G32",
+            "Sex": "\u0630\u0643\u0631",
+            "Salary": 12266.60613,
+            "created_at": "2020-07-06T04:56:30.000000Z",
+            "updated_at": "2020-07-06T04:56:30.000000Z",
+            "user": null,
+            "Hey": null,
+            "action": "<form method=\"POST\" action=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/8\" accept-charset=\"UTF-8\"><input name=\"_method\" type=\"hidden\" value=\"DELETE\"><input name=\"_token\" type=\"hidden\" value=\"AilYbGXzLVStWBCKf1i6Ioe30uc5CxvEsN2ITbAe\">\n<div class='btn-group'>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/8\" class='btn btn-warning btn-sm p-1'>\n        <i class=\"fas fa-2x fa-eye\"><\/i>\n    <\/a>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/8\/edit\" class='btn btn-primary btn-sm p-1'>\n        <i class=\"fas fa-2x fa-edit\"><\/i>\n    <\/a>\n    <button type=\"submit\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm(&#039;Are you sure?&#039;)\"><i class=\"fas fa-2x fa-trash text-white\"><\/i><\/button>\n<\/div>\n<\/form>\n"
+        },
+        {
+            "ID": 9,
+            "UserID": 87,
+            "MarketplaceID": 49,
+            "MarketplaceOwnerID": 68,
+            "Nationality": "\u0633\u0648\u062f\u0627\u0646\u064a",
+            "JobTitle": "\u0645\u0634\u0631\u0641",
+            "NationalID": "408873989926020",
+            "PhoneNumber": "+1-782-323-0799",
+            "ProfileImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IdentityImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "EmploymentContractImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IBAN": "MC493672014536TPX30TNR1T517",
+            "Sex": "\u0627\u0646\u062b\u064a",
+            "Salary": 35730.43046,
+            "created_at": "2020-07-06T04:56:30.000000Z",
+            "updated_at": "2020-07-06T04:56:30.000000Z",
+            "user": null,
+            "Hey": null,
+            "action": "<form method=\"POST\" action=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/9\" accept-charset=\"UTF-8\"><input name=\"_method\" type=\"hidden\" value=\"DELETE\"><input name=\"_token\" type=\"hidden\" value=\"AilYbGXzLVStWBCKf1i6Ioe30uc5CxvEsN2ITbAe\">\n<div class='btn-group'>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/9\" class='btn btn-warning btn-sm p-1'>\n        <i class=\"fas fa-2x fa-eye\"><\/i>\n    <\/a>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/9\/edit\" class='btn btn-primary btn-sm p-1'>\n        <i class=\"fas fa-2x fa-edit\"><\/i>\n    <\/a>\n    <button type=\"submit\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm(&#039;Are you sure?&#039;)\"><i class=\"fas fa-2x fa-trash text-white\"><\/i><\/button>\n<\/div>\n<\/form>\n"
+        },
+        {
+            "ID": 10,
+            "UserID": 90,
+            "MarketplaceID": 50,
+            "MarketplaceOwnerID": 70,
+            "Nationality": "\u0627\u0645\u0627\u0631\u062a\u064a",
+            "JobTitle": "\u0627\u0645\u064a\u0646 \u062e\u0632\u0646\u0647",
+            "NationalID": "637531255328700",
+            "PhoneNumber": "1-730-244-0056 x9619",
+            "ProfileImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IdentityImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "EmploymentContractImage": "<img src=\"https:\/\/picsum.photos\/100\/100\" alt=\"\" width=\"50\" class=\" img-fluid\">",
+            "IBAN": "FI4686772140184172",
+            "Sex": "\u0627\u0646\u062b\u064a",
+            "Salary": 14269.20153,
+            "created_at": "2020-07-06T04:56:30.000000Z",
+            "updated_at": "2020-07-06T04:56:30.000000Z",
+            "user": null,
+            "Hey": null,
+            "action": "<form method=\"POST\" action=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/10\" accept-charset=\"UTF-8\"><input name=\"_method\" type=\"hidden\" value=\"DELETE\"><input name=\"_token\" type=\"hidden\" value=\"AilYbGXzLVStWBCKf1i6Ioe30uc5CxvEsN2ITbAe\">\n<div class='btn-group'>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/10\" class='btn btn-warning btn-sm p-1'>\n        <i class=\"fas fa-2x fa-eye\"><\/i>\n    <\/a>\n    <a href=\"http:\/\/127.0.0.1:8001\/Admin\/employees\/10\/edit\" class='btn btn-primary btn-sm p-1'>\n        <i class=\"fas fa-2x fa-edit\"><\/i>\n    <\/a>\n    <button type=\"submit\" class=\"btn btn-danger btn-sm\" onclick=\"return confirm(&#039;Are you sure?&#039;)\"><i class=\"fas fa-2x fa-trash text-white\"><\/i><\/button>\n<\/div>\n<\/form>\n"
+        }
+    ],
+    "queries": [
+        {
+            "query": "select count(*) as aggregate from (select '1' as `row_count` from `employees`) count_row_table",
+            "bindings": [],
+            "time": "16.75"
+        },
+        {
+            "query": "select * from `employees` limit 10 offset 0",
+            "bindings": [],
+            "time": "1.94"
+        },
+        {
+            "query": "select * from `users` where `users`.`id` in (63, 66, 69, 72, 75, 78, 81, 84, 87, 90)",
+            "bindings": [],
+            "time": "1"
+        }
+    ],
+    "input": {
+        "draw": "1",
+        "columns": [
+            {
+                "data": "Hey"
+            },
+            {
+                "data": "MarketplaceID"
+            },
+            {
+                "data": "MarketplaceOwnerID"
+            },
+            {
+                "data": "Nationality"
+            },
+            {
+                "data": "JobTitle"
+            },
+            {
+                "data": "NationalID"
+            },
+            {
+                "data": "PhoneNumber"
+            },
+            {
+                "data": "ProfileImage"
+            },
+            {
+                "data": "IdentityImage"
+            },
+            {
+                "data": "EmploymentContractImage"
+            },
+            {
+                "data": "IBAN"
+            },
+            {
+                "data": "Sex"
+            },
+            {
+                "data": "Salary"
+            },
+            {
+                "data": "action",
+                "searchable": "false",
+                "orderable": "false"
+            }
+        ],
+        "order": [
+            {
+                "column": "0",
+                "dir": "desc"
+            }
+        ],
+        "start": "0",
+        "length": "10",
+        "search": {
+            "value": null
+        },
+        "_": "1594100760882"
+    }
+}

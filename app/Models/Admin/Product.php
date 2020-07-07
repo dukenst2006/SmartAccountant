@@ -2,19 +2,23 @@
 
 namespace App\Models\Admin;
 
+use Carbon\Carbon;
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Product
  * @package App\Models\Admin
  * @version July 6, 2020, 5:44 am UTC
  *
- * @property \App\Models\Admin\Marketplace $marketplacesid
- * @property \App\Models\Admin\ProductCategory $productcategoryid
- * @property \App\Models\Admin\ProductSubCategory $productsubcategoryid
- * @property \App\Models\Admin\QuantityType $quantitytypeid
- * @property \App\Models\Admin\User $userid
- * @property \Illuminate\Database\Eloquent\Collection $invoiceItems
+ * @property Marketplace $marketplacesid
+ * @property ProductCategory $productcategoryid
+ * @property ProductSubCategory $productsubcategoryid
+ * @property QuantityType $quantitytypeid
+ * @property User $userid
+ * @property Collection $invoiceItems
  * @property integer $UserID
  * @property integer $MarketplacesID
  * @property integer $ProductCategoryID
@@ -26,21 +30,34 @@ use Eloquent as Model;
  * @property number $SellingPrice
  * @property number $LowPrice
  * @property string $Image
- * @property string|\Carbon\Carbon $ExpiryDate
+ * @property string|Carbon $ExpiryDate
  * @property string $Barcode
  * @property boolean $UnlimitedQuantity
  */
 class Product extends Model
 {
 
-    public $table = 'products';
-    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-
-
-
-
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'UserID' => 'required',
+        'MarketplacesID' => 'required',
+        'ProductCategoryID' => 'required',
+        'Name' => 'required',
+        'Quantity' => 'required',
+        'QuantityTypeID' => 'required',
+        'PurchasingPrice' => 'required',
+        'SellingPrice' => 'required',
+        'Image' => 'required',
+        'Barcode' => 'required',
+        'UnlimitedQuantity' => 'required'
+    ];
+    public $table = 'products';
     public $fillable = [
         'UserID',
         'MarketplacesID',
@@ -57,6 +74,7 @@ class Product extends Model
         'Barcode',
         'UnlimitedQuantity'
     ];
+    protected $with = ['marketplace:id,name'];
 
     /**
      * The attributes that should be casted to native types.
@@ -82,69 +100,50 @@ class Product extends Model
     ];
 
     /**
-     * Validation rules
-     *
-     * @var array
-     */
-    public static $rules = [
-        'UserID' => 'required',
-        'MarketplacesID' => 'required',
-        'ProductCategoryID' => 'required',
-        'Name' => 'required',
-        'Quantity' => 'required',
-        'QuantityTypeID' => 'required',
-        'PurchasingPrice' => 'required',
-        'SellingPrice' => 'required',
-        'Image' => 'required',
-        'Barcode' => 'required',
-        'UnlimitedQuantity' => 'required'
-    ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
-    public function marketplacesid()
+    public function Marketplace()
     {
-        return $this->belongsTo(\App\Models\Admin\Marketplace::class, 'MarketplacesID');
+        return $this->belongsTo(Marketplace::class, 'MarketplacesID');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
     public function productcategoryid()
     {
-        return $this->belongsTo(\App\Models\Admin\ProductCategory::class, 'ProductCategoryID');
+        return $this->belongsTo(ProductCategory::class, 'ProductCategoryID');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
     public function productsubcategoryid()
     {
-        return $this->belongsTo(\App\Models\Admin\ProductSubCategory::class, 'ProductSubCategoryID');
+        return $this->belongsTo(ProductSubCategory::class, 'ProductSubCategoryID');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
     public function quantitytypeid()
     {
-        return $this->belongsTo(\App\Models\Admin\QuantityType::class, 'QuantityTypeID');
+        return $this->belongsTo(QuantityType::class, 'QuantityTypeID');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
     public function userid()
     {
-        return $this->belongsTo(\App\Models\Admin\User::class, 'UserID');
+        return $this->belongsTo(User::class, 'UserID');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      **/
     public function invoiceItems()
     {
-        return $this->hasMany(\App\Models\Admin\InvoiceItem::class, 'ProductID');
+        return $this->hasMany(InvoiceItem::class, 'ProductID');
     }
 }

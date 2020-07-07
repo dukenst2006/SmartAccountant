@@ -80,3 +80,6 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('expensesSubCategories', 'Admin\ExpensesSubCategoryController', ["as" => 'admin']);
 });
+
+
+Route::resource('posts', 'postController');

@@ -196,6 +196,9 @@ abstract class BaseRepository
 
         return $model->delete();
     }
+
+
+
     public function GetDataForSelect($table){
         $aaa = DB::table($table)->select('ID','Name')->get();
         $items = array();

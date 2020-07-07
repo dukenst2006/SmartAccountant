@@ -3,6 +3,9 @@
 namespace App\DataTables\Admin;
 
 use App\Models\Admin\Product;
+use Yajra\DataTables\DataTableAbstract;
+use Yajra\DataTables\Html\Builder;
+use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -11,20 +14,25 @@ class ProductDataTable extends DataTable
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
-     * @return \Yajra\DataTables\DataTableAbstract
+     * @param  mixed  $query  Results from query() method.
+     * @return DataTableAbstract
      */
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'admin.products.datatables_actions');
+        return $dataTable
+            ->addColumn('Image', function ($data) {
+                return '<img src="https://picsum.photos/100/100" alt="" width="50" class=" img-fluid">';
+            })
+            ->addColumn('action', 'admin.products.datatables_actions')
+            ->rawColumns(['Image', 'action']);
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Product $model
+     * @param  \App\Models\Product  $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Product $model)
@@ -35,7 +43,7 @@ class ProductDataTable extends DataTable
     /**
      * Optional method if you want to use html builder.
      *
-     * @return \Yajra\DataTables\Html\Builder
+     * @return Builder
      */
     public function html()
     {
@@ -44,10 +52,10 @@ class ProductDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom' => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
+                'order' => [[0, 'desc']],
+                'buttons' => [
                     ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -65,20 +73,19 @@ class ProductDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'UserID',
-            'MarketplacesID',
-            'ProductCategoryID',
-            'ProductSubCategoryID',
-            'Name',
-            'Quantity',
-            'QuantityTypeID',
-            'PurchasingPrice',
-            'SellingPrice',
-            'LowPrice',
-            'Image',
-            'ExpiryDate',
-            'Barcode',
-            'UnlimitedQuantity'
+
+            new Column([ 'data' => 'marketplace.name', 'name' => 'marketplace.name', 'title' => __('Models/Marketplace.Name') ]),
+            new Column([ 'data' => 'ProductCategoryID', 'name' => 'ProductCategoryID', 'title' => __('Models/Product.ProductCategoryID') ]),
+            new Column([ 'data' => 'ProductSubCategoryID', 'name' => 'ProductSubCategoryID', 'title' => __('Models/Product.ProductSubCategoryID') ]),
+            new Column([ 'data' => 'Name', 'name' => 'Name', 'title' => __('Models/Product.Name')]), new Column(['data' => 'Quantity', 'name' => 'Quantity', 'title' => __('Models/Product.Quantity')]),
+            new Column([ 'data' => 'QuantityTypeID', 'name' => 'QuantityTypeID', 'title' => __('Models/Product.QuantityTypeID') ]),
+            new Column([ 'data' => 'PurchasingPrice', 'name' => 'PurchasingPrice', 'title' => __('Models/Product.PurchasingPrice') ]),
+            new Column([ 'data' => 'SellingPrice', 'name' => 'SellingPrice', 'title' => __('Models/Product.SellingPrice') ]),
+            new Column(['data' => 'LowPrice', 'name' => 'LowPrice', 'title' => __('Models/Product.LowPrice')]),
+            new Column(['data' => 'Image', 'name' => 'Image', 'title' => __('Models/Product.Image')]),
+            new Column(['data' => 'ExpiryDate', 'name' => 'ExpiryDate', 'title' => __('Models/Product.ExpiryDate')]),
+            new Column(['data' => 'Barcode', 'name' => 'Barcode', 'title' => __('Models/Product.Barcode')]),
+            new Column([ 'data' => 'UnlimitedQuantity', 'name' => 'UnlimitedQuantity', 'title' => __('Models/Product.UnlimitedQuantity') ]),
         ];
     }
 
@@ -89,6 +96,6 @@ class ProductDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'products_datatable_' . time();
+        return 'products_datatable_'.time();
     }
 }

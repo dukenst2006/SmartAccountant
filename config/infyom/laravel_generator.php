@@ -124,11 +124,11 @@ return [
 
         'softDelete' => false,
 
-        'save_schema_file' => false,
+        'save_schema_file' => true,
 
         'localized' => false,
 
-        'tables_searchable_default' => false,
+        'tables_searchable_default' => true,
 
         'repository_pattern' => true,
 
@@ -166,7 +166,7 @@ return [
 
         'tests'         => true,
 
-        'datatables'    => true,
+        'datatables'    => false,
 
         'menu'          => [
 

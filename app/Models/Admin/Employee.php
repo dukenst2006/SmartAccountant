@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Models\Marketplace;
 use Eloquent as Model;
 
 /**
@@ -35,6 +36,7 @@ class Employee extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
+    protected $with = ['user:id,Name','marketplace:id,name'];
 
 
 
@@ -99,7 +101,7 @@ class Employee extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function marketplaceid()
+    public function Marketplace()
     {
         return $this->belongsTo(\App\Models\Admin\Marketplace::class, 'MarketplaceID');
     }
@@ -119,6 +121,7 @@ class Employee extends Model
     {
         return $this->belongsTo(\App\Models\Admin\User::class, 'UserID');
     }
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

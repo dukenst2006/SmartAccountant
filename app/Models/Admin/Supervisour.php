@@ -19,7 +19,7 @@ class Supervisour extends Model
 {
 
     public $table = 'supervisors';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -43,7 +43,7 @@ class Supervisour extends Model
         'MarketplaceOwnerID' => 'integer',
         'PhoneNumber' => 'string'
     ];
-
+    protected $with = ['marketplace:id,name'];
     /**
      * Validation rules
      *

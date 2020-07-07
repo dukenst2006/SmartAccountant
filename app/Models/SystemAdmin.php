@@ -12,7 +12,9 @@ class SystemAdmin extends Model
         'SoftwareVersion',
         'SerialKey',
     ];
-    public function User(){
-        return $this->belongsTo(User::class,'UserID','ID');
-    }
+
+
+
+
+
 }
