@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\Employee;
+use App\Models\Employee;
 
 class UpdateEmployeeRequest extends FormRequest
 {
@@ -26,7 +26,7 @@ class UpdateEmployeeRequest extends FormRequest
     public function rules()
     {
         $rules = Employee::$rules;
-        
+
         return $rules;
     }
 }

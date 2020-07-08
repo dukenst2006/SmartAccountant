@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\ExpensesSubCategory;
+use App\Models\ExpensesSubCategory;
 
 class CreateExpensesSubCategoryRequest extends FormRequest
 {

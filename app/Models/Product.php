@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models;
 
 use Carbon\Carbon;
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -13,11 +13,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @package App\Models\Admin
  * @version July 6, 2020, 5:44 am UTC
  *
- * @property Marketplace $marketplacesid
- * @property ProductCategory $productcategoryid
- * @property ProductSubCategory $productsubcategoryid
- * @property QuantityType $quantitytypeid
- * @property User $userid
+ * @property Marketplace $Marketplace
+ * @property ProductCategory $ProductCategory
+ * @property ProductSubCategory $ProductSubCategory
+ * @property QuantityType $QuantityType
+ * @property User $User
  * @property Collection $invoiceItems
  * @property integer $UserID
  * @property integer $MarketplacesID
@@ -82,7 +82,7 @@ class Product extends Model
      * @var array
      */
     protected $casts = [
-        'ID' => 'integer',
+        'id' => 'integer',
         'UserID' => 'integer',
         'MarketplacesID' => 'integer',
         'ProductCategoryID' => 'integer',
@@ -110,7 +110,7 @@ class Product extends Model
     /**
      * @return BelongsTo
      **/
-    public function productcategoryid()
+    public function ProductCategory()
     {
         return $this->belongsTo(ProductCategory::class, 'ProductCategoryID');
     }
@@ -118,7 +118,7 @@ class Product extends Model
     /**
      * @return BelongsTo
      **/
-    public function productsubcategoryid()
+    public function ProductSubCategory()
     {
         return $this->belongsTo(ProductSubCategory::class, 'ProductSubCategoryID');
     }
@@ -126,7 +126,7 @@ class Product extends Model
     /**
      * @return BelongsTo
      **/
-    public function quantitytypeid()
+    public function QuantityType()
     {
         return $this->belongsTo(QuantityType::class, 'QuantityTypeID');
     }
@@ -134,16 +134,10 @@ class Product extends Model
     /**
      * @return BelongsTo
      **/
-    public function userid()
+    public function User()
     {
         return $this->belongsTo(User::class, 'UserID');
     }
 
-    /**
-     * @return HasMany
-     **/
-    public function invoiceItems()
-    {
-        return $this->hasMany(InvoiceItem::class, 'ProductID');
-    }
+
 }

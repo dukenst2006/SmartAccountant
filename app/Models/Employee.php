@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models;
 
-use App\Models\Marketplace;
-use Eloquent as Model;
+use \App\Models\Marketplace;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Employee
  * @package App\Models\Admin
  * @version July 6, 2020, 5:31 am UTC
  *
- * @property \App\Models\Admin\Marketplace $marketplaceid
- * @property \App\Models\Admin\MarketplaceOwner $marketplaceownerid
- * @property \App\Models\Admin\User $User
+ * @property \App\Models\Marketplace $marketplaceid
+ * @property \App\Models\MarketplaceOwner $marketplaceownerid
+ * @property \App\Models\User $user
  * @property \Illuminate\Database\Eloquent\Collection $employeeSalaryInfos
  * @property integer $UserID
  * @property integer $MarketplaceID
@@ -62,7 +62,7 @@ class Employee extends Model
      * @var array
      */
     protected $casts = [
-        'ID' => 'integer',
+        'id' => 'integer',
         'UserID' => 'integer',
         'MarketplaceID' => 'integer',
         'MarketplaceOwnerID' => 'integer',
@@ -84,15 +84,11 @@ class Employee extends Model
      * @var array
      */
     public static $rules = [
+       // 'Name' => 'required',
         'MarketplaceID' => 'required',
-        'MarketplaceOwnerID' => 'required',
         'Nationality' => 'required',
         'JobTitle' => 'required',
         'NationalID' => 'required',
-        'PhoneNumber' => 'required',
-        'ProfileImage' => 'required',
-        'IdentityImage' => 'required',
-        'EmploymentContractImage' => 'required',
         'IBAN' => 'required',
         'Sex' => 'required',
         'Salary' => 'required'
@@ -103,7 +99,7 @@ class Employee extends Model
      **/
     public function Marketplace()
     {
-        return $this->belongsTo(\App\Models\Admin\Marketplace::class, 'MarketplaceID');
+        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplaceID');
     }
 
     /**
@@ -111,15 +107,15 @@ class Employee extends Model
      **/
     public function marketplaceownerid()
     {
-        return $this->belongsTo(\App\Models\Admin\MarketplaceOwner::class, 'MarketplaceOwnerID');
+        return $this->belongsTo(\App\Models\MarketplaceOwner::class, 'MarketplaceOwnerID');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function User()
+    public function user()
     {
-        return $this->belongsTo(\App\Models\Admin\User::class, 'UserID');
+        return $this->belongsTo(\App\Models\User::class, 'UserID');
     }
 
 
@@ -128,6 +124,6 @@ class Employee extends Model
      **/
     public function employeeSalaryInfos()
     {
-        return $this->hasMany(\App\Models\Admin\EmployeeSalaryInfo::class, 'EmployeeID');
+        return $this->hasMany(\App\Models\EmployeeSalaryInfo::class, 'EmployeeID');
     }
 }

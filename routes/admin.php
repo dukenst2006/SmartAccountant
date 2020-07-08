@@ -1,17 +1,43 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
-//auth()->loginUsingId(1);
+
+auth()->loginUsingId(1);
+
+Route::get('/seedfresh', function () {
+//  \Illuminate\Support\Facades\Artisan::call('migrate:fresh');
+    Artisan::call('db:seed');
+    return (html_entity_decode('<h1>Migration Complete</h1> <h1>Seeder Complete</h1> <br> <a href="/Admin"> <h1>Go To Dashboard</h1></a>  '));
+});
+
+
 Route::redirect('/', '/Admin');
 Route::get('lang/{Language}', 'LocalizationController@index')->name('ChangeLanguage');
 Route::group(['prefix' => 'Admin'], function () {
 //'middleware' => ['role:super-admin'] ,
     Route::get('/', 'HomeController@index')->name('Home');
     Route::get('About', 'AboutController@index')->name('About');
+    Route::resource('supervisors', 'Admin\SupervisorController');
+      Route::resource('employees', 'EmployeeController');
+
+    Route::resource('marketplaces', 'Admin\MarketplaceController');
+    Route::resource('products', 'Admin\ProductController');
+    Route::resource('productCategories', 'Admin\ProductCategoriesController');
+    Route::resource('productSubCategories', 'Admin\ProductSubCategoryController');
+
+    Route::get('safe', 'SafeController@index');
+
+    Route::resource('productCategories', 'Admin\ProductCategoryController');
+    Route::resource('productSubCategories', 'Admin\ProductSubCategoryController');
+    Route::resource('expenses', 'Admin\ExpenseController');
+    Route::resource('expensesCategories', 'Admin\ExpensesCategoryController');
+    Route::resource('expensesSubCategories', 'Admin\ExpensesSubCategoryController');
+    Route::resource('posts', 'postController');
     Route::resource('settings', 'SettingsController')->except('create', 'edit', 'destroy', 'show', 'store');
-    Route::resource('marketplaces', 'MarketplaceController');
-    Route::resource('employees', 'EmployeeController');
+
+
 //    Route::get('humanR', 'HumanResourceController@index')->name('human_r');
 //    Route::get('StonedAll', 'EmployeeController@stoned')->name('stoned_emps');
 //    Route::get('ActiveAll', 'EmployeeController@active')->name('active_emps');

@@ -1,9 +1,3 @@
-<!-- Userid Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('UserID', 'Userid:') !!}
-    {!! Form::number('UserID', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Marketplacesid Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('MarketplacesID', 'Marketplaces:') !!}

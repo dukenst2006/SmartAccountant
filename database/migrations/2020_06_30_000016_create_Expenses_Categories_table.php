@@ -14,7 +14,7 @@ class CreateExpensesCategoriesTable extends Migration
     public function up()
     {
         Schema::create('expenses_categories', function (Blueprint $table) {
-            $table->bigIncrements('ID');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('MarketplacesID');
             $table->string('Name');
             $table->timestamps();
@@ -23,7 +23,7 @@ class CreateExpensesCategoriesTable extends Migration
 
 
 
-            $table->foreign('MarketplacesID')->references('ID')->on('marketplaces')->onDelete('cascade');
+            $table->foreign('MarketplacesID')->references('id')->on('marketplaces')->onDelete('cascade');
         });
     }
 

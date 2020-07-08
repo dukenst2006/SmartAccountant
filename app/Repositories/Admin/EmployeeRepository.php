@@ -2,9 +2,10 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Admin\Employee;
-use App\Models\Admin\User;
+use App\Models\Employee;
+use App\Models\User;
 use App\Repositories\BaseRepository;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class EmployeeRepository
@@ -51,6 +52,28 @@ class EmployeeRepository extends BaseRepository
         return Employee::class;
     }
 
+    /**
+     * Update model record for given id
+     *
+     * @param array $input
+     * @param int $id
+     *
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model
+     */
+    public function update($input, $id )
+    {
+
+        $query = $this->model->newQuery();
+        $model = $query->findOrFail($id );
+        $model->fill($input);
+        $model->user->Name= $input['Name'];
+        $model->user->save();
+        $model->save();
+
+
+        return $model;
+    }
+
     public function create($input)
     {
      //User::create()
@@ -60,5 +83,10 @@ class EmployeeRepository extends BaseRepository
 
         return $model;
     }
+
+
+
+
+
 
 }

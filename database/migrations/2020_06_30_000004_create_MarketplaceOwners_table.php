@@ -14,11 +14,11 @@ class CreateMarketplaceOwnersTable extends Migration
     public function up()
     {
         Schema::create('marketplace_owners', function (Blueprint $table) {
-            $table->bigIncrements('ID');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('UserID');
             $table->string('PhoneNumber');
             $table->timestamps();
-            $table->foreign('UserID')->references('ID')->on('Users')->onDelete('cascade');
+            $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

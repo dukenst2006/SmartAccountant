@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ProductCategories
  * @package App\Models\
  * @version July 5, 2020, 8:28 am UTC
  *
- * @property \App\Models\Marketplace $marketplacesid
+ * @property \\App\Models\Marketplace $marketplacesid
  * @property \Illuminate\Database\Eloquent\Collection $productSubCategories
  * @property \Illuminate\Database\Eloquent\Collection $products
  * @property integer $MarketplacesID
@@ -37,7 +37,7 @@ class ProductCategories extends Model
      * @var array
      */
     protected $casts = [
-        'ID' => 'integer',
+        'id' => 'integer',
         'MarketplacesID' => 'integer',
         'Name' => 'string'
     ];
@@ -57,7 +57,7 @@ class ProductCategories extends Model
      **/
     public function marketplacesid()
     {
-        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplacesID');
+        return $this->belongsTo(\\App\Models\Marketplace::class, 'MarketplacesID');
     }
 
     /**

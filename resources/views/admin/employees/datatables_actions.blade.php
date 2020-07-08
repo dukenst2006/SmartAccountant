@@ -1,9 +1,11 @@
-{!! Form::open(['route' => ['admin.employees.destroy', $ID ], 'method' => 'delete']) !!}
+
+
+{!! Form::open(['route' => ['admin.employees.destroy', $id ], 'method' => 'delete']) !!}
 <div class='btn-group'>
-    <a href="{{ route('admin.employees.show', $ID ) }}" class='btn btn-warning btn-sm p-1'>
+    <a href="{{ route('admin.employees.show', $id ) }}" class='btn btn-warning btn-sm p-1'>
         <i class="fas fa-2x fa-eye"></i>
     </a>
-    <a href="{{ route('admin.employees.edit', $ID ) }}" class='btn btn-primary btn-sm p-1'>
+    <a href="{{ route('admin.employees.edit', $id ) }}" class='btn btn-primary btn-sm p-1'>
         <i class="fas fa-2x fa-edit"></i>
     </a>
     {!! Form::button('<i class="fas fa-2x fa-trash text-white"></i>', [

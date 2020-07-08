@@ -2,15 +2,29 @@
 
 namespace App\Observers;
 
-use App\Models\Marketplace;
+use \App\Models\Marketplace;
 use App\Models\Safe;
 
 class MarketplaceObserver
 {
+
+
+
+
+
+    /**
+     * Handle the marketplace "creating" event.
+     *
+     * @param  \\App\Models\Marketplace  $marketplace
+     * @return void
+     */
+
+
+
     /**
      * Handle the marketplace "created" event.
      *
-     * @param  \App\Models\Marketplace  $marketplace
+     * @param  \\App\Models\Marketplace  $marketplace
      * @return void
      */
     public function created(Marketplace $marketplace)
@@ -23,7 +37,7 @@ class MarketplaceObserver
     /**
      * Handle the marketplace "updated" event.
      *
-     * @param  \App\Models\Marketplace  $marketplace
+     * @param  \\App\Models\Marketplace  $marketplace
      * @return void
      */
     public function updated(Marketplace $marketplace)
@@ -34,7 +48,7 @@ class MarketplaceObserver
     /**
      * Handle the marketplace "deleted" event.
      *
-     * @param  \App\Models\Marketplace  $marketplace
+     * @param  \\App\Models\Marketplace  $marketplace
      * @return void
      */
     public function deleted(Marketplace $marketplace)
@@ -45,7 +59,7 @@ class MarketplaceObserver
     /**
      * Handle the marketplace "restored" event.
      *
-     * @param  \App\Models\Marketplace  $marketplace
+     * @param  \\App\Models\Marketplace  $marketplace
      * @return void
      */
     public function restored(Marketplace $marketplace)
@@ -56,7 +70,7 @@ class MarketplaceObserver
     /**
      * Handle the marketplace "force deleted" event.
      *
-     * @param  \App\Models\Marketplace  $marketplace
+     * @param  \\App\Models\Marketplace  $marketplace
      * @return void
      */
     public function forceDeleted(Marketplace $marketplace)

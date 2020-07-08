@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
+
 
 /**
  * Class Supervisor
  * @package App\Models\Admin
  * @version July 6, 2020, 5:37 am UTC
  *
- * @property \App\Models\Admin\MarketplaceOwner $marketplaceownerid
- * @property \App\Models\Admin\User $userid
+ * @property \App\Models\MarketplaceOwner $marketplaceownerid
+ * @property \App\Models\User $userid
  * @property integer $UserID
  * @property integer $MarketplaceOwnerID
  * @property string $PhoneNumber
@@ -19,16 +20,15 @@ class Supervisor extends Model
 {
 
     public $table = 'supervisors';
-    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
+    protected $with = ['user:id,Name','marketplace:id,name'];
 
 
     public $fillable = [
         'UserID',
-        'MarketplaceOwnerID',
+        'MarketplaceID',
         'PhoneNumber'
     ];
 
@@ -38,9 +38,9 @@ class Supervisor extends Model
      * @var array
      */
     protected $casts = [
-        'ID' => 'integer',
+        'id' => 'integer',
         'UserID' => 'integer',
-        'MarketplaceOwnerID' => 'integer',
+        'MarketplaceID' => 'integer',
         'PhoneNumber' => 'string'
     ];
 
@@ -51,23 +51,23 @@ class Supervisor extends Model
      */
     public static $rules = [
         'UserID' => 'required',
-        'MarketplaceOwnerID' => 'required',
+        'MarketplaceID' => 'required',
         'PhoneNumber' => 'required'
     ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function marketplaceownerid()
+    public function marketplace()
     {
-        return $this->belongsTo(\App\Models\Admin\MarketplaceOwner::class, 'MarketplaceOwnerID');
+        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplacesID');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function userid()
+    public function user()
     {
-        return $this->belongsTo(\App\Models\Admin\User::class, 'UserID');
+        return $this->belongsTo(\App\Models\User::class, 'UserID');
     }
 }

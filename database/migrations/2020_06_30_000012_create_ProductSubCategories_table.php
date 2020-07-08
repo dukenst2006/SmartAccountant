@@ -14,14 +14,14 @@ class CreateProductSubCategoriesTable extends Migration
     public function up()
     {
         Schema::create('product_sub_categories', function (Blueprint $table) {
-            $table->bigIncrements('ID');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('ProductCategoryID');
             $table->string('Name');
             $table->timestamps();
 
 
 
-            $table->foreign('ProductCategoryID')->references('ID')->on('product_categories')->onDelete('cascade');
+            $table->foreign('ProductCategoryID')->references('id')->on('product_categories')->onDelete('cascade');
 
         });
     }

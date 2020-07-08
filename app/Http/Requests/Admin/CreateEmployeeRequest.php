@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\Employee;
+use App\Models\Employee;
 
 class CreateEmployeeRequest extends FormRequest
 {

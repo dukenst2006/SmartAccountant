@@ -2,7 +2,7 @@
 
 namespace App\DataTables\Admin;
 
-use App\Models\Admin\Marketplace;
+use App\Models\Marketplace;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -31,7 +31,7 @@ class MarketplaceDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Marketplace $model
+     * @param \\App\Models\Marketplace $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Marketplace $model)

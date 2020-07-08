@@ -6,8 +6,8 @@ use App\DataTables\Admin\EmployeeDataTable;
 use App\Http\Requests\Admin;
 use App\Http\Requests\Admin\CreateEmployeeRequest;
 use App\Http\Requests\Admin\UpdateEmployeeRequest;
-use App\Models\Admin\Marketplace;
-use App\Models\MarketplaceOwner;
+use App\Models\Marketplace;
+use \App\Models\MarketplaceOwner;
 use App\Repositories\Admin\EmployeeRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
@@ -72,13 +72,13 @@ class EmployeeController extends AppBaseController
     /**
      * Display the specified Employee.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function show($ID )
+    public function show($id )
     {
-        $employee = $this->employeeRepository->find($ID );
+        $employee = $this->employeeRepository->find($id );
 
         if (empty($employee)) {
             Flash::error('Employee not found');
@@ -92,13 +92,13 @@ class EmployeeController extends AppBaseController
     /**
      * Show the form for editing the specified Employee.
      *
-     * @param  int $ID
+     * @param  int $id
      *
-     * @return Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit($ID )
+    public function edit($id )
     {
-        $employee = $this->employeeRepository->find($ID );
+        $employee = $this->employeeRepository->find($id );
 
         if (empty($employee)) {
             Flash::error('Employee not found');
@@ -106,20 +106,22 @@ class EmployeeController extends AppBaseController
             return redirect(route('admin.employees.index'));
         }
 
-        return view('admin.employees.edit')->with('employee', $employee);
+        return view('admin.employees.edit')
+            ->with(['employee'=> $employee ,
+                'marketplaces' =>$this->employeeRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID')]);
     }
 
     /**
      * Update the specified Employee in storage.
      *
-     * @param  int              $ID
+     * @param  int              $id
      * @param UpdateEmployeeRequest $request
      *
      * @return Response
      */
-    public function update($ID , UpdateEmployeeRequest $request)
+    public function update($id , UpdateEmployeeRequest $request)
     {
-        $employee = $this->employeeRepository->find($ID );
+        $employee = $this->employeeRepository->find($id );
         $input = $request->all();
         $input['ProfileImage'] = $this->employeeRepository
             ->StoreFile($request->file('ProfileImage'),$employee['ProfileImage']);
@@ -133,7 +135,7 @@ class EmployeeController extends AppBaseController
             return redirect(route('admin.employees.index'));
         }
 
-        $employee = $this->employeeRepository->update($input, $ID );
+        $employee = $this->employeeRepository->update($input, $id );
 
         Flash::success('Employee updated successfully.');
 
@@ -143,13 +145,13 @@ class EmployeeController extends AppBaseController
     /**
      * Remove the specified Employee from storage.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function destroy($ID )
+    public function destroy($id )
     {
-        $employee = $this->employeeRepository->find($ID );
+        $employee = $this->employeeRepository->find($id );
 
         if (empty($employee)) {
             Flash::error('Employee not found');
@@ -157,7 +159,7 @@ class EmployeeController extends AppBaseController
             return redirect(route('admin.employees.index'));
         }
 
-        $this->employeeRepository->delete($ID );
+        $this->employeeRepository->delete($id );
 
         Flash::success('Employee deleted successfully.');
 

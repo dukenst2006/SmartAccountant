@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\ProductSubCategory;
+use App\Models\ProductSubCategory;
 
 class CreateProductSubCategoryRequest extends FormRequest
 {
