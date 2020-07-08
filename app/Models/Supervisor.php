@@ -23,8 +23,7 @@ class Supervisor extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-    protected $with = ['user:id,Name','marketplace:id,name'];
-
+    protected $with = ['user:id,Name,Email,Password','marketplace:id,MarketplaceOwnerID,Name'];
 
     public $fillable = [
         'UserID',

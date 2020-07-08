@@ -147,6 +147,33 @@ abstract class BaseRepository
         return $model;
     }
 
+
+
+
+
+
+
+    /**
+     * Create model With User
+     *
+     * @param array $input
+     *
+     * @return Model
+     */
+    public function CreateWithUser($input)
+    {
+        $model = $this->model->newInstance($input);
+
+        $model->save();
+
+        return $model;
+    }
+
+
+
+
+
+
     /**
      * Find model record for given id
      *

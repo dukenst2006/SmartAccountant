@@ -22,6 +22,7 @@ return [
     'HumanResources' => 'الموارد البشرية',
     'Supervisors' => 'المشرفين',
     'Employee' => 'الموظفين',
+    'Companies' => 'الشركات',
     'Suppliers' => 'الموردين',
 
 

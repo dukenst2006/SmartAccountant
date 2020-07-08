@@ -19,23 +19,25 @@ Route::group(['prefix' => 'Admin'], function () {
 //'middleware' => ['role:super-admin'] ,
     Route::get('/', 'HomeController@index')->name('Home');
     Route::get('About', 'AboutController@index')->name('About');
-    Route::resource('supervisors', 'Admin\SupervisorController');
-      Route::resource('employees', 'EmployeeController');
-
-    Route::resource('marketplaces', 'Admin\MarketplaceController');
-    Route::resource('products', 'Admin\ProductController');
-    Route::resource('productCategories', 'Admin\ProductCategoriesController');
-    Route::resource('productSubCategories', 'Admin\ProductSubCategoryController');
-
-    Route::get('safe', 'SafeController@index');
-
-    Route::resource('productCategories', 'Admin\ProductCategoryController');
-    Route::resource('productSubCategories', 'Admin\ProductSubCategoryController');
-    Route::resource('expenses', 'Admin\ExpenseController');
-    Route::resource('expensesCategories', 'Admin\ExpensesCategoryController');
-    Route::resource('expensesSubCategories', 'Admin\ExpensesSubCategoryController');
+    Route::resource('supervisors', 'SupervisorController');
+    Route::resource('employees', 'EmployeeController');
+    Route::resource('marketplaces', 'MarketplaceController');
+    Route::resource('products', 'ProductController');
+    Route::resource('productCategories', 'ProductCategoriesController');
+    Route::resource('productSubCategories', 'ProductSubCategoryController');
+    Route::get('safe', 'SafeController@index')->name('safe');
+    Route::resource('productCategories', 'ProductCategoryController');
+    Route::resource('productSubCategories', 'ProductSubCategoryController');
+    Route::resource('expenses', 'ExpenseController');
+    Route::resource('expensesCategories', 'ExpensesCategoryController');
+    Route::resource('expensesSubCategories', 'ExpensesSubCategoryController');
     Route::resource('posts', 'postController');
     Route::resource('settings', 'SettingsController')->except('create', 'edit', 'destroy', 'show', 'store');
+    Route::resource('companies', 'CompanyController');
+    Route::resource('suppliers', 'SupplierController');
+
+
+
 
 
 //    Route::get('humanR', 'HumanResourceController@index')->name('human_r');

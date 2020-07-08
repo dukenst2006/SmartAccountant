@@ -74,7 +74,7 @@ class Product extends Model
         'Barcode',
         'UnlimitedQuantity'
     ];
-    protected $with = ['marketplace:id,name'];
+    protected $with = ['user:id,Name,Email,Password','marketplace:id,MarketplaceOwnerID,Name'];
 
     /**
      * The attributes that should be casted to native types.

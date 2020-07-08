@@ -17,8 +17,6 @@ class CreateEmployeesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('UserID');
             $table->unsignedBigInteger('MarketplaceID');
-            $table->unsignedBigInteger('MarketplaceOwnerID');
-
             $table->string('Nationality');
             $table->string('JobTitle');
             $table->string('NationalID');
@@ -35,7 +33,6 @@ class CreateEmployeesTable extends Migration
 
             $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('MarketplaceID')->references('id')->on('marketplaces')->onDelete('cascade');
-            $table->foreign('MarketplaceOwnerID')->references('id')->on('marketplace_owners')->onDelete('cascade');
         });
     }
 

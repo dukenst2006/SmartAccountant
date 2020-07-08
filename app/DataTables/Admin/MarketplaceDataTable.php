@@ -72,6 +72,7 @@ class MarketplaceDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            new Column(['data'=>'id', 'name'=>'id' ,'title'=>'#']),
             new Column(['data'=>'Name', 'name'=>'Name' ,'title'=>__('Models/Marketplace.Name')]),
             new Column(['data'=>'Country', 'name'=>'Country' ,'title'=>__('Models/Marketplace.Country')]),
             new Column(['data'=>'City', 'name'=>'City' ,'title'=>__('Models/Marketplace.City')]),

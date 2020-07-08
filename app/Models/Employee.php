@@ -1,22 +1,20 @@
 <?php
-
 namespace App\Models;
-
-use \App\Models\Marketplace;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Employee
  * @package App\Models\Admin
  * @version July 6, 2020, 5:31 am UTC
  *
- * @property \App\Models\Marketplace $marketplaceid
- * @property \App\Models\MarketplaceOwner $marketplaceownerid
- * @property \App\Models\User $user
- * @property \Illuminate\Database\Eloquent\Collection $employeeSalaryInfos
+ * @property \App\Models\Admin\Marketplace $marketplaceid
+ * @property User $User
+ * @property Collection $employeeSalaryInfos
  * @property integer $UserID
  * @property integer $MarketplaceID
- * @property integer $MarketplaceOwnerID
  * @property string $Nationality
  * @property string $JobTitle
  * @property string $NationalID
@@ -31,19 +29,30 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model
 {
 
-    public $table = 'employees';
-
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-
-    protected $with = ['user:id,Name','marketplace:id,name'];
-
-
-
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'MarketplaceID' => 'required',
+        'Nationality' => 'required',
+        'JobTitle' => 'required',
+        'NationalID' => 'required',
+        'PhoneNumber' => 'required',
+        'ProfileImage' => 'required',
+        'IdentityImage' => 'required',
+        'EmploymentContractImage' => 'required',
+        'IBAN' => 'required',
+        'Sex' => 'required',
+        'Salary' => 'required'
+    ];
+    public $table = 'employees';
     public $fillable = [
         'UserID',
         'MarketplaceID',
-        'MarketplaceOwnerID',
         'Nationality',
         'JobTitle',
         'NationalID',
@@ -55,17 +64,16 @@ class Employee extends Model
         'Sex',
         'Salary'
     ];
-
+    protected $with = ['user:id,Name,Email,Password', 'marketplace:id,Name'];
     /**
      * The attributes that should be casted to native types.
      *
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
+        'ID' => 'integer',
         'UserID' => 'integer',
         'MarketplaceID' => 'integer',
-        'MarketplaceOwnerID' => 'integer',
         'Nationality' => 'string',
         'JobTitle' => 'string',
         'NationalID' => 'string',
@@ -79,51 +87,27 @@ class Employee extends Model
     ];
 
     /**
-     * Validation rules
-     *
-     * @var array
-     */
-    public static $rules = [
-       // 'Name' => 'required',
-        'MarketplaceID' => 'required',
-        'Nationality' => 'required',
-        'JobTitle' => 'required',
-        'NationalID' => 'required',
-        'IBAN' => 'required',
-        'Sex' => 'required',
-        'Salary' => 'required'
-    ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
     public function Marketplace()
     {
-        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplaceID');
+        return $this->belongsTo(\App\Models\Admin\Marketplace::class, 'MarketplaceID');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
-    public function marketplaceownerid()
+    public function User()
     {
-        return $this->belongsTo(\App\Models\MarketplaceOwner::class, 'MarketplaceOwnerID');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function user()
-    {
-        return $this->belongsTo(\App\Models\User::class, 'UserID');
+        return $this->belongsTo(User::class, 'UserID');
     }
 
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      **/
     public function employeeSalaryInfos()
     {
-        return $this->hasMany(\App\Models\EmployeeSalaryInfo::class, 'EmployeeID');
+        return $this->hasMany(EmployeeSalaryInfo::class, 'EmployeeID');
     }
 }

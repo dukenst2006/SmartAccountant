@@ -230,19 +230,36 @@ return [/*
                 ],
             ],
         ],
-
         [
-            'text' => 'Suppliers',
-            'icon' => 'fas fa fa-people-carry',
+            'text' => 'Companies',
+            'icon' => 'fas fa fa-city',
             'submenu' => [
+
                 [
                     'text' => 'create',
-                    'url' =>'#',
+                    'route' =>'admin.companies.create',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
-                    'url' =>'#',
+                    'route' =>'admin.companies.index',
+                    'icon' => 'fas fa-fw fa-layer-group',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Suppliers',
+            'icon' => 'fas fa fa-people-carry',
+            'submenu' => [
+
+                [
+                    'text' => 'create',
+                    'route' =>'admin.suppliers.create',
+                    'icon' => 'fas fa-fw fa-plus-circle',
+                ],
+                [
+                    'text' => 'all',
+                    'route' =>'admin.suppliers.index',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
             ],
@@ -271,6 +288,7 @@ return [/*
         [
             'text' => 'Store',
             'icon' => 'fas fa-fw fa-warehouse',
+            'url' =>'s',
             'icon_color' => 'primary',
 
         ],
@@ -343,7 +361,7 @@ return [/*
 
         [
             'text' => 'Safe',
-            'url' =>'#',
+            'route' =>'admin.safe',
             'icon' => 'fas fa-fw fa-cash-register',
             'icon_color' => 'green',
                  ],
@@ -576,7 +594,7 @@ return [/*
 
         [
             'name' => 'Pace',
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'css',

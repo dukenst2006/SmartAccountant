@@ -7,6 +7,7 @@ use App\Http\Requests\Admin;
 use App\Http\Requests\Admin\CreateSupervisorRequest;
 use App\Http\Requests\Admin\UpdateSupervisorRequest;
 use App\Repositories\Admin\SupervisorRepository;
+use App\Repositories\UserRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
@@ -15,10 +16,13 @@ class SupervisorController extends AppBaseController
 {
     /** @var  SupervisorRepository */
     private $supervisorRepository;
-
-    public function __construct(SupervisorRepository $supervisorRepo)
+    /** @var  \App\Repositories\UserRepository */
+    private $userRepository;
+    public function __construct(SupervisorRepository $supervisorRepo , UserRepository $userRepo)
     {
         $this->supervisorRepository = $supervisorRepo;
+        $this->userRepository = $userRepo;
+
     }
 
     /**
@@ -39,8 +43,8 @@ class SupervisorController extends AppBaseController
      */
     public function create()
     {
-        $marketplace_owners = $this->supervisorRepository->GetAllMarketPlaceOwners();
-        return view('admin.supervisors.create',compact('marketplace_owners'));
+
+        return view('admin.supervisors.create')->with(['marketplaces'=>$this->supervisorRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID')]);
     }
 
     /**
@@ -53,7 +57,9 @@ class SupervisorController extends AppBaseController
     public function store(CreateSupervisorRequest $request)
     {
         $input = $request->all();
+        $user=  $this->userRepository->create($input);
 
+        $input['UserID']   = $user->id;
         $supervisor = $this->supervisorRepository->create($input);
 
         Flash::success('Supervisor saved successfully.');
@@ -86,7 +92,7 @@ class SupervisorController extends AppBaseController
      *
      * @param  int $id
      *
-     * @return Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id )
     {
@@ -97,8 +103,9 @@ class SupervisorController extends AppBaseController
 
             return redirect(route('admin.supervisors.index'));
         }
+        $marketplaces = $this->supervisorRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID');
 
-        return view('admin.supervisors.edit')->with('supervisor', $supervisor);
+        return view('admin.supervisors.edit')->with(['supervisor'=> $supervisor,'marketplaces'=>$marketplaces]);
     }
 
     /**

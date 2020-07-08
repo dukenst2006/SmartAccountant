@@ -1,8 +1,23 @@
-<!-- Userid Field -->
+<!-- UserName Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Name',__('/Models/User.Name')) !!}
-    {!! Form::text('Name', $employee->User->Name, ['class' => 'form-control']) !!}
+    {!! Form::text('Name', $employee->User->Name?? '' , ['class' => 'form-control' ]) !!}
 </div>
+
+<!-- UserPassword Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('Password',__('/Models/User.Password')) !!}
+    {!! Form::text('Password', null ,['class' => 'form-control' ,'minlength'=>'8']) !!}
+</div>
+
+
+<!-- UserEmail Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('Email',__('/Models/User.Email')) !!}
+    {!! Form::email('Email', $employee->User->Email?? '' , ['class' => 'form-control']) !!}
+</div>
+
+
 
 <!-- Marketplaceid Field -->
 <div class="form-group col-sm-6">
@@ -62,7 +77,8 @@
 <!-- Sex Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Sex', __('Models/Employee.Sex')) !!}
-    {!! Form::text('Sex', null, ['class' => 'form-control']) !!}
+
+    {!! Form::select('Sex', ['ذكر' => 'ذكر', 'اثني' => 'اثني', 'غير ذلك' => 'غير ذلك'], 'ذكر', ['class' => 'form-control']) !!}
 </div>
 
 <!-- Salary Field -->
@@ -74,5 +90,5 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit(__('Models/Employee.create'), ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('admin.employees.index') }}" class="btn btn-default">Cancel</a>
+    <a href="{{ route('admin.employees.index') }}" class="btn btn-default">{{ __('Buttons.Cancel') }}</a>
 </div>

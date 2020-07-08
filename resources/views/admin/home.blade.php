@@ -4,7 +4,7 @@
 
 
         <div class="row">
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-3 col-6 animated bounceInUp">
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-3 col-6 animated bounceInDown">
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-3 col-6 animated bounceInUp">
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
@@ -49,7 +49,7 @@
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-3 col-6 animated bounceInDown">
                 <!-- small box -->
                 <div class="small-box bg-danger">
                     <div class="inner">
@@ -71,7 +71,7 @@
 
 
 
-        <div class="row">
+        <div class="row animated flipInX">
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box">
 

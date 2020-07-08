@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\UpdateEmployeeRequest;
 use App\Models\Marketplace;
 use \App\Models\MarketplaceOwner;
 use App\Repositories\Admin\EmployeeRepository;
+use App\Repositories\UserRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Support\Facades\DB;
@@ -16,12 +17,17 @@ use Response;
 
 class EmployeeController extends AppBaseController
 {
-    /** @var  EmployeeRepository */
-    private $employeeRepository;
 
-    public function __construct(EmployeeRepository $employeeRepo)
+
+    private $employeeRepository;
+    /** @var  \App\Repositories\UserRepository */
+    private $userRepository;
+
+
+    public function __construct(EmployeeRepository $employeeRepo, UserRepository $userRepo)
     {
         $this->employeeRepository = $employeeRepo;
+        $this->userRepository = $userRepo;
     }
 
     /**
@@ -42,9 +48,9 @@ class EmployeeController extends AppBaseController
      */
     public function create()
     {
-        $marketplaces = $this->employeeRepository->GetDataForSelect('marketplaces');
-        $marketplace_owners = $this->employeeRepository->GetAllMarketPlaceOwners();
-        return view('admin.employees.create',compact('marketplaces','marketplace_owners'));
+        $marketplaces = $this->employeeRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID');
+
+        return view('admin.employees.create')->with(['marketplaces'=>$marketplaces]);
     }
 
     /**
@@ -57,7 +63,9 @@ class EmployeeController extends AppBaseController
     public function store(CreateEmployeeRequest $request)
     {
         $input = $request->all();
-        $input['UserID']   = 1;
+        $user=  $this->userRepository->create($input);
+
+        $input['UserID']   = $user->id;
         $input['ProfileImage'] = $this->employeeRepository->StoreFile($request->file('ProfileImage'),'');
         $input['IdentityImage'] = $this->employeeRepository->StoreFile($request->file('IdentityImage'),'');
         $input['EmploymentContractImage'] = $this->employeeRepository->StoreFile($request->file('EmploymentContractImage'),'');

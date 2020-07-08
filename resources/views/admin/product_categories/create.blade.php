@@ -6,11 +6,7 @@
 @stop
 
 @section('content')
-    <section class="content-header">
-        <h1>
-            Product Category
-        </h1>
-    </section>
+
     <div class="content">
         @include('adminlte-templates::common.errors')
         <div class="card box-primary">

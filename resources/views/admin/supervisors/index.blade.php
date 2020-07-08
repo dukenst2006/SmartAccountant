@@ -7,8 +7,6 @@
 
 @section('content')
        <div class="row justify-content-center">
-
-        {{-- Cards --}}
         <div class="card col-11">
             <div class="card-header">
                 <h3 class="card-title">Supervisors</h3>

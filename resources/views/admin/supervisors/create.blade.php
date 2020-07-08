@@ -1,16 +1,9 @@
 @extends('adminlte::page')
 @section('title', 'Supervisors')
-
 @section('content_header')
-        <h1>    Supervisor</h1>
+        <h1>Supervisor</h1>
 @stop
-
 @section('content')
-    <section class="content-header">
-        <h1>
-            Supervisor
-        </h1>
-    </section>
     <div class="content">
         @include('adminlte-templates::common.errors')
         <div class="card box-primary">
@@ -19,9 +12,7 @@
                 </div>
             <div class="card-body">
                     {!! Form::open(['route' => 'admin.supervisors.store']) !!}
-
                         @include('admin.supervisors.fields')
-
                     {!! Form::close() !!}
             </div>
         </div>

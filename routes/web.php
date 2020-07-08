@@ -19,3 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->middleware('verified');
 
+
+
+Route::resource('users', 'UserController');
+
