@@ -132,11 +132,11 @@ class EmployeeController extends AppBaseController
         $employee = $this->employeeRepository->find($id );
         $input = $request->all();
         $input['ProfileImage'] = $this->employeeRepository
-            ->StoreFile($request->file('ProfileImage'),$employee['ProfileImage']);
+            ->StoreFile($request->file('ProfileImage'),$employee['ProfileImage']== null?'':$employee['ProfileImage']);
         $input['IdentityImage'] = $this->employeeRepository
-            ->StoreFile($request->file('IdentityImage'),$employee['IdentityImage']);
+            ->StoreFile($request->file('IdentityImage'),$employee['IdentityImage']== null?'':$employee['IdentityImage']);
         $input['EmploymentContractImage'] = $this->employeeRepository
-            ->StoreFile($request->file('EmploymentContractImage'),$employee['EmploymentContractImage']);
+            ->StoreFile($request->file('EmploymentContractImage'),$employee['EmploymentContractImage']== null?'':$employee['EmploymentContractImage']);
         if (empty($employee)) {
             Flash::error('Employee not found');
 

@@ -42,9 +42,9 @@ class Employee extends Model
         'JobTitle' => 'required',
         'NationalID' => 'required',
         'PhoneNumber' => 'required',
-        'ProfileImage' => 'required',
-        'IdentityImage' => 'required',
-        'EmploymentContractImage' => 'required',
+//        'ProfileImage' => 'required',
+//        'IdentityImage' => 'required',
+//        'EmploymentContractImage' => 'required',
         'IBAN' => 'required',
         'Sex' => 'required',
         'Salary' => 'required'

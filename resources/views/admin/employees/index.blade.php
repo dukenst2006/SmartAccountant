@@ -15,7 +15,7 @@
             </div>
             <div class="card-body card-body table-responsive p-0">
                 @include('flash::message')
-               @include('admin.employees.table')
+                @include('admin.employees.table')
 
                 <div class="text-center">
 

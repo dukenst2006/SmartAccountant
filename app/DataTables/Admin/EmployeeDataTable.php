@@ -24,9 +24,15 @@ class EmployeeDataTable extends DataTable
 
         return $dataTable
 
-            ->addColumn('ProfileImage', function($data) { return '<img src="https://picsum.photos/100/100" alt="" width="50" class=" img-fluid">';})
-            ->addColumn('IdentityImage', function($data) { return '<img src="https://picsum.photos/100/100" alt="" width="50" class=" img-fluid">';})
-            ->addColumn('EmploymentContractImage', function($data) { return '<img src="https://picsum.photos/100/100" alt="" width="50" class=" img-fluid">';})
+            ->addColumn('ProfileImage', function($data) {
+                return "<img src='".asset('storage/'.$data->ProfileImage)."' alt='' width='50' class=' img-fluid'>";
+            })
+            ->addColumn('IdentityImage', function($data) {
+                return "<img src='".asset('storage/'.$data->IdentityImage)."' alt='' width='50' class=' img-fluid'>";
+            })
+            ->addColumn('EmploymentContractImage', function($data) {
+                return "<img src='".asset('storage/'.$data->EmploymentContractImage)."' alt='' width='50' class=' img-fluid'>";
+            })
             ->addColumn('action', 'admin.employees.datatables_actions')
             ->rawColumns(['ProfileImage','IdentityImage','EmploymentContractImage','action'])
             ->blacklist(['ProfileImage','IdentityImage','EmploymentContractImage']);
