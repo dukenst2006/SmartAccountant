@@ -7,50 +7,6 @@
 
 @section('content')
     <div id="root">
-    <div class="row col-12  justify-content-center">
-        <div class="row col-md-6 col-sm-6 col-6">
-
-
-            <div class="col-md-6 col-sm-6 col-12 animated flipInX">
-                <div class="info-box bg-danger  ">
-                    <span class="info-box-icon">
-                        <i class="fas fa-2x fa-sort-amount-down-alt index-val"></i>
-                    </span>
-
-                    <div class="info-box-content">
-                        <h1 class="info-box-text">الخسائر</h1>
-                        <h2 class="info-box-number">41,410</h2>
-
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 70%"></div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-6 col-sm-6 col-12 animated flipInX">
-                <div class="info-box bg-success">
-                    <span class="info-box-icon"><i class="fas fa-2x fa-sort-amount-up index-val"></i></span>
-
-                    <div class="info-box-content">
-                        <h1 class="info-box-text">الأرباح</h1>
-                        <h2 class="info-box-number">41,410</h2>
-
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 70%"></div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-        </div>
             <div class="row justify-content-center animated slideInDown ">
             <div class="card card-primary col-8">
                 <div class="card-body">
@@ -59,17 +15,20 @@
 
                         <div class="form-group col-4">
                             {!! Form::label('DateFrom', __('Safe.From')) !!}
-                            {!! Form::date('name', \Carbon\Carbon::now() ,['class' => 'form-control' , 'id'=>'DateFrom'])!!}
+                            <input @change="GetInvoices()" type="date" v-model="start_date" class="form-control">
                         </div>
 
                         <div class="form-group col-4">
                             {!! Form::label('DateTo', __('Safe.To')) !!}
-                            {!! Form::date('name', \Carbon\Carbon::now() ,['class' => 'form-control' , 'id'=>'DateTo'])!!}
+                            <input @change="GetInvoices()" type="date" v-model="end_date" class="form-control">
                         </div>
 
                         <div class="form-group col-4">
                             {!! Form::label('MarketplaceID', __('Models/Marketplace.Name')) !!}
-                            {!! Form::select('MarketplaceID',$marketplaces, null,['class' => 'form-control']) !!}
+                            <select class="form-control" @change="GetInvoices()" name="" v-model="selected" id="">
+                                <option value="">اختر</option>
+                                <option v-for="(market,k) in markets" :value="k">@{{ market }}</option>
+                            </select>
                         </div>
 
 
@@ -99,60 +58,129 @@
                             <thead>
                             <tr class="text-center" role="row">
                                 <th class="text-center" tabindex="0">
-                                    #
+                                    الصندوق
+                                </th>
+                                <th class="text-center" tabindex="0">
+                                    رقم الحساب
                                 </th>
                                 <th class="text-center" tabindex="0" rowspan="1">
-                                    اسم الصنف
+                                    اجمالي الفاتورة
                                 </th>
                                 <th class="text-center" tabindex="0" rowspan="1">
-                                    السعر
+                                    المدفوع
                                 </th>
                                 <th class="text-center" tabindex="0" rowspan="1">
-                                    التاريخ
+                                    الباقي
                                 </th>
 
                             </tr>
                             </thead>
                             <tbody id="product_Body">
 
-                            <tr class='text-center' role='row'
-                                v-for="(searchresult, k) in searchresult" :key="k">
-                                <td v-text="searchresult.id" id='td_barcode'></td>
-                                <td v-text="searchresult.name" id='td_name'></td>
-                                <td v-text="searchresult.price" id='td_price'></td>
-                                <td v-text="searchresult.created_at" id='td_total'></td>
-                                <td>
-                                    <a  v-bind:href="'/product/' + searchresult.id" target="_blank">
-                                                <span class='text-center text-red'>
-                                                <i style="cursor: pointer;" class="fas fa-edit text-red">
-                                                    </i>
-                                                </span>
-                                    </a>
-
-                                    <button  @click="deletep" class="btn"  v-bind:id="searchresult.id">
-                                        <i style="cursor: pointer;" class="fas fa-trash text-red">
-                                        </i>
-
-                                    </button>
-                                </td>
+                            <tr v-if="invoices != null" class='text-center' role='row'
+                                v-for="(invoice, k) in invoices" :key="k">
+                                <td v-if="invoice.PaymentType != null">@{{ invoice.PaymentType.Name }}</td>
+                                <td>@{{ invoice.AccountNumber }}</td>
+                                <td>@{{ invoice.Total }}</td>
+                                <td>@{{ invoice.Paid }}</td>
+                                <td>@{{ invoice.Rest }}</td>
                             </tr>
 
                             </tbody>
                         </table>
-
-
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 p-2">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>اخر الحركات المالية (مباشر)</h4>
                             </div>
+                            <div class="card-body">
+                                <table style="direction: rtl;" id="product_table"
+                                       class="table table-bordered table-hover dataTable dtr-inline calculateclass"
+                                       role="grid">
+                                    <thead>
+                                    <tr class="text-center" role="row">
+                                        <th class="text-center" tabindex="0">
+                                            الصندوق
+                                        </th>
+                                        <th class="text-center" tabindex="0">
+                                            رقم الحساب
+                                        </th>
+                                        <th class="text-center" tabindex="0" rowspan="1">
+                                            اجمالي الفاتورة
+                                        </th>
+                                        <th class="text-center" tabindex="0" rowspan="1">
+                                            المدفوع
+                                        </th>
+                                        <th class="text-center" tabindex="0" rowspan="1">
+                                            الباقي
+                                        </th>
 
+                                    </tr>
+                                    </thead>
+                                    <tbody v-if="last_invoice != null" id="product_Body">
 
+                                    <tr v-for="i in last_invoice" class='text-center' role='row'>
+                                        <td>@{{ i.PaymentType.Name }}</td>
+                                        <td>@{{ i.AccountNumber }}</td>
+                                        <td>@{{ i.Total }}</td>
+                                        <td>@{{ i.Paid }}</td>
+                                        <td>@{{ i.Rest }}</td>
+                                    </tr>
 
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 p-2">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>اخر الحركات المالية</h4>
+                            </div>
+                            <div class="card-body">
+                                <table style="direction: rtl;" id="product_table"
+                                       class="table table-bordered table-hover dataTable dtr-inline calculateclass"
+                                       role="grid">
+                                    <thead>
+                                    <tr class="text-center" role="row">
+                                        <th class="text-center" tabindex="0">
+                                            الصندوق
+                                        </th>
+                                        <th class="text-center" tabindex="0">
+                                            رقم الحساب
+                                        </th>
+                                        <th class="text-center" tabindex="0" rowspan="1">
+                                            اجمالي الفاتورة
+                                        </th>
+                                        <th class="text-center" tabindex="0" rowspan="1">
+                                            المدفوع
+                                        </th>
+                                        <th class="text-center" tabindex="0" rowspan="1">
+                                            الباقي
+                                        </th>
 
+                                    </tr>
+                                    </thead>
+                                    <tbody v-if="last_invoice_day != null" id="product_Body">
 
+                                        <tr   v-for="i in last_invoice_day" class='text-center' role='row'>
+                                            <td>@{{ i.PaymentType.Name }}</td>
+                                            <td>@{{ i.AccountNumber }}</td>
+                                            <td>@{{ i.Total }}</td>
+                                            <td>@{{ i.Paid }}</td>
+                                            <td>@{{ i.Rest }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
-
+            </div>
+        </div>
     </div>
 
 @endsection
@@ -170,9 +198,52 @@
             data: {
                 {{--searchresult: @json($products),--}}
                 keyword: '',
-
+                start_date:'2000-10-20',
+                end_date:'2100-10-31',
+                selected:'',
+                markets:[],
+                invoices:[],
+                int:null,
+                last_invoice:null,
+                last_invoice_day:null,
             },
             methods: {
+                GetAllMarketPlaces(){
+                    axios.get("{{route('getAllMarkets')}}").then((data)=>{
+                        this.markets = data.data;
+
+
+                    });
+                },
+                GetInvoices(){
+                    data ={
+                        'from'  :   this.start_date,
+                        'to'    :   this.end_date,
+                        'ID'    :   this.selected,
+                    };
+                    axios.post('{{route('getInvoices')}}',data).then((data)=>{
+                        this.invoices = data.data.data;
+                        this.GetLastInvoice();
+                        this.GetLastInvoiceNow();
+                    })
+                },
+                GetLastInvoiceNow(){
+                    this.int = setInterval(()=>{
+                        axios.post('{{route('LastInvoiceNow')}}',{'ID':this.selected}).then((data)=>{
+                            this.last_invoice = data.data.data;
+                        });
+                    },60000);
+                },
+                GetLastInvoice(){
+                    data ={
+                        'from'  :   this.start_date,
+                        'to'    :   this.end_date,
+                        'ID'    :   this.selected,
+                    };
+                    axios.post('{{route('LastInvoice')}}',data).then((data)=>{
+                        this.last_invoice_day = data.data.data;
+                    });
+                }
 
                 {{--deletep(ele)--}}
                 {{--{--}}
@@ -258,6 +329,9 @@
 
                 {{--}--}}
 
+            },
+            created(){
+                this.GetAllMarketPlaces();
             }
 
 

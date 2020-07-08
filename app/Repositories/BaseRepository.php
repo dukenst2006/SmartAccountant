@@ -240,7 +240,7 @@ abstract class BaseRepository
 
 
             return  DB::table($table)->select(['id','Name'])
-            ->where( $Where_Column , auth()->user()->id)
+//            ->where( $Where_Column , auth()->user()->id)
             ->get()->pluck('Name','id')->toArray();
 
     }

@@ -354,7 +354,7 @@ return [/*
 
             [
             'text' => 'Treasury',
-            'url' =>'#',
+            'route' =>'admin.treasure',
             'icon' => 'fas fa-fw fa-donate',
                 'icon_color' => 'green',
             ],

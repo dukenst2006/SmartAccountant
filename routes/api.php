@@ -22,3 +22,7 @@ use Illuminate\Support\Facades\Route;
 //})->name('api_products');
 //Route::post('newBill','Admin\BillController@newBill')->name('api_new_bill');
 //Route::post('moneyBill','Admin\MoneyController@get')->name( 'money_bill');
+Route::get('AllMarketPlaces','AxiosRequestController@GetAllMarketPlaces')->name('getAllMarkets');
+Route::post('Invoices','AxiosRequestController@GetInvoices')->name('getInvoices');
+Route::post('LastInvoiceNow','AxiosRequestController@LastInvoiceNow')->name('LastInvoiceNow');
+Route::post('LastInvoice','AxiosRequestController@LastInvoice')->name('LastInvoice');

@@ -36,7 +36,7 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::resource('companies', 'CompanyController');
     Route::resource('suppliers', 'SupplierController');
     Route::get('invoices', 'invoiceController@index');
-
+    Route::get('treasure','TreasureController@index')->name('treasure');
 
 
 
