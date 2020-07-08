@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Repositories;
-
-use \App\Models\MarketplaceOwner;
+use App\Http\Resources\MarketPlaceResource;
+use App\Models\MarketplaceOwner;
 use App\Models\Marketplaces;
 use Illuminate\Container\Container as Application;
 use Illuminate\Database\Eloquent\Model;
@@ -227,6 +227,7 @@ abstract class BaseRepository
     }
 
 
+
     /**
      * Get query source of dataTable.
      *
@@ -241,8 +242,8 @@ abstract class BaseRepository
             return  DB::table($table)->select(['id','Name'])
             ->where( $Where_Column , auth()->user()->id)
             ->get()->pluck('Name','id')->toArray();
-    }
 
+    }
     public function StoreFile($file,$default = ''){
         if (isset($file)){
             $img = Storage::disk('public')->put('storage/images',$file);
