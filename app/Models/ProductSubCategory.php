@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ProductSubCategory
- * @package App\Models\
- * @version July 5, 2020, 8:28 am UTC
+ * @package App\Models\Admin
+ * @version July 6, 2020, 6:04 am UTC
  *
  * @property \App\Models\ProductCategory $productcategoryid
  * @property \Illuminate\Database\Eloquent\Collection $products
@@ -36,7 +36,7 @@ class ProductSubCategory extends Model
      * @var array
      */
     protected $casts = [
-        'ID' => 'integer',
+        'id' => 'integer',
         'ProductCategoryID' => 'integer',
         'Name' => 'string'
     ];

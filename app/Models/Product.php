@@ -2,19 +2,23 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Product
- * @package App\Models\
- * @version July 5, 2020, 8:22 am UTC
+ * @package App\Models\Admin
+ * @version July 6, 2020, 5:44 am UTC
  *
- * @property \App\Models\Marketplace $marketplacesid
- * @property \App\Models\ProductCategory $productcategoryid
- * @property \App\Models\ProductSubCategory $productsubcategoryid
- * @property \App\Models\QuantityType $quantitytypeid
- * @property \App\Models\User $userid
- * @property \Illuminate\Database\Eloquent\Collection $invoiceItems
+ * @property Marketplace $Marketplace
+ * @property ProductCategory $ProductCategory
+ * @property ProductSubCategory $ProductSubCategory
+ * @property QuantityType $QuantityType
+ * @property User $User
+ * @property Collection $invoiceItems
  * @property integer $UserID
  * @property integer $MarketplacesID
  * @property integer $ProductCategoryID
@@ -26,61 +30,15 @@ use Eloquent as Model;
  * @property number $SellingPrice
  * @property number $LowPrice
  * @property string $Image
- * @property string $ExpiryDate
+ * @property string|Carbon $ExpiryDate
  * @property string $Barcode
  * @property boolean $UnlimitedQuantity
  */
 class Product extends Model
 {
 
-    public $table = 'products';
-
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-
-
-
-
-    public $fillable = [
-        'UserID',
-        'MarketplacesID',
-        'ProductCategoryID',
-        'ProductSubCategoryID',
-        'Name',
-        'Quantity',
-        'QuantityTypeID',
-        'PurchasingPrice',
-        'SellingPrice',
-        'LowPrice',
-        'Image',
-        'ExpiryDate',
-        'Barcode',
-        'UnlimitedQuantity'
-    ];
-
-    /**
-     * The attributes that should be casted to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'ID' => 'integer',
-        'UserID' => 'integer',
-        'MarketplacesID' => 'integer',
-        'ProductCategoryID' => 'integer',
-        'ProductSubCategoryID' => 'integer',
-        'Name' => 'string',
-        'Quantity' => 'float',
-        'QuantityTypeID' => 'integer',
-        'PurchasingPrice' => 'float',
-        'SellingPrice' => 'float',
-        'LowPrice' => 'float',
-        'Image' => 'string',
-        'ExpiryDate' => 'string',
-        'Barcode' => 'string',
-        'UnlimitedQuantity' => 'boolean'
-    ];
-
     /**
      * Validation rules
      *
@@ -99,52 +57,87 @@ class Product extends Model
         'Barcode' => 'required',
         'UnlimitedQuantity' => 'required'
     ];
+    public $table = 'products';
+    public $fillable = [
+        'UserID',
+        'MarketplacesID',
+        'ProductCategoryID',
+        'ProductSubCategoryID',
+        'Name',
+        'Quantity',
+        'QuantityTypeID',
+        'PurchasingPrice',
+        'SellingPrice',
+        'LowPrice',
+        'Image',
+        'ExpiryDate',
+        'Barcode',
+        'UnlimitedQuantity'
+    ];
+    protected $with = ['marketplace:id,name'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'integer',
+        'UserID' => 'integer',
+        'MarketplacesID' => 'integer',
+        'ProductCategoryID' => 'integer',
+        'ProductSubCategoryID' => 'integer',
+        'Name' => 'string',
+        'Quantity' => 'float',
+        'QuantityTypeID' => 'integer',
+        'PurchasingPrice' => 'float',
+        'SellingPrice' => 'float',
+        'LowPrice' => 'float',
+        'Image' => 'string',
+        'ExpiryDate' => 'datetime',
+        'Barcode' => 'string',
+        'UnlimitedQuantity' => 'boolean'
+    ];
+
+    /**
+     * @return BelongsTo
      **/
-    public function marketplacesid()
+    public function Marketplace()
     {
-        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplacesID');
+        return $this->belongsTo(Marketplace::class, 'MarketplacesID');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
-    public function productcategoryid()
+    public function ProductCategory()
     {
-        return $this->belongsTo(\App\Models\ProductCategory::class, 'ProductCategoryID');
+        return $this->belongsTo(ProductCategory::class, 'ProductCategoryID');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
-    public function productsubcategoryid()
+    public function ProductSubCategory()
     {
-        return $this->belongsTo(\App\Models\ProductSubCategory::class, 'ProductSubCategoryID');
+        return $this->belongsTo(ProductSubCategory::class, 'ProductSubCategoryID');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
-    public function quantitytypeid()
+    public function QuantityType()
     {
-        return $this->belongsTo(\App\Models\QuantityType::class, 'QuantityTypeID');
+        return $this->belongsTo(QuantityType::class, 'QuantityTypeID');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
-    public function userid()
+    public function User()
     {
-        return $this->belongsTo(\App\Models\User::class, 'UserID');
+        return $this->belongsTo(User::class, 'UserID');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     **/
-    public function invoiceItems()
-    {
-        return $this->hasMany(\App\Models\InvoiceItem::class, 'ProductID');
-    }
+
 }

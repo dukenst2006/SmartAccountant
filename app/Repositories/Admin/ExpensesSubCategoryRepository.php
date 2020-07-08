@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Admin\ExpensesSubCategory;
+use App\Models\ExpensesSubCategory;
 use App\Repositories\BaseRepository;
 
 /**

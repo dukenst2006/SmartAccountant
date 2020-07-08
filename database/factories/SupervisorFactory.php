@@ -20,7 +20,7 @@ use Illuminate\Support\Str;
 $factory->define(Supervisor::class, function (Faker $faker) {
     return [
         'UserID' =>factory(App\Models\User::class),
-        'MarketplaceOwnerID' => factory(App\Models\MarketplaceOwner::class),
+        'MarketplacesID' => factory(\App\Models\Marketplace::class),
         'PhoneNumber' => $faker->phoneNumber,
     ];
 });

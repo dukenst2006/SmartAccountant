@@ -64,13 +64,13 @@ class ExpensesSubCategoryController extends AppBaseController
     /**
      * Display the specified ExpensesSubCategory.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function show($ID )
+    public function show($id )
     {
-        $expensesSubCategory = $this->expensesSubCategoryRepository->find($ID );
+        $expensesSubCategory = $this->expensesSubCategoryRepository->find($id );
 
         if (empty($expensesSubCategory)) {
             Flash::error('Expenses Sub Category not found');
@@ -84,13 +84,13 @@ class ExpensesSubCategoryController extends AppBaseController
     /**
      * Show the form for editing the specified ExpensesSubCategory.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function edit($ID )
+    public function edit($id )
     {
-        $expensesSubCategory = $this->expensesSubCategoryRepository->find($ID );
+        $expensesSubCategory = $this->expensesSubCategoryRepository->find($id );
 
         if (empty($expensesSubCategory)) {
             Flash::error('Expenses Sub Category not found');
@@ -104,14 +104,14 @@ class ExpensesSubCategoryController extends AppBaseController
     /**
      * Update the specified ExpensesSubCategory in storage.
      *
-     * @param  int              $ID
+     * @param  int              $id
      * @param UpdateExpensesSubCategoryRequest $request
      *
      * @return Response
      */
-    public function update($ID , UpdateExpensesSubCategoryRequest $request)
+    public function update($id , UpdateExpensesSubCategoryRequest $request)
     {
-        $expensesSubCategory = $this->expensesSubCategoryRepository->find($ID );
+        $expensesSubCategory = $this->expensesSubCategoryRepository->find($id );
 
         if (empty($expensesSubCategory)) {
             Flash::error('Expenses Sub Category not found');
@@ -119,7 +119,7 @@ class ExpensesSubCategoryController extends AppBaseController
             return redirect(route('admin.expensesSubCategories.index'));
         }
 
-        $expensesSubCategory = $this->expensesSubCategoryRepository->update($request->all(), $ID );
+        $expensesSubCategory = $this->expensesSubCategoryRepository->update($request->all(), $id );
 
         Flash::success('Expenses Sub Category updated successfully.');
 
@@ -129,13 +129,13 @@ class ExpensesSubCategoryController extends AppBaseController
     /**
      * Remove the specified ExpensesSubCategory from storage.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function destroy($ID )
+    public function destroy($id )
     {
-        $expensesSubCategory = $this->expensesSubCategoryRepository->find($ID );
+        $expensesSubCategory = $this->expensesSubCategoryRepository->find($id );
 
         if (empty($expensesSubCategory)) {
             Flash::error('Expenses Sub Category not found');
@@ -143,7 +143,7 @@ class ExpensesSubCategoryController extends AppBaseController
             return redirect(route('admin.expensesSubCategories.index'));
         }
 
-        $this->expensesSubCategoryRepository->delete($ID );
+        $this->expensesSubCategoryRepository->delete($id );
 
         Flash::success('Expenses Sub Category deleted successfully.');
 

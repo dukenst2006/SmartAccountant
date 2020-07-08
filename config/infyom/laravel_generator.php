@@ -124,15 +124,15 @@ return [
 
         'softDelete' => false,
 
-        'save_schema_file' => false,
+        'save_schema_file' => true,
 
         'localized' => false,
 
-        'tables_searchable_default' => false,
+        'tables_searchable_default' => true,
 
         'repository_pattern' => true,
 
-        'excluded_fields' => ['ID'], // Array of columns that doesn't required while creating module
+        'excluded_fields' => ['id'], // Array of columns that doesn't required while creating module
     ],
 
     /*
@@ -166,7 +166,7 @@ return [
 
         'tests'         => true,
 
-        'datatables'    => true,
+        'datatables'    => false,
 
         'menu'          => [
 

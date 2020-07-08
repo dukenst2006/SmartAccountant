@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\Supervisor;
+use App\Models\Supervisor;
 
 class UpdateSupervisorRequest extends FormRequest
 {
@@ -26,7 +26,7 @@ class UpdateSupervisorRequest extends FormRequest
     public function rules()
     {
         $rules = Supervisor::$rules;
-        
+
         return $rules;
     }
 }

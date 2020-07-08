@@ -2,7 +2,7 @@
 
 /** @var Factory $factory */
 
-use App\Models\Marketplace;
+use \App\Models\Marketplace;
 use App\Models\ProductSubCategory;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;

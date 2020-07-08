@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\ProductCategory;
+use App\Models\ProductCategory;
 
 class UpdateProductCategoryRequest extends FormRequest
 {
@@ -26,7 +26,7 @@ class UpdateProductCategoryRequest extends FormRequest
     public function rules()
     {
         $rules = ProductCategory::$rules;
-        
+
         return $rules;
     }
 }

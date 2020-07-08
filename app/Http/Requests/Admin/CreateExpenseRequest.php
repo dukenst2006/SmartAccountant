@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\Expense;
+use App\Models\Expense;
 
 class CreateExpenseRequest extends FormRequest
 {

@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\Expense;
+use App\Models\Expense;
 
 class UpdateExpenseRequest extends FormRequest
 {
@@ -26,7 +26,7 @@ class UpdateExpenseRequest extends FormRequest
     public function rules()
     {
         $rules = Expense::$rules;
-        
+
         return $rules;
     }
 }

@@ -14,7 +14,7 @@ class CreateInvoiceItemsTable extends Migration
     public function up()
     {
         Schema::create('invoice_items', function (Blueprint $table) {
-            $table->bigIncrements('ID');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('InvoiceID');
             $table->unsignedBigInteger('ProductID');
             $table->unsignedBigInteger('QuantityTypeID');
@@ -23,9 +23,9 @@ class CreateInvoiceItemsTable extends Migration
             $table->double('Total');
 
 
-            $table->foreign('InvoiceID')->references('ID')->on('invoices')->onDelete('cascade');
-            $table->foreign('ProductID')->references('ID')->on('Products')->onDelete('cascade');
-            $table->foreign('QuantityTypeID')->references('ID')->on('quantity_types')->onDelete('cascade');
+            $table->foreign('InvoiceID')->references('id')->on('invoices')->onDelete('cascade');
+            $table->foreign('ProductID')->references('id')->on('Products')->onDelete('cascade');
+            $table->foreign('QuantityTypeID')->references('id')->on('quantity_types')->onDelete('cascade');
         });
     }
 

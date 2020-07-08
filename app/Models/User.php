@@ -42,7 +42,18 @@ class User extends Authenticatable
         return "https://rnmu.rw/wp-content/uploads/2019/10/man-300x300.png";
     }
     public function adminlte_desc(){
-        return "a system user";
+        return "مدير مجموعه اسواق العثيم";
     }
+
+
+
+
+public function Employee()
+{
+    return $this->hasOne(Employee::class,'UserID','id');
+}
+
+
+
 
 }

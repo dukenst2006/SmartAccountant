@@ -231,6 +231,23 @@ return [/*
             ],
         ],
 
+        [
+            'text' => 'Suppliers',
+            'icon' => 'fas fa fa-people-carry',
+            'submenu' => [
+                [
+                    'text' => 'create',
+                    'url' =>'#',
+                    'icon' => 'fas fa-fw fa-plus-circle',
+                ],
+                [
+                    'text' => 'all',
+                    'url' =>'#',
+                    'icon' => 'fas fa-fw fa-layer-group',
+                ],
+            ],
+        ],
+
         ['header' => 'PublicAdministration'],
         [
             'text' => 'Marketplaces',
@@ -297,6 +314,26 @@ return [/*
 
         ['header' => 'FinancialManagement'],
 
+        [
+            'text' => 'Bonds',
+            'url' =>'#',
+            'icon' => 'fas fa-fw fa-money-bill-alt',
+            'icon_color' => 'orange',
+            'submenu' => [
+                [
+                    'text' => 'قيدة التطوير',
+                    'url' =>'#',
+                    'icon' => 'fas fa-donate',
+                ],
+                [
+                    'text' => 'قيدة التطوير',
+                    'url' =>'#',
+                    'icon' => 'fa fa-donate',
+                ],
+            ],
+
+        ],
+
             [
             'text' => 'Treasury',
             'url' =>'#',
@@ -329,7 +366,7 @@ return [/*
             ]
 
         ],
-            ],
+        ],
 
 
         [
@@ -539,7 +576,7 @@ return [/*
 
         [
             'name' => 'Pace',
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'css',

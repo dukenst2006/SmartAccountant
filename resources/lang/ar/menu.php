@@ -22,6 +22,7 @@ return [
     'HumanResources' => 'الموارد البشرية',
     'Supervisors' => 'المشرفين',
     'Employee' => 'الموظفين',
+    'Suppliers' => 'الموردين',
 
 
     'PublicAdministration' => 'الإدارة العامة',
@@ -34,6 +35,7 @@ return [
 
 
     'FinancialManagement' => 'الإدارة المالية',
+    'Bonds' => 'السندات',
     'Treasury' => 'الخزينة',
     'Safe' =>  'الخزنة',
 

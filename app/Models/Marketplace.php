@@ -2,20 +2,20 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Marketplace
- * @package App\Models\
- * @version July 5, 2020, 3:24 am UTC
+ * @package App\Models\Admin
+ * @version July 6, 2020, 5:37 am UTC
  *
  * @property \App\Models\MarketplaceOwner $marketplaceownerid
  * @property \Illuminate\Database\Eloquent\Collection $employees
  * @property \Illuminate\Database\Eloquent\Collection $expenses
+ * @property \Illuminate\Database\Eloquent\Collection $expensesCategories
  * @property \Illuminate\Database\Eloquent\Collection $invoices
  * @property \Illuminate\Database\Eloquent\Collection $productCategories
  * @property \Illuminate\Database\Eloquent\Collection $products
- * @property \Illuminate\Database\Eloquent\Collection $safes
  * @property \Illuminate\Database\Eloquent\Collection $stocks
  * @property integer $MarketplaceOwnerID
  * @property string $Name
@@ -27,6 +27,7 @@ use Eloquent as Model;
  * @property string $Email
  * @property string $Latitude
  * @property string $Longitude
+ * @property number $SafeBalance
  * @property string $CompanyRegisterImage
  * @property string $Logo
  */
@@ -52,6 +53,7 @@ class Marketplace extends Model
         'Email',
         'Latitude',
         'Longitude',
+        'SafeBalance',
         'CompanyRegisterImage',
         'Logo'
     ];
@@ -62,7 +64,7 @@ class Marketplace extends Model
      * @var array
      */
     protected $casts = [
-        'ID' => 'integer',
+        'id' => 'integer',
         'MarketplaceOwnerID' => 'integer',
         'Name' => 'string',
         'Country' => 'string',
@@ -73,6 +75,7 @@ class Marketplace extends Model
         'Email' => 'string',
         'Latitude' => 'string',
         'Longitude' => 'string',
+        'SafeBalance' => 'float',
         'CompanyRegisterImage' => 'string',
         'Logo' => 'string'
     ];
@@ -83,7 +86,6 @@ class Marketplace extends Model
      * @var array
      */
     public static $rules = [
-        'MarketplaceOwnerID' => 'required',
         'Name' => 'required',
         'Country' => 'required',
         'City' => 'required',
@@ -93,8 +95,8 @@ class Marketplace extends Model
         'Email' => 'required',
         'Latitude' => 'required',
         'Longitude' => 'required',
+        'SafeBalance' => 'required',
         'CompanyRegisterImage' => 'required',
-        'Logo' => 'required'
     ];
 
     /**
@@ -124,6 +126,14 @@ class Marketplace extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
+    public function expensesCategories()
+    {
+        return $this->hasMany(\App\Models\ExpensesCategory::class, 'MarketplacesID');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
     public function invoices()
     {
         return $this->hasMany(\App\Models\Invoice::class, 'MarketplacesID');
@@ -140,17 +150,9 @@ class Marketplace extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function products()
+    public function Products()
     {
         return $this->hasMany(\App\Models\Product::class, 'MarketplacesID');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     **/
-    public function safes()
-    {
-        return $this->hasMany(\App\Models\Safe::class, 'MarketplacesID');
     }
 
     /**

@@ -14,7 +14,7 @@ class CreateInvoicesTable extends Migration
     public function up()
     {
         Schema::create('invoices', function (Blueprint $table) {
-            $table->bigIncrements('ID');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('MarketplacesID');
             $table->double('Total');
             $table->double('Paid');
@@ -23,8 +23,8 @@ class CreateInvoicesTable extends Migration
             $table->timestamps();
 
 
-            $table->foreign('MarketplacesID')->references('ID')->on('marketplaces')->onDelete('cascade');
-            $table->foreign('PaymentTypeID')->references('ID')->on('payment_types')->onDelete('cascade');
+            $table->foreign('MarketplacesID')->references('id')->on('marketplaces')->onDelete('cascade');
+            $table->foreign('PaymentTypeID')->references('id')->on('payment_types')->onDelete('cascade');
         });
     }
 

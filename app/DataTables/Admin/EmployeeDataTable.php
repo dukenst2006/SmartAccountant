@@ -2,7 +2,7 @@
 
 namespace App\DataTables\Admin;
 
-use App\Models\Admin\Employee;
+use App\Models\Employee;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -20,12 +20,16 @@ class EmployeeDataTable extends DataTable
         $dataTable = new EloquentDataTable($query);
 
 
+
+
         return $dataTable
+
             ->addColumn('ProfileImage', function($data) { return '<img src="https://picsum.photos/100/100" alt="" width="50" class=" img-fluid">';})
             ->addColumn('IdentityImage', function($data) { return '<img src="https://picsum.photos/100/100" alt="" width="50" class=" img-fluid">';})
             ->addColumn('EmploymentContractImage', function($data) { return '<img src="https://picsum.photos/100/100" alt="" width="50" class=" img-fluid">';})
             ->addColumn('action', 'admin.employees.datatables_actions')
-            ->rawColumns(['ProfileImage','IdentityImage','EmploymentContractImage','action']);
+            ->rawColumns(['ProfileImage','IdentityImage','EmploymentContractImage','action'])
+            ->blacklist(['ProfileImage','IdentityImage','EmploymentContractImage']);
     }
 
     /**
@@ -37,7 +41,7 @@ class EmployeeDataTable extends DataTable
     public function query(Employee $model)
     {
 
-        return $model->newQuery();
+        return $model->newQuery()->with('user:id,Name');
     }
 
     /**
@@ -74,19 +78,18 @@ class EmployeeDataTable extends DataTable
     {
         return [
 
-  //   new Column(['data'=>'customer', 'name'=>'user.name']),
-            'MarketplaceID',
-            'MarketplaceOwnerID',
-            'Nationality',
-            'JobTitle',
-            'NationalID',
-            'PhoneNumber',
-            'ProfileImage',
-            'IdentityImage',
-            'EmploymentContractImage',
-            'IBAN',
-            'Sex',
-            'Salary'
+           new Column(['data'=>'user.Name', 'name'=>'user.Name' ,'title'=>__('Models/User.Name')]),
+           new Column(['data'=>'marketplace.name', 'name'=>'marketplace.name','title'=>__('Models/Marketplace.Name')]),
+           new Column(['data'=>'Nationality', 'name'=>'Nationality','title'=>__('Models/Employee.Nationality')]),
+           new Column(['data'=>'JobTitle', 'name'=>'JobTitle','title'=>__('Models/Employee.JobTitle')]),
+           new Column(['data'=>'NationalID', 'name'=>'NationalID','title'=>__('Models/Employee.NationalID')]),
+           new Column(['data'=>'PhoneNumber', 'name'=>'PhoneNumber','title'=>__('Models/Employee.PhoneNumber')]),
+           new Column(['data'=>'ProfileImage', 'name'=>'ProfileImage','title'=>__('Models/Employee.ProfileImage')]),
+           new Column(['data'=>'IdentityImage', 'name'=>'IdentityImage','title'=>__('Models/Employee.IdentityImage')]),
+           new Column(['data'=>'EmploymentContractImage', 'name'=>'EmploymentContractImage','title'=>__('Models/Employee.EmploymentContractImage')]),
+           new Column(['data'=>'IBAN', 'name'=>'IBAN','title'=>__('Models/Employee.IBAN')]),
+           new Column(['data'=>'Sex', 'name'=>'Sex','title'=>__('Models/Employee.Sex')]),
+           new Column(['data'=>'Salary', 'name'=>'Salary','title'=>__('Models/Employee.Salary')]),
         ];
     }
 

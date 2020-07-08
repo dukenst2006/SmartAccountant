@@ -2,7 +2,8 @@
 
 namespace App\DataTables\Admin;
 
-use App\Models\Admin\Supervisor;
+use App\Models\Supervisor;
+use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -29,6 +30,7 @@ class SupervisorDataTable extends DataTable
      */
     public function query(Supervisor $model)
     {
+
         return $model->newQuery();
     }
 
@@ -65,9 +67,11 @@ class SupervisorDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'UserID',
-            'MarketplaceOwnerID',
-            'PhoneNumber'
+            new Column(['data'=>'user.Name', 'name'=>'user.Name' ,'title'=>__('Models/User.Name')]),
+            new Column(['data'=>'marketplace.name', 'name'=>'marketplace.name','title'=>__('Models/Marketplace.Name')]),
+            new Column(['data'=>'PhoneNumber', 'name'=>'PhoneNumber','title'=>__('Models/Supervisor.PhoneNumber')]),
+
+
         ];
     }
 

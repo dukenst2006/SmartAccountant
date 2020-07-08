@@ -2,11 +2,45 @@
 
 namespace App\Models;
 
+use \App\Models\Marketplace;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Employee
+ * @package App\Models\Admin
+ * @version July 6, 2020, 5:31 am UTC
+ *
+ * @property \App\Models\Marketplace $marketplaceid
+ * @property \App\Models\MarketplaceOwner $marketplaceownerid
+ * @property \App\Models\User $user
+ * @property \Illuminate\Database\Eloquent\Collection $employeeSalaryInfos
+ * @property integer $UserID
+ * @property integer $MarketplaceID
+ * @property integer $MarketplaceOwnerID
+ * @property string $Nationality
+ * @property string $JobTitle
+ * @property string $NationalID
+ * @property string $PhoneNumber
+ * @property string $ProfileImage
+ * @property string $IdentityImage
+ * @property string $EmploymentContractImage
+ * @property string $IBAN
+ * @property string $Sex
+ * @property number $Salary
+ */
 class Employee extends Model
 {
-    protected $fillable= [
+
+    public $table = 'employees';
+
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
+
+    protected $with = ['user:id,Name','marketplace:id,name'];
+
+
+
+    public $fillable = [
         'UserID',
         'MarketplaceID',
         'MarketplaceOwnerID',
@@ -19,12 +53,77 @@ class Employee extends Model
         'EmploymentContractImage',
         'IBAN',
         'Sex',
-        'Salary',
+        'Salary'
     ];
-    public function User(){
-        return $this->belongsTo(User::class,'UserID','ID');
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'integer',
+        'UserID' => 'integer',
+        'MarketplaceID' => 'integer',
+        'MarketplaceOwnerID' => 'integer',
+        'Nationality' => 'string',
+        'JobTitle' => 'string',
+        'NationalID' => 'string',
+        'PhoneNumber' => 'string',
+        'ProfileImage' => 'string',
+        'IdentityImage' => 'string',
+        'EmploymentContractImage' => 'string',
+        'IBAN' => 'string',
+        'Sex' => 'string',
+        'Salary' => 'float'
+    ];
+
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+       // 'Name' => 'required',
+        'MarketplaceID' => 'required',
+        'Nationality' => 'required',
+        'JobTitle' => 'required',
+        'NationalID' => 'required',
+        'IBAN' => 'required',
+        'Sex' => 'required',
+        'Salary' => 'required'
+    ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function Marketplace()
+    {
+        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplaceID');
     }
-    public function MarketPlace(){
-        return $this->belongsTo(Marketplace::class,'MarketplaceID','ID');
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function marketplaceownerid()
+    {
+        return $this->belongsTo(\App\Models\MarketplaceOwner::class, 'MarketplaceOwnerID');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'UserID');
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function employeeSalaryInfos()
+    {
+        return $this->hasMany(\App\Models\EmployeeSalaryInfo::class, 'EmployeeID');
     }
 }

@@ -14,13 +14,13 @@ class CreateExpensesSubCategoriesTable extends Migration
     public function up()
     {
         Schema::create('expenses_sub_categories', function (Blueprint $table) {
-            $table->bigIncrements('ID');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('ExpensesCategoryID');
             $table->string('Name');
             $table->timestamps();
 
 
-            $table->foreign('ExpensesCategoryID')->references('ID')->on('expenses_categories')->onDelete('cascade');
+            $table->foreign('ExpensesCategoryID')->references('id')->on('expenses_categories')->onDelete('cascade');
         });
     }
 

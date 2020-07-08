@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
+
 
 /**
  * Class Supervisor
- * @package App\Models
- * @version July 6, 2020, 3:34 am UTC
+ * @package App\Models\Admin
+ * @version July 6, 2020, 5:37 am UTC
  *
  * @property \App\Models\MarketplaceOwner $marketplaceownerid
  * @property \App\Models\User $userid
@@ -19,16 +20,15 @@ class Supervisor extends Model
 {
 
     public $table = 'supervisors';
-
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
+    protected $with = ['user:id,Name','marketplace:id,name'];
 
 
     public $fillable = [
         'UserID',
-        'MarketplaceOwnerID',
+        'MarketplaceID',
         'PhoneNumber'
     ];
 
@@ -38,9 +38,9 @@ class Supervisor extends Model
      * @var array
      */
     protected $casts = [
-        'ID' => 'integer',
+        'id' => 'integer',
         'UserID' => 'integer',
-        'MarketplaceOwnerID' => 'integer',
+        'MarketplaceID' => 'integer',
         'PhoneNumber' => 'string'
     ];
 
@@ -51,22 +51,22 @@ class Supervisor extends Model
      */
     public static $rules = [
         'UserID' => 'required',
-        'MarketplaceOwnerID' => 'required',
+        'MarketplaceID' => 'required',
         'PhoneNumber' => 'required'
     ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function marketplaceownerid()
+    public function marketplace()
     {
-        return $this->belongsTo(\App\Models\MarketplaceOwner::class, 'MarketplaceOwnerID');
+        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplacesID');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function userid()
+    public function user()
     {
         return $this->belongsTo(\App\Models\User::class, 'UserID');
     }

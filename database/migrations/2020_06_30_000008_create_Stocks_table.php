@@ -14,10 +14,10 @@ class CreateStocksTable extends Migration
     public function up()
     {
         Schema::create('stocks', function (Blueprint $table) {
-            $table->bigIncrements('ID');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('MarketplacesID');
             $table->timestamps();
-            $table->foreign('MarketplacesID')->references('ID')->on('marketplaces')->onDelete('cascade');
+            $table->foreign('MarketplacesID')->references('id')->on('marketplaces')->onDelete('cascade');
 
         });
     }

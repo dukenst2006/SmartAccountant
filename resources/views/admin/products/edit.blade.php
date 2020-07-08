@@ -18,7 +18,7 @@
                </div>
            <div class="card-body">
 
-                   {!! Form::model($product, ['route' => ['admin.products.update', $product$ID ], 'method' => 'patch']) !!}
+                   {!! Form::model($product, ['route' => ['admin.products.update', $product->id], 'method' => 'patch']) !!}
 
                         @include('admin.products.fields')
 
