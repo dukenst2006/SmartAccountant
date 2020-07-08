@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Http\Resources\MarketPlaceResource;
 use App\Models\MarketplaceOwner;
 use Illuminate\Container\Container as Application;
 use Illuminate\Database\Eloquent\Model;
@@ -205,12 +206,15 @@ abstract class BaseRepository
         return $items;
     }
     public function GetAllMarketPlaceOwners(){
-        $aaa = MarketplaceOwner::all();
-        $marketplaces = array();
-        foreach ($aaa  as $a){
-            $marketplaces["$a->ID"] = $a->User->Name;
+        $marketplaces = DB::table('marketplace_owners')
+            ->join('users', 'marketplace_owners.UserID', '=', 'users.ID')
+            ->select('marketplace_owners.ID', 'users.Name')
+            ->get();
+        $items = array();
+        foreach ($marketplaces  as $a){
+            $items["$a->ID"] = $a->Name;
         }
-        return $marketplaces;
+        return $items;
     }
     public function StoreFile(UploadedFile $file,$default = ''){
         if (isset($file)){
