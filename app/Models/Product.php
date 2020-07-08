@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Admin;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
+use Eloquent as Model;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -13,11 +13,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @package App\Models\Admin
  * @version July 6, 2020, 5:44 am UTC
  *
- * @property Marketplace $Marketplace
- * @property ProductCategory $ProductCategory
- * @property ProductSubCategory $ProductSubCategory
- * @property QuantityType $QuantityType
- * @property User $User
+ * @property Marketplace $marketplacesid
+ * @property ProductCategory $productcategoryid
+ * @property ProductSubCategory $productsubcategoryid
+ * @property QuantityType $quantitytypeid
+ * @property User $userid
  * @property Collection $invoiceItems
  * @property integer $UserID
  * @property integer $MarketplacesID
@@ -39,6 +39,7 @@ class Product extends Model
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+
     /**
      * Validation rules
      *
@@ -74,7 +75,8 @@ class Product extends Model
         'Barcode',
         'UnlimitedQuantity'
     ];
-    protected $with = ['user:id,Name,Email,Password','marketplace:id,MarketplaceOwnerID,Name'];
+    protected $with = ['user:id,Name', 'marketplace:id,Name'];
+
 
     /**
      * The attributes that should be casted to native types.
@@ -82,7 +84,7 @@ class Product extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
+        'ID' => 'integer',
         'UserID' => 'integer',
         'MarketplacesID' => 'integer',
         'ProductCategoryID' => 'integer',
@@ -110,7 +112,7 @@ class Product extends Model
     /**
      * @return BelongsTo
      **/
-    public function ProductCategory()
+    public function productcategory()
     {
         return $this->belongsTo(ProductCategory::class, 'ProductCategoryID');
     }
@@ -118,7 +120,7 @@ class Product extends Model
     /**
      * @return BelongsTo
      **/
-    public function ProductSubCategory()
+    public function productsubcategory()
     {
         return $this->belongsTo(ProductSubCategory::class, 'ProductSubCategoryID');
     }
@@ -126,7 +128,7 @@ class Product extends Model
     /**
      * @return BelongsTo
      **/
-    public function QuantityType()
+    public function quantitytype()
     {
         return $this->belongsTo(QuantityType::class, 'QuantityTypeID');
     }
@@ -134,10 +136,16 @@ class Product extends Model
     /**
      * @return BelongsTo
      **/
-    public function User()
+    public function userid()
     {
         return $this->belongsTo(User::class, 'UserID');
     }
 
-
+    /**
+     * @return HasMany
+     **/
+    public function invoiceItems()
+    {
+        return $this->hasMany(InvoiceItem::class, 'ProductID');
+    }
 }
