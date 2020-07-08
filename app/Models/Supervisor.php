@@ -10,10 +10,10 @@ use Illuminate\Database\Eloquent\Model;
  * @package App\Models\Admin
  * @version July 6, 2020, 5:37 am UTC
  *
- * @property \App\Models\MarketplaceOwner $marketplaceownerid
+ * @property \App\Models\Marketplace $marketplaceid
  * @property \App\Models\User $userid
  * @property integer $UserID
- * @property integer $MarketplaceOwnerID
+ * @property integer $MarketplaceID
  * @property string $PhoneNumber
  */
 class Supervisor extends Model
@@ -23,7 +23,7 @@ class Supervisor extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-    protected $with = ['user:id,Name,Email,Password','marketplace:id,MarketplaceOwnerID,Name'];
+    protected $with = ['user:id,Name,Email,Password','marketplace:id,MarketplaceID,Name'];
 
     public $fillable = [
         'UserID',
@@ -59,7 +59,7 @@ class Supervisor extends Model
      **/
     public function marketplace()
     {
-        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplacesID');
+        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplaceID');
     }
 
     /**
