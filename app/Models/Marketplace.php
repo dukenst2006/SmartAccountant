@@ -116,6 +116,14 @@ class Marketplace extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     **/
+    public function supervisor()
+    {
+        return $this->hasMany(\App\Models\Admin\Supervisor::class, 'MarketplaceID');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
     public function expenses()

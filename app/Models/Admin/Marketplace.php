@@ -109,6 +109,14 @@ class Marketplace extends Model
         return $this->belongsTo(\App\Models\Admin\MarketplaceOwner::class, 'MarketplaceOwnerID');
     }
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     **/
+    public function supervisor()
+    {
+        return $this->hasMany(\App\Models\Admin\Supervisor::class, 'MarketplaceID');
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
@@ -158,10 +166,10 @@ class Marketplace extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      **/
-    public function stocks()
+    public function stock()
     {
-        return $this->hasMany(\App\Models\Admin\Stock::class, 'MarketplacesID');
+        return $this->hasOne(\App\Models\Admin\Stock::class, 'MarketplacesID');
     }
 }
