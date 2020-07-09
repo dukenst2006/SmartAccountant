@@ -54,6 +54,7 @@ class MarketplaceController extends AppBaseController
     {
         $input = $request->all();
         $input['Logo'] = $this->marketplaceRepository->StoreFile($request->file('Logo'),'');
+        $input['CompanyRegisterImage'] = $this->marketplaceRepository->StoreFile($request->file('CompanyRegisterImage'),'');
         $marketplace = $this->marketplaceRepository->create($input);
 
         Flash::success('Marketplace saved successfully.');

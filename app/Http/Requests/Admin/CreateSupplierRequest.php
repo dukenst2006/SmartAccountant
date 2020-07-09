@@ -27,4 +27,12 @@ class CreateSupplierRequest extends FormRequest
     {
         return Supplier::$rules;
     }
+    public function attributes()
+    {
+        return [
+            "Name"          =>  __("employee.name"),
+            "CompanyID"     =>  __("Models/Supplier.Company"),
+            "PhoneNumber"   =>  __("employee.phone"),
+        ];
+    }
 }

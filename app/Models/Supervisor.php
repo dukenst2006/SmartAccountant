@@ -49,7 +49,6 @@ class Supervisor extends Model
      * @var array
      */
     public static $rules = [
-        'UserID' => 'required',
         'MarketplaceID' => 'required',
         'PhoneNumber' => 'required'
     ];

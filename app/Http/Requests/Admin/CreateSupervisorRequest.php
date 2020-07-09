@@ -27,4 +27,10 @@ class CreateSupervisorRequest extends FormRequest
     {
         return Supervisor::$rules;
     }
+    public function attributes()
+    {
+        return [
+            "PhoneNumber"   =>  __("employee.phone"),
+        ];
+    }
 }

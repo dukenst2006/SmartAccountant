@@ -2,7 +2,7 @@
 @section('title', 'Companies')
 
 @section('content_header')
-    <h1>    Companies</h1>
+    <h1>    الشركات</h1>
 @stop
 
 @section('content')
@@ -13,7 +13,7 @@
         @include('adminlte-templates::common.errors')
         <div class="card box-primary">
             <div class="card-header">
-                <h3 class="card-title">Companies</h3>
+                <h3 class="card-title">انشاء</h3>
             </div>
             <div class="card-body">
                 {!! Form::open(['route' => 'admin.companies.store']) !!}

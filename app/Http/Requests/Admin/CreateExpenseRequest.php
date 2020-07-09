@@ -27,4 +27,15 @@ class CreateExpenseRequest extends FormRequest
     {
         return Expense::$rules;
     }
+    public function attributes()
+    {
+        return [
+            'MarketplacesID' => "الفرع",
+            'ExpensesCategoriesID' =>__('expenses.expenses_category'),
+            'Name' => "الاسم",
+            'Price' => "السعر",
+            'Description' => "الوصف",
+            'Date' => "التاريخ",
+        ];
+    }
 }

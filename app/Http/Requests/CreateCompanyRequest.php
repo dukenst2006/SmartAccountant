@@ -27,4 +27,13 @@ class CreateCompanyRequest extends FormRequest
     {
         return Company::$rules;
     }
+    public function attributes()
+    {
+        return [
+            "PhoneNumber"   =>  __("employee.phone"),
+            "Name"   =>  __("employee.name"),
+            "Address"   =>  __("branch.address"),
+            "Country"   =>  __("branch.country"),
+        ];
+    }
 }

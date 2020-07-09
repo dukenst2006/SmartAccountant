@@ -62,7 +62,7 @@
 <!-- Companyregisterimage Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CompanyRegisterImage', __('Models/Marketplace.CompanyRegisterImage')) !!}
-    {!! Form::text('CompanyRegisterImage', null, ['class' => 'form-control']) !!}
+    {!! Form::file('CompanyRegisterImage', ['class' => 'form-control']) !!}
 </div>
 
 <!-- Logo Field -->
