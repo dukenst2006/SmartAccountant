@@ -6,7 +6,7 @@ return [
 
     'id' => '',
     'MarketplaceOwnerID' => '',
-    'Name' => 'اسم المتجر',
+    'Name' => 'اسم الفرع',
     'Country' => 'البلد',
     'City' => 'المدينة',
     'SupervisorPhoneNumber' => 'رقم جوال المشرف',

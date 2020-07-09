@@ -27,7 +27,7 @@ return [
 
 
     'PublicAdministration' => 'الإدارة العامة',
-    'Marketplaces' => 'المتاجر',
+    'Marketplaces' => 'الفروع',
     'Store' => 'المخازن',
     'Products' => 'المنتجات',
     'Categories' => 'إدارة الأصناف',

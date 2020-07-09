@@ -5,14 +5,7 @@
       <paths name="Abc-const">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="Tkarir">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/SmartAccountant" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

@@ -36,14 +36,15 @@ class ProductController extends AppBaseController
     /**
      * Show the form for creating a new Product.
      *
-     * @return Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        $marketplaces = $this->productRepository->GetDataForSelect('marketplaces');
-        $product_categories = $this->productRepository->GetDataForSelect('product_categories');
-        $product_sub_categories = $this->productRepository->GetDataForSelect('product_sub_categories');
-        return view('admin.products.create',compact('marketplaces','product_categories','product_sub_categories'));
+        $marketplaces = $this->productRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID');
+        $quantitytypes= $this->productRepository->GetDataForSelect('quantity_types');
+  //      $product_categories = $this->productRepository->GetDataForSelect('product_categories');
+     ///   $product_sub_categories = $this->productRepository->GetDataForSelect('product_sub_categories');
+        return view('admin.products.create',compact('marketplaces','quantitytypes')); //,'product_categories','product_sub_categories'));
     }
 
     /**
@@ -160,11 +161,11 @@ class ProductController extends AppBaseController
 
 
 
-    public  function search()
+    public  function LiveSearch()
     {
+      //  if (request()->ajax())
 
-
-        return response()->json(['results'=>$results]);
+        return response()->json(['results'=>$this->productRepository->filter()]);
 
 
     }

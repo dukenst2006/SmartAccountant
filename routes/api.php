@@ -26,3 +26,8 @@ Route::get('AllMarketPlaces','AxiosRequestController@GetAllMarketPlaces')->name(
 Route::post('Invoices','AxiosRequestController@GetInvoices')->name('getInvoices');
 Route::post('LastInvoiceNow','AxiosRequestController@LastInvoiceNow')->name('LastInvoiceNow');
 Route::post('LastInvoice','AxiosRequestController@LastInvoice')->name('LastInvoice');
+Route::group(['prefix' => 'Admin' , 'namespace' => 'Admin'], function () {
+
+Route::get('ProductLiveSearch','ProductController@LiveSearch')->name('product.LiveSearch');
+
+});

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models;
 
 use Carbon\Carbon;
-use Eloquent as Model;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -75,7 +75,6 @@ class Product extends Model
         'Barcode',
         'UnlimitedQuantity'
     ];
-    protected $with = ['user:id,Name', 'marketplace:id,Name'];
 
 
     /**
@@ -104,7 +103,7 @@ class Product extends Model
     /**
      * @return BelongsTo
      **/
-    public function Marketplace()
+    public function marketplace()
     {
         return $this->belongsTo(Marketplace::class, 'MarketplacesID');
     }
@@ -136,7 +135,7 @@ class Product extends Model
     /**
      * @return BelongsTo
      **/
-    public function userid()
+    public function user()
     {
         return $this->belongsTo(User::class, 'UserID');
     }

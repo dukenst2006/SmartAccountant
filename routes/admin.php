@@ -35,7 +35,7 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::resource('settings', 'SettingsController')->except('create', 'edit', 'destroy', 'show', 'store');
     Route::resource('companies', 'CompanyController');
     Route::resource('suppliers', 'SupplierController');
-    Route::get('invoices', 'invoiceController@index');
+    Route::get('invoices', 'invoiceController@index')->name('invoice.create');
     Route::get('treasure','TreasureController@index')->name('treasure');
 
 

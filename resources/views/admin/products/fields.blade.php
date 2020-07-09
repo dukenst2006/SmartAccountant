@@ -31,7 +31,7 @@
 <!-- Quantitytypeid Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('QuantityTypeID', 'Quantitytypeid:') !!}
-    {!! Form::number('QuantityTypeID', null, ['class' => 'form-control']) !!}
+    {!! Form::select('QuantityTypeID', $quantitytypes,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Purchasingprice Field -->

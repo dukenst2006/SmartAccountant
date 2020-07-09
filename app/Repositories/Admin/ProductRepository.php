@@ -50,7 +50,7 @@ public function filter(){
 
     $query = $this->model->newQuery();
 
-    $query->orderBy('name')->select(
+   return $query->orderBy('Name')->select(
         [
             'id',
             'Name',
@@ -58,13 +58,10 @@ public function filter(){
             'Quantity',
             'UnlimitedQuantity',
             'SellingPrice',
-            'quantity'
         ]
     )-> when(request('q'), function ($query, $role) {
-        $query->where('barcode','like','%'.request('q').'%')
-            ->orWhere('name','like','%'.request('q').'%')
-            ->orWhere('category','like','%'.request('q').'%');
-
+        $query->where('Barcode','like','%'.request('q').'%')
+            ->orWhere('Name','like','%'.request('q').'%');
     })->limit(10)->get();
 
 

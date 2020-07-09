@@ -37,7 +37,7 @@ class ProductDataTable extends DataTable
      */
     public function query(Product $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->with( ['user:id,Name', 'marketplace:id,Name','productcategory:id,Name', 'productsubcategory:id,Name' ]);
     }
 
     /**
@@ -74,11 +74,11 @@ class ProductDataTable extends DataTable
     {
         return [
 
-            new Column([ 'data' => 'marketplace.name', 'name' => 'marketplace.name', 'title' => __('Models/Marketplace.Name') ]),
-            new Column([ 'data' => 'ProductCategoryID', 'name' => 'ProductCategoryID', 'title' => __('Models/Product.ProductCategoryID') ]),
-            new Column([ 'data' => 'ProductSubCategoryID', 'name' => 'ProductSubCategoryID', 'title' => __('Models/Product.ProductSubCategoryID') ]),
+            new Column([ 'data' => 'id', 'name' => 'id', 'title' => '#' ]),
+            new Column([ 'data' => 'marketplace.Name', 'name' => 'marketplace.Name', 'title' => __('Models/Marketplace.Name') ]),
+            new Column([ 'data' => 'productcategory.Name', 'name' => 'productcategory.Name', 'title' => __('Models/Product.ProductCategoryID') ]),
+            new Column([ 'data' => 'productsubcategory.Name', 'name' => 'productsubcategory.Name', 'title' => __('Models/Product.ProductSubCategoryID') ]),
             new Column([ 'data' => 'Name', 'name' => 'Name', 'title' => __('Models/Product.Name')]), new Column(['data' => 'Quantity', 'name' => 'Quantity', 'title' => __('Models/Product.Quantity')]),
-            new Column([ 'data' => 'QuantityTypeID', 'name' => 'QuantityTypeID', 'title' => __('Models/Product.QuantityTypeID') ]),
             new Column([ 'data' => 'PurchasingPrice', 'name' => 'PurchasingPrice', 'title' => __('Models/Product.PurchasingPrice') ]),
             new Column([ 'data' => 'SellingPrice', 'name' => 'SellingPrice', 'title' => __('Models/Product.SellingPrice') ]),
             new Column(['data' => 'LowPrice', 'name' => 'LowPrice', 'title' => __('Models/Product.LowPrice')]),

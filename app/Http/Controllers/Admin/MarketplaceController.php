@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use App\DataTables\Admin\MarketplaceDataTable;
@@ -39,9 +38,9 @@ class MarketplaceController extends AppBaseController
      */
     public function create()
     {
-        $marketplace_owners = $this->marketplaceRepository->GetAllMarketPlaceOwners();
 
-        return view('admin.marketplaces.create',compact('marketplace_owners'));
+
+        return view('admin.marketplaces.create');
     }
 
     /**

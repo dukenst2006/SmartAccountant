@@ -236,14 +236,16 @@ abstract class BaseRepository
      * @return array
      */
 
-    public function GetDataForSelect($table,$Where_Column){
-
-
-            return  DB::table($table)->select(['id','Name'])
-//            ->where( $Where_Column , auth()->user()->id)
-            ->get()->pluck('Name','id')->toArray();
+    public function GetDataForSelect($table,$Where_Column=null)
+    {
+            return
+                DB::table($table)->select(['id','Name'])
+              ->where(  $Where_Column ,  ($Where_Column==null ) ? null : auth()->user()->id)
+              ->get()->pluck('Name','id')->toArray();
 
     }
+
+
     public function StoreFile($file,$default = ''){
         if ($file != null){
             $img = Storage::disk('public')->put('images',$file);
