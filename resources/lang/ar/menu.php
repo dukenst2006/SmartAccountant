@@ -22,6 +22,8 @@ return [
     'HumanResources' => 'الموارد البشرية',
     'Supervisors' => ' موظفي اإلدارة',
     'Employee' => 'الموظفين',
+    'EmployeesSalaries' => 'رواتب الموظفين',
+
     'Companies' => 'الشركات',
     'Suppliers' => 'الموردين',
 
@@ -40,20 +42,16 @@ return [
 
     'FinancialManagement' => 'الإدارة المالية',
     'Bonds' => 'السندات',
+    'BondVoucher' => 'سند صرف',
+    'BondAmount' => 'سند مبلغ',
     'Treasury' => 'الخزينة',
     'Safe' =>  'الخزنة',
 
 
-
-
-    'Admin Panel' => 'لوحة التحكم',
-    'Const Tech' => 'كوكب التقنية',
-    'Copy rights' => 'حقوق الملكية محفوظة ل ',
-
     'SettingsHeader' => 'الأعدادات والنسخ الأحطياتي',
     'Settings' => 'الضبط',
     'GeneralSettings' => 'الأعدات العامة',
-    'EmployeeHeader' => 'طاقم العمل',
+
 
 
 
@@ -81,13 +79,6 @@ return [
 
     'Main Ui'=>'الواجهة الامامية',
     'Pages' =>  'الصفحات',
-    // settings trans
-
-
-    'is_site_active' => 'حالة الموقع',
-    'is_program_active' => 'حالة البرنامج',
-    'closing_message' => 'رسالة اغلاق الموقع',
-    'program_end_date' => 'تاريخ انتهاء البرنامج ',
 
 
 

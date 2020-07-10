@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models;
 
 use Eloquent as Model;
 
 /**
  * Class ProductCategory
- * @package App\Models\Admin
+ * @package App\Models
  * @version July 6, 2020, 6:04 am UTC
  *
  * @property \App\Models\Marketplace $marketplacesid

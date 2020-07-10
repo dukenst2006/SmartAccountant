@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Supplier
- * @package App\Models\Admin
+ * @package App\Models
  * @version July 8, 2020, 9:56 am UTC
  *
  * @property \App\Models\MarketplaceOwner $marketplaceownerid

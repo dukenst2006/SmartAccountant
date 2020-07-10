@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Expense
- * @package App\Models\Admin
+ * @package App\Models
  * @version July 6, 2020, 6:04 am UTC
  *
  * @property \App\Models\ExpensesCategory $expensescategoriesid

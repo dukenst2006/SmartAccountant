@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Product
- * @package App\Models\Admin
+ * @package App\Models
  * @version July 6, 2020, 5:44 am UTC
  *
  * @property Marketplace $marketplacesid

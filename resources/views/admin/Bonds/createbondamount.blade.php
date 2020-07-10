@@ -1,8 +1,8 @@
 @extends('adminlte::page')
-@section('title', 'فاتوره جديده')
+@section('title', 'New Bond')
 
 @section('content_header')
-    <h1>فاتورة جديده</h1>
+    <h1>سند جديد</h1>
 @stop
 
 @section('content')
@@ -35,16 +35,7 @@
 
 
 
-                        <div class="form-group row col-sm-6 m-3">
-                            {!! Form::label('Total', __('Models/Invoice.Paid')) !!}
-                            {!! Form::text('Total', null, ['class' => 'form-control']) !!}
-                        </div>
 
-
-                        <div class="form-group row col-sm-6 m-3">
-                            {!! Form::label('Total', __('Models/Invoice.Rest')) !!}
-                            {!! Form::text('Total', null, ['class' => 'form-control']) !!}
-                        </div>
 
 
                         <div class="form-group row col-sm-6 m-3">
@@ -54,12 +45,6 @@
 
 
 
-                    </div>
-
-
-                    <div class="form-group col-sm-12">
-                        <a href="#" class="btn btn-lg btn-success">{{ __('Buttons.Save') }}</a>
-                        <a href="#" class="btn btn-lg btn-default">{{ __('Buttons.Cancel') }}</a>
                     </div>
 
 
@@ -74,10 +59,7 @@
 
 
 
-@stop
-@section('css')
-
-@stop
+@endsection
 
 @section('customejs')
 
@@ -263,4 +245,3 @@
     <link rel="stylesheet" href="{{asset('css/xselect2-bootstrap.min.css')}}">
 
 @endsection
-

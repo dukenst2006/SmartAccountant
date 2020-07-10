@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Supervisor
- * @package App\Models\Admin
+ * @package App\Models
  * @version July 6, 2020, 5:37 am UTC
  *
  * @property \App\Models\Marketplace $marketplaceid

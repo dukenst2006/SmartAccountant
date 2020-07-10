@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Employee
- * @package App\Models\Admin
+ * @package App\Models
  * @version July 6, 2020, 5:31 am UTC
  *
  * @property \App\Models\Marketplace $marketplaceid

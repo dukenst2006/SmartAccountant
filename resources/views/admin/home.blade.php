@@ -3,64 +3,94 @@
     <div class="container pt-3">
 
 
-        <div class="row">
-            <div class="col-lg-3 col-6 animated bounceInUp">
-                <!-- small box -->
-                <div class="small-box bg-info">
-                    <div class="inner">
-                        <h3>150</h3>
+        <div class="row col-12">
+            <div class="col-3 animated bounceInUp">
 
-                        <p>اجمالي الطلبات علي المتاجر</p>
+
+                <div class="info-box bg-info">
+
+                    <div class="info-box-content">
+                        <h4 class="info-box-text">{{__('Dashboard.Capital')}}</h4>
+                        <h4 class="info-box-number">
+                                  500,000 ر.س
+                        </h4>
+
+
                     </div>
-                    <div class="icon">
-                        <i class="fa fa-chart-area"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <span class="info-box-icon">
+                        <i class="fas fa-2x fa-hand-holding-usd"></i>
+                    </span>
+
                 </div>
+
+
+
+
+
+            </div>
+
+
+
+
+            <!-- ./col -->
+            <div class="col-3 animated bounceInDown">
+
+                <div class="info-box bg-success">
+
+                    <div class="info-box-content">
+                        <h4 class="info-box-text">{{__('Dashboard.Profits')}}</h4>
+                        <h4 class="info-box-number">
+                                  784,548 ر.س
+                        </h4>
+
+
+                    </div>
+                    <span class="info-box-icon">
+                        <i class="fas fa-2x fa-chart-line"></i>
+                    </span>
+
+                </div>
+
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6 animated bounceInDown">
-                <!-- small box -->
-                <div class="small-box bg-success">
-                    <div class="inner">
-                        <h3>53<sup style="font-size: 20px">%</sup></h3>
+            <div class="col-3 animated bounceInUp">
 
-                        <p>Bounce Rate</p>
+                <div class="info-box bg-warning">
+
+                    <div class="info-box-content">
+                        <h4 class="info-box-text">{{__('Dashboard.Sales')}}</h4>
+                        <h4 class="info-box-number">
+                                       24,489
+                        </h4>
+
+
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <span class="info-box-icon">
+                        <i class="fas fa-2x fa-file-invoice-dollar"></i>
+                    </span>
+
                 </div>
+
+
+
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6 animated bounceInUp">
+            <div class="col-3 animated bounceInDown">
                 <!-- small box -->
-                <div class="small-box bg-warning">
-                    <div class="inner">
-                        <h3>44</h3>
+                <div class="info-box bg-danger">
 
-                        <p>User Registrations</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6 animated bounceInDown">
-                <!-- small box -->
-                <div class="small-box bg-danger">
-                    <div class="inner">
-                        <h3>65</h3>
+                    <div class="info-box-content">
+                        <h4 class="info-box-text">{{__('Dashboard.Losses')}}</h4>
+                        <h4 class="info-box-number">
+                                  53,963 ر.س
+                        </h4>
 
-                        <p>Unique Visitors</p>
+
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <span class="info-box-icon">
+                        <i class="fas fa-2x fa-angle-double-down"></i>
+                    </span>
+
                 </div>
             </div>
             <!-- ./col -->
@@ -138,17 +168,24 @@
             <!-- /.col -->
         </div>
 
-        <div class="row">
 
 
-            <div id="chart" style="height: 300px;">
+        <div class="col-md-12">
+            <p class="text-center">
+                <strong>Sales: 1 Jan, 2020 - 30 Dec, 2020</strong>
+            </p>
+
+            <div class="chart">
 
 
+                <div id="chart" style="height: 300px; width: 1072px;" height="300" width="1072">
+
+                    {!! $usersChart->container() !!}
+
+                </div>
             </div>
 
-
         </div>
-
 
 
 
@@ -160,11 +197,5 @@
 
 
 @section('customejs')
-<script>
-    const chart = new Chartisan({
-        el: '#chart',
-        url: "@chart('sample_chart')",
-    });
-
-</script>
+    {!! $usersChart->script() !!}
 @endsection

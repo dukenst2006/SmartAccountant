@@ -239,6 +239,11 @@ return [/*
                     'route' => 'admin.employees.index',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
+                [
+                    'text' => 'EmployeesSalaries',
+                    'url' => '$',
+                    'icon' => 'fas fa-fw fa-coins',
+                ],
             ],
         ],
 
@@ -367,12 +372,12 @@ return [/*
             'icon_color' => 'orange',
             'submenu' => [
                 [
-                    'text' => 'قيدة التطوير',
-                    'url' => '#',
-                    'icon' => 'fas fa-donate',
+                    'text' => 'BondVoucher',
+                    'url' => '/Admin/BondVoucher',
+                    'icon' => 'fas fa-truck-loading',
                 ],
                 [
-                    'text' => 'قيدة التطوير',
+                    'text' => 'BondAmount',
                     'url' => '#',
                     'icon' => 'fa fa-donate',
                 ],
@@ -579,7 +584,7 @@ return [/*
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js',
                 ],
             ],
         ],
