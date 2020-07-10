@@ -2,7 +2,7 @@
 
 /** @var Factory $factory */
 
-use App\Models\Admin\ExpensesCategory;
+use App\Models\ExpensesCategory;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 /*

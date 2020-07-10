@@ -57,7 +57,7 @@ class ProductCategories extends Model
      **/
     public function marketplacesid()
     {
-        return $this->belongsTo(\\App\Models\Marketplace::class, 'MarketplacesID');
+        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplacesID');
     }
 
     /**
