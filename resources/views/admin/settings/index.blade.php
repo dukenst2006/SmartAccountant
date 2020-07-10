@@ -27,43 +27,40 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('admin.settings.update', '1')}}" method="post">
+                    <form action="{{ route('admin.settings.update', '1')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="is_site_active">{{__('adminPanel.is_site_active')}}</label>
-                                <select class="form-control" name="is_site_active" id="is_site_active">
-                                    {{--                                <option {{\App\Models\Settings::all()->first()->is_site_active ?'selected':'' }} value="1">{{__('Active')}}</option>--}}
-                                    {{--                                <option {{!\App\Models\Settings::all()->first()->is_site_active ?'selected':'' }} value="0">{{__('Not Active')}}</option>--}}
+                                <select class="form-control" name="IsSiteActive" id="is_site_active">
+                                    <option {{\App\Models\Settings::all()->first()->IsSiteActive ?'selected':'' }} value="1">فعال</option>
+                                    <option {{!\App\Models\Settings::all()->first()->IsSiteActive ?'selected':'' }} value="0">موقوف</option>
                                 </select>
 {{--                                <x-error name="is_site_active"></x-error>--}}
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="store_name">{{__('adminPanel.store_name')}}</label>
-                                <input type="text" name="store_name" id="store_name" class="form-control" value=" ">
+                                <input type="text" name="AppName" id="store_name" class="form-control" value="{{$setting->AppName}}">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="logo_pic">{{__('adminPanel.logo_picture')}}</label>
-                                <input type="file" name="logo_pic" id="logo_pic" class="form-control" value=" ">
+                                <input type="file" name="Logo" id="logo_pic" class="form-control">
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="site_name">{{__('adminPanel.site_name')}}</label>
-                                <input type="text" name="site_name" id="site_name" class="form-control" value=" ">
-                            </div>
+
                             <div class="form-group col-md-6">
                                 <label for="phone">{{__('adminPanel.phone')}}</label>
-                                <input type="number" name="phone" id="phone" class="form-control" value=" ">
+                                <input type="number" name="PhoneNumber" id="phone" class="form-control" value="{{$setting->PhoneNumber}}">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="subscribe_number">{{__('adminPanel.subscribe_number')}}</label>
-                                <input type="number" name="subscribe_number" id="subscribe_number" class="form-control"
-                                       value=" ">
+                                <input type="number" name="SerialNumber" id="subscribe_number" class="form-control"
+                                       value="{{$setting->SerialNumber}}">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="email_address">{{__('adminPanel.email_address')}}</label>
-                                <input type="email" name="email_address" id="email_address" class="form-control"
-                                       value=" ">
+                                <input type="email" name="Email" id="email_address" class="form-control"
+                                       value="{{$setting->Email}}">
                             </div>
                         </div>
                         <div class="row">
@@ -80,7 +77,7 @@
                                 <textarea class="form-control msg" name="message_ar" id="message_ar" cols="30"
                                           rows="10">
 {{--                                    {{\App\Models\Settings::all()->first()->trans->where('lang_code', 'ar')->first()->message}}--}}
-                                  
+
                                 </textarea>
 {{--                                <x-error name="message_ar"></x-error>--}}
                             </div>
@@ -102,11 +99,11 @@
                                 {{--                            <input type="date" name="program_end_date" id="end_date" class="form-control" value="{{\App\Models\Settings::all()->first()->program_end_date}}">--}}
                             </div>
                         </div>
-                        
-                        
-                        
-                        
-                        
+
+
+
+
+
                         <div class="row mt-5">
                             <div class="col-12">
                                 <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> {{__('adminPanel.save')}} </button>

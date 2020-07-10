@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('content'); ?>
     <div class="container pt-3">
 
@@ -11,9 +12,9 @@
                     <div class="info-box-content">
                         <h4 class="info-box-text"><?php echo e(__('Dashboard.Capital')); ?></h4>
                         <h4 class="info-box-number">
-                            <?php echo e($settings->Capital); ?>
 
                             ر.س
+
                         </h4>
 
 
@@ -41,6 +42,7 @@
                     <div class="info-box-content">
                         <h4 class="info-box-text"><?php echo e(__('Dashboard.Profits')); ?></h4>
                         <h4 class="info-box-number">
+
                             <?php echo e($gains); ?>
 
                             ر.س
@@ -63,6 +65,7 @@
                     <div class="info-box-content">
                         <h4 class="info-box-text"><?php echo e(__('Dashboard.Sales')); ?></h4>
                         <h4 class="info-box-number">
+
                             <?php echo e($totalPaid); ?>
 
                             ر.س
@@ -87,6 +90,7 @@
                     <div class="info-box-content">
                         <h4 class="info-box-text"><?php echo e(__('Dashboard.Losses')); ?></h4>
                         <h4 class="info-box-number">
+
                           <?php echo e($lose); ?>
 
                             ر.س

@@ -21,10 +21,10 @@
 
     
     <?php echo $__env->yieldContent('adminlte_css_pre'); ?>
-
+     <link rel="stylesheet" href="<?php echo e(asset('vendor/fontawesome-free/css/all.min.css')); ?>">
     
     <?php if(!config('adminlte.enabled_laravel_mix')): ?>
-        <link rel="stylesheet" href="<?php echo e(asset('vendor/fontawesome-free/css/all.min.css')); ?>">
+   
         <link rel="stylesheet" href="<?php echo e(asset('vendor/overlayScrollbars/css/OverlayScrollbars.min.css')); ?>">
 
         
@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="<?php echo e(asset('vendor/adminlte/dist/css/adminlte.min.css')); ?>">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <?php else: ?>
-        <link rel="stylesheet" href="<?php echo e(mix(config('adminlte.laravel_mix_css_path', 'css/app.css'))); ?>">
+        <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>">
         <?php echo $__env->make('adminlte::plugins', ['type' => 'css'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <?php endif; ?>
@@ -89,7 +89,8 @@
     
     <?php echo $__env->make('vendor.adminlte.plugins', ['type' => 'js'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php else: ?>
-    <script src="<?php echo e(mix(config('adminlte.laravel_mix_js_path', 'js/app.js'))); ?>"></script>
+    <script src="<?php echo e(asset('js/app.js')); ?>"></script>
+
     <?php echo $__env->make('vendor.adminlte.plugins', ['type' => 'js'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <?php endif; ?>
@@ -101,7 +102,6 @@
 
 <?php echo $__env->yieldContent('customejs'); ?>
 <?php echo $__env->yieldPushContent('scripts'); ?>
-
 </body>
 
 </html>

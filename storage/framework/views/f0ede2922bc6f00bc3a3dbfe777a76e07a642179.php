@@ -1,11 +1,10 @@
-@extends('adminlte::page')
-@section('title', 'Safe')
+<?php $__env->startSection('title', 'Safe'); ?>
 
-@section('content_header')
+<?php $__env->startSection('content_header'); ?>
     <h1>الخزنة</h1>
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div id="root">
             <div class="row justify-content-center animated slideInDown ">
             <div class="card card-primary col-8">
@@ -13,10 +12,11 @@
                     <div class="row">
 
                         <div class="form-group col-12">
-                            {!! Form::label('MarketplaceID', __('Models/Marketplace.Name')) !!}
+                            <?php echo Form::label('MarketplaceID', __('Models/Marketplace.Name')); ?>
+
                             <select class="form-control" @change="GetInvoices()" name="" v-model="selected" id="">
                                 <option value="">اختر</option>
-                                <option v-for="(market,k) in markets" :value="k">@{{ market }}</option>
+                                <option v-for="(market,k) in markets" :value="k">{{ market }}</option>
                             </select>
                         </div>
 
@@ -71,28 +71,28 @@
                                     <tr class='text-center' role='row'>
                                         <td>كاش</td>
                                         <template v-if="last_invoice != null && last_invoice[0] != null">
-                                            <td>@{{ last_invoice[0].AccountNumber }}</td>
-                                            <td>@{{ last_invoice[0].Total }}</td>
-                                            <td>@{{ last_invoice[0].Paid }}</td>
-                                            <td>@{{ last_invoice[0].Rest }}</td>
+                                            <td>{{ last_invoice[0].AccountNumber }}</td>
+                                            <td>{{ last_invoice[0].Total }}</td>
+                                            <td>{{ last_invoice[0].Paid }}</td>
+                                            <td>{{ last_invoice[0].Rest }}</td>
                                         </template>
                                     </tr>
                                     <tr class='text-center' role='row'>
                                         <td>تحويل بنكي</td>
                                         <template v-if="last_invoice != null && last_invoice[1] != null">
-                                            <td>@{{ last_invoice[1].AccountNumber }}</td>
-                                            <td>@{{ last_invoice[1].Total }}</td>
-                                            <td>@{{ last_invoice[1].Paid }}</td>
-                                            <td>@{{ last_invoice[1].Rest }}</td>
+                                            <td>{{ last_invoice[1].AccountNumber }}</td>
+                                            <td>{{ last_invoice[1].Total }}</td>
+                                            <td>{{ last_invoice[1].Paid }}</td>
+                                            <td>{{ last_invoice[1].Rest }}</td>
                                         </template>
                                     </tr>
                                     <tr class='text-center' role='row'>
                                         <td>نقاط بيع</td>
                                         <template v-if="last_invoice != null && last_invoice[2] != null">
-                                            <td>@{{ last_invoice[2].AccountNumber }}</td>
-                                            <td>@{{ last_invoice[2].Total }}</td>
-                                            <td>@{{ last_invoice[2].Paid }}</td>
-                                            <td>@{{ last_invoice[2].Rest }}</td>
+                                            <td>{{ last_invoice[2].AccountNumber }}</td>
+                                            <td>{{ last_invoice[2].Total }}</td>
+                                            <td>{{ last_invoice[2].Paid }}</td>
+                                            <td>{{ last_invoice[2].Rest }}</td>
                                         </template>
                                     </tr>
 
@@ -135,28 +135,28 @@
                                     <tr class='text-center' role='row'>
                                         <td>كاش</td>
                                         <template v-if="last_invoice_day != null && last_invoice_day[0] != null">
-                                            <td>@{{ last_invoice_day[0].AccountNumber }}</td>
-                                            <td>@{{ last_invoice_day[0].Total }}</td>
-                                            <td>@{{ last_invoice_day[0].Paid }}</td>
-                                            <td>@{{ last_invoice_day[0].Rest }}</td>
+                                            <td>{{ last_invoice_day[0].AccountNumber }}</td>
+                                            <td>{{ last_invoice_day[0].Total }}</td>
+                                            <td>{{ last_invoice_day[0].Paid }}</td>
+                                            <td>{{ last_invoice_day[0].Rest }}</td>
                                         </template>
                                     </tr>
                                     <tr class='text-center' role='row'>
                                         <td>تحويل بنكي</td>
                                         <template v-if="last_invoice_day != null && last_invoice_day[1] != null">
-                                            <td>@{{ last_invoice_day[1].AccountNumber }}</td>
-                                            <td>@{{ last_invoice_day[1].Total }}</td>
-                                            <td>@{{ last_invoice_day[1].Paid }}</td>
-                                            <td>@{{ last_invoice_day[1].Rest }}</td>
+                                            <td>{{ last_invoice_day[1].AccountNumber }}</td>
+                                            <td>{{ last_invoice_day[1].Total }}</td>
+                                            <td>{{ last_invoice_day[1].Paid }}</td>
+                                            <td>{{ last_invoice_day[1].Rest }}</td>
                                         </template>
                                     </tr>
                                     <tr class='text-center' role='row'>
                                         <td>نقاط بيع</td>
                                         <template v-if="last_invoice_day != null && last_invoice_day[2] != null">
-                                            <td>@{{ last_invoice_day[2].AccountNumber }}</td>
-                                            <td>@{{ last_invoice_day[2].Total }}</td>
-                                            <td>@{{ last_invoice_day[2].Paid }}</td>
-                                            <td>@{{ last_invoice_day[2].Rest }}</td>
+                                            <td>{{ last_invoice_day[2].AccountNumber }}</td>
+                                            <td>{{ last_invoice_day[2].Total }}</td>
+                                            <td>{{ last_invoice_day[2].Paid }}</td>
+                                            <td>{{ last_invoice_day[2].Rest }}</td>
                                         </template>
                                     </tr>
                                     </tbody>
@@ -169,20 +169,20 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
 
-@section('customejs')
+<?php $__env->startSection('customejs'); ?>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        var _token = "{{ csrf_token() }}";
+        var _token = "<?php echo e(csrf_token()); ?>";
 
         var app = new Vue({
             el: '#root',
             data: {
-                {{--searchresult: @json($products),--}}
+                
                 keyword: '',
                 start_date:'2000-10-20',
                 end_date:'2100-10-31',
@@ -195,7 +195,7 @@
             },
             methods: {
                 GetAllMarketPlaces(){
-                    axios.get("{{route('getAllMarkets')}}").then((data)=>{
+                    axios.get("<?php echo e(route('getAllMarkets')); ?>").then((data)=>{
                         this.markets = data.data;
 
 
@@ -207,7 +207,7 @@
                         'to'    :   this.end_date,
                         'ID'    :   this.selected,
                     };
-                    axios.post('{{route('getInvoices')}}',data).then((data)=>{
+                    axios.post('<?php echo e(route('getInvoices')); ?>',data).then((data)=>{
                         this.invoices = data.data.data;
                         this.GetLastInvoice();
                         this.GetLastInvoiceNow();
@@ -215,7 +215,7 @@
                 },
                 GetLastInvoiceNow(){
                     this.int = setInterval(()=>{
-                        axios.post('{{route('LastInvoiceNow')}}',{'ID':this.selected}).then((data)=>{
+                        axios.post('<?php echo e(route('LastInvoiceNow')); ?>',{'ID':this.selected}).then((data)=>{
                             this.last_invoice = data.data.data;
                         });
                     },60000);
@@ -226,94 +226,94 @@
                         'to'    :   this.end_date,
                         'ID'    :   this.selected,
                     };
-                    axios.post('{{route('LastInvoice')}}',data).then((data)=>{
+                    axios.post('<?php echo e(route('LastInvoice')); ?>',data).then((data)=>{
                         this.last_invoice_day = data.data.data;
                     });
                 }
 
-                {{--deletep(ele)--}}
-                {{--{--}}
-                {{--    let  proid = ele.currentTarget.getAttribute('id');--}}
-                {{--    Swal.fire({--}}
-                {{--        title: 'تأكيد',--}}
-                {{--        text: "هل انت متأكد من حذف هذا الصنف",--}}
-                {{--        icon: 'warning',--}}
-                {{--        showCancelButton: true,--}}
-                {{--        confirmButtonColor: '#3085d6',--}}
-                {{--        cancelButtonColor: '#d33',--}}
-                {{--        cancelButtonText: 'لا',--}}
-                {{--        confirmButtonText: 'نعم'--}}
-                {{--    }).then((result) => {--}}
-                {{--        if (result.value) {--}}
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
 
 
 
-                {{--            $.ajax({--}}
-                {{--                type: "post",--}}
-                {{--                url: "{{route('api.product.delete')}}",--}}
-                {{--                dataType: 'json',--}}
-                {{--                'contentType': 'application/json',--}}
+                
+                
+                
+                
+                
 
-                {{--                data:--}}
-                {{--                    JSON.stringify({--}}
-                {{--                        '_token':_token,--}}
-                {{--                        'productid': parseInt(proid)--}}
-                {{--                    }),--}}
+                
+                
+                
+                
+                
 
-                {{--            })--}}
-                {{--                .done(data => {--}}
-                {{--                    Swal.fire(--}}
-                {{--                        'اشعار!',--}}
-                {{--                        'تم الحذف بنحاح',--}}
-                {{--                        'success'--}}
-                {{--                    );--}}
-                {{--                    location.reload();--}}
+                
+                
+                
+                
+                
+                
+                
+                
 
-                {{--                })--}}
-                {{--                .fail(function (data) {--}}
-                {{--                    swal.fire("خطأ !", "مشكله في الحذف", "error");--}}
+                
+                
+                
 
-                {{--                });--}}
-
-
-
-
+                
 
 
 
 
 
-                {{--        }--}}
-                {{--    })--}}
-
-                {{--},--}}
-                {{--livesearch() {--}}
-                {{--    $.ajax({--}}
-                {{--        type: "get",--}}
-                {{--        url: "{{route('api.product.search')}}",--}}
-                {{--        dataType: 'json',--}}
-                {{--        'contentType': 'application/json',--}}
-
-                {{--        data: {--}}
-                {{--            'q': this.keyword,--}}
-                {{--        }--}}
-
-                {{--    })--}}
-                {{--        .done(data => {--}}
 
 
-                {{--            this.searchresult = data.results;--}}
 
 
-                {{--        })--}}
-                {{--        .fail(function (data) {--}}
-                {{--            swal.fire("Invoice !", "Make Sure From Your Data", "error");--}}
+                
+                
+
+                
+                
+                
+                
+                
+                
+                
+
+                
+                
+                
+
+                
+                
 
 
-                {{--        });--}}
+                
 
 
-                {{--}--}}
+                
+                
+                
+
+
+                
+
+
+                
 
             },
             created(){
@@ -325,4 +325,6 @@
 
     </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\SmartAccountant\resources\views/admin/Safe/index.blade.php ENDPATH**/ ?>

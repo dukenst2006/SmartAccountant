@@ -8,13 +8,19 @@ class Settings extends Model
 {
 
     protected $fillable = [
-        
+
         'IsSiteActive',
         'MessageEn',
         'messageAr',
         'ProgramStatus',
         'ProgramEndDate',
         "Capital",
+        'AppName',
+        'Email',
+        'PhoneNumber',
+        'Website',
+        'SerialNumber',
+        'Logo',
         ];
 
 }

@@ -19,7 +19,7 @@ class AxiosRequestController extends Controller
         $this->repository = $baseRepository;
     }
     public function GetAllMarketPlaces(){
-        $markets = $this->repository->GetDataForSelect('marketplaces','1');
+        $markets = $this->repository->GetDataForSelect('marketplaces');
         return $markets;
     }
     public function GetInvoices(Request $request){
@@ -52,7 +52,7 @@ class AxiosRequestController extends Controller
         $invs = array();
         foreach ($paymentTypes as $p){
             foreach ($invoices as $i){
-                if ($i->created_at->format('d') ==  Carbon::now()->format('d') && $i->MarketplacesID == $request->get('ID') && $p->id == $i->PaymentTypeID){
+                if ($i->created_at->format('d') + 1 ==  Carbon::now()->format('d') && $i->MarketplacesID == $request->get('ID') && $p->id == $i->PaymentTypeID){
                     $invs[$counter] = $i;
                     $counter++;
                     break;

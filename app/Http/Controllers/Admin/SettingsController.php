@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Settings;
 use Cassandra\Set;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SettingsController extends Controller
 {
@@ -85,7 +86,10 @@ class SettingsController extends Controller
 //            'message_en' => trans('adminPanel.closing_message'),
 //            'program_end_date' => trans('adminPanel.program_end_date'),
 //        ]);
-        Settings::all()->first()->update($request->except("_token",'_method'));
+
+        Settings::all()->first()->update($request->except("_token",'_method','Logo'));
+        Settings::all()->first()->update(['Logo' => Storage::put('images',$request->file('Logo'))]);
+
 //        foreach (Langs::all() as $lang) {
 //            foreach (Settings::all()->first()->trans as $tran) {
 //                if ($lang['lang_code'] == $tran['lang_code']) {

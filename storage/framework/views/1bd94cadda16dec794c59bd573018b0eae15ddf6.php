@@ -26,43 +26,40 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="<?php echo e(route('admin.settings.update', '1')); ?>" method="post">
+                    <form action="<?php echo e(route('admin.settings.update', '1')); ?>" method="post" enctype="multipart/form-data">
                         <?php echo csrf_field(); ?>
                         <?php echo method_field('PATCH'); ?>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="is_site_active"><?php echo e(__('adminPanel.is_site_active')); ?></label>
-                                <select class="form-control" name="is_site_active" id="is_site_active">
-                                    
-                                    
+                                <select class="form-control" name="IsSiteActive" id="is_site_active">
+                                    <option <?php echo e(\App\Models\Settings::all()->first()->IsSiteActive ?'selected':''); ?> value="1">فعال</option>
+                                    <option <?php echo e(!\App\Models\Settings::all()->first()->IsSiteActive ?'selected':''); ?> value="0">موقوف</option>
                                 </select>
 
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="store_name"><?php echo e(__('adminPanel.store_name')); ?></label>
-                                <input type="text" name="store_name" id="store_name" class="form-control" value=" ">
+                                <input type="text" name="AppName" id="store_name" class="form-control" value="<?php echo e($setting->AppName); ?>">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="logo_pic"><?php echo e(__('adminPanel.logo_picture')); ?></label>
-                                <input type="file" name="logo_pic" id="logo_pic" class="form-control" value=" ">
+                                <input type="file" name="Logo" id="logo_pic" class="form-control">
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="site_name"><?php echo e(__('adminPanel.site_name')); ?></label>
-                                <input type="text" name="site_name" id="site_name" class="form-control" value=" ">
-                            </div>
+
                             <div class="form-group col-md-6">
                                 <label for="phone"><?php echo e(__('adminPanel.phone')); ?></label>
-                                <input type="number" name="phone" id="phone" class="form-control" value=" ">
+                                <input type="number" name="PhoneNumber" id="phone" class="form-control" value="<?php echo e($setting->PhoneNumber); ?>">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="subscribe_number"><?php echo e(__('adminPanel.subscribe_number')); ?></label>
-                                <input type="number" name="subscribe_number" id="subscribe_number" class="form-control"
-                                       value=" ">
+                                <input type="number" name="SerialNumber" id="subscribe_number" class="form-control"
+                                       value="<?php echo e($setting->SerialNumber); ?>">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="email_address"><?php echo e(__('adminPanel.email_address')); ?></label>
-                                <input type="email" name="email_address" id="email_address" class="form-control"
-                                       value=" ">
+                                <input type="email" name="Email" id="email_address" class="form-control"
+                                       value="<?php echo e($setting->Email); ?>">
                             </div>
                         </div>
                         <div class="row">
@@ -79,6 +76,7 @@
                                     - <?php echo e(__('Arabic')); ?></label>
                                 <textarea class="form-control msg" name="message_ar" id="message_ar" cols="30"
                                           rows="10">
+
 
                                 </textarea>
 
@@ -101,11 +99,15 @@
                                 
                             </div>
                         </div>
+
+
+
+
+
                         <div class="row mt-5">
                             <div class="col-12">
-                                <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> <?php echo e(__('Save')); ?>
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> <?php echo e(__('adminPanel.save')); ?> </button>
 
-                                </button>
                             </div>
                         </div>
                     </form>

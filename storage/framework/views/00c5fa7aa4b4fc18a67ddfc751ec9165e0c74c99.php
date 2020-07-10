@@ -8,4 +8,5 @@
             </button>
         </div>
     </div>
-</form><?php /**PATH D:\xampp\htdocs\SmartAccountant\resources\views/vendor/adminlte/partials/navbar/menu-item-search-form.blade.php ENDPATH**/ ?>
+</form>
+<?php /**PATH D:\xampp\htdocs\SmartAccountant\resources\views/vendor/adminlte/partials/navbar/menu-item-search-form.blade.php ENDPATH**/ ?>
