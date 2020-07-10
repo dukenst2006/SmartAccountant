@@ -3,6 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Supplier;
+
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
 

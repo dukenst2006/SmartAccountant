@@ -34,6 +34,7 @@ class CreateProductsTable extends Migration
 
             $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('StockID')->references('id')->on('stocks')->onDelete('cascade');
+
             $table->foreign('QuantityTypeID')->references('id')->on('quantity_types')->onDelete('cascade');
             $table->foreign('ProductCategoryID')->references('id')->on('product_categories')->onDelete('cascade');
             $table->foreign('ProductSubCategoryID')->references('id')->on('product_sub_categories')->onDelete('cascade');

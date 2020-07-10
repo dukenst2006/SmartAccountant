@@ -241,7 +241,7 @@ return [/*
                 ],
                 [
                     'text' => 'EmployeesSalaries',
-                    'url' => '$',
+                    'route'=> 'admin.EmployeeSalary.index',
                     'icon' => 'fas fa-fw fa-coins',
                 ],
             ],

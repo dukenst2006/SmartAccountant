@@ -6,6 +6,7 @@ use Eloquent as Model;
 
 /**
  * Class ExpensesCategory
+
  * @package App\Models
  * @version July 6, 2020, 6:10 am UTC
  *

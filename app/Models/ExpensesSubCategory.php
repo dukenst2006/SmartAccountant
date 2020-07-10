@@ -6,7 +6,9 @@ use Eloquent as Model;
 
 /**
  * Class ExpensesSubCategory
- * @package App\Models
+
+ * @package App\Models\Admin
+=======
  * @version July 6, 2020, 6:10 am UTC
  *
  * @property \App\Models\ExpensesCategory $expensescategoryid

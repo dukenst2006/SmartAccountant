@@ -9,8 +9,15 @@
 
                 </div><!-- /.col -->
                 <div class="col-sm-12 d-flex justify-content-center w-100">
-                    <span class="d-inline-block d-flex flex-wrap"><input type="text" class="capital-input mr-2 mb-2" placeholder="ادخل رأس المال الإفتتاحى"> <button
-                                    class="btn btn-success d-inline-block mb-2 mr-2 "><i class="fas fa-pencil-alt"></i> تعديل </button></span>
+                    <form action="{{route('admin.settings.update', '1')}}" method="post">
+                        @csrf
+                        @method('PATCH')
+                        <span class="d-inline-block d-flex flex-wrap">
+                            <label for="">ادخل رأس المال الإفتتاحى</label>
+                            <input type="text" class="capital-input mr-2 mb-2" name="Capital" value="{{$setting->Capital}}" placeholder="ادخل رأس المال الإفتتاحى">
+                            <button class="btn btn-success d-inline-block mb-2 mr-2 "><i class="fas fa-pencil-alt"></i> تعديل </button>
+                        </span>
+                    </form>
                 </div>
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -30,7 +37,7 @@
                                     {{--                                <option {{\App\Models\Settings::all()->first()->is_site_active ?'selected':'' }} value="1">{{__('Active')}}</option>--}}
                                     {{--                                <option {{!\App\Models\Settings::all()->first()->is_site_active ?'selected':'' }} value="0">{{__('Not Active')}}</option>--}}
                                 </select>
-                                <x-error name="is_site_active"></x-error>
+{{--                                <x-error name="is_site_active"></x-error>--}}
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="store_name">{{__('adminPanel.store_name')}}</label>
@@ -73,8 +80,9 @@
                                 <textarea class="form-control msg" name="message_ar" id="message_ar" cols="30"
                                           rows="10">
 {{--                                    {{\App\Models\Settings::all()->first()->trans->where('lang_code', 'ar')->first()->message}}--}}
+                                  
                                 </textarea>
-                                <x-error name="message_ar"></x-error>
+{{--                                <x-error name="message_ar"></x-error>--}}
                             </div>
                         </div>
 
@@ -85,7 +93,7 @@
                                     {{--                                <option {{\App\Models\Settings::all()->first()->program_status ?'selected':'' }} value="1">{{__('Active')}}</option>--}}
                                     {{--                                <option {{!\App\Models\Settings::all()->first()->program_status ?'selected':'' }} value="0">{{__('Not Active')}}</option>--}}
                                 </select>
-                                <x-error name="program_status"></x-error>
+{{--                                <x-error name="program_status"></x-error>--}}
                             </div>
 
                             <div class="form-group col-md-6">
@@ -94,10 +102,15 @@
                                 {{--                            <input type="date" name="program_end_date" id="end_date" class="form-control" value="{{\App\Models\Settings::all()->first()->program_end_date}}">--}}
                             </div>
                         </div>
+                        
+                        
+                        
+                        
+                        
                         <div class="row mt-5">
                             <div class="col-12">
-                                <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> {{ __('Save')}}
-                                </button>
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> {{__('adminPanel.save')}} </button>
+
                             </div>
                         </div>
                     </form>
