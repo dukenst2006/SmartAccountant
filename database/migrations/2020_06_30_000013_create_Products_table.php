@@ -14,30 +14,36 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('UserID');
-            $table->unsignedBigInteger('StockID')->nullable();
-            $table->unsignedBigInteger('ProductCategoryID');
-            $table->unsignedBigInteger('ProductSubCategoryID')->nullable()->default(null);
+        $table->bigIncrements('id');
+        $table->unsignedBigInteger('UserID');
+        $table->unsignedBigInteger('ProductCategoryID');
+        $table->unsignedBigInteger('ProductSubCategoryID')->nullable()->default(null);
+        $table->unsignedBigInteger('WarehouseID')->nullable()->default(null);
+        $table->unsignedBigInteger('InventoryID')->nullable()->default(null);
 
-            $table->string('Name');
-            $table->double('Quantity');
-            $table->unsignedBigInteger('QuantityTypeID');
-            $table->double('PurchasingPrice');
-            $table->double('SellingPrice');
-            $table->double('LowPrice')->nullable()->default(null);  //  For What ?
-            $table->string('Image');
-            $table->dateTime('ExpiryDate')->nullable()->default(null);
-            $table->string('Barcode');
-            $table->boolean('UnlimitedQuantity')->default(false);
-            $table->timestamps();
+        $table->string('Name');
 
-            $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('StockID')->references('id')->on('stocks')->onDelete('cascade');
+        $table->unsignedBigInteger('QuantityTypeID');
+        $table->double('PurchasingPrice');
+        $table->double('SellingPrice');
+        $table->double('LowPrice')->nullable()->default(null);  //  For What ?
+        $table->string('Image');
+        $table->dateTime('ExpiryDate')->nullable()->default(null);
+        $table->string('Barcode');
+        $table->double('ProductQuantity');
+        $table->boolean('UnlimitedQuantity')->default(false);
+        $table->timestamps();
 
-            $table->foreign('QuantityTypeID')->references('id')->on('quantity_types')->onDelete('cascade');
-            $table->foreign('ProductCategoryID')->references('id')->on('product_categories')->onDelete('cascade');
-            $table->foreign('ProductSubCategoryID')->references('id')->on('product_sub_categories')->onDelete('cascade');
+        $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');
+
+        $table->foreign('QuantityTypeID')->references('id')->on('quantity_types')->onDelete('cascade');
+        $table->foreign('ProductCategoryID')->references('id')->on('product_categories')->onDelete('cascade');
+        $table->foreign('ProductSubCategoryID')->references('id')->on('product_sub_categories')->onDelete('cascade');
+        $table->foreign('WarehouseID')->references('id')->on('warehouses')->onDelete('cascade');
+        $table->foreign('InventoryID')->references('id')->on('inventories')->onDelete('cascade');
+
+
+
         });
     }
 
