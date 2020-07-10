@@ -35,10 +35,10 @@ class DatabaseSeeder extends Seeder
         factory(App\Models\Expense::class, 10)->create();
         factory(App\Models\Supervisor::class, 10)->create();
         factory(App\Models\Employee::class, 100)->create();
+        factory(App\Models\Stock::class, 30)->create();
         factory(App\Models\Marketplace::class, 100)->create();
 
 
-        factory(App\Models\Stock::class, 30)->create();
 
 
         factory(App\Models\Product::class, 50)->create();

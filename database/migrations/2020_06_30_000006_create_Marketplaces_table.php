@@ -36,9 +36,8 @@ class CreateMarketplacesTable extends Migration
 
         });
 
-
+//
         Schema::table('stocks', function (Blueprint $table) {
-            $table->foreign('MarketplacesOwnerID')->references('id')->on('marketplace_owners')->onDelete('cascade');
             $table->foreign('MarketplacesID')->references('id')->on('marketplaces')->onDelete('cascade');
 
         });

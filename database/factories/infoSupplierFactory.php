@@ -2,11 +2,9 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-<<<<<<< HEAD
+
 use App\Models\Admin\Supplier;
-=======
-use App\Models\Supplier;
->>>>>>> 8c78e0167782536fbb5d31e1e6b079d8bbd3201d
+
 use Faker\Generator as Faker;
 
 $factory->define(Supplier::class, function (Faker $faker) {

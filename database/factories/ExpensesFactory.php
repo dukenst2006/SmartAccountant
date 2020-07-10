@@ -23,8 +23,8 @@ $factory->define(Expense::class, function (Faker $faker) {
     return [
 
             'MarketplacesID' => factory(\App\Models\Marketplace::class),
-            'ExpensesCategoriesID' => factory(App\Models\ExpensesCategory::class),
-            'ExpensesSubCategoriesID' => factory(App\Models\ExpensesSubCategory::class),
+            'ExpensesCategoriesID' => factory(App\Models\Admin\ExpensesCategory::class),
+            'ExpensesSubCategoriesID' => factory(App\Models\Admin\ExpensesSubCategory::class),
             'Name' =>$faker->sentence(3),
             'Price' =>$faker->numberBetween(2000,10000),
             'Description' =>$faker->sentence(3),

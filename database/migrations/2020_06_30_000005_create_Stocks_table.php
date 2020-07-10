@@ -17,7 +17,7 @@ class CreateStocksTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('MarketplacesID');
             $table->timestamps();
-            $table->foreign('MarketplacesID')->references('id')->on('marketplaces')->onDelete('cascade');
+
 
         });
 
