@@ -19,6 +19,8 @@ use Illuminate\Support\Str;
 
 $factory->define(Stock::class, function (Faker $faker) {
     return [
+
         'MarketplacesID' => factory(\App\Models\Marketplace::class),
+
     ];
 });

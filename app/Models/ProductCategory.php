@@ -6,7 +6,9 @@ use Eloquent as Model;
 
 /**
  * Class ProductCategory
+
  * @package App\Models\Admin
+
  * @version July 6, 2020, 6:04 am UTC
  *
  * @property \App\Models\Marketplace $marketplacesid

@@ -16,13 +16,14 @@ class CreateInvoicesTable extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('MarketplacesID');
+            $table->unsignedBigInteger('UserID');
             $table->double('Total');
             $table->double('Paid');
             $table->double('Rest');
             $table->unsignedBigInteger('PaymentTypeID');
+            $table->boolean('IsRaw')->default(false);
+            $table->string('RawFile')->nullable()->default('');
             $table->timestamps();
-
-
             $table->foreign('MarketplacesID')->references('id')->on('marketplaces')->onDelete('cascade');
             $table->foreign('PaymentTypeID')->references('id')->on('payment_types')->onDelete('cascade');
         });

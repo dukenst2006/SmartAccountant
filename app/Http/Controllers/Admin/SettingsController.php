@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Settings;
+use Cassandra\Set;
 use Illuminate\Http\Request;
 
 class SettingsController extends Controller
@@ -15,9 +16,8 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        $settings= Settings::all();
-        // dd($settings);
-        return view('admin.settings.index',compact('settings'));
+        $setting = Settings::query()->first();
+        return view('admin.settings.index',compact('setting'));
     }
 
     /**
@@ -72,29 +72,29 @@ class SettingsController extends Controller
      */
     public function update(Request $request, Settings $settings)
     {
-        $request->validate([
-            'is_site_active' => 'required',
-            'program_status' => 'required',
-            'message_ar' => 'required',
-            'message_en' => 'required',
-            'program_end_date' => 'required',
-        ], [], [
-            'is_site_active' => trans('adminPanel.is_site_active'),
-            'program_status' => trans('adminPanel.is_program_active'),
-            'message_ar' => trans('adminPanel.closing_message'),
-            'message_en' => trans('adminPanel.closing_message'),
-            'program_end_date' => trans('adminPanel.program_end_date'),
-        ]);
-        Settings::all()->first()->update($request->all());
-        foreach (Langs::all() as $lang) {
-            foreach (Settings::all()->first()->trans as $tran) {
-                if ($lang['lang_code'] == $tran['lang_code']) {
-                    $tran->update([
-                        'message' => $request['message_' . $lang['lang_code']]
-                    ]);
-                }
-            }
-        }
+//        $request->validate([
+//            'is_site_active' => 'required',
+//            'program_status' => 'required',
+//            'message_ar' => 'required',
+//            'message_en' => 'required',
+//            'program_end_date' => 'required',
+//        ], [], [
+//            'is_site_active' => trans('adminPanel.is_site_active'),
+//            'program_status' => trans('adminPanel.is_program_active'),
+//            'message_ar' => trans('adminPanel.closing_message'),
+//            'message_en' => trans('adminPanel.closing_message'),
+//            'program_end_date' => trans('adminPanel.program_end_date'),
+//        ]);
+        Settings::all()->first()->update($request->except("_token",'_method'));
+//        foreach (Langs::all() as $lang) {
+//            foreach (Settings::all()->first()->trans as $tran) {
+//                if ($lang['lang_code'] == $tran['lang_code']) {
+//                    $tran->update([
+//                        'message' => $request['message_' . $lang['lang_code']]
+//                    ]);
+//                }
+//            }
+//        }
         toast(trans('Updated successfully'), 'success')->position(session('locale') == 'ar' ? 'bottom-start' : 'bottom-end');
         return redirect()->back();
     }

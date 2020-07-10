@@ -20,6 +20,7 @@ class CreateStocksTable extends Migration
             $table->foreign('MarketplacesID')->references('id')->on('marketplaces')->onDelete('cascade');
 
         });
+
     }
 
     /**

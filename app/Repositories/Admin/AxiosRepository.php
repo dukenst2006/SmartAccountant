@@ -2,9 +2,7 @@
 
 
 namespace App\Repositories\Admin;
-
-
-use App\Models\Admin\Marketplace;
+use App\Models\Marketplace;
 use App\Repositories\BaseRepository;
 
 class AxiosRepository extends BaseRepository

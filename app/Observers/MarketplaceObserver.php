@@ -4,6 +4,9 @@ namespace App\Observers;
 
 use App\Models\Marketplace;
 use App\Models\Safe;
+use App\Models\Stock;
+use App\Repositories\StockRepository;
+use Illuminate\Console\Events\ScheduledTaskFinished;
 
 class MarketplaceObserver
 {
@@ -19,6 +22,32 @@ class MarketplaceObserver
 
 
     }
+
+
+
+    /**
+     * Handle the marketplace "creating" event.
+     *
+     * @param  \App\Models\Marketplace  $marketplace
+     * @return void
+     */
+    public function creating(Marketplace $marketplace)
+    {
+            //Create The Main Stock
+            $stock = new Stock();
+            $stock->marketplaceid=auth()->user()->id;
+            $stock->save();
+            $marketplace->StockID=$stock->id;
+
+
+
+    }
+
+
+
+
+
+
 
     /**
      * Handle the marketplace "updated" event.

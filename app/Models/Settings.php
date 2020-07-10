@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Settings extends Model
 {
+
     protected $fillable = [
         
         'IsSiteActive',
@@ -13,5 +14,7 @@ class Settings extends Model
         'messageAr',
         'ProgramStatus',
         'ProgramEndDate',
+        "Capital",
         ];
+
 }

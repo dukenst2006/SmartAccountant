@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Charts\DashboardChart;
 use App\Http\Controllers\Controller;
+use App\Models\Expense;
+use App\Models\Invoice;
+use App\Models\Settings;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -44,14 +47,21 @@ class HomeController extends Controller
         $usersChart = new  DashboardChart;
 
 
-
+        $settings = Settings::query()->first();
+        $totalPaid = Invoice::query()->sum('Paid');
+        $gains  =   Invoice::query()->sum('Paid') - Expense::query()->sum('Price');
+        $lose  =   Expense::query()->sum('Price') - Invoice::query()->sum('Paid') ;
         $usersChart->labels(['يناير', 'فبراير', 'مارس', 'ابريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر']);
       $usersChart->dataset('المبيعات', 'bar',[16000, 20000,30000,40000,50000,10000,30000,40000,70000,60000,65000,85000])->backgroundcolor("rgb(236, 201, 75)")->color("rgb(236, 201, 75)");
        $usersChart->dataset('حركات المخزن',  'bar',[11000, 8000,5000,6000,8000,10000,12000,20000,30000,15000,10000,50000])->backgroundcolor("rgb(66, 153, 225)")->color("rgb(66, 153, 225)");
       $usersChart->dataset('الخسائر',  'bar',[800, 12000,13000,14000,18000,19000,20000,25000,26000,8000,7000,6000])->backgroundcolor("rgb(225, 0, 38)")->color("rgb(225, 0, 38)");
 
 
+<<<<<<< HEAD
         return view('admin.home')->with( [ 'usersChart' => $usersChart ] );
+=======
+        return view('admin.home',compact('usersChart','settings','totalPaid','gains','lose'));
+>>>>>>> 8c78e0167782536fbb5d31e1e6b079d8bbd3201d
 
     }
 }

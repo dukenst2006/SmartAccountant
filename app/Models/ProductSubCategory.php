@@ -7,6 +7,8 @@ use Eloquent as Model;
 /**
  * Class ProductSubCategory
  * @package App\Models\Admin
+
+
  * @version July 6, 2020, 6:04 am UTC
  *
  * @property \App\Models\ProductCategory $productcategoryid

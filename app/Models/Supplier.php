@@ -3,11 +3,13 @@
 namespace App\Models\Admin;
 
 
+
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Supplier
  * @package App\Models\Admin
+
  * @version July 8, 2020, 9:56 am UTC
  *
  * @property \App\Models\MarketplaceOwner $marketplaceownerid

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSupplierCompaniesTable extends Migration
+class AlterTableSettingAddCapital extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateSupplierCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('supplier_companies', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('settings',function (Blueprint $t){
+            $t->bigInteger('Capital')->default(0);
         });
     }
 
@@ -26,6 +25,6 @@ class CreateSupplierCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('supplier_companies');
+        //
     }
 }

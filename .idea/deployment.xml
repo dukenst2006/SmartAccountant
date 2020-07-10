@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="PublishConfigData" serverName="Abc-const">
+=======
+  <component name="PublishConfigData">
+>>>>>>> 8c78e0167782536fbb5d31e1e6b079d8bbd3201d
     <serverData>
       <paths name="Abc-const">
         <serverdata>
