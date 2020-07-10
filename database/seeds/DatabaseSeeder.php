@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
 //
 
 
+        factory(App\Models\MarketplaceOwner::class, 10)->create();
 
       factory(App\Models\Stock::class, 10)->create();
 
