@@ -71,10 +71,11 @@ class Expense extends Model
         'Date' => 'required'
     ];
 
+    protected $with = ['marketplace:id,Name', 'expensescategory:id,Name', 'expensessubcategory:id,Name'];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function expensescategoriesid()
+    public function expensescategory()
     {
         return $this->belongsTo(\App\Models\ExpensesCategory::class, 'ExpensesCategoriesID');
     }
@@ -82,7 +83,7 @@ class Expense extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function expensessubcategoriesid()
+    public function expensessubcategory()
     {
         return $this->belongsTo(\App\Models\ExpensesSubCategory::class, 'ExpensesSubCategoriesID');
     }
@@ -90,7 +91,7 @@ class Expense extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function marketplacesid()
+    public function marketplace()
     {
         return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplacesID');
     }

@@ -18,49 +18,81 @@
                     <form action="{{ route('admin.settings.update', '1')}}" method="post">
                         @csrf
                         @method('PATCH')
-                        <div class="form-group">
-                            <label for="is_site_active">{{__('adminPanel.is_site_active')}}</label>
-                            <select class="form-control" name="is_site_active" id="is_site_active">
-{{--                                <option {{\App\Models\Settings::all()->first()->is_site_active ?'selected':'' }} value="1">{{__('Active')}}</option>--}}
-{{--                                <option {{!\App\Models\Settings::all()->first()->is_site_active ?'selected':'' }} value="0">{{__('Not Active')}}</option>--}}
-                            </select>
-                            <x-error name="is_site_active"></x-error>
-                        </div>
-
                         <div class="row">
-                            <div class="col-6">
-                                <label for="closingMessageEnglish">{{__('adminPanel.closing_message')}} - {{__('English')}}</label>
-                                <textarea class="form-control msg" name="message_en" id="message_en" cols="30" rows="10">
-{{--                                    {{\App\Models\Settings::all()->first()->trans->where('lang_code', 'en')->first()->message}}--}}
-                                </textarea>
-                                <x-error name="message_en"></x-error>
+                            <div class="form-group col-md-6">
+                                <label for="is_site_active">{{__('adminPanel.is_site_active')}}</label>
+                                <select class="form-control" name="is_site_active" id="is_site_active">
+                                    {{--                                <option {{\App\Models\Settings::all()->first()->is_site_active ?'selected':'' }} value="1">{{__('Active')}}</option>--}}
+                                    {{--                                <option {{!\App\Models\Settings::all()->first()->is_site_active ?'selected':'' }} value="0">{{__('Not Active')}}</option>--}}
+                                </select>
+                                <x-error name="is_site_active"></x-error>
                             </div>
-                            <div class="col-6">
-                                <label for="closingMessageArabic">{{__('adminPanel.closing_message')}} - {{__('Arabic')}}</label>
-                                <textarea class="form-control msg" name="message_ar" id="message_ar" cols="30" rows="10">
+                            <div class="form-group col-md-6">
+                                <label for="store_name">{{__('adminPanel.store_name')}}</label>
+                                <input type="text" name="store_name" id="store_name" class="form-control" value=" ">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="logo_pic">{{__('adminPanel.logo_picture')}}</label>
+                                <input type="file" name="logo_pic" id="logo_pic" class="form-control" value=" ">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="site_name">{{__('adminPanel.site_name')}}</label>
+                                <input type="text" name="site_name" id="site_name" class="form-control" value=" ">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="phone">{{__('adminPanel.phone')}}</label>
+                                <input type="number" name="phone" id="phone" class="form-control" value=" ">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="subscribe_number">{{__('adminPanel.subscribe_number')}}</label>
+                                <input type="number" name="subscribe_number" id="subscribe_number" class="form-control"
+                                       value=" ">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email_address">{{__('adminPanel.email_address')}}</label>
+                                <input type="email" name="email_address" id="email_address" class="form-control"
+                                       value=" ">
+                            </div>
+                        </div>
+                        <div class="row">
+                            {{--                            <div class="col-6">--}}
+                            {{--                                <label for="closingMessageEnglish">{{__('adminPanel.closing_message')}} - {{__('English')}}</label>--}}
+                            {{--                                <textarea class="form-control msg" name="message_en" id="message_en" cols="30" rows="10">--}}
+                            {{--                                    {{\App\Models\Settings::all()->first()->trans->where('lang_code', 'en')->first()->message}}--}}
+                            {{--                                </textarea>--}}
+                            {{--                                <x-error name="message_en"></x-error>--}}
+                            {{--                            </div>--}}
+                            <div class="col-12">
+                                <label for="closingMessageArabic">{{__('adminPanel.closing_message')}}
+                                    - {{__('Arabic')}}</label>
+                                <textarea class="form-control msg" name="message_ar" id="message_ar" cols="30"
+                                          rows="10">
 {{--                                    {{\App\Models\Settings::all()->first()->trans->where('lang_code', 'ar')->first()->message}}--}}
                                 </textarea>
                                 <x-error name="message_ar"></x-error>
                             </div>
                         </div>
 
+                        <div class="row mt-2">
+                            <div class="form-group col-md-6">
+                                <label for="program_status">{{__('adminPanel.is_program_active')}}</label>
+                                <select class="form-control" name="program_status" id="program_status">
+                                    {{--                                <option {{\App\Models\Settings::all()->first()->program_status ?'selected':'' }} value="1">{{__('Active')}}</option>--}}
+                                    {{--                                <option {{!\App\Models\Settings::all()->first()->program_status ?'selected':'' }} value="0">{{__('Not Active')}}</option>--}}
+                                </select>
+                                <x-error name="program_status"></x-error>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="program_status">{{__('adminPanel.is_program_active')}}</label>
-                            <select class="form-control" name="program_status" id="program_status">
-{{--                                <option {{\App\Models\Settings::all()->first()->program_status ?'selected':'' }} value="1">{{__('Active')}}</option>--}}
-{{--                                <option {{!\App\Models\Settings::all()->first()->program_status ?'selected':'' }} value="0">{{__('Not Active')}}</option>--}}
-                            </select>
-                            <x-error name="program_status"></x-error>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="end_date">{{__('adminPanel.program_end_date')}}</label>
-{{--                            <input type="date" name="program_end_date" id="end_date" class="form-control" value="{{\App\Models\Settings::all()->first()->program_end_date}}">--}}
+                            <div class="form-group col-md-6">
+                                <label for="end_date">{{__('adminPanel.program_end_date')}}</label>
+                                <input type="date" name="program_end_date" id="end_date" class="form-control" value=" ">
+                                {{--                            <input type="date" name="program_end_date" id="end_date" class="form-control" value="{{\App\Models\Settings::all()->first()->program_end_date}}">--}}
+                            </div>
                         </div>
                         <div class="row mt-5">
                             <div class="col-12">
-                                <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> {{ __('Save')}}</button>
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> {{ __('Save')}}
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -76,7 +108,7 @@
         tinymce.init({
             selector: "#message_ar",
             language: 'ar',
-            directionality : "rtl"
+            directionality: "rtl"
         });
         tinymce.init({
             selector: "#message_en",

@@ -31,12 +31,15 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::resource('expenses', 'ExpenseController');
     Route::resource('expensesCategories', 'ExpensesCategoryController');
     Route::resource('expensesSubCategories', 'ExpensesSubCategoryController');
-    Route::resource('posts', 'postController');
     Route::resource('settings', 'SettingsController')->except('create', 'edit', 'destroy', 'show', 'store');
     Route::resource('companies', 'CompanyController');
     Route::resource('suppliers', 'SupplierController');
-    Route::get('invoices', 'invoiceController@index')->name('invoice.create');
+    Route::get('invoicerawcreatesale', 'InvoiceController@sale')->name('invoice.createsale');
+    Route::get('invoiceraw', 'InvoiceController@raw')->name('invoice.createraw');
     Route::get('treasure','TreasureController@index')->name('treasure');
+    Route::get('MainStock', 'StockController@index')->name('mainstock');
+    Route::get('MarketplacesStocks', 'StockController@MarketplacesStocks')->name('marketplacesstocks');
+
 
 
 

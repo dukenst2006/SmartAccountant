@@ -30,7 +30,7 @@ class SupplierDataTable extends DataTable
      */
     public function query(Supplier $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->with(['MarketplaceOwner:id', 'Company:id,Name']);
     }
 
     /**
@@ -89,9 +89,12 @@ class SupplierDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'Name' => new Column(['title' => __('Models/Supplier.Name'), 'data' => 'Name']),
-            'company' => new Column(['title' => __('Models/Companies.Name'), 'data' => 'company.Name']),
-            'PhoneNumber' => new Column(['title' => __('Models/Supplier.PhoneNumber'), 'data' => 'PhoneNumber'])
+
+            new Column (['data'=>'id', 'name'=>'id' ,'title'=>'#']),
+            new Column(['data'=>'Name', 'name'=>'Name' ,'title'=>__('Models/Supplier.Name')]),
+            new Column(['data'=>'company.Name', 'name'=>'company.name' ,'title'=>__('Models/Companies.Name')]),
+            new Column(['data'=>'PhoneNumber', 'name'=>'PhoneNumber' ,'title'=>__('Models/Supplier.PhoneNumber')]),
+
         ];
     }
 

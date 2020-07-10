@@ -3,6 +3,7 @@
 namespace App\DataTables\Admin;
 
 use App\Models\Expense;
+use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -65,13 +66,14 @@ class ExpenseDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'MarketplacesID',
-            'ExpensesCategoriesID',
-            'ExpensesSubCategoriesID',
-            'Name',
-            'Price',
-            'Description',
-            'Date'
+            new Column (['data'=>'id', 'name'=>'id' ,'title'=>'#']),
+            new Column(['data'=>'marketplace.Name', 'name'=>'marketplace.Name','title'=>__('Models/Marketplace.Name')]),
+            new Column(['data'=>'expensescategory.Name', 'name'=>'expensescategory.Name','title'=>__('Models/ExpensesCategory.Name')]),
+            new Column(['data'=>'expensessubcategory.Name', 'name'=>'expensessubcategory.Name','title'=>__('Models/ExpensesSubCategory.Name')]),
+            new Column(['data'=>'Name', 'name'=>'Name','title'=>__('Models/Expenses.Name')]),
+            new Column(['data'=>'Price', 'name'=>'Price','title'=>__('Models/Expenses.Price')]),
+            new Column(['data'=>'Description', 'name'=>'Description','title'=>__('Models/Expenses.Description')]),
+            new Column(['data'=>'Date', 'name'=>'Date','title'=>__('Models/Expenses.Date')]),
         ];
     }
 

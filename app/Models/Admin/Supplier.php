@@ -74,7 +74,7 @@ class Supplier extends Model
      **/
     public function company()
     {
-        return $this->belongsTo(\App\Models\Company::class, 'MarketplaceOwnerID');
+        return $this->belongsTo(\App\Models\Company::class, 'CompanyID');
     }
 
 }

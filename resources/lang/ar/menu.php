@@ -28,7 +28,10 @@ return [
 
     'PublicAdministration' => 'الإدارة العامة',
     'Marketplaces' => 'الفروع',
-    'Store' => 'المخازن',
+    'Stocks' => 'المخازن',
+    'MainStock' => 'المخزن الرئيسي',
+    'MarketplacesStocks' => 'مخازن الفروع',
+
     'Products' => 'المنتجات',
     'Categories' => 'إدارة الأصناف',
     'MainCategories' => 'الأصناف الرئيسة',
@@ -58,9 +61,19 @@ return [
 
 
     'Invoices' => 'الفواتير',
+    'RawInvoices' => 'إنشاء فاتوره كتابية',
+    'SaleInvoices' => 'أنشاء فاتوره مبيعات',
+
+
+
     'all' => 'الكل',
     'Expenses' => 'المصروفات',
-    'Expenses_dep' => 'اقسام المصروفات',
+
+    'ExpensesCategories' => 'اقسام المصروفات',
+    'ExpensesCategory' => 'الأقسام الأساسية',
+    'ExpensesSubCategory' => 'الأقسام الفرعية',
+
+
     'Reports' => 'التقارير والأحصائيات',
     'Financial reports' => 'التقارير المالية',
     'create' =>  'انشاء',

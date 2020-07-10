@@ -165,11 +165,5 @@ class Marketplace extends Model
         return $this->hasMany(\App\Models\Admin\Product::class, 'MarketplacesID');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     **/
-    public function stock()
-    {
-        return $this->hasOne(\App\Models\Admin\Stock::class, 'MarketplacesID');
-    }
+
 }

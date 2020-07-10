@@ -628,3 +628,16 @@ body:not(.sidebar-mini-md) {
         animation-duration: 0s !important;
     }
 }
+.nav-sidebar .nav-link p {
+    font-weight: normal !important;
+}
+.pace-inactive {
+    display: none;
+}
+.case-info {
+    @media (max-width: 767.98px) {
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}
