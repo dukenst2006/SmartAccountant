@@ -22,7 +22,7 @@ $factory->define(Marketplace::class, function (Faker $faker) {
     return [
         'MarketplaceOwnerID' =>factory(\App\Models\MarketplaceOwner::class),
         'Name' => $faker->streetName,
-        'StockID' =>    2,
+//        'StockID' =>    1,
         'Country' => $faker->country,
         'City' => $faker->city,
         'SupervisorPhoneNumber' => $faker->phoneNumber,

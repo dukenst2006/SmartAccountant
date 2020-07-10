@@ -12,7 +12,8 @@
                     <div class="info-box-content">
                         <h4 class="info-box-text">{{__('Dashboard.Capital')}}</h4>
                         <h4 class="info-box-number">
-                                  500,000 ر.س
+                            {{$settings->Capital}}
+                            ر.س
                         </h4>
 
 
@@ -40,7 +41,8 @@
                     <div class="info-box-content">
                         <h4 class="info-box-text">{{__('Dashboard.Profits')}}</h4>
                         <h4 class="info-box-number">
-                                  784,548 ر.س
+                            {{$gains}}
+                            ر.س
                         </h4>
 
 
@@ -60,7 +62,8 @@
                     <div class="info-box-content">
                         <h4 class="info-box-text">{{__('Dashboard.Sales')}}</h4>
                         <h4 class="info-box-number">
-                                       24,489
+                            {{$totalPaid}}
+                            ر.س
                         </h4>
 
 
@@ -82,7 +85,8 @@
                     <div class="info-box-content">
                         <h4 class="info-box-text">{{__('Dashboard.Losses')}}</h4>
                         <h4 class="info-box-number">
-                                  53,963 ر.س
+                          {{$lose}}
+                            ر.س
                         </h4>
 
 

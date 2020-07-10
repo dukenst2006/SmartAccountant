@@ -40,7 +40,7 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::get('MainStock', 'StockController@index')->name('mainstock');
     Route::get('MarketplacesStocks', 'StockController@MarketplacesStocks')->name('marketplacesstocks');
 
-
+    Route::resource('EmployeeSalary','EmployeeSalaryController');
     Route::get('BondVoucher', 'BondsController@BondVoucher');
 
 
