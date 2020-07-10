@@ -30,8 +30,8 @@ return [/*
 |
 ||
 */
-    'logo' =>  ' نظام '.'<b>المحاسب الذكي</b> ',
-    'logo_img' => 'images/logo.png' ,
+    'logo' => ' نظام '.'<b>المحاسب الذكي</b> ',
+    'logo_img' => 'images/logo.png',
     'logo_img_class' => 'brand-image img-fluid',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -177,20 +177,31 @@ return [/*
         [
             'text' => 'Main',
             'icon' => 'fas fa-fw fa-tachometer-alt',
-            'route'=> 'admin.Home',
+            'route' => 'admin.Home',
         ],
         [
             'text' => 'about',
-            'route' =>'admin.About',
+            'route' => 'admin.About',
             'icon' => 'fas fa-fw fa-code-branch',
             'icon_color' => 'dark',
+        ],
+        [
+            'text' => 'Settings',
+            'icon' => 'fas fa fa-cogs',
+            'submenu' => [
+                [
+                    'text' => 'GeneralSettings',
+                    'route' => 'admin.settings.index',
+                    'icon' => 'fas fa-fw fa-cog',
+                ],
+            ],
         ],
         [
             'text' => 'Notifications',
             'icon' => 'fas fa fa-bell',
 
             'icon_color' => 'yellow',
-            'label'       => '41',
+            'label' => '41',
             'label_color' => 'danger',
         ],
 
@@ -202,12 +213,12 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'create',
-                    'route' =>'admin.supervisors.create',
+                    'route' => 'admin.supervisors.create',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
-                    'route' =>'admin.supervisors.index',
+                    'route' => 'admin.supervisors.index',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
             ],
@@ -220,13 +231,18 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'create',
-                    'route' =>'admin.employees.create',
+                    'route' => 'admin.employees.create',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
-                    'route' =>'admin.employees.index',
+                    'route' => 'admin.employees.index',
                     'icon' => 'fas fa-fw fa-layer-group',
+                ],
+                [
+                    'text' => 'EmployeesSalaries',
+                    'url' => '$',
+                    'icon' => 'fas fa-fw fa-coins',
                 ],
             ],
         ],
@@ -235,17 +251,40 @@ return [/*
             'text' => 'Suppliers',
             'icon' => 'fas fa fa-people-carry',
             'submenu' => [
+
                 [
                     'text' => 'create',
-                    'url' =>'#',
+                    'route' => 'admin.suppliers.create',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
-                    'url' =>'#',
+                    'route' => 'admin.suppliers.index',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
+
+                [
+                    'text' => 'Companies',
+                    'icon' => 'fas fa fa-city',
+                    'submenu' => [
+
+                        [
+                            'text' => 'create',
+                            'route' => 'admin.companies.create',
+                            'icon' => 'fas fa-fw fa-plus-circle',
+                        ],
+                        [
+                            'text' => 'all',
+                            'route' => 'admin.companies.index',
+                            'icon' => 'fas fa-fw fa-layer-group',
+                        ],
+                    ],
+                ]
+
+
             ],
+
+
         ],
 
         ['header' => 'PublicAdministration'],
@@ -256,12 +295,12 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'create',
-                    'route' =>'admin.marketplaces.create',
+                    'route' => 'admin.marketplaces.create',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
-                    'route' =>'admin.marketplaces.index',
+                    'route' => 'admin.marketplaces.index',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
             ],
@@ -269,12 +308,24 @@ return [/*
 
 
         [
-            'text' => 'Store',
+            'text' => 'Stocks',
             'icon' => 'fas fa-fw fa-warehouse',
+            'url' => 's',
             'icon_color' => 'primary',
+            'submenu' => [
+                [
+                    'text' => 'MainStock',
+                    'route' => 'admin.mainstock',
+                    'icon' => 'fas fa-fw fa-synagogue',
+                ],
+                [
+                    'text' => 'MarketplacesStocks',
+                    'route' => 'admin.marketplacesstocks',
+                    'icon' => 'fas fa-fw fa-th-large',
+                ],
+            ],
 
         ],
-
 
 
         [
@@ -283,12 +334,12 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'create',
-                    'route' =>'admin.products.create',
+                    'route' => 'admin.products.create',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
                     'text' => 'all',
-                    'route' =>'admin.products.index',
+                    'route' => 'admin.products.index',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
             ],
@@ -300,12 +351,12 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'MainCategories',
-                    'url' =>'#',
+                    'url' => '#',
                     'icon' => 'fas fa-window-minimize',
                 ],
                 [
                     'text' => 'SubCategories',
-                    'url' =>'#',
+                    'url' => '#',
                     'icon' => 'fa fa-bars',
                 ],
             ],
@@ -316,75 +367,99 @@ return [/*
 
         [
             'text' => 'Bonds',
-            'url' =>'#',
+            'url' => '#',
             'icon' => 'fas fa-fw fa-money-bill-alt',
             'icon_color' => 'orange',
             'submenu' => [
                 [
-                    'text' => 'قيدة التطوير',
-                    'url' =>'#',
-                    'icon' => 'fas fa-donate',
+                    'text' => 'BondVoucher',
+                    'url' => '/Admin/BondVoucher',
+                    'icon' => 'fas fa-truck-loading',
                 ],
                 [
-                    'text' => 'قيدة التطوير',
-                    'url' =>'#',
+                    'text' => 'BondAmount',
+                    'url' => '#',
                     'icon' => 'fa fa-donate',
                 ],
             ],
 
         ],
 
-            [
+        [
             'text' => 'Treasury',
-            'url' =>'#',
+            'route' => 'admin.treasure',
             'icon' => 'fas fa-fw fa-donate',
-                'icon_color' => 'green',
-            ],
+            'icon_color' => 'green',
+        ],
 
         [
             'text' => 'Safe',
-            'url' =>'#',
+            'route' => 'admin.safe',
             'icon' => 'fas fa-fw fa-cash-register',
             'icon_color' => 'green',
-                 ],
+        ],
 
         [
-                'text' => 'Invoices',
-                'url' =>'#',
-                'icon' => 'fas fa-fw fa-file-invoice-dollar',
-                'submenu' => [
+            'text' => 'Invoices',
+            'url' => '#',
+            'icon' => 'fas fa-fw fa-file-invoice-dollar',
+            'submenu' => [
+                [
+                    'text' => 'SaleInvoices',
+                    'route' => 'admin.invoice.createsale',
+                    'icon' => 'fas fa-fw fa-plus-circle',
+                ],
+                [
+                    'text' => 'RawInvoices',
+                    'route' => 'admin.invoice.createraw',
+                    'icon' => 'fas fa-fw fa-plus-circle',
+                ],
+                [
+                    'text' => 'all',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-layer-group',
+                ]
 
-                    [
-                        'text' => 'create',
-                        'route' =>'admin.products.create',
-                        'icon' => 'fas fa-fw fa-plus-circle',
-                    ],
-            [
-                'text' => 'all',
-                'url' =>'#',
-                'icon' => 'fas fa-fw fa-layer-group',
-            ]
-
-        ],
+            ],
         ],
 
 
         [
             'text' => 'Expenses',
-            'url' =>'#',
+            'url' => '#',
             'icon' => 'fas fa-fw fa-money-bill-alt',
             'submenu' => [
+
                 [
-                    'text' => 'Expenses',
-                    'url' =>'#',
+                    'text' => 'create',
+                    'route' => 'admin.expenses.create',
+                    'icon' => 'fas fa-fw fa-plus-circle',
+                ],
+
+                [
+                    'text' => 'all',
+                    'route' => 'admin.expenses.index',
                     'icon' => 'fas fa-fw fa-cubes',
 
                 ],
                 [
-                    'text' => 'Expenses_dep',
-                    'url' =>'#',
-                    'icon' => 'fas fa-fw fa-cubes',
-                ],
+                    'text' => 'ExpensesCategories',
+                    'icon' => 'fas fa fa-city',
+                    'submenu' => [
+
+                        [
+                            'text' => 'ExpensesCategory',
+                            'route' => 'admin.expensesCategories.index',
+                            'icon' => 'fas fa-window-minimize',
+                        ],
+                        [
+                            'text' => 'ExpensesSubCategory',
+                            'route' => 'admin.expensesSubCategories.index',
+                            'icon' => 'fa fa-bars',
+                        ],
+                    ],
+                ]
+
 
 
 
@@ -392,57 +467,46 @@ return [/*
         ],
 
 
-
-
         ['header' => 'Reports'],
         [
             'text' => 'Financial reports',
-            'url' =>'#',
+            'url' => '#',
             'icon' => 'fas fa fa-chart-pie',
             'submenu' => [
                 [
                     'text' => 'Option',
-                    'url' =>'#',
+                    'url' => '#',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
             ],
         ],
 
         ['header' => 'SettingsHeader'],
-        [
-            'text' => 'Settings',
-            'icon' => 'fas fa fa-cogs',
-            'submenu' => [
-                [
-                    'text' => 'GeneralSettings',
-                    'route' =>'admin.settings.index',
-                    'icon' => 'fas fa-fw fa-cog',
-                ],
-            ],
-        ],
+
 
         [
             'text' => 'Backup',
-            'url' =>'#',
+            'url' => '#',
             'icon' => 'fas fa fa-server',
             'submenu' => [
                 [
                     'text' => 'Option',
-                    'url' =>'#',
+                    'url' => '#',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
             ],
         ]
 
-    ],/*
-|--------------------------------------------------------------------------
-| Menu Filters
-|--------------------------------------------------------------------------
-|
-| Here we can modify the menu filters of the admin panel.
-|
-||
-*/
+    ],
+    /*
+    |--------------------------------------------------------------------------
+    | Menu Filters
+    |--------------------------------------------------------------------------
+    |
+    | Here we can modify the menu filters of the admin panel.
+    |
+    ||
+    */
     'filters' => [
         JeroenNoten\LaravelAdminLte\Menu\Filters\HrefFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\SearchFilter::class,
@@ -520,7 +584,7 @@ return [/*
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js',
                 ],
             ],
         ],
@@ -537,14 +601,8 @@ return [/*
                 ],
 
 
-
-
             ],
         ],
-
-
-
-
 
 
         [
@@ -590,7 +648,6 @@ return [/*
                 ],
             ],
         ],
-
 
 
     ],

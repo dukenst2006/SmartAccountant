@@ -18,7 +18,7 @@
                </div>
            <div class="card-body">
 
-                   {!! Form::model($productSubCategory, ['route' => ['admin.productSubCategories.update', $productSubCategory$ID ], 'method' => 'patch']) !!}
+                   {!! Form::model($productSubCategory, ['route' => ['admin.productSubCategories.update', $productSubCategory->id], 'method' => 'patch']) !!}
 
                         @include('admin.product_sub_categories.fields')
 

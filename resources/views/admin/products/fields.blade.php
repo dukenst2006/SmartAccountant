@@ -1,9 +1,3 @@
-<!-- Userid Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('UserID', 'Userid:') !!}
-    {!! Form::number('UserID', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Marketplacesid Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('MarketplacesID', 'Marketplaces:') !!}
@@ -37,7 +31,7 @@
 <!-- Quantitytypeid Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('QuantityTypeID', 'Quantitytypeid:') !!}
-    {!! Form::number('QuantityTypeID', null, ['class' => 'form-control']) !!}
+    {!! Form::select('QuantityTypeID', $quantitytypes,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Purchasingprice Field -->
@@ -98,6 +92,6 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('admin.products.index') }}" class="btn btn-default">Cancel</a>
+    {!! Form::  submit(__('Buttons.Save'), ['class' => 'btn btn-primary']) !!}
+    <a href="{{ route('admin.products.index') }}" class="btn btn-default">{{ __('Buttons.Cancel') }}</a>
 </div>

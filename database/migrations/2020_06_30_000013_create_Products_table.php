@@ -14,7 +14,7 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->bigIncrements('ID');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('UserID');
             $table->unsignedBigInteger('MarketplacesID');
             $table->unsignedBigInteger('ProductCategoryID');
@@ -32,11 +32,11 @@ class CreateProductsTable extends Migration
             $table->boolean('UnlimitedQuantity')->default(false);
             $table->timestamps();
 
-            $table->foreign('UserID')->references('ID')->on('Users')->onDelete('cascade');
-            $table->foreign('MarketplacesID')->references('ID')->on('marketplaces')->onDelete('cascade');
-            $table->foreign('QuantityTypeID')->references('ID')->on('quantity_types')->onDelete('cascade');
-            $table->foreign('ProductCategoryID')->references('ID')->on('product_categories')->onDelete('cascade');
-            $table->foreign('ProductSubCategoryID')->references('ID')->on('product_sub_categories')->onDelete('cascade');
+            $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('MarketplacesID')->references('id')->on('marketplaces')->onDelete('cascade');
+            $table->foreign('QuantityTypeID')->references('id')->on('quantity_types')->onDelete('cascade');
+            $table->foreign('ProductCategoryID')->references('id')->on('product_categories')->onDelete('cascade');
+            $table->foreign('ProductSubCategoryID')->references('id')->on('product_sub_categories')->onDelete('cascade');
         });
     }
 

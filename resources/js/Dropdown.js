@@ -128,7 +128,10 @@ const Dropdown = (($) => {
     $(document).on('click', '.dropdown-toggle[data-toggle="dropdown"]', function() {
         $('.dropdown-menu').toggleClass('show');
         $('.dropdown-menu').style.visibility='visable';
+
     })
+    console.log('hhhh vvvvvvvv');
+
     /**
      * jQuery API
      * ====================================================

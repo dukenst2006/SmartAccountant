@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Admin\Supervisor;
+use App\Models\Supervisor;
 use App\Repositories\BaseRepository;
 
 /**
@@ -13,6 +13,10 @@ use App\Repositories\BaseRepository;
 
 class SupervisorRepository extends BaseRepository
 {
+
+
+
+
     /**
      * @var array
      */
@@ -31,6 +35,25 @@ class SupervisorRepository extends BaseRepository
     {
         return $this->fieldSearchable;
     }
+
+
+
+    public function update($input, $id )
+    {
+
+        $query = $this->model->newQuery();
+        $model = $query->findOrFail($id );
+        $model->fill($input);
+        $model->user->Name= $input['Name'];
+        $model->user->save();
+        $model->save();
+
+
+        return $model;
+    }
+
+
+
 
     /**
      * Configure the Model

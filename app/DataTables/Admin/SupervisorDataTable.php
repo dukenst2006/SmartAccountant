@@ -2,7 +2,8 @@
 
 namespace App\DataTables\Admin;
 
-use App\Models\Admin\Supervisor;
+use App\Models\Supervisor;
+use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -29,7 +30,8 @@ class SupervisorDataTable extends DataTable
      */
     public function query(Supervisor $model)
     {
-        return $model->newQuery();
+
+        return $model->newQuery()->with('marketplace:id,Name');
     }
 
     /**
@@ -48,11 +50,31 @@ class SupervisorDataTable extends DataTable
                 'stateSave' => true,
                 'order'     => [[0, 'desc']],
                 'buttons'   => [
-                    ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'reload', 'className' => 'btn btn-default btn-sm no-corner',],
+                    [
+                        'extend' => 'create',
+                        'className' => 'btn btn-default btn-sm no-corner',
+                        'text' => '<i class="fa fa-plus"></i> ' .__('Buttons.Create').''
+                    ],
+                    [
+                        'extend' => 'export',
+                        'className' => 'btn btn-default btn-sm no-corner',
+                        'text' => '<i class="fa fa-download"></i> ' .__('Buttons.Export').''
+                    ],
+                    [
+                        'extend' => 'print',
+                        'className' => 'btn btn-default btn-sm no-corner',
+                        'text' => '<i class="fa fa-print"></i> ' .__('Buttons.Print').''
+                    ],
+                    [
+                        'extend' => 'reset',
+                        'className' => 'btn btn-default btn-sm no-corner',
+                        'text' => '<i class="fa fa-undo"></i> ' .__('Buttons.Reset').''
+                    ],
+                    [
+                        'extend' => 'reload',
+                        'className' => 'btn btn-default btn-sm no-corner',
+                        'text' => '<i class="fa fa-sync-alt"></i> ' .__('Buttons.Reload').''
+                    ],
                 ],
             ]);
     }
@@ -65,9 +87,12 @@ class SupervisorDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'UserID',
-            'MarketplaceOwnerID',
-            'PhoneNumber'
+            new Column(['data'=>'id', 'name'=>'id' ,'title'=>'#']),
+            new Column(['data'=>'user.Name', 'name'=>'user.Name' ,'title'=>__('Models/User.Name')]),
+            new Column(['data'=>'marketplace.Name', 'name'=>'marketplace.Name','title'=>__('Models/Marketplace.Name')]),
+            new Column(['data'=>'PhoneNumber', 'name'=>'PhoneNumber','title'=>__('Models/Supervisor.PhoneNumber')]),
+
+
         ];
     }
 

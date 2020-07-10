@@ -7,6 +7,7 @@ use App\Http\Requests\Admin;
 use App\Http\Requests\Admin\CreateSupervisorRequest;
 use App\Http\Requests\Admin\UpdateSupervisorRequest;
 use App\Repositories\Admin\SupervisorRepository;
+use App\Repositories\UserRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
@@ -15,10 +16,13 @@ class SupervisorController extends AppBaseController
 {
     /** @var  SupervisorRepository */
     private $supervisorRepository;
-
-    public function __construct(SupervisorRepository $supervisorRepo)
+    /** @var  \App\Repositories\UserRepository */
+    private $userRepository;
+    public function __construct(SupervisorRepository $supervisorRepo , UserRepository $userRepo)
     {
         $this->supervisorRepository = $supervisorRepo;
+        $this->userRepository = $userRepo;
+
     }
 
     /**
@@ -39,8 +43,8 @@ class SupervisorController extends AppBaseController
      */
     public function create()
     {
-        $marketplace_owners = $this->supervisorRepository->GetAllMarketPlaceOwners();
-        return view('admin.supervisors.create',compact('marketplace_owners'));
+
+        return view('admin.supervisors.create')->with(['marketplaces'=>$this->supervisorRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID')]);
     }
 
     /**
@@ -53,7 +57,9 @@ class SupervisorController extends AppBaseController
     public function store(CreateSupervisorRequest $request)
     {
         $input = $request->all();
+        $user=  $this->userRepository->create($input);
 
+        $input['UserID']   = $user->id;
         $supervisor = $this->supervisorRepository->create($input);
 
         Flash::success('Supervisor saved successfully.');
@@ -64,13 +70,13 @@ class SupervisorController extends AppBaseController
     /**
      * Display the specified Supervisor.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function show($ID )
+    public function show($id )
     {
-        $supervisor = $this->supervisorRepository->find($ID );
+        $supervisor = $this->supervisorRepository->find($id );
 
         if (empty($supervisor)) {
             Flash::error('Supervisor not found');
@@ -84,34 +90,35 @@ class SupervisorController extends AppBaseController
     /**
      * Show the form for editing the specified Supervisor.
      *
-     * @param  int $ID
+     * @param  int $id
      *
-     * @return Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit($ID )
+    public function edit($id )
     {
-        $supervisor = $this->supervisorRepository->find($ID );
+        $supervisor = $this->supervisorRepository->find($id );
 
         if (empty($supervisor)) {
             Flash::error('Supervisor not found');
 
             return redirect(route('admin.supervisors.index'));
         }
+        $marketplaces = $this->supervisorRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID');
 
-        return view('admin.supervisors.edit')->with('supervisor', $supervisor);
+        return view('admin.supervisors.edit')->with(['supervisor'=> $supervisor,'marketplaces'=>$marketplaces]);
     }
 
     /**
      * Update the specified Supervisor in storage.
      *
-     * @param  int              $ID
+     * @param  int              $id
      * @param UpdateSupervisorRequest $request
      *
      * @return Response
      */
-    public function update($ID , UpdateSupervisorRequest $request)
+    public function update($id , UpdateSupervisorRequest $request)
     {
-        $supervisor = $this->supervisorRepository->find($ID );
+        $supervisor = $this->supervisorRepository->find($id );
 
         if (empty($supervisor)) {
             Flash::error('Supervisor not found');
@@ -119,7 +126,7 @@ class SupervisorController extends AppBaseController
             return redirect(route('admin.supervisors.index'));
         }
 
-        $supervisor = $this->supervisorRepository->update($request->all(), $ID );
+        $supervisor = $this->supervisorRepository->update($request->all(), $id );
 
         Flash::success('Supervisor updated successfully.');
 
@@ -129,13 +136,13 @@ class SupervisorController extends AppBaseController
     /**
      * Remove the specified Supervisor from storage.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function destroy($ID )
+    public function destroy($id )
     {
-        $supervisor = $this->supervisorRepository->find($ID );
+        $supervisor = $this->supervisorRepository->find($id );
 
         if (empty($supervisor)) {
             Flash::error('Supervisor not found');
@@ -143,7 +150,7 @@ class SupervisorController extends AppBaseController
             return redirect(route('admin.supervisors.index'));
         }
 
-        $this->supervisorRepository->delete($ID );
+        $this->supervisorRepository->delete($id );
 
         Flash::success('Supervisor deleted successfully.');
 

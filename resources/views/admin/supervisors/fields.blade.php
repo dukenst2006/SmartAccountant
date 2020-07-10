@@ -1,23 +1,38 @@
-<!-- Userid Field -->
+<!-- UserName Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('UserID', 'Userid:') !!}
-    {!! Form::number('UserID', null, ['class' => 'form-control']) !!}
+    {!! Form::label('Name',__('/Models/User.Name')) !!}
+    {!! Form::text('Name', $supervisor->User->Name?? '' , ['class' => 'form-control' ]) !!}
 </div>
 
-<!-- Marketplaceownerid Field -->
+<!-- UserPassword Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('MarketplaceOwnerID', 'Marketplaceowner:') !!}
-    {!! Form::select('MarketplaceOwnerID',$marketplace_owners, null, ['class' => 'form-control']) !!}
+    {!! Form::label('Password',__('/Models/User.Password')) !!}
+    {!! Form::text('Password', null ,['class' => 'form-control' ,'minlength'=>'8']) !!}
+</div>
+
+
+<!-- UserEmail Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('Email',__('/Models/User.Email')) !!}
+    {!! Form::email('Email', $supervisor->User->Email?? '' , ['class' => 'form-control']) !!}
+</div>
+
+
+<!-- Marketplaceid Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('MarketplaceID', __('Models/Marketplace.Name')) !!}
+    {!! Form::select('MarketplaceID',$marketplaces, null,['class' => 'form-control']) !!}
 </div>
 
 <!-- Phonenumber Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('PhoneNumber', 'Phonenumber:') !!}
+    {!! Form::label('PhoneNumber',  __('Models/Supervisor.PhoneNumber')) !!}
     {!! Form::text('PhoneNumber', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('admin.supervisors.index') }}" class="btn btn-default">Cancel</a>
+    {!! Form::  submit(__('Buttons.Save'), ['class' => 'btn btn-primary']) !!}
+    <a href="{{ route('admin.supervisors.index') }}" class="btn btn-default">{{ __('Buttons.Cancel') }}</a>
 </div>
+

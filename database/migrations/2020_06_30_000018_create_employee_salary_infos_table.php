@@ -15,7 +15,7 @@ class CreateEmployeeSalaryInfosTable extends Migration
     {
         //  الراتب الاساسى + البدلات – الاسقطاعات والخصومات = صافى الدخل
         Schema::create('employee_salary_infos', function (Blueprint $table) {
-            $table->bigIncrements('ID');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('EmployeeID');  //رقم الموظف
             $table->double('Allowances');  //البدلات
             $table->double('Deductions');   //الخصومات
@@ -24,7 +24,7 @@ class CreateEmployeeSalaryInfosTable extends Migration
 
 
 
-            $table->foreign('EmployeeID')->references('ID')->on('Employees')->onDelete('cascade');
+            $table->foreign('EmployeeID')->references('id')->on('Employees')->onDelete('cascade');
 
         });
     }

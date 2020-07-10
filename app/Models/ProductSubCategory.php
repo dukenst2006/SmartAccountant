@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Admin;
 
 use Eloquent as Model;
 
 /**
  * Class ProductSubCategory
- * @package App\Models\
- * @version July 5, 2020, 8:28 am UTC
+ * @package App\Models\Admin
+ * @version July 6, 2020, 6:04 am UTC
  *
  * @property \App\Models\ProductCategory $productcategoryid
  * @property \Illuminate\Database\Eloquent\Collection $products

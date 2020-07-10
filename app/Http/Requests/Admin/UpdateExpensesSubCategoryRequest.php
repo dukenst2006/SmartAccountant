@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\ExpensesSubCategory;
+use App\Models\ExpensesSubCategory;
 
 class UpdateExpensesSubCategoryRequest extends FormRequest
 {
@@ -26,7 +26,7 @@ class UpdateExpensesSubCategoryRequest extends FormRequest
     public function rules()
     {
         $rules = ExpensesSubCategory::$rules;
-        
+
         return $rules;
     }
 }

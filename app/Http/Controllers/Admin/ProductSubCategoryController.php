@@ -64,13 +64,13 @@ class ProductSubCategoryController extends AppBaseController
     /**
      * Display the specified ProductSubCategory.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function show($ID )
+    public function show($id )
     {
-        $productSubCategory = $this->productSubCategoryRepository->find($ID );
+        $productSubCategory = $this->productSubCategoryRepository->find($id );
 
         if (empty($productSubCategory)) {
             Flash::error('Product Sub Category not found');
@@ -84,13 +84,13 @@ class ProductSubCategoryController extends AppBaseController
     /**
      * Show the form for editing the specified ProductSubCategory.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function edit($ID )
+    public function edit($id )
     {
-        $productSubCategory = $this->productSubCategoryRepository->find($ID );
+        $productSubCategory = $this->productSubCategoryRepository->find($id );
 
         if (empty($productSubCategory)) {
             Flash::error('Product Sub Category not found');
@@ -104,14 +104,14 @@ class ProductSubCategoryController extends AppBaseController
     /**
      * Update the specified ProductSubCategory in storage.
      *
-     * @param  int              $ID
+     * @param  int              $id
      * @param UpdateProductSubCategoryRequest $request
      *
      * @return Response
      */
-    public function update($ID , UpdateProductSubCategoryRequest $request)
+    public function update($id , UpdateProductSubCategoryRequest $request)
     {
-        $productSubCategory = $this->productSubCategoryRepository->find($ID );
+        $productSubCategory = $this->productSubCategoryRepository->find($id );
 
         if (empty($productSubCategory)) {
             Flash::error('Product Sub Category not found');
@@ -119,7 +119,7 @@ class ProductSubCategoryController extends AppBaseController
             return redirect(route('admin.productSubCategories.index'));
         }
 
-        $productSubCategory = $this->productSubCategoryRepository->update($request->all(), $ID );
+        $productSubCategory = $this->productSubCategoryRepository->update($request->all(), $id );
 
         Flash::success('Product Sub Category updated successfully.');
 
@@ -129,13 +129,13 @@ class ProductSubCategoryController extends AppBaseController
     /**
      * Remove the specified ProductSubCategory from storage.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function destroy($ID )
+    public function destroy($id )
     {
-        $productSubCategory = $this->productSubCategoryRepository->find($ID );
+        $productSubCategory = $this->productSubCategoryRepository->find($id );
 
         if (empty($productSubCategory)) {
             Flash::error('Product Sub Category not found');
@@ -143,7 +143,7 @@ class ProductSubCategoryController extends AppBaseController
             return redirect(route('admin.productSubCategories.index'));
         }
 
-        $this->productSubCategoryRepository->delete($ID );
+        $this->productSubCategoryRepository->delete($id );
 
         Flash::success('Product Sub Category deleted successfully.');
 

@@ -989,4 +989,16 @@
             }
         }
     }
- 
+
+
+.nav-sidebar {
+    .nav-link {
+        font-weight: normal !important;
+        p {
+            font-weight: normal !important;
+        }
+    }
+}
+.sidebar .nav-link p {
+    font-weight: normal !important;
+}

@@ -20,14 +20,20 @@ return [
 
 
     'HumanResources' => 'الموارد البشرية',
-    'Supervisors' => 'المشرفين',
+    'Supervisors' => ' موظفي اإلدارة',
     'Employee' => 'الموظفين',
+    'EmployeesSalaries' => 'رواتب الموظفين',
+
+    'Companies' => 'الشركات',
     'Suppliers' => 'الموردين',
 
 
     'PublicAdministration' => 'الإدارة العامة',
-    'Marketplaces' => 'المتاجر',
-    'Store' => 'المخازن',
+    'Marketplaces' => 'الفروع',
+    'Stocks' => 'المخازن',
+    'MainStock' => 'المخزن الرئيسي',
+    'MarketplacesStocks' => 'مخازن الفروع',
+
     'Products' => 'المنتجات',
     'Categories' => 'إدارة الأصناف',
     'MainCategories' => 'الأصناف الرئيسة',
@@ -36,20 +42,16 @@ return [
 
     'FinancialManagement' => 'الإدارة المالية',
     'Bonds' => 'السندات',
+    'BondVoucher' => 'سند صرف',
+    'BondAmount' => 'سند مبلغ',
     'Treasury' => 'الخزينة',
     'Safe' =>  'الخزنة',
 
 
-
-
-    'Admin Panel' => 'لوحة التحكم',
-    'Const Tech' => 'كوكب التقنية',
-    'Copy rights' => 'حقوق الملكية محفوظة ل ',
-
     'SettingsHeader' => 'الأعدادات والنسخ الأحطياتي',
     'Settings' => 'الضبط',
     'GeneralSettings' => 'الأعدات العامة',
-    'EmployeeHeader' => 'طاقم العمل',
+
 
 
 
@@ -57,9 +59,19 @@ return [
 
 
     'Invoices' => 'الفواتير',
+    'RawInvoices' => 'إنشاء فاتوره كتابية',
+    'SaleInvoices' => 'أنشاء فاتوره مبيعات',
+
+
+
     'all' => 'الكل',
     'Expenses' => 'المصروفات',
-    'Expenses_dep' => 'اقسام المصروفات',
+
+    'ExpensesCategories' => 'اقسام المصروفات',
+    'ExpensesCategory' => 'الأقسام الأساسية',
+    'ExpensesSubCategory' => 'الأقسام الفرعية',
+
+
     'Reports' => 'التقارير والأحصائيات',
     'Financial reports' => 'التقارير المالية',
     'create' =>  'انشاء',
@@ -67,13 +79,6 @@ return [
 
     'Main Ui'=>'الواجهة الامامية',
     'Pages' =>  'الصفحات',
-    // settings trans
-
-
-    'is_site_active' => 'حالة الموقع',
-    'is_program_active' => 'حالة البرنامج',
-    'closing_message' => 'رسالة اغلاق الموقع',
-    'program_end_date' => 'تاريخ انتهاء البرنامج ',
 
 
 

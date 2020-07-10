@@ -18,7 +18,7 @@
                </div>
            <div class="card-body">
 
-                   {!! Form::model($supervisor, ['route' => ['admin.supervisors.update', $supervisor$ID ], 'method' => 'patch']) !!}
+                   {!! Form::model($supervisor, ['route' => ['admin.supervisors.update', $supervisor->id], 'method' => 'patch']) !!}
 
                         @include('admin.supervisors.fields')
 

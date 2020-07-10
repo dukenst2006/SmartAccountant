@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Repositories;
-
+use App\Http\Resources\MarketPlaceResource;
 use App\Models\MarketplaceOwner;
+use App\Models\Marketplaces;
 use Illuminate\Container\Container as Application;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Storage;
@@ -145,34 +147,61 @@ abstract class BaseRepository
         return $model;
     }
 
+
+
+
+
+
+
+    /**
+     * Create model With User
+     *
+     * @param array $input
+     *
+     * @return Model
+     */
+    public function CreateWithUser($input)
+    {
+        $model = $this->model->newInstance($input);
+
+        $model->save();
+
+        return $model;
+    }
+
+
+
+
+
+
     /**
      * Find model record for given id
      *
-     * @param int $ID
+     * @param int $id
      * @param array $columns
      *
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
      */
-    public function find($ID , $columns = ['*'])
+    public function find($id , $columns = ['*'])
     {
         $query = $this->model->newQuery();
 
-        return $query->find($ID , $columns);
+        return $query->find($id , $columns);
     }
 
     /**
      * Update model record for given id
      *
      * @param array $input
-     * @param int $ID
+     * @param int $id
      *
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model
      */
-    public function update($input, $ID )
+    public function update($input, $id )
     {
         $query = $this->model->newQuery();
 
-        $model = $query->findOrFail($ID );
+        $model = $query->findOrFail($id );
 
         $model->fill($input);
 
@@ -182,42 +211,44 @@ abstract class BaseRepository
     }
 
     /**
-     * @param int $ID
+     * @param int $id
      *
      * @throws \Exception
      *
      * @return bool|mixed|null
      */
-    public function delete($ID )
+    public function delete($id )
     {
         $query = $this->model->newQuery();
 
-        $model = $query->findOrFail($ID );
+        $model = $query->findOrFail($id );
 
         return $model->delete();
     }
 
 
 
-    public function GetDataForSelect($table){
-        $aaa = DB::table($table)->select('ID','Name')->get();
-        $items = array();
-        foreach ($aaa  as $a){
-            $items["$a->ID"] = $a->Name;
-        }
-        return $items;
+    /**
+     * Get query source of dataTable.
+     *
+     * @param  string; $model
+     * @param  string; $Where_Column
+     * @return array
+     */
+
+    public function GetDataForSelect($table,$Where_Column=null)
+    {
+            return
+                DB::table($table)->select(['id','Name'])
+              ->where(  $Where_Column ,  ($Where_Column==null ) ? null : auth()->user()->id)
+              ->get()->pluck('Name','id')->toArray();
+
     }
-    public function GetAllMarketPlaceOwners(){
-        $aaa = MarketplaceOwner::all();
-        $marketplaces = array();
-        foreach ($aaa  as $a){
-            $marketplaces["$a->ID"] = $a->User->Name;
-        }
-        return $marketplaces;
-    }
-    public function StoreFile(UploadedFile $file,$default = ''){
-        if (isset($file)){
-            $img = Storage::disk('public')->put('storage/images',$file);
+
+
+    public function StoreFile($file,$default = ''){
+        if ($file != null){
+            $img = Storage::disk('public')->put('images',$file);
             return $img;
         }else{
             return $default;

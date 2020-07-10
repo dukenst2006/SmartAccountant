@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Admin\Product;
+use App\Models\Product;
 use App\Repositories\BaseRepository;
 
 /**
@@ -42,6 +42,35 @@ class ProductRepository extends BaseRepository
     {
         return $this->fieldSearchable;
     }
+
+
+
+
+public function filter(){
+
+    $query = $this->model->newQuery();
+
+   return $query->orderBy('Name')->select(
+        [
+            'id',
+            'Name',
+            'Barcode',
+            'Quantity',
+            'UnlimitedQuantity',
+            'SellingPrice',
+        ]
+    )-> when(request('q'), function ($query, $role) {
+        $query->where('Barcode','like','%'.request('q').'%')
+            ->orWhere('Name','like','%'.request('q').'%');
+    })->limit(10)->get();
+
+
+
+
+}
+
+
+
 
     /**
      * Configure the Model

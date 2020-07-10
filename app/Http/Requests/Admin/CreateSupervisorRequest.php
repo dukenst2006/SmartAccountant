@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\Supervisor;
+use App\Models\Supervisor;
 
 class CreateSupervisorRequest extends FormRequest
 {
@@ -26,5 +26,11 @@ class CreateSupervisorRequest extends FormRequest
     public function rules()
     {
         return Supervisor::$rules;
+    }
+    public function attributes()
+    {
+        return [
+            "PhoneNumber"   =>  __("employee.phone"),
+        ];
     }
 }

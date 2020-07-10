@@ -3,6 +3,8 @@
 /** @var Factory $factory */
 
 use App\Models\Employee;
+use App\Models\Marketplace;
+use App\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Str;
@@ -20,9 +22,8 @@ use Illuminate\Support\Str;
 
 $factory->define(Employee::class, function (Faker $faker) {
     return [
-        'UserID' => factory(\App\Models\User::class),
-        'MarketplaceID' => factory(\App\Models\Marketplace::class),
-        'MarketplaceOwnerID' => factory(\App\Models\MarketplaceOwner::class),
+        'UserID' => factory(User::class),
+        'MarketplaceID' => factory(Marketplace::class),
         'Nationality' => $faker->randomElement(['سعودي', 'مصري', 'سوداني', 'امارتي']),
         'JobTitle' => $faker->randomElement(['محاسب', 'امين خزنه', 'مشرف']),
         'NationalID' => $faker->numerify('###############'),
@@ -31,7 +32,7 @@ $factory->define(Employee::class, function (Faker $faker) {
         'IdentityImage' => $faker->imageUrl(),
         'EmploymentContractImage' => $faker->imageUrl(),
         'IBAN' => $faker->iban(),
-        'Sex' => $faker->randomElement($array = array ('ذكر', 'انثي')),
-        'Salary' => $faker->randomFloat(5,10000,90000),
+        'Sex' => $faker->randomElement($array = array('ذكر', 'انثي')),
+        'Salary' => $faker->randomFloat(5, 10000, 90000),
     ];
 });

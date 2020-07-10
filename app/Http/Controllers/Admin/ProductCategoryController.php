@@ -64,13 +64,13 @@ class ProductCategoryController extends AppBaseController
     /**
      * Display the specified ProductCategory.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function show($ID )
+    public function show($id )
     {
-        $productCategory = $this->productCategoryRepository->find($ID );
+        $productCategory = $this->productCategoryRepository->find($id );
 
         if (empty($productCategory)) {
             Flash::error('Product Category not found');
@@ -84,13 +84,13 @@ class ProductCategoryController extends AppBaseController
     /**
      * Show the form for editing the specified ProductCategory.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function edit($ID )
+    public function edit($id )
     {
-        $productCategory = $this->productCategoryRepository->find($ID );
+        $productCategory = $this->productCategoryRepository->find($id );
 
         if (empty($productCategory)) {
             Flash::error('Product Category not found');
@@ -104,14 +104,14 @@ class ProductCategoryController extends AppBaseController
     /**
      * Update the specified ProductCategory in storage.
      *
-     * @param  int              $ID
+     * @param  int              $id
      * @param UpdateProductCategoryRequest $request
      *
      * @return Response
      */
-    public function update($ID , UpdateProductCategoryRequest $request)
+    public function update($id , UpdateProductCategoryRequest $request)
     {
-        $productCategory = $this->productCategoryRepository->find($ID );
+        $productCategory = $this->productCategoryRepository->find($id );
 
         if (empty($productCategory)) {
             Flash::error('Product Category not found');
@@ -119,7 +119,7 @@ class ProductCategoryController extends AppBaseController
             return redirect(route('admin.productCategories.index'));
         }
 
-        $productCategory = $this->productCategoryRepository->update($request->all(), $ID );
+        $productCategory = $this->productCategoryRepository->update($request->all(), $id );
 
         Flash::success('Product Category updated successfully.');
 
@@ -129,13 +129,13 @@ class ProductCategoryController extends AppBaseController
     /**
      * Remove the specified ProductCategory from storage.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function destroy($ID )
+    public function destroy($id )
     {
-        $productCategory = $this->productCategoryRepository->find($ID );
+        $productCategory = $this->productCategoryRepository->find($id );
 
         if (empty($productCategory)) {
             Flash::error('Product Category not found');
@@ -143,7 +143,7 @@ class ProductCategoryController extends AppBaseController
             return redirect(route('admin.productCategories.index'));
         }
 
-        $this->productCategoryRepository->delete($ID );
+        $this->productCategoryRepository->delete($id );
 
         Flash::success('Product Category deleted successfully.');
 

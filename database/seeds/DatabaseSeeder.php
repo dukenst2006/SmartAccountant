@@ -22,12 +22,12 @@ class DatabaseSeeder extends Seeder
         $QuantityTypeSeeder->run();
 
 
-        $PaymentTypesSeeder =new PaymentTypesSeeder();
-        $PaymentTypesSeeder->run();
-
-        $PermissionSeeder =new PermissionSeeder();
-        $PermissionSeeder->run();
-
+//        $PaymentTypesSeeder =new PaymentTypesSeeder();
+//        $PaymentTypesSeeder->run();
+//
+//        $PermissionSeeder =new PermissionSeeder();
+//        $PermissionSeeder->run();
+//
 
 
         factory(App\Models\SystemAdmin::class, 2)->create();

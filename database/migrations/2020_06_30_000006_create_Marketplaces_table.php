@@ -14,7 +14,7 @@ class CreateMarketplacesTable extends Migration
     public function up()
     {
         Schema::create('marketplaces', function (Blueprint $table) {
-            $table->bigIncrements('ID');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('MarketplaceOwnerID');
             $table->string('Name');
             $table->string('Country');
@@ -29,7 +29,7 @@ class CreateMarketplacesTable extends Migration
             $table->string('CompanyRegisterImage');
             $table->string('Logo');
             $table->timestamps();
-            $table->foreign('MarketplaceOwnerID')->references('ID')->on('marketplace_owners')->onDelete('cascade');
+            $table->foreign('MarketplaceOwnerID')->references('id')->on('marketplace_owners')->onDelete('cascade');
         });
     }
 

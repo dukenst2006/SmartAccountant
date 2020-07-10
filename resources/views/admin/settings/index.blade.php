@@ -21,24 +21,26 @@
                         <div class="form-group">
                             <label for="is_site_active">{{__('adminPanel.is_site_active')}}</label>
                             <select class="form-control" name="is_site_active" id="is_site_active">
-{{--                                <option {{\App\Models\Settings::all()->first()->is_site_active ?'selected':'' }} value="1">{{__('Active')}}</option>--}}
-{{--                                <option {{!\App\Models\Settings::all()->first()->is_site_active ?'selected':'' }} value="0">{{__('Not Active')}}</option>--}}
+                               <option {{ \App\Models\Settings::all()->first()->IsSiteActive ?'selected':'' }} value="1">{{__('Active')}}</option>
+                               <option {{ !\App\Models\Settings::all()->first()->IsSiteActive ?'selected':'' }} value="0">{{__('Not Active')}}</option>
+                                        
                             </select>
                             <x-error name="is_site_active"></x-error>
                         </div>
+                        
+                         <div class="form-group">
+                            <label for="is_site_active">{{__('adminPanel.m_name')}}</label>
+                           <input name="marchant_name" type="text">
+                            <x-error name="m_name"></x-error>
+                        </div>
 
                         <div class="row">
-                            <div class="col-6">
-                                <label for="closingMessageEnglish">{{__('adminPanel.closing_message')}} - {{__('English')}}</label>
-                                <textarea class="form-control msg" name="message_en" id="message_en" cols="30" rows="10">
-{{--                                    {{\App\Models\Settings::all()->first()->trans->where('lang_code', 'en')->first()->message}}--}}
-                                </textarea>
-                                <x-error name="message_en"></x-error>
-                            </div>
-                            <div class="col-6">
-                                <label for="closingMessageArabic">{{__('adminPanel.closing_message')}} - {{__('Arabic')}}</label>
+
+                            <div class="col-12">
+                                <label for="closingMessageArabic">{{__('adminPanel.closing_message')}}  </label>
                                 <textarea class="form-control msg" name="message_ar" id="message_ar" cols="30" rows="10">
 {{--                                    {{\App\Models\Settings::all()->first()->trans->where('lang_code', 'ar')->first()->message}}--}}
+                                  
                                 </textarea>
                                 <x-error name="message_ar"></x-error>
                             </div>
@@ -58,9 +60,14 @@
                             <label for="end_date">{{__('adminPanel.program_end_date')}}</label>
 {{--                            <input type="date" name="program_end_date" id="end_date" class="form-control" value="{{\App\Models\Settings::all()->first()->program_end_date}}">--}}
                         </div>
+                        
+                        
+                        
+                        
+                        
                         <div class="row mt-5">
                             <div class="col-12">
-                                <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> {{ __('Save')}}</button>
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> {{__('adminPanel.save')}} </button>
                             </div>
                         </div>
                     </form>

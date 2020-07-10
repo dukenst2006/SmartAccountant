@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\Marketplace;
+use App\Models\Marketplace;
 
 class UpdateMarketplaceRequest extends FormRequest
 {
@@ -26,7 +26,7 @@ class UpdateMarketplaceRequest extends FormRequest
     public function rules()
     {
         $rules = Marketplace::$rules;
-        
+
         return $rules;
     }
 }

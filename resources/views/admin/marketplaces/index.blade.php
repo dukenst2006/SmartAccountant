@@ -2,7 +2,7 @@
 @section('title', 'Marketplaces')
 
 @section('content_header')
-        <h1>Marketplaces</h1>
+        <h1>الفروع</h1>
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
         {{-- Cards --}}
         <div class="card col-11">
             <div class="card-header">
-                <h3 class="card-title">Marketplaces</h3>
+                <h3 class="card-title">الكل</h3>
             </div>
             <div class="card-body card-body table-responsive p-0">
                 @include('flash::message')

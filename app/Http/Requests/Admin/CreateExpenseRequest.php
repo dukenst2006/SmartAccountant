@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\Expense;
+use App\Models\Expense;
 
 class CreateExpenseRequest extends FormRequest
 {
@@ -26,5 +26,16 @@ class CreateExpenseRequest extends FormRequest
     public function rules()
     {
         return Expense::$rules;
+    }
+    public function attributes()
+    {
+        return [
+            'MarketplacesID' => "الفرع",
+            'ExpensesCategoriesID' =>__('expenses.expenses_category'),
+            'Name' => "الاسم",
+            'Price' => "السعر",
+            'Description' => "الوصف",
+            'Date' => "التاريخ",
+        ];
     }
 }

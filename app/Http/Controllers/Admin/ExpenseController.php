@@ -67,13 +67,13 @@ class ExpenseController extends AppBaseController
     /**
      * Display the specified Expense.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function show($ID )
+    public function show($id )
     {
-        $expense = $this->expenseRepository->find($ID );
+        $expense = $this->expenseRepository->find($id );
 
         if (empty($expense)) {
             Flash::error('Expense not found');
@@ -87,13 +87,13 @@ class ExpenseController extends AppBaseController
     /**
      * Show the form for editing the specified Expense.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function edit($ID )
+    public function edit($id )
     {
-        $expense = $this->expenseRepository->find($ID );
+        $expense = $this->expenseRepository->find($id );
 
         if (empty($expense)) {
             Flash::error('Expense not found');
@@ -107,14 +107,14 @@ class ExpenseController extends AppBaseController
     /**
      * Update the specified Expense in storage.
      *
-     * @param  int              $ID
+     * @param  int              $id
      * @param UpdateExpenseRequest $request
      *
      * @return Response
      */
-    public function update($ID , UpdateExpenseRequest $request)
+    public function update($id , UpdateExpenseRequest $request)
     {
-        $expense = $this->expenseRepository->find($ID );
+        $expense = $this->expenseRepository->find($id );
 
         if (empty($expense)) {
             Flash::error('Expense not found');
@@ -122,7 +122,7 @@ class ExpenseController extends AppBaseController
             return redirect(route('admin.expenses.index'));
         }
 
-        $expense = $this->expenseRepository->update($request->all(), $ID );
+        $expense = $this->expenseRepository->update($request->all(), $id );
 
         Flash::success('Expense updated successfully.');
 
@@ -132,13 +132,13 @@ class ExpenseController extends AppBaseController
     /**
      * Remove the specified Expense from storage.
      *
-     * @param  int $ID
+     * @param  int $id
      *
      * @return Response
      */
-    public function destroy($ID )
+    public function destroy($id )
     {
-        $expense = $this->expenseRepository->find($ID );
+        $expense = $this->expenseRepository->find($id );
 
         if (empty($expense)) {
             Flash::error('Expense not found');
@@ -146,7 +146,7 @@ class ExpenseController extends AppBaseController
             return redirect(route('admin.expenses.index'));
         }
 
-        $this->expenseRepository->delete($ID );
+        $this->expenseRepository->delete($id );
 
         Flash::success('Expense deleted successfully.');
 

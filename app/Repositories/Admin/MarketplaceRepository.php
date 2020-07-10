@@ -2,8 +2,9 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Admin\Marketplace;
+use App\Models\Marketplace;
 use App\Repositories\BaseRepository;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class MarketplaceRepository
@@ -49,4 +50,27 @@ class MarketplaceRepository extends BaseRepository
     {
         return Marketplace::class;
     }
+
+
+    /**
+     * Create model record
+     *
+     * @param array $input
+     *
+     * @return Model
+     */
+    public function create($input)
+    {
+        $model = $this->model->newInstance($input);
+        $model->MarketplaceOwnerID = Auth()->user()->id;
+        $model->save();
+        return $model;
+    }
+
+
+
+
+
+
+
 }

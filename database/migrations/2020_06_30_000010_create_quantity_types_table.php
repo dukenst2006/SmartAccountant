@@ -15,7 +15,7 @@ class CreateQuantityTypesTable extends Migration
     {
         Schema::create('quantity_types', function (Blueprint $table) {
 
-            $table->bigIncrements('ID');
+            $table->bigIncrements('id');
             $table->string('Name');
 
             $table->timestamps();

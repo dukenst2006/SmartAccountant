@@ -126,13 +126,13 @@ return [
 
         'save_schema_file' => true,
 
-        'localized' => false,
+        'localized' => true,
 
         'tables_searchable_default' => true,
 
         'repository_pattern' => true,
 
-        'excluded_fields' => ['ID'], // Array of columns that doesn't required while creating module
+        'excluded_fields' => ['id'], // Array of columns that doesn't required while creating module
     ],
 
     /*

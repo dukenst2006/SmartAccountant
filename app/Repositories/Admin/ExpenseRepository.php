@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Admin\Expense;
+use App\Models\Expense;
 use App\Repositories\BaseRepository;
 
 /**
