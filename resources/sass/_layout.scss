@@ -639,5 +639,15 @@ body:not(.sidebar-mini-md) {
         width: 100%;
         flex-direction: row;
         justify-content: flex-end;
+        align-items: flex-end;
+    }
+}
+
+.capital-input {
+    min-width: 350px;
+    border: 2px solid #28a745;
+    padding: 7px;
+    @media (max-width: 575.98px) {
+            min-width: 250px;
     }
 }

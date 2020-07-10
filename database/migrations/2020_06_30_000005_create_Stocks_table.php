@@ -15,7 +15,7 @@ class CreateStocksTable extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('MarketplacesOwnerID');
+            $table->unsignedBigInteger('MarketplacesOwnerID')->nullable();;
             $table->unsignedBigInteger('MarketplacesID')->nullable();
             $table->timestamps();
             });

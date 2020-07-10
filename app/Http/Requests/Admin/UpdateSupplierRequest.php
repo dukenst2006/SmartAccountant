@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\Supplier;
+use App\Models\Supplier;
 
 class UpdateSupplierRequest extends FormRequest
 {
@@ -26,7 +26,7 @@ class UpdateSupplierRequest extends FormRequest
     public function rules()
     {
         $rules = Supplier::$rules;
-        
+
         return $rules;
     }
 }

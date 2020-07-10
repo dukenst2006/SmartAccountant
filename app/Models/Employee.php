@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @package App\Models\Admin
  * @version July 6, 2020, 5:31 am UTC
  *
- * @property \App\Models\Admin\Marketplace $marketplaceid
+ * @property \App\Models\Marketplace $marketplaceid
  * @property User $User
  * @property Collection $employeeSalaryInfos
  * @property integer $UserID
@@ -91,7 +91,7 @@ class Employee extends Model
      **/
     public function Marketplace()
     {
-        return $this->belongsTo(\App\Models\Admin\Marketplace::class, 'MarketplaceID');
+        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplaceID');
     }
 
     /**

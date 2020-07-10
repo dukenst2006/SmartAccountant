@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\Supplier;
+use App\Models\Supplier;
 
 class CreateSupplierRequest extends FormRequest
 {

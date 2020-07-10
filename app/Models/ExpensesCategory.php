@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Admin;
 
-use Illuminate\Database\Eloquent\Model;
+use Eloquent as Model;
 
 /**
  * Class ExpensesCategory
@@ -37,7 +37,7 @@ class ExpensesCategory extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
+        'ID' => 'integer',
         'MarketplacesID' => 'integer',
         'Name' => 'string'
     ];

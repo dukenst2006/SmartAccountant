@@ -13,8 +13,11 @@ class TreasureController extends Controller
 {
     public function index(){
         $markets = Marketplace::query()->paginate(7);
+
         $invoices = Invoice::all();
+
         $expenses = Expense::all();
+
         return view('admin.treasure.index',compact('markets','invoices','expenses'));
     }
 }

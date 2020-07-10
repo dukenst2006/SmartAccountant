@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Stock
  * @package App\Models
  * @version July 10, 2020, 2:59 am UTC
  *
- * @property \App\Models\Marketplace $marketplacesid
- * @property \App\Models\MarketplaceOwner $marketplacesownerid
+ * @property \App\Models\Marketplace $marketplaces
+ * @property \App\Models\MarketplaceOwner $marketplacesowner
  * @property \Illuminate\Database\Eloquent\Collection $marketplace1s
  * @property \Illuminate\Database\Eloquent\Collection $products
  * @property integer $MarketplacesOwnerID
@@ -20,7 +21,7 @@ class Stock extends Model
 {
 
     public $table = 'stocks';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -52,29 +53,22 @@ class Stock extends Model
         'MarketplacesOwnerID' => 'required'
     ];
 
-    /**
+      /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function marketplacesid()
-    {
-        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplacesID');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function marketplacesownerid()
+    public function marketplacesowner()
     {
         return $this->belongsTo(\App\Models\MarketplaceOwner::class, 'MarketplacesOwnerID');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      **/
-    public function marketplace1s()
+    public function marketplace()
     {
-        return $this->hasMany(\App\Models\Marketplace::class, 'StockID');
+        return $this->hasOne(\App\Models\Marketplace::class, 'StockID');
     }
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

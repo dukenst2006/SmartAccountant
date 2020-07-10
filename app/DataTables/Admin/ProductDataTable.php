@@ -37,7 +37,7 @@ class ProductDataTable extends DataTable
      */
     public function query(Product $model)
     {
-        return $model->newQuery()->with( ['user:id,Name', 'marketplace:id,Name','productcategory:id,Name', 'productsubcategory:id,Name' ]);
+        return $model->newQuery()->with( ['user:id,Name', 'store.marketplace:id,Name','productcategory:id,Name', 'productsubcategory:id,Name' ]);
     }
 
     /**

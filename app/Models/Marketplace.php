@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Eloquent as Model;
 
 /**
  * Class Marketplace
@@ -64,7 +64,7 @@ class Marketplace extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
+        'ID' => 'integer',
         'MarketplaceOwnerID' => 'integer',
         'Name' => 'string',
         'Country' => 'string',
@@ -86,6 +86,7 @@ class Marketplace extends Model
      * @var array
      */
     public static $rules = [
+        'MarketplaceOwnerID' => 'required',
         'Name' => 'required',
         'Country' => 'required',
         'City' => 'required',
@@ -97,6 +98,7 @@ class Marketplace extends Model
         'Longitude' => 'required',
         'SafeBalance' => 'required',
         'CompanyRegisterImage' => 'required',
+        'Logo' => 'required'
     ];
 
     /**
@@ -107,20 +109,20 @@ class Marketplace extends Model
         return $this->belongsTo(\App\Models\MarketplaceOwner::class, 'MarketplaceOwnerID');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     **/
-    public function employees()
-    {
-        return $this->hasMany(\App\Models\Employee::class, 'MarketplaceID');
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      **/
     public function supervisor()
     {
-        return $this->hasMany(\App\Models\Admin\Supervisor::class, 'MarketplaceID');
+        return $this->hasMany(\App\Models\Supervisor::class, 'MarketplaceID');
+    }
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function employees()
+    {
+        return $this->hasMany(\App\Models\Employee::class, 'MarketplaceID');
     }
 
     /**
@@ -163,11 +165,13 @@ class Marketplace extends Model
         return $this->hasMany(\App\Models\Product::class, 'MarketplacesID');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+
+      /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      **/
-    public function stocks()
+    public function stock()
     {
-        return $this->hasMany(\App\Models\Stock::class, 'MarketplacesID');
+        return $this->hasOne(\App\Models\Stock::class, 'MarketplacesID');
     }
+
 }

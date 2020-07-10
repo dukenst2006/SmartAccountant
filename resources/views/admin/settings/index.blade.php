@@ -3,10 +3,15 @@
 
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">{{__('adminPanel.Settings')}}</h1>
+            <div class="row ">
+                <div class="col-sm-12 d-flex flex-wrap">
+                    <h1 class="m-0 text-dark">{{__('adminPanel.Settings')}} </h1>
+
                 </div><!-- /.col -->
+                <div class="col-sm-12 d-flex justify-content-center w-100">
+                    <span class="d-inline-block d-flex flex-wrap"><input type="text" class="capital-input mr-2 mb-2" placeholder="ادخل رأس المال الإفتتاحى"> <button
+                                    class="btn btn-success d-inline-block mb-2 mr-2 "><i class="fas fa-pencil-alt"></i> تعديل </button></span>
+                </div>
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>

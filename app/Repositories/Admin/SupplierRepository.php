@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Admin\Supplier;
+use App\Models\Supplier;
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
 

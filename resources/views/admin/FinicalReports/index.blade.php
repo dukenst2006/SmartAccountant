@@ -1,12 +1,12 @@
 @extends('adminlte::page')
-@section('title', 'Safe')
+@section('title', 'FinicalReports')
 
 @section('content_header')
-    <h1>الخزينة</h1>
+    <h1>التقارير المالية</h1>
 @stop
 
 @section('content')
-    <div>
+
         <div class="row col-12  justify-content-center">
             <div class="row col-md-6 col-sm-6 col-6">
                 <div class="col-md-6 col-sm-6 col-12 animated flipInX">
@@ -17,7 +17,7 @@
                         <div class="info-box-content">
                             <h1 class="info-box-text">الخسائر</h1>
                             <h2 class="info-box-number">
-                                {{$expenses->sum('Price') - $invoices->sum('paid') > 0? $expenses->sum('Price') - $invoices->sum('paid'):0}}
+                            99999
                             </h2>
 
                             <div class="progress">
@@ -37,7 +37,7 @@
                         <div class="info-box-content">
                             <h1 class="info-box-text">الأرباح</h1>
                             <h2 class="info-box-number">
-                                {{$invoices->sum('paid') - $expenses->sum('Price') > 0? $invoices->sum('paid') - $expenses->sum('Price'):0}}
+                            99999
                             </h2>
 
                             <div class="progress">
@@ -50,35 +50,34 @@
 
                 </div>
 
+
+                <div id="chart" style="height: 300px;">
+
+
+                </div>
+
+
+
             </div>
         </div>
-        <table class="table table-bordered">
-            <tr>
-                <th>المتجر</th>
-                <th>عدد الفواتير</th>
-                <th>اجمالي قيمة الفواتير</th>
-                <th>اجمالي قيمة المدفوع</th>
-                <th>اجمالي قيمة المتبقي</th>
-                <th>اجمالي المصاريف</th>
-                <th>صافي</th>
-            </tr>
-            @foreach($markets as $market)
-                <tr>
-                    <td>{{$market->Name}}</td>
-                    <td>{{$market->invoices->count()}}</td>
-                    <td>{{$market->invoices->sum('Total')}}</td>
-                    <td>{{$market->invoices->sum('Paid')}}</td>
-                    <td>{{$market->invoices->sum('Rest')}}</td>
-                    <td>{{$market->expenses->sum('Price')}}</td>
-                    <td>{{$market->invoices->sum('Paid') - $market->expenses->sum('Price')}}</td>
-                </tr>
-            @endforeach
 
-            <tr>
-                <td colspan="5" class="text-center">
-                    {{$markets}}
-                </td>
-            </tr>
-        </table>
-    </div>
+
+
+@endsection
+
+@section('customejs')
+    <script>
+        const chart = new Chartisan({
+            el: '#chart',
+            url: "@chart('sample_chart')",
+            hooks: new ChartisanHooks()
+                .colors(['#ECC94B', '#4299E1'])
+                .responsive()
+                .beginAtZero()
+                .legend({ position: 'bottom' })
+            //    .title('This is a sample chart using chartisan!')
+               // .datasets([{ type: 'line', fill: false }, 'bar']),
+        });
+
+    </script>
 @endsection

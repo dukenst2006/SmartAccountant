@@ -76,7 +76,7 @@ class Product extends Model
         'UnlimitedQuantity'
     ];
 
-
+protected $with= ['stock.marketplace:id' ];
     /**
      * The attributes that should be casted to native types.
      *
@@ -103,9 +103,9 @@ class Product extends Model
     /**
      * @return BelongsTo
      **/
-    public function marketplace()
+    public function stock()
     {
-        return $this->belongsTo(Marketplace::class, 'MarketplacesID');
+        return $this->belongsTo(Stock::class, 'StockID');
     }
 
     /**
@@ -140,11 +140,8 @@ class Product extends Model
         return $this->belongsTo(User::class, 'UserID');
     }
 
-    /**
-     * @return HasMany
-     **/
-    public function invoiceItems()
-    {
-        return $this->hasMany(InvoiceItem::class, 'ProductID');
-    }
+
+
+
+
 }

@@ -17,11 +17,11 @@
             <td class="text-center">{{ $stock->MarketplacesID }}</td>
 
             <td>
-                {!! Form::open(['route' => ['stocks.destroy', $stock->id], 'method' => 'delete']) !!}
+
                 <div class='form-group'>
-                    <a href="{{ route('stocks.show', [$stock->id]) }}" class='btn btn-warning btn-sm p-1'><i class="fas fa-2x fa-eye"></i></a>
+                    {{--   <a href="{{ route('stocks.show', [$stock->id]) }}" class='btn btn-warning btn-sm p-1'><i class="fas fa-2x fa-eye"></i></a>--}}
                 </div>
-                {!! Form::close() !!}
+
             </td>
         </tr>
     @endforeach

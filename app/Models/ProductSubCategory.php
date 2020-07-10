@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Admin;
 
-use Illuminate\Database\Eloquent\Model;
+use Eloquent as Model;
 
 /**
  * Class ProductSubCategory
@@ -36,7 +36,7 @@ class ProductSubCategory extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
+        'ID' => 'integer',
         'ProductCategoryID' => 'integer',
         'Name' => 'string'
     ];

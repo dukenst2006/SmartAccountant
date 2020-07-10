@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package App\Models\Admin
  * @version July 8, 2020, 9:56 am UTC
  *
- * @property \App\Models\Admin\MarketplaceOwner $marketplaceownerid
+ * @property \App\Models\MarketplaceOwner $marketplaceownerid
  * @property integer $MarketplaceOwnerID
  * @property string $Name
  * @property string $CompanyID
