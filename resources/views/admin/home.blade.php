@@ -12,7 +12,7 @@
                     <div class="info-box-content">
                         <h4 class="info-box-text">{{__('Dashboard.Capital')}}</h4>
                         <h4 class="info-box-number">
-                            {{$settings->Capital}}
+
                             ر.س
 
                         </h4>

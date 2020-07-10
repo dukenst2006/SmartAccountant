@@ -21,6 +21,7 @@ class CreateSettingsTable extends Migration
             $table->boolean('messageAr')->default(true);
             $table->boolean('ProgramStatus')->default(true);
             $table->date('ProgramEndDate')->default(now());
+            $table->bigInteger('Capital')->default(0);
             $table->timestamps();
         });
         \App\Models\Settings::query()->create();
