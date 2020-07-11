@@ -12,8 +12,8 @@ return [
     'RS'                    =>  "ريال سعودي",
     'File'                  =>  "الملف",
     'About' =>  [
-        'Important instruction' =>  "تعليمات مهمة",
-        'You now using licensed version'   =>  "انت الان تستخدم نسخة مرخصة",
+        'Important instruction'             =>  "تعليمات مهمة",
+        'You now using licensed version'    =>  "انت الان تستخدم نسخة مرخصة",
         'Service'   =>  "الخدمة",
         'Cost'      =>  "التكلفة",
         'Order'     =>  "طلب",
