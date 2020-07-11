@@ -16,13 +16,13 @@ class CreateSupervisorsTable extends Migration
         Schema::create('supervisors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('UserID');
-            $table->unsignedBigInteger('MarketplaceID');
+            $table->unsignedBigInteger('MarketplaceOwnerID');
 
             $table->string('PhoneNumber');
             $table->timestamps();
 
             $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('MarketplaceID')->references('id')->on('marketplaces')->onDelete('cascade');
+            $table->foreign('MarketplaceOwnerID')->references('id')->on('marketplace_owners')->onDelete('cascade');
         });
     }
 

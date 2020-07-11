@@ -13,7 +13,7 @@
         </div>
         <div class="card-body card-body table-responsive p-0">
 
-            <div class="col-3 animated bounceInUp">
+            <div class="col-3 animated bounceInUp m-5">
 
                 <div class="info-box bg-warning">
 
@@ -21,7 +21,7 @@
                         <h4 class="info-box-text">{{__('Models/Warehouse.ProductCount')}}</h4>
                         <h4 class="info-box-number">
 
-                            {{ $warehouse->products_count }}
+                            {{ $warehouse->products_count ??'0' }}
 
                         </h4>
 
@@ -36,15 +36,28 @@
 
 
             </div>
-
-            @include('flash::message')
-            @include('admin.warehouses.table')
-
+                    </div>
+    </div>
 
 
+    <div class="row justify-content-center">
 
+        {{-- Cards --}}
+        <div class="card col-12">
+            <div class="card-header">
+                <h3 class="card-title">Products</h3>
+            </div>
+            <div class="card-body card-body table-responsive p-0">
+                @include('flash::message')
+                @include('admin.products.table')
+
+                <div class="text-center">
+
+                </div>
+            </div>
         </div>
     </div>
+
 
 
 

@@ -10,6 +10,8 @@ use App\product;
 use App\Repositories\Admin\ProductRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 use Response;
 
 class ProductController extends AppBaseController
@@ -25,7 +27,7 @@ class ProductController extends AppBaseController
     /**
      * Display a listing of the Product.
      *
-     * @param ProductDataTable $productDataTable
+     * @param  ProductDataTable  $productDataTable
      * @return Response
      */
     public function index(ProductDataTable $productDataTable)
@@ -36,28 +38,28 @@ class ProductController extends AppBaseController
     /**
      * Show the form for creating a new Product.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function create()
     {
-        $marketplaces = $this->productRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID');
-        $quantitytypes= $this->productRepository->GetDataForSelect('quantity_types');
-  //      $product_categories = $this->productRepository->GetDataForSelect('product_categories');
-     ///   $product_sub_categories = $this->productRepository->GetDataForSelect('product_sub_categories');
-        return view('admin.products.create',compact('marketplaces','quantitytypes')); //,'product_categories','product_sub_categories'));
+        $quantitytypes = $this->productRepository->GetDataForSelect('quantity_types');
+        $product_categories = $this->productRepository->GetDataForSelect('product_categories');
+        $product_sub_categories = $this->productRepository->GetDataForSelect('product_sub_categories');
+        return view('admin.products.create',
+            compact( 'quantitytypes', 'product_categories', 'product_sub_categories'));
     }
 
     /**
      * Store a newly created Product in storage.
      *
-     * @param CreateProductRequest $request
+     * @param  CreateProductRequest  $request
      *
      * @return Response
      */
     public function store(CreateProductRequest $request)
     {
         $input = $request->all();
-        $input['Image'] = $this->productRepository->StoreFile($request->file('Image'),'');
+        $input['Image'] = $this->productRepository->StoreFile($request->file('Image'), '');
         $product = $this->productRepository->create($input);
         Flash::success('Product saved successfully.');
 
@@ -67,13 +69,13 @@ class ProductController extends AppBaseController
     /**
      * Display the specified Product.
      *
-     * @param  int $id
+     * @param  int  $id
      *
      * @return Response
      */
-    public function show($id )
+    public function show($id)
     {
-        $product = $this->productRepository->find($id );
+        $product = $this->productRepository->find($id);
 
         if (empty($product)) {
             Flash::error('Product not found');
@@ -87,13 +89,13 @@ class ProductController extends AppBaseController
     /**
      * Show the form for editing the specified Product.
      *
-     * @param  int $id
+     * @param  int  $id
      *
      * @return Response
      */
-    public function edit($id )
+    public function edit($id)
     {
-        $product = $this->productRepository->find($id );
+        $product = $this->productRepository->find($id);
 
         if (empty($product)) {
             Flash::error('Product not found');
@@ -107,24 +109,24 @@ class ProductController extends AppBaseController
     /**
      * Update the specified Product in storage.
      *
-     * @param  int              $id
-     * @param UpdateProductRequest $request
+     * @param  int  $id
+     * @param  UpdateProductRequest  $request
      *
      * @return Response
      */
-    public function update($id , UpdateProductRequest $request)
+    public function update($id, UpdateProductRequest $request)
     {
-        $product = $this->productRepository->find($id );
+        $product = $this->productRepository->find($id);
         $input = $request->all();
         $input['Image'] = $this->productRepository
-            ->StoreFile($request->file('Image'),$product['Image']);
+            ->StoreFile($request->file('Image'), $product['Image']);
         if (empty($product)) {
             Flash::error('Product not found');
 
             return redirect(route('admin.products.index'));
         }
 
-        $product = $this->productRepository->update($input, $id );
+        $product = $this->productRepository->update($input, $id);
 
         Flash::success('Product updated successfully.');
 
@@ -134,13 +136,13 @@ class ProductController extends AppBaseController
     /**
      * Remove the specified Product from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      *
      * @return Response
      */
-    public function destroy($id )
+    public function destroy($id)
     {
-        $product = $this->productRepository->find($id );
+        $product = $this->productRepository->find($id);
 
         if (empty($product)) {
             Flash::error('Product not found');
@@ -148,7 +150,7 @@ class ProductController extends AppBaseController
             return redirect(route('admin.products.index'));
         }
 
-        $this->productRepository->delete($id );
+        $this->productRepository->delete($id);
 
         Flash::success('Product deleted successfully.');
 
@@ -156,23 +158,14 @@ class ProductController extends AppBaseController
     }
 
 
-
-
-
-
-
-    public  function LiveSearch()
+    public function LiveSearch()
     {
-      //  if (request()->ajax())
+        //  if (request()->ajax())
 
-        return response()->json(['results'=>$this->productRepository->filter()]);
+        return response()->json(['results' => $this->productRepository->filter()]);
 
 
     }
-
-
-
-
 
 
 }

@@ -5,7 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\CheckForMaintenanceMode;
 use App\Http\Middleware\EncryptCookies;
-use App\Http\Middleware\LanguageSwitcher;
+//use App\Http\Middleware\LanguageSwitcher;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustProxies;
@@ -40,7 +40,7 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
-        LanguageSwitcher::class,
+        //LanguageSwitcher::class,
         TrustProxies::class,
         HandleCors::class,
         CheckForMaintenanceMode::class,

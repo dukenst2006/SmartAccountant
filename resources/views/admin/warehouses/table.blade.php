@@ -5,7 +5,8 @@
         <thead>
         <tr>
             <th class="text-center">{{__('Models/Marketplace.Name')}}</th>
-            <th class="text-center">{{__('Models/Inventory.ProductCount')}}</th>
+            <th class="text-center"></th>
+            <th class="text-center">التاريخ</th>
 
 
         </tr>

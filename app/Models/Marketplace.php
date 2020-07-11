@@ -90,14 +90,13 @@ class Marketplace extends Model
      * @var array
      */
     public static $rules = [
-        'MarketplaceOwnerID' => 'required',
         'Name' => 'required',
         'Country' => 'required',
         'City' => 'required',
         'SupervisorPhoneNumber' => 'required',
         'Address' => 'required',
         'TaxNumber' => 'required',
-        'Email' => 'required',
+        'Email' =>['required', 'string', 'email', 'max:255', 'unique:marketplaces'],
         'Latitude' => 'required',
         'Longitude' => 'required',
         'SafeBalance' => 'required',

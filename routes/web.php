@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Auth()->loginUsingId(1);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->middleware('verified');

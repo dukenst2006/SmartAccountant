@@ -22,7 +22,7 @@ class CreateMarketplacesTable extends Migration
             $table->string('SupervisorPhoneNumber');
             $table->string('Address');
             $table->string('TaxNumber');
-            $table->string('Email');
+            $table->string('Email')->unique();
             $table->string('Latitude');
             $table->string('Longitude');
             $table->double('SafeBalance')->default(0);

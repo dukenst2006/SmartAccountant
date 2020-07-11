@@ -12,7 +12,7 @@
         </div>
         <div class="card-body card-body table-responsive p-0">
 
-            <div class="col-3 animated bounceInUp">
+            <div class="col-3 animated bounceInUp m-5">
 
                 <div class="info-box bg-warning">
 
@@ -20,7 +20,7 @@
                         <h4 class="info-box-text"><?php echo e(__('Models/Warehouse.ProductCount')); ?></h4>
                         <h4 class="info-box-number">
 
-                            <?php echo e($warehouse->products_count); ?>
+                            <?php echo e($warehouse->products_count ??'0'); ?>
 
 
                         </h4>
@@ -36,15 +36,28 @@
 
 
             </div>
-
-            <?php echo $__env->make('flash::message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-            <?php echo $__env->make('admin.warehouses.table', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
+                    </div>
+    </div>
 
 
+    <div class="row justify-content-center">
 
+        
+        <div class="card col-12">
+            <div class="card-header">
+                <h3 class="card-title">Products</h3>
+            </div>
+            <div class="card-body card-body table-responsive p-0">
+                <?php echo $__env->make('flash::message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <?php echo $__env->make('admin.products.table', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+                <div class="text-center">
+
+                </div>
+            </div>
         </div>
     </div>
+
 
 
 

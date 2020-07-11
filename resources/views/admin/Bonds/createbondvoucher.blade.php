@@ -9,7 +9,7 @@
     <div class="row justify-content-center animated bounceInLeft">
 
         <div class="col-md-8">
-            <h1 style="font-weight: 800;">إذن صرف بضاعة</h1>
+            <h1 style="font-weight: 800;">إذن صرف كمية من المخزن </h1>
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">منتجات المخزن الرئيسي</h3>
@@ -48,10 +48,10 @@
 
                                 <div class="form-group " style="direction: rtl;width: 609px;">
 
-                                    <label class="form-check-label float-right" for="cusname"> اسم العميل</label>
+                                    <label class="form-check-label float-right" for="cusname"> اسم الموظف</label>
 
 
-                                    <input name="cusname" id="cusname" type="text" placeholder="اسم العميل"
+                                    <input name="cusname" id="cusname" type="text" placeholder="اسم الموظف"
                                            v-model="customrename" class=" text-center form-control input-lg mw-50"
                                            style="    font-weight: 800;">
 

@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Marketplace $marketplaces
  * @property ProductCategory $productcategory
  * @property ProductSubCategory $productsubcategory
+ * @property Warehouse $warehouse
+ * @property Inventory $inventory
  * @property QuantityType $quantitytype
  * @property User $user
  * @property Collection $invoiceItems
@@ -47,7 +49,6 @@ class Product extends Model
      */
     public static $rules = [
         'UserID' => 'required',
-        'MarketplacesID' => 'required',
         'ProductCategoryID' => 'required',
         'Name' => 'required',
         'Quantity' => 'required',
@@ -61,9 +62,10 @@ class Product extends Model
     public $table = 'products';
     public $fillable = [
         'UserID',
-        'MarketplacesID',
         'ProductCategoryID',
         'ProductSubCategoryID',
+        'WarehouseID' ,
+        'InventoryID',
         'Name',
         'Quantity',
         'QuantityTypeID',
@@ -85,9 +87,10 @@ class Product extends Model
     protected $casts = [
         'ID' => 'integer',
         'UserID' => 'integer',
-        'MarketplacesID' => 'integer',
         'ProductCategoryID' => 'integer',
         'ProductSubCategoryID' => 'integer',
+        'WarehouseID' => 'integer',
+        'InventoryID' => 'integer',
         'Name' => 'string',
         'Quantity' => 'float',
         'QuantityTypeID' => 'integer',
@@ -98,6 +101,8 @@ class Product extends Model
         'ExpiryDate' => 'datetime',
         'Barcode' => 'string',
         'UnlimitedQuantity' => 'boolean'
+
+
     ];
 
     /**
@@ -107,6 +112,10 @@ class Product extends Model
     {
         return $this->belongsTo(Inventory::class, 'InventoryID');
     }
+
+
+
+
 
 
     /**

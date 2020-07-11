@@ -20,7 +20,7 @@ return [
 
 
     'HumanResources' => 'الموارد البشرية',
-    'Supervisors' => ' موظفي اإلدارة',
+    'Supervisors' => 'موظفي الإدارة',
     'Employee' => 'الموظفين',
     'EmployeesSalaries' => 'رواتب الموظفين',
 

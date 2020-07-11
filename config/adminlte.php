@@ -31,7 +31,7 @@ return [/*
 ||
 */
     'logo' => ' نظام '.'<b>المحاسب الذكي</b> ',
-    'logo_img' => 'images/logo.png',
+    'logo_img' => 'css/logo.png',
     'logo_img_class' => 'brand-image img-fluid',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -337,11 +337,7 @@ return [/*
                     'route' => 'admin.products.create',
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
-                [
-                    'text' => 'all',
-                    'route' => 'admin.products.index',
-                    'icon' => 'fas fa-fw fa-layer-group',
-                ],
+
             ],
         ],
 
@@ -351,12 +347,12 @@ return [/*
             'submenu' => [
                 [
                     'text' => 'MainCategories',
-                    'url' => '#',
+                    'route' => 'admin.productCategories.index',
                     'icon' => 'fas fa-window-minimize',
                 ],
                 [
                     'text' => 'SubCategories',
-                    'url' => '#',
+                    'route' => 'admin.productSubCategories.index',
                     'icon' => 'fa fa-bars',
                 ],
             ],

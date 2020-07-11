@@ -19,12 +19,6 @@
 
 
 
-<!-- Marketplaceid Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('MarketplaceID', __('Models/Marketplace.Name')) !!}
-    {!! Form::select('MarketplaceID',$marketplaces, null,['class' => 'form-control']) !!}
-</div>
-
 
 <!-- Nationality Field -->
 <div class="form-group col-sm-6">

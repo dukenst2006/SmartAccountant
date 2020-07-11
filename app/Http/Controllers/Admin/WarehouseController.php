@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DataTables\Admin\ProductDataTable;
 use App\Http\Requests\CreateWarehouseRequest;
 use App\Http\Requests\UpdateWarehouseRequest;
 use App\Repositories\WarehouseRepository;
@@ -25,14 +26,14 @@ class WarehouseController extends AppBaseController
     /**
      * Display a listing of the Warehouse.
      *
-     * @param Request $request
-     *
+     * @param  ProductDataTable  $productDataTable
      * @return Factory|View
      */
-    public function index(Request $request)
+    public function index(ProductDataTable $productDataTable)
     {
     $warehouse = $this->warehouseRepository->allQuery()->withCount(['products'])->get()->first();
 
+        return $productDataTable->render('admin.warehouses.index');
 
         return view('admin.warehouses.index')
             ->with('warehouse', $warehouse);

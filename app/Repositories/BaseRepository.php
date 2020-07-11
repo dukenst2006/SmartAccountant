@@ -1,12 +1,17 @@
 <?php
 
 namespace App\Repositories;
+
 use App\Http\Resources\MarketPlaceResource;
+use App\Models\Employee;
 use App\Models\MarketplaceOwner;
 use App\Models\Marketplaces;
+use App\Models\Supervisor;
+use Exception;
 use Illuminate\Container\Container as Application;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
@@ -29,9 +34,9 @@ abstract class BaseRepository
     protected $app;
 
     /**
-     * @param Application $app
+     * @param  Application  $app
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct(Application $app)
     {
@@ -40,11 +45,22 @@ abstract class BaseRepository
     }
 
     /**
-     * Get searchable fields array
+     * Make Model instance
      *
-     * @return array
+     * @return Model
+     * @throws Exception
+     *
      */
-    abstract public function getFieldsSearchable();
+    public function makeModel()
+    {
+        $model = $this->app->make($this->model());
+
+        if (!$model instanceof Model) {
+            throw new Exception("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
+        }
+
+        return $this->model = $model;
+    }
 
     /**
      * Configure the Model
@@ -54,28 +70,10 @@ abstract class BaseRepository
     abstract public function model();
 
     /**
-     * Make Model instance
-     *
-     * @throws \Exception
-     *
-     * @return Model
-     */
-    public function makeModel()
-    {
-        $model = $this->app->make($this->model());
-
-        if (!$model instanceof Model) {
-            throw new \Exception("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
-        }
-
-        return $this->model = $model;
-    }
-
-    /**
      * Paginate records for scaffold.
      *
-     * @param int $perPage
-     * @param array $columns
+     * @param  int  $perPage
+     * @param  array  $columns
      * @return LengthAwarePaginator
      */
     public function paginate($perPage, $columns = ['*'])
@@ -88,9 +86,9 @@ abstract class BaseRepository
     /**
      * Build a query for retrieving all records.
      *
-     * @param array $search
-     * @param int|null $skip
-     * @param int|null $limit
+     * @param  array  $search
+     * @param  int|null  $skip
+     * @param  int|null  $limit
      * @return Builder
      */
     public function allQuery($search = [], $skip = null, $limit = null)
@@ -98,7 +96,7 @@ abstract class BaseRepository
         $query = $this->model->newQuery();
 
         if (count($search)) {
-            foreach($search as $key => $value) {
+            foreach ($search as $key => $value) {
                 if (in_array($key, $this->getFieldsSearchable())) {
                     $query->where($key, $value);
                 }
@@ -117,14 +115,21 @@ abstract class BaseRepository
     }
 
     /**
+     * Get searchable fields array
+     *
+     * @return array
+     */
+    abstract public function getFieldsSearchable();
+
+    /**
      * Retrieve all records with given filter criteria
      *
-     * @param array $search
-     * @param int|null $skip
-     * @param int|null $limit
-     * @param array $columns
+     * @param  array  $search
+     * @param  int|null  $skip
+     * @param  int|null  $limit
+     * @param  array  $columns
      *
-     * @return LengthAwarePaginator|Builder[]|\Illuminate\Database\Eloquent\Collection
+     * @return LengthAwarePaginator|Builder[]|Collection
      */
     public function all($search = [], $skip = null, $limit = null, $columns = ['*'])
     {
@@ -136,7 +141,7 @@ abstract class BaseRepository
     /**
      * Create model record
      *
-     * @param array $input
+     * @param  array  $input
      *
      * @return Model
      */
@@ -150,15 +155,10 @@ abstract class BaseRepository
     }
 
 
-
-
-
-
-
     /**
      * Create model With User
      *
-     * @param array $input
+     * @param  array  $input
      *
      * @return Model
      */
@@ -172,38 +172,34 @@ abstract class BaseRepository
     }
 
 
-
-
-
-
     /**
      * Find model record for given id
      *
-     * @param int $id
-     * @param array $columns
+     * @param  int  $id
+     * @param  array  $columns
      *
-     * @return Builder|Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
+     * @return Builder|Builder[]|Collection|Model|null
      */
-    public function find($id , $columns = ['*'])
+    public function find($id, $columns = ['*'])
     {
         $query = $this->model->newQuery();
 
-        return $query->find($id , $columns);
+        return $query->find($id, $columns);
     }
 
     /**
      * Update model record for given id
      *
-     * @param array $input
-     * @param int $id
+     * @param  array  $input
+     * @param  int  $id
      *
-     * @return Builder|Builder[]|\Illuminate\Database\Eloquent\Collection|Model
+     * @return Builder|Builder[]|Collection|Model
      */
-    public function update($input, $id )
+    public function update($input, $id)
     {
         $query = $this->model->newQuery();
 
-        $model = $query->findOrFail($id );
+        $model = $query->findOrFail($id);
 
         $model->fill($input);
 
@@ -213,21 +209,20 @@ abstract class BaseRepository
     }
 
     /**
-     * @param int $id
-     *
-     * @throws \Exception
+     * @param  int  $id
      *
      * @return bool|mixed|null
+     * @throws Exception
+     *
      */
-    public function delete($id )
+    public function delete($id)
     {
         $query = $this->model->newQuery();
 
-        $model = $query->findOrFail($id );
+        $model = $query->findOrFail($id);
 
         return $model->delete();
     }
-
 
 
     /**
@@ -238,54 +233,42 @@ abstract class BaseRepository
      * @return array
      */
 
-    public function GetDataForSelect($table,$Where_Column=null)
+    public function GetDataForSelect($table, $Where_Column = null)
     {
-            return
-                DB::table($table)->select(['id','Name'])
-              ->where(  $Where_Column ,  ($Where_Column==null ) ? null : auth()->user()->id)
-              ->get()->pluck('Name','id')->toArray();
+        return
+            DB::table($table)->select(['id', 'Name'])
+                ->where($Where_Column, ($Where_Column == null) ? null : auth()->user()->id)
+                ->get()->pluck('Name', 'id')->toArray();
 
     }
 
 
-    public function StoreFile($file,$default = ''){
-        if ($file != null){
-            $img = Storage::disk('public')->put('images',$file);
+    public function StoreFile($file, $default = '')
+    {
+        if ($file != null) {
+            $img = Storage::disk('public')->put('images', $file);
             return $img;
-        }else{
+        } else {
             return $default;
         }
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     /**
-     * Get & Check If authenticated User Has a Marketplace Or Related With any Market Owner.
-     *
-     * @param  string; $model
-     * @param  string; $Where_Column
+     * Get The OwnerID Even If he is himself
      * @return Integer
      */
-
-    public function GetAndCheckMarketplaceOwnerID($table,$Where_Column=null)
+    public function GetMyOwner()
     {
+        $currentUserID = auth()->user()->id;
+        if (MarketplaceOwner::find($currentUserID)) {
+            return $currentUserID;
+        } elseif (Supervisor::find($currentUserID)) {
+            return Supervisor::find($currentUserID)->marketplaceowner->id;
+        } elseif (Employee::find($currentUserID)) {
+            return Employee::find($currentUserID)->marketplaceowner->id;
+        }
 
-
-        return
-            DB::table($table)->select(['id','Name'])
-                ->where(  $Where_Column ,  ($Where_Column==null ) ? null : auth()->user()->id)
-                ->get()->pluck('Name','id')->toArray();
 
     }
 

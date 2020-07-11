@@ -4,16 +4,16 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 
-auth()->loginUsingId(1);
-
-Route::get('/seedfresh', function () {
-//  \Illuminate\Support\Facades\Artisan::call('migrate:fresh');
-    Artisan::call('db:seed');
-    return (html_entity_decode('<h1>Migration Complete</h1> <h1>Seeder Complete</h1> <br> <a href="/Admin"> <h1>Go To Dashboard</h1></a>  '));
-});
 
 
-Route::redirect('/', '/Admin');
+//Route::get('/seedfresh', function () {
+////  \Illuminate\Support\Facades\Artisan::call('migrate:fresh');
+//    Artisan::call('db:seed');
+//    return (html_entity_decode('<h1>Migration Complete</h1> <h1>Seeder Complete</h1> <br> <a href="/Admin"> <h1>Go To Dashboard</h1></a>  '));
+//});
+//
+
+
 Route::get('lang/{Language}', 'LocalizationController@index')->name('ChangeLanguage');
 Route::group(['prefix' => 'Admin'], function () {
 //'middleware' => ['role:super-admin'] ,

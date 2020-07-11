@@ -10,11 +10,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @package App\Models
  * @version July 6, 2020, 5:31 am UTC
  *
- * @property \App\Models\Marketplace $marketplaceid
+ * @property MarketplaceOwner $marketplace
  * @property User $User
  * @property Collection $employeeSalaryInfos
  * @property integer $UserID
- * @property integer $MarketplaceID
+ * @property integer $MarketplaceOwnerID
  * @property string $Nationality
  * @property string $JobTitle
  * @property string $NationalID
@@ -37,7 +37,6 @@ class Employee extends Model
      * @var array
      */
     public static $rules = [
-        'MarketplaceID' => 'required',
         'Nationality' => 'required',
         'JobTitle' => 'required',
         'NationalID' => 'required',
@@ -52,7 +51,7 @@ class Employee extends Model
     public $table = 'employees';
     public $fillable = [
         'UserID',
-        'MarketplaceID',
+        'MarketplaceOwnerID',
         'Nationality',
         'JobTitle',
         'NationalID',
@@ -64,7 +63,7 @@ class Employee extends Model
         'Sex',
         'Salary'
     ];
-    protected $with = ['user:id,Name,Email,Password', 'marketplace:id,Name'];
+    protected $with = ['user:id,Name,Email,Password', 'marketplaceowner:id'];
     /**
      * The attributes that should be casted to native types.
      *
@@ -73,7 +72,7 @@ class Employee extends Model
     protected $casts = [
         'ID' => 'integer',
         'UserID' => 'integer',
-        'MarketplaceID' => 'integer',
+        'MarketplaceOwnerID' => 'integer',
         'Nationality' => 'string',
         'JobTitle' => 'string',
         'NationalID' => 'string',
@@ -89,15 +88,15 @@ class Employee extends Model
     /**
      * @return BelongsTo
      **/
-    public function Marketplace()
+    public function marketplaceowner()
     {
-        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplaceID');
+        return $this->belongsTo(MarketplaceOwner::class, 'MarketplaceOwnerID');
     }
 
     /**
      * @return BelongsTo
      **/
-    public function User()
+    public function user()
     {
         return $this->belongsTo(User::class, 'UserID');
     }

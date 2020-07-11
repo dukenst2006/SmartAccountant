@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 
 /**
@@ -10,10 +11,10 @@ use Illuminate\Database\Eloquent\Model;
  * @package App\Models
  * @version July 6, 2020, 5:37 am UTC
  *
- * @property \App\Models\Marketplace $marketplaceid
- * @property \App\Models\User $userid
+ * @property MarketplaceOwner $marketplaceowner
+ * @property User $userid
  * @property integer $UserID
- * @property integer $MarketplaceID
+ * @property integer $MarketplaceOwnerID
  * @property string $PhoneNumber
  */
 class Supervisor extends Model
@@ -23,11 +24,11 @@ class Supervisor extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-    protected $with = ['user:id,Name,Email,Password','marketplace:id,MarketplaceID,Name'];
+    protected $with = ['user:id,Name,Email','marketplaceowner:id'];
 
     public $fillable = [
         'UserID',
-        'MarketplaceID',
+        'MarketplaceOwnerID',
         'PhoneNumber'
     ];
 
@@ -39,7 +40,7 @@ class Supervisor extends Model
     protected $casts = [
         'id' => 'integer',
         'UserID' => 'integer',
-        'MarketplaceID' => 'integer',
+        'MarketplaceOwnerID' => 'integer',
         'PhoneNumber' => 'string'
     ];
 
@@ -49,23 +50,23 @@ class Supervisor extends Model
      * @var array
      */
     public static $rules = [
-        'MarketplaceID' => 'required',
+        'MarketplaceOwnerID' => 'required',
         'PhoneNumber' => 'required'
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
-    public function marketplace()
+    public function marketplaceowner()
     {
-        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplaceID');
+        return $this->belongsTo(MarketplaceOwner::class, 'MarketplaceOwnerID');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
     public function user()
     {
-        return $this->belongsTo(\App\Models\User::class, 'UserID');
+        return $this->belongsTo(User::class, 'UserID');
     }
 }

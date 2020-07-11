@@ -23,17 +23,17 @@ class LanguageSwitcher
 
 
         //$request->session()->put('key', 'value');
-
-
-        session(['key' => 'value']);
-        session()->save();
-                if (!Session::has('locale')){
-            if (Auth::user())
-                Session::put('locale', 'ar');
-        }
-
-        App::setLocale(Session::has('locale')? Session::get('locale'):Config::get('app.locale'));
-
+//
+//
+//        session(['key' => 'value']);
+//        session()->save();
+//                if (!Session::has('locale')){
+//            if (Auth::user())
+//                Session::put('locale', 'ar');
+//        }
+//
+//        App::setLocale(Session::has('locale')? Session::get('locale'):Config::get('app.locale'));
+//
 
         return $next($request);
     }
