@@ -5,13 +5,15 @@ use App\Http\Resources\MarketPlaceResource;
 use App\Models\MarketplaceOwner;
 use App\Models\Marketplaces;
 use Illuminate\Container\Container as Application;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Storage;
-
+use phpDocumentor\Reflection\Types\Integer;
 
 
 abstract class BaseRepository
@@ -74,7 +76,7 @@ abstract class BaseRepository
      *
      * @param int $perPage
      * @param array $columns
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     * @return LengthAwarePaginator
      */
     public function paginate($perPage, $columns = ['*'])
     {
@@ -89,7 +91,7 @@ abstract class BaseRepository
      * @param array $search
      * @param int|null $skip
      * @param int|null $limit
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return Builder
      */
     public function allQuery($search = [], $skip = null, $limit = null)
     {
@@ -122,7 +124,7 @@ abstract class BaseRepository
      * @param int|null $limit
      * @param array $columns
      *
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     * @return LengthAwarePaginator|Builder[]|\Illuminate\Database\Eloquent\Collection
      */
     public function all($search = [], $skip = null, $limit = null, $columns = ['*'])
     {
@@ -180,7 +182,7 @@ abstract class BaseRepository
      * @param int $id
      * @param array $columns
      *
-     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
+     * @return Builder|Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
      */
     public function find($id , $columns = ['*'])
     {
@@ -195,7 +197,7 @@ abstract class BaseRepository
      * @param array $input
      * @param int $id
      *
-     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model
+     * @return Builder|Builder[]|\Illuminate\Database\Eloquent\Collection|Model
      */
     public function update($input, $id )
     {
@@ -254,4 +256,38 @@ abstract class BaseRepository
             return $default;
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Get & Check If authenticated User Has a Marketplace Or Related With any Market Owner.
+     *
+     * @param  string; $model
+     * @param  string; $Where_Column
+     * @return Integer
+     */
+
+    public function GetAndCheckMarketplaceOwnerID($table,$Where_Column=null)
+    {
+
+
+        return
+            DB::table($table)->select(['id','Name'])
+                ->where(  $Where_Column ,  ($Where_Column==null ) ? null : auth()->user()->id)
+                ->get()->pluck('Name','id')->toArray();
+
+    }
+
+
 }

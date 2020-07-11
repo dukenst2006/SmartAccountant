@@ -308,19 +308,19 @@ return [/*
 
 
         [
-            'text' => 'Stocks',
+            'text' => 'Warehouses',
             'icon' => 'fas fa-fw fa-warehouse',
             'url' => 's',
             'icon_color' => 'primary',
             'submenu' => [
                 [
-                    'text' => 'MainStock',
-                    'route' => 'admin.mainstock',
+                    'text' => 'Warehouse',
+                    'route' => 'admin.warehouses.index',
                     'icon' => 'fas fa-fw fa-synagogue',
                 ],
                 [
-                    'text' => 'MarketplacesStocks',
-                    'route' => 'admin.marketplacesstocks',
+                    'text' => 'Inventories',
+                    'route' => 'admin.inventories.index',
                     'icon' => 'fas fa-fw fa-th-large',
                 ],
             ],

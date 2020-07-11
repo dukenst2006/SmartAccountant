@@ -24,8 +24,6 @@ $factory->define(Product::class, function (Faker $faker) {
 
 
         'UserID' =>  factory(App\Models\User::class),
-
-        'StockID' =>    2,
         'ProductCategoryID' => factory(App\Models\ProductCategory::class),
         'ProductSubCategoryID' => factory(App\Models\ProductSubCategory::class),
         'Name' => $faker->sentence(3),

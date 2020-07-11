@@ -13,11 +13,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @package App\Models
  * @version July 6, 2020, 5:44 am UTC
  *
- * @property Marketplace $marketplacesid
- * @property ProductCategory $productcategoryid
- * @property ProductSubCategory $productsubcategoryid
- * @property QuantityType $quantitytypeid
- * @property User $userid
+ * @property Marketplace $marketplaces
+ * @property ProductCategory $productcategory
+ * @property ProductSubCategory $productsubcategory
+ * @property QuantityType $quantitytype
+ * @property User $user
  * @property Collection $invoiceItems
  * @property integer $UserID
  * @property integer $MarketplacesID
@@ -76,7 +76,7 @@ class Product extends Model
         'UnlimitedQuantity'
     ];
 
-protected $with= ['stock.marketplace:id' ];
+//protected $with= ['stock.marketplace:id' ];
     /**
      * The attributes that should be casted to native types.
      *
@@ -103,10 +103,22 @@ protected $with= ['stock.marketplace:id' ];
     /**
      * @return BelongsTo
      **/
-    public function stock()
+    public function inventory()
     {
-        return $this->belongsTo(Stock::class, 'StockID');
+        return $this->belongsTo(Inventory::class, 'InventoryID');
     }
+
+
+    /**
+     * @return BelongsTo
+     **/
+    public function warehouse()
+    {
+        return $this->belongsTo(Warehouse::class, 'WarehouseID');
+    }
+
+
+
 
     /**
      * @return BelongsTo

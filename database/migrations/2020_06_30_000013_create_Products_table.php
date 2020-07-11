@@ -30,7 +30,7 @@ class CreateProductsTable extends Migration
         $table->string('Image');
         $table->dateTime('ExpiryDate')->nullable()->default(null);
         $table->string('Barcode');
-        $table->double('ProductQuantity');
+        $table->double('Quantity');
         $table->boolean('UnlimitedQuantity')->default(false);
         $table->timestamps();
 

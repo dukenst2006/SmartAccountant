@@ -30,9 +30,9 @@ return [
 
     'PublicAdministration' => 'الإدارة العامة',
     'Marketplaces' => 'الفروع',
-    'Stocks' => 'المخازن',
-    'MainStock' => 'المخزن الرئيسي',
-    'MarketplacesStocks' => 'مخازن الفروع',
+    'Warehouses' => 'المخازن',
+    'Warehouse' => 'المخزن الرئيسي',
+    'Inventories' => 'مخازن الفروع',
 
     'Products' => 'المنتجات',
     'Categories' => 'إدارة الأصناف',

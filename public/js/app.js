@@ -40503,6 +40503,7 @@ var Dropdown = function ($) {
     $('.dropdown-menu').toggleClass('show');
     $('.dropdown-menu').style.visibility = 'visable';
   });
+  console.log('hhhh vvvvvvvv');
   /**
    * jQuery API
    * ====================================================

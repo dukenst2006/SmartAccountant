@@ -2,21 +2,25 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Class Marketplace
  * @package App\Models
  * @version July 6, 2020, 5:37 am UTC
  *
- * @property \App\Models\MarketplaceOwner $marketplaceownerid
- * @property \Illuminate\Database\Eloquent\Collection $employees
- * @property \Illuminate\Database\Eloquent\Collection $expenses
- * @property \Illuminate\Database\Eloquent\Collection $expensesCategories
- * @property \Illuminate\Database\Eloquent\Collection $invoices
- * @property \Illuminate\Database\Eloquent\Collection $productCategories
- * @property \Illuminate\Database\Eloquent\Collection $products
- * @property \Illuminate\Database\Eloquent\Collection $stocks
+ * @property MarketplaceOwner $marketplaceowner
+ * @property Collection $employees
+ * @property Collection $expenses
+ * @property Collection $expensesCategories
+ * @property Collection $invoices
+ * @property Collection $productCategories
+ * @property Collection $products
+ * @property Collection $stocks
  * @property integer $MarketplaceOwnerID
  * @property string $Name
  * @property string $Country
@@ -102,23 +106,23 @@ class Marketplace extends Model
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
-    public function marketplaceownerid()
+    public function marketplaceowner()
     {
-        return $this->belongsTo(\App\Models\MarketplaceOwner::class, 'MarketplaceOwnerID');
+        return $this->belongsTo(MarketplaceOwner::class, 'MarketplaceOwnerID');
     }
 
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasMany
      **/
     public function supervisor()
     {
         return $this->hasMany(\App\Models\Supervisor::class, 'MarketplaceID');
     }
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      **/
     public function employees()
     {
@@ -126,7 +130,7 @@ class Marketplace extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      **/
     public function expenses()
     {
@@ -134,7 +138,7 @@ class Marketplace extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      **/
     public function expensesCategories()
     {
@@ -142,7 +146,7 @@ class Marketplace extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      **/
     public function invoices()
     {
@@ -150,28 +154,22 @@ class Marketplace extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      **/
     public function productCategories()
     {
         return $this->hasMany(\App\Models\ProductCategory::class, 'MarketplacesID');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     **/
-    public function Products()
-    {
-        return $this->hasMany(\App\Models\Product::class, 'MarketplacesID');
-    }
 
 
       /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasOne
      **/
-    public function stock()
+    public function inventory()
     {
-        return $this->hasOne(\App\Models\Stock::class, 'MarketplacesID');
+        return $this->hasOne(\App\Models\Inventory::class, 'id');
     }
+
 
 }

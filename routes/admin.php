@@ -39,6 +39,9 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::get('treasure','TreasureController@index')->name('treasure');
     Route::get('MainStock', 'StockController@index')->name('mainstock');
     Route::get('MarketplacesStocks', 'StockController@MarketplacesStocks')->name('marketplacesstocks');
+    Route::resource('inventories', 'InventoryController')->only(['show','index']);
+    Route::resource('warehouses', 'WarehouseController')->only(['show','index']);
+
 
     Route::resource('EmployeeSalary','EmployeeSalaryController');
 
