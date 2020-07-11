@@ -3,7 +3,9 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Product;
+use App\Models\Warehouse;
 use App\Repositories\BaseRepository;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ProductRepository
@@ -71,6 +73,25 @@ public function filter(){
 
 
 
+
+    /**
+     * Create model record
+     *
+     * @param  array  $input
+     *
+     * @return Model
+     */
+    public function create($input)
+    {
+        $model = $this->model->newInstance($input);
+
+        $model->UserID=auth()->user()->id;
+        $model->WarehouseID= Warehouse::where('MarketplaceOwnerID',$this->GetMyOwner())->first()->id;
+
+        $model->save();
+
+        return $model;
+    }
 
     /**
      * Configure the Model

@@ -78,12 +78,12 @@
     <?php echo Form::date('ExpiryDate', null, ['class' => 'form-control','id'=>'ExpiryDate']); ?>
 
 
-    <?php echo Form::label('UnlimitedQuantity',  __('Models/Product.UnlimitedQuantity')); ?>
+    <?php echo Form::label('UnlimitedQuantity',  __('Models/Product.CanExpired')); ?>
 
     <label class="checkbox-inline">
-        <?php echo Form::hidden('UnlimitedQuantity', 0); ?>
+        <?php echo Form::hidden('CanExpired', 0); ?>
 
-        <?php echo Form::checkbox('UnlimitedQuantity', '1', null); ?>
+        <?php echo Form::checkbox('CanExpired', '1', null); ?>
 
     </label>
 </div>

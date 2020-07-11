@@ -73,7 +73,21 @@ return [
 
 
     'Reports' => 'التقارير والأحصائيات',
-    'Financial reports' => 'التقارير المالية',
+    'Financial Report' => 'التقارير والأحصائيات',
+    'ProductReport' => 'المنتجات',
+    'MarketplacesReport' => 'مبيعات الفروع',
+    'EmployeesReport' => 'الموظفين',
+    'FinancialReport' => 'الحركه الماليه',
+    'MostActive' => 'الاكثر نشاطاً',
+    'BondsReport' => 'السندات',
+    'ExpensesReport' => 'المصروفات',
+
+
+
+
+
+
+
     'create' =>  'انشاء',
     'Backup' => 'النسخ الاحتياطي',
 

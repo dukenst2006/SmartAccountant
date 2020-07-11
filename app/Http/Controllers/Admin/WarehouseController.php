@@ -32,11 +32,8 @@ class WarehouseController extends AppBaseController
     public function index(ProductDataTable $productDataTable)
     {
     $warehouse = $this->warehouseRepository->allQuery()->withCount(['products'])->get()->first();
+        return $productDataTable->render('admin.warehouses.index',['warehouse'=>$warehouse]);
 
-        return $productDataTable->render('admin.warehouses.index');
-
-        return view('admin.warehouses.index')
-            ->with('warehouse', $warehouse);
     }
 
     /**
