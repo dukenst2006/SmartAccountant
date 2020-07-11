@@ -465,15 +465,55 @@ return [/*
 
         ['header' => 'Reports'],
         [
-            'text' => 'Financial reports',
+            'text' => 'Financial Report',
             'url' => '#',
             'icon' => 'fas fa fa-chart-pie',
             'submenu' => [
                 [
-                    'text' => 'Option',
+                    'text' => 'ProductReport',
                     'url' => '#',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
+
+                [
+                    'text' => 'MarketplacesReport',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-cubes',
+                ],
+
+                [
+                    'text' => 'EmployeesReport',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-cubes',
+                ],
+
+                [
+                    'text' => 'FinancialReport',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-cubes',
+                ],
+
+                [
+                    'text' => 'MostActive',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-cubes',
+                ],
+
+                [
+                    'text' => 'BondsReport',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-cubes',
+                ],
+
+                [
+                    'text' => 'ExpensesReport',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-cubes',
+                ],
+
+
+
+
             ],
         ],
 
