@@ -9,6 +9,8 @@ use App\Http\Requests\Admin\UpdateProductCategoryRequest;
 use App\Repositories\Admin\ProductCategoryRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 use Response;
 
 class ProductCategoryController extends AppBaseController
@@ -24,7 +26,7 @@ class ProductCategoryController extends AppBaseController
     /**
      * Display a listing of the ProductCategory.
      *
-     * @param ProductCategoryDataTable $productCategoryDataTable
+     * @param  ProductCategoryDataTable  $productCategoryDataTable
      * @return Response
      */
     public function index(ProductCategoryDataTable $productCategoryDataTable)
@@ -35,18 +37,24 @@ class ProductCategoryController extends AppBaseController
     /**
      * Show the form for creating a new ProductCategory.
      *
-     * @return Response
+     * @return Factory|View
      */
     public function create()
     {
         $marketplaces = $this->productCategoryRepository->GetDataForSelect('marketplaces');
-        return view('admin.product_categories.create',compact('marketplaces'));
+
+        if (empty($marketplaces)) {
+            Flash::error('There Is Now Any Branches');
+            return view('admin.product_categories.create');
+
+        }
+        return view('admin.product_categories.create', compact('marketplaces'));
     }
 
     /**
      * Store a newly created ProductCategory in storage.
      *
-     * @param CreateProductCategoryRequest $request
+     * @param  CreateProductCategoryRequest  $request
      *
      * @return Response
      */
@@ -64,13 +72,13 @@ class ProductCategoryController extends AppBaseController
     /**
      * Display the specified ProductCategory.
      *
-     * @param  int $id
+     * @param  int  $id
      *
      * @return Response
      */
-    public function show($id )
+    public function show($id)
     {
-        $productCategory = $this->productCategoryRepository->find($id );
+        $productCategory = $this->productCategoryRepository->find($id);
 
         if (empty($productCategory)) {
             Flash::error('Product Category not found');
@@ -84,13 +92,13 @@ class ProductCategoryController extends AppBaseController
     /**
      * Show the form for editing the specified ProductCategory.
      *
-     * @param  int $id
+     * @param  int  $id
      *
      * @return Response
      */
-    public function edit($id )
+    public function edit($id)
     {
-        $productCategory = $this->productCategoryRepository->find($id );
+        $productCategory = $this->productCategoryRepository->find($id);
 
         if (empty($productCategory)) {
             Flash::error('Product Category not found');
@@ -104,14 +112,14 @@ class ProductCategoryController extends AppBaseController
     /**
      * Update the specified ProductCategory in storage.
      *
-     * @param  int              $id
-     * @param UpdateProductCategoryRequest $request
+     * @param  int  $id
+     * @param  UpdateProductCategoryRequest  $request
      *
      * @return Response
      */
-    public function update($id , UpdateProductCategoryRequest $request)
+    public function update($id, UpdateProductCategoryRequest $request)
     {
-        $productCategory = $this->productCategoryRepository->find($id );
+        $productCategory = $this->productCategoryRepository->find($id);
 
         if (empty($productCategory)) {
             Flash::error('Product Category not found');
@@ -119,7 +127,7 @@ class ProductCategoryController extends AppBaseController
             return redirect(route('admin.productCategories.index'));
         }
 
-        $productCategory = $this->productCategoryRepository->update($request->all(), $id );
+        $productCategory = $this->productCategoryRepository->update($request->all(), $id);
 
         Flash::success('Product Category updated successfully.');
 
@@ -129,13 +137,13 @@ class ProductCategoryController extends AppBaseController
     /**
      * Remove the specified ProductCategory from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      *
      * @return Response
      */
-    public function destroy($id )
+    public function destroy($id)
     {
-        $productCategory = $this->productCategoryRepository->find($id );
+        $productCategory = $this->productCategoryRepository->find($id);
 
         if (empty($productCategory)) {
             Flash::error('Product Category not found');
@@ -143,7 +151,7 @@ class ProductCategoryController extends AppBaseController
             return redirect(route('admin.productCategories.index'));
         }
 
-        $this->productCategoryRepository->delete($id );
+        $this->productCategoryRepository->delete($id);
 
         Flash::success('Product Category deleted successfully.');
 

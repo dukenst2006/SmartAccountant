@@ -13,7 +13,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @package App\Models
  * @version July 6, 2020, 5:44 am UTC
  *
- * @property Marketplace $marketplaces
  * @property ProductCategory $productcategory
  * @property ProductSubCategory $productsubcategory
  * @property Warehouse $warehouse

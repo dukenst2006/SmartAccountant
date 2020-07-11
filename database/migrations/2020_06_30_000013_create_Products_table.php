@@ -32,6 +32,7 @@ class CreateProductsTable extends Migration
         $table->string('Barcode');
         $table->double('Quantity');
         $table->boolean('UnlimitedQuantity')->default(false);
+        $table->boolean('CanExpired')->default(true);
         $table->timestamps();
 
 

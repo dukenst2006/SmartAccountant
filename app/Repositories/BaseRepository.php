@@ -237,7 +237,7 @@ abstract class BaseRepository
     {
         return
             DB::table($table)->select(['id', 'Name'])
-                ->where($Where_Column, ($Where_Column == null) ? null : auth()->user()->id)
+                ->where($Where_Column, ($Where_Column == null) ? null : $this->GetMyOwner())
                 ->get()->pluck('Name', 'id')->toArray();
 
     }

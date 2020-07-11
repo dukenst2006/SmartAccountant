@@ -9,6 +9,7 @@
 
     <div class="content">
         @include('adminlte-templates::common.errors')
+        @include('flash::message')
         <div class="card box-primary">
         <div class="card-header">
                     <h3 class="card-title">Product Category</h3>

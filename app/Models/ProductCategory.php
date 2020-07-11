@@ -3,15 +3,15 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class ProductCategory
-
  * @package App\Models\Admin
-
  * @version July 6, 2020, 6:04 am UTC
  *
- * @property \App\Models\Marketplace $marketplacesid
+ * @property Marketplace $marketplacesid
  * @property \Illuminate\Database\Eloquent\Collection $productSubCategories
  * @property \Illuminate\Database\Eloquent\Collection $products
  * @property integer $MarketplacesID
@@ -55,15 +55,15 @@ class ProductCategory extends Model
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
     public function marketplacesid()
     {
-        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplacesID');
+        return $this->belongsTo(Marketplace::class, 'MarketplacesID');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      **/
     public function productSubCategories()
     {
@@ -71,7 +71,7 @@ class ProductCategory extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      **/
     public function products()
     {

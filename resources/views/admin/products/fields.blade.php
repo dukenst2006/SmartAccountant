@@ -56,7 +56,13 @@
 <!-- Expirydate Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ExpiryDate',  __('Models/Product.ExpiryDate')) !!}
-    {!! Form::text('ExpiryDate', null, ['class' => 'form-control','id'=>'ExpiryDate']) !!}
+    {!! Form::date('ExpiryDate', null, ['class' => 'form-control','id'=>'ExpiryDate']) !!}
+
+    {!! Form::label('UnlimitedQuantity',  __('Models/Product.UnlimitedQuantity')) !!}
+    <label class="checkbox-inline">
+        {!! Form::hidden('CanExpired', 0) !!}
+        {!! Form::checkbox('CanExpired', '1', null) !!}
+    </label>
 </div>
 
 @push('scripts')

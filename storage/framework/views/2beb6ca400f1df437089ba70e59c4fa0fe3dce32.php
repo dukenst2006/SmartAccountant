@@ -75,8 +75,17 @@
 <div class="form-group col-sm-6">
     <?php echo Form::label('ExpiryDate',  __('Models/Product.ExpiryDate')); ?>
 
-    <?php echo Form::text('ExpiryDate', null, ['class' => 'form-control','id'=>'ExpiryDate']); ?>
+    <?php echo Form::date('ExpiryDate', null, ['class' => 'form-control','id'=>'ExpiryDate']); ?>
 
+
+    <?php echo Form::label('UnlimitedQuantity',  __('Models/Product.UnlimitedQuantity')); ?>
+
+    <label class="checkbox-inline">
+        <?php echo Form::hidden('UnlimitedQuantity', 0); ?>
+
+        <?php echo Form::checkbox('UnlimitedQuantity', '1', null); ?>
+
+    </label>
 </div>
 
 <?php $__env->startPush('scripts'); ?>

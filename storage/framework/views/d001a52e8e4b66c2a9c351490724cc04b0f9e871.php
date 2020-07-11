@@ -8,6 +8,7 @@
 
     <div class="content">
         <?php echo $__env->make('adminlte-templates::common.errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('flash::message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="card box-primary">
         <div class="card-header">
                     <h3 class="card-title">Product Category</h3>
