@@ -12,7 +12,7 @@
                         <?php echo csrf_field(); ?>
                         <?php echo method_field('PATCH'); ?>
                         <span class="d-inline-block d-flex flex-wrap">
-                            <label for="">ادخل رأس المال الإفتتاحى</label>
+                            <label for=""><?php echo e(__("General.Enter initial Capital")); ?></label>
                             <input type="text" class="capital-input mr-2 mb-2" name="Capital" value="<?php echo e($setting->Capital); ?>" placeholder="ادخل رأس المال الإفتتاحى">
                             <button class="btn btn-success d-inline-block mb-2 mr-2 "><i class="fas fa-pencil-alt"></i> تعديل </button>
                         </span>
@@ -33,8 +33,8 @@
                             <div class="form-group col-md-6">
                                 <label for="is_site_active"><?php echo e(__('adminPanel.is_site_active')); ?></label>
                                 <select class="form-control" name="IsSiteActive" id="is_site_active">
-                                    <option <?php echo e(\App\Models\Settings::all()->first()->IsSiteActive ?'selected':''); ?> value="1">فعال</option>
-                                    <option <?php echo e(!\App\Models\Settings::all()->first()->IsSiteActive ?'selected':''); ?> value="0">موقوف</option>
+                                    <option <?php echo e(\App\Models\Settings::all()->first()->IsSiteActive ?'selected':''); ?> value="1"><?php echo e(__('General.Activate')); ?></option>
+                                    <option <?php echo e(!\App\Models\Settings::all()->first()->IsSiteActive ?'selected':''); ?> value="0"><?php echo e(__('General.Deactivate')); ?></option>
                                 </select>
 
                             </div>

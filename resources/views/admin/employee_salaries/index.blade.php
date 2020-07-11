@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 @section('content')
     <div class="container pt-3">
-        <h4 class="col-12 text-center"> مرتبات الموظفين</h4>
+        <h4 class="col-12 text-center">{{__("menu.EmployeesSalaries")}}</h4>
         <div class="card">
             <div class="card-header">
                 انشاء
@@ -17,27 +17,27 @@
                     {!! Form::select('MarketPlaceID', $MarketPlaces ,null , ['class' => 'form-control' ]) !!}
                 </div>
                 <div class="form-group col-sm-12">
-                    {!! Form::label('File',"الملف") !!}
+                    {!! Form::label('File',__('General.File')) !!}
                     {!! Form::file('File' , ['class' => 'form-control' ]) !!}
                 </div>
                 <div class="form-group col-sm-12">
-                    {!! Form::submit(__('employee.create'), ['class' => 'btn btn-primary']) !!}
+                    {!! Form::submit(__('General.Create'), ['class' => 'btn btn-primary']) !!}
                 </div>
                 {!! Form::close() !!}
             </div>
         </div>
         <div class="card">
             <div class="card-header">
-                الكل
+                {{__("General.All")}}
             </div>
             <div class="card-body">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <td>العنوان</td>
-                            <td>الفرع</td>
-                            <td>الملف</td>
-                            <td>تحكم</td>
+                            <td>{{__("Models/Marketplace.Address")}}</td>
+                            <td>{{__("General.Titles.Branch")}}</td>
+                            <td>{{__("General.File")}}</td>
+                            <td>{{__("General.About.Order")}}</td>
                         </tr>
                     </thead>
                     <tbody>

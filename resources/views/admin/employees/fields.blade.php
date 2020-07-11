@@ -83,6 +83,6 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit(__('Models/Employee.create'), ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit(__('General.Create '), ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('admin.employees.index') }}" class="btn btn-default">{{ __('Buttons.Cancel') }}</a>
 </div>

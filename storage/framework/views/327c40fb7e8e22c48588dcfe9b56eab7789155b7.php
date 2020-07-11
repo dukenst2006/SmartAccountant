@@ -1,7 +1,7 @@
 <?php $__env->startSection('title', 'Employees'); ?>
 
 <?php $__env->startSection('content_header'); ?>
-        <h1><?php echo e(__('employee.all')); ?></h1>
+        <h1><?php echo e(__('General.Titles.Employees')); ?></h1>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -10,7 +10,7 @@
         
         <div class="card col-11">
             <div class="card-header">
-                <h3 class="card-title"><?php echo e(__('employee.all')); ?></h3>
+                <h3 class="card-title"><?php echo e(__('General.All')); ?></h3>
             </div>
             <div class="card-body card-body table-responsive p-0">
                 <?php echo $__env->make('flash::message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

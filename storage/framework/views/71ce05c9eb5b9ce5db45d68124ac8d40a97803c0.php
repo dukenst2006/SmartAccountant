@@ -154,7 +154,7 @@
 
 
                     <div class="info-box-content">
-                        <b class="info-box-text">عدد المتاجر</b>
+                        <b class="info-box-text">عدد الفروع</b>
                         <span class="info-box-number">760</span>
                     </div>
                     <span class="info-box-icon bg-success elevation-1"><i class="fas fa-w-2  fa-shopping-cart"></i></span>

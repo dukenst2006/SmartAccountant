@@ -1,14 +1,14 @@
 <?php $__env->startSection('title', 'Supervisors'); ?>
 
 <?php $__env->startSection('content_header'); ?>
-        <h1>المشرفين</h1>
+        <h1><?php echo e(__("menu.Supervisors")); ?></h1>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
        <div class="row justify-content-center">
         <div class="card col-11">
             <div class="card-header">
-                <h3 class="card-title">المشرفين</h3>
+                <h3 class="card-title"><?php echo e(__("menu.Supervisors")); ?></h3>
             </div>
             <div class="card-body card-body table-responsive p-0">
                 <?php echo $__env->make('flash::message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

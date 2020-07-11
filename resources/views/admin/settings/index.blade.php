@@ -13,7 +13,7 @@
                         @csrf
                         @method('PATCH')
                         <span class="d-inline-block d-flex flex-wrap">
-                            <label for="">ادخل رأس المال الإفتتاحى</label>
+                            <label for="">{{__("General.Enter initial Capital")}}</label>
                             <input type="text" class="capital-input mr-2 mb-2" name="Capital" value="{{$setting->Capital}}" placeholder="ادخل رأس المال الإفتتاحى">
                             <button class="btn btn-success d-inline-block mb-2 mr-2 "><i class="fas fa-pencil-alt"></i> تعديل </button>
                         </span>
@@ -34,8 +34,8 @@
                             <div class="form-group col-md-6">
                                 <label for="is_site_active">{{__('adminPanel.is_site_active')}}</label>
                                 <select class="form-control" name="IsSiteActive" id="is_site_active">
-                                    <option {{\App\Models\Settings::all()->first()->IsSiteActive ?'selected':'' }} value="1">فعال</option>
-                                    <option {{!\App\Models\Settings::all()->first()->IsSiteActive ?'selected':'' }} value="0">موقوف</option>
+                                    <option {{\App\Models\Settings::all()->first()->IsSiteActive ?'selected':'' }} value="1">{{__('General.Activate')}}</option>
+                                    <option {{!\App\Models\Settings::all()->first()->IsSiteActive ?'selected':'' }} value="0">{{__('General.Deactivate')}}</option>
                                 </select>
 {{--                                <x-error name="is_site_active"></x-error>--}}
                             </div>

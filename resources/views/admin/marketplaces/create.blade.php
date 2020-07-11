@@ -2,7 +2,7 @@
 @section('title', 'Marketplaces')
 
 @section('content_header')
-        <h1>    الفروع</h1>
+        <h1>{{__("menu.Marketplaces")}}</h1>
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
         @include('adminlte-templates::common.errors')
         <div class="card box-primary">
         <div class="card-header">
-                    <h3 class="card-title">انشاء</h3>
+                    <h3 class="card-title">{{__("General.Create")}}</h3>
                 </div>
             <div class="card-body">
                     {!! Form::open(['route' => 'admin.marketplaces.store','files'=>true]) !!}

@@ -1,16 +1,16 @@
-@extends('adminlte::page')
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 <div class="alert alert-danger alert-dismissible pr-3">
-    <h1><i class="icon fas fa-exclamation-circle"></i> {{__('General.About.Important instruction')}}</h1>
+    <h1><i class="icon fas fa-exclamation-circle"></i> <?php echo e(__('General.About.Important instruction')); ?></h1>
     ...
 </div>
 
 
 <div class="alert alert-success alert-dismissible pr-3">
     <h4> <i class="icon fas fas fas fa-shield-alt"></i>
-        {{__("General.About.You now using licensed version")}}
+        <?php echo e(__("General.About.You now using licensed version")); ?>
+
         1.0</h4>
 </div>
 
@@ -21,9 +21,9 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>{{__("General.About.Service")}}</th>
-                        <th>{{__("General.About.Cost")}}</th>
-                        <th>{{__("General.About.Order")}}</th>
+                        <th><?php echo e(__("General.About.Service")); ?></th>
+                        <th><?php echo e(__("General.About.Cost")); ?></th>
+                        <th><?php echo e(__("General.About.Order")); ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,4 +44,6 @@
 
         </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\SmartAccountant\resources\views/admin/about/index.blade.php ENDPATH**/ ?>

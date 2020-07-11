@@ -2,7 +2,7 @@
 @section('title', 'Marketplaces')
 
 @section('content_header')
-    <h1>Marketplace</h1>
+    <h1>{{__("menu.Marketplaces")}}</h1>
 @stop
 
 
@@ -14,16 +14,14 @@
 
 
      <div class="card card-primary col-12">
-            <div class="card-header">
-                <h3 class="card-title">Marketplace</h3>
-            </div>
+
 
 
               <div class="card-body">
 
                  <form >
                     @include('admin.marketplaces.show_fields')
-                    <a href="{{ route('admin.marketplaces.index') }}" class="btn btn-warning"><i class="fas fa-backward" style="cursor: pointer;"></i>Back</a>
+                    <a href="{{ route('admin.marketplaces.index') }}" class="btn btn-warning"><i class="fas fa-backward" style="cursor: pointer;"></i>{{__("General.Back")}}</a>
                 </form>
 
 

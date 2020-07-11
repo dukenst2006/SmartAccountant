@@ -2,7 +2,7 @@
 @section('title', 'Employees')
 
 @section('content_header')
-        <h1>    {{__('employee.create')}}</h1>
+        <h1>    {{__('General.Titles.Employees')}}</h1>
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
         @include('adminlte-templates::common.errors')
         <div class="card box-primary">
         <div class="card-header">
-                    <h3 class="card-title">{{__("employee.create")}}</h3>
+                    <h3 class="card-title">{{__("General.Create")}}</h3>
                 </div>
             <div class="card-body">
                     {!! Form::open(['route' => 'admin.employees.store','files'=> true]) !!}

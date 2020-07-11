@@ -1,7 +1,7 @@
 <?php $__env->startSection('title', 'Suppliers'); ?>
 
 <?php $__env->startSection('content_header'); ?>
-    <h1>الموزعين</h1>
+    <h1><?php echo e(__("General.Titles.Suppliers")); ?></h1>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -11,7 +11,7 @@
         <?php echo $__env->make('adminlte-templates::common.errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="card box-primary">
             <div class="card-header">
-                <h3 class="card-title">انشاء</h3>
+                <h3 class="card-title"><?php echo e(__("General.Create")); ?></h3>
             </div>
             <div class="card-body">
                 <?php echo Form::open(['route' => 'admin.suppliers.store']); ?>

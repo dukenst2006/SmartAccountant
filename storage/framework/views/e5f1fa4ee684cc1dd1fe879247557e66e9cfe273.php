@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
     <div class="container pt-3">
-        <h4 class="col-12 text-center"> مرتبات الموظفين</h4>
+        <h4 class="col-12 text-center"><?php echo e(__("menu.EmployeesSalaries")); ?></h4>
         <div class="card">
             <div class="card-header">
                 انشاء
@@ -21,13 +21,13 @@
 
                 </div>
                 <div class="form-group col-sm-12">
-                    <?php echo Form::label('File',"الملف"); ?>
+                    <?php echo Form::label('File',__('General.File')); ?>
 
                     <?php echo Form::file('File' , ['class' => 'form-control' ]); ?>
 
                 </div>
                 <div class="form-group col-sm-12">
-                    <?php echo Form::submit(__('employee.create'), ['class' => 'btn btn-primary']); ?>
+                    <?php echo Form::submit(__('General.Create'), ['class' => 'btn btn-primary']); ?>
 
                 </div>
                 <?php echo Form::close(); ?>
@@ -36,16 +36,17 @@
         </div>
         <div class="card">
             <div class="card-header">
-                الكل
+                <?php echo e(__("General.All")); ?>
+
             </div>
             <div class="card-body">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <td>العنوان</td>
-                            <td>الفرع</td>
-                            <td>الملف</td>
-                            <td>تحكم</td>
+                            <td><?php echo e(__("Models/Marketplace.Address")); ?></td>
+                            <td><?php echo e(__("General.Titles.Branch")); ?></td>
+                            <td><?php echo e(__("General.File")); ?></td>
+                            <td><?php echo e(__("General.About.Order")); ?></td>
                         </tr>
                     </thead>
                     <tbody>
