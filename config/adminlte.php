@@ -463,51 +463,51 @@ return [/*
         ],
 
 
-        ['header' => 'Reports'],
+        ['header' => 'ReportsAndStatistics'],
         [
-            'text' => 'Financial Report',
+            'text' => 'Reports',
             'url' => '#',
             'icon' => 'fas fa fa-chart-pie',
             'submenu' => [
                 [
                     'text' => 'ProductReport',
-                    'url' => '#',
+                    'route'=>'admin.productreport',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
 
                 [
                     'text' => 'MarketplacesReport',
-                    'url' => '#',
+                    'route'=>'admin.marketplacesreport',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
 
                 [
                     'text' => 'EmployeesReport',
-                    'url' => '#',
+                    'route'=>'admin.employeesreport',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
 
                 [
                     'text' => 'FinancialReport',
-                    'url' => '#',
+                    'route'=>'admin.financialreport',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
 
                 [
                     'text' => 'MostActive',
-                    'url' => '#',
+                    'route'=>'admin.mostactivereport',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
 
                 [
                     'text' => 'BondsReport',
-                    'url' => '#',
+                    'route'=>'admin.bondsreport',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
 
                 [
                     'text' => 'ExpensesReport',
-                    'url' => '#',
+                    'route'=>'admin.expensesreport',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
 

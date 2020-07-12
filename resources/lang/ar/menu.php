@@ -72,13 +72,14 @@ return [
     'ExpensesSubCategory' => 'الأقسام الفرعية',
 
 
-    'Reports' => 'التقارير والأحصائيات',
-    'Financial Report' => 'التقارير والأحصائيات',
+    'ReportsAndStatistics' => 'التقارير والأحصائيات',
+    'Reports' => 'التقارير',
+
     'ProductReport' => 'المنتجات',
     'MarketplacesReport' => 'مبيعات الفروع',
     'EmployeesReport' => 'الموظفين',
     'FinancialReport' => 'الحركه الماليه',
-    'MostActive' => 'الاكثر نشاطاً',
+    'MostActiveReport' => 'الاكثر نشاطاً',
     'BondsReport' => 'السندات',
     'ExpensesReport' => 'المصروفات',
 

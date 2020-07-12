@@ -25,7 +25,7 @@ class FinicalReportsController extends AppBaseController
     }
 
     public  function index(){
-        return view('admin.FinicalReports.index');
+        return view('admin.Reports.product');
     }
 
 
