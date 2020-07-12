@@ -9,7 +9,7 @@
        <div class="row justify-content-center">
 
         {{-- Cards --}}
-        <div class="card col-11">
+        <div class="card col-12">
             <div class="card-header">
                 <h3 class="card-title">Products</h3>
             </div>

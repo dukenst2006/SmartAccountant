@@ -1,8 +1,3 @@
-<!-- Marketplacesid Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('MarketplacesID', 'Marketplaces:') !!}
-    {!! Form::select('MarketplacesID',$marketplaces ?? '', null, ['class' => 'form-control']) !!}
-</div>
 
 <!-- Name Field -->
 <div class="form-group col-sm-6">

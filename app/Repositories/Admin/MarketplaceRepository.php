@@ -2,7 +2,9 @@
 
 namespace App\Repositories\Admin;
 
+use App\Models\Inventory;
 use App\Models\Marketplace;
+use App\Models\Warehouse;
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
 
@@ -63,7 +65,10 @@ class MarketplaceRepository extends BaseRepository
     {
         $model = $this->model->newInstance($input);
         $model->MarketplaceOwnerID = Auth()->user()->id;
+
+
         $model->save();
+        Inventory::create(['MarketplacesID'=>$model->id , 'WarehouseID'=> Warehouse::find($this->GetMyOwner())->id ]);
         return $model;
     }
 

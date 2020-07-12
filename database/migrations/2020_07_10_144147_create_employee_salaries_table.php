@@ -19,7 +19,7 @@ class CreateEmployeeSalariesTable extends Migration
             $table->boolean('IsPDF');
             $table->string('File');
             $table->unsignedBigInteger('MarketPlaceID');
-            $table->foreign('MarketPlaceID')->on('marketplaces')->references('ID');
+            $table->foreign('MarketPlaceID')->on('marketplaces')->references('id');
             $table->timestamps();
         });
     }

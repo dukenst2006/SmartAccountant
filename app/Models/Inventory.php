@@ -34,6 +34,7 @@ class Inventory extends Model
         'WarehouseID'
     ];
 
+
     /**
      * The attributes that should be casted to native types.
      *

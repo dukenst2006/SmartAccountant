@@ -22,6 +22,12 @@ class CreateSettingsTable extends Migration
             $table->boolean('ProgramStatus')->default(true);
             $table->date('ProgramEndDate')->default(now());
             $table->bigInteger('Capital')->default(0);
+            $table->string('AppName')->nullable();
+            $table->string('Email')->nullable();
+            $table->string('PhoneNumber')->nullable();
+            $table->string('Website')->nullable();
+            $table->string('SerialNumber')->nullable();
+            $table->string('Logo')->nullable();
             $table->timestamps();
         });
         \App\Models\Settings::query()->create();

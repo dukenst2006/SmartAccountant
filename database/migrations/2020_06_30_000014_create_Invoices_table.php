@@ -17,6 +17,7 @@ class CreateInvoicesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('MarketplacesID');
             $table->unsignedBigInteger('UserID');
+            $table->string('acc_number')->nullable();
             $table->double('Total');
             $table->double('Paid');
             $table->double('Rest');

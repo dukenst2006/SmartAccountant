@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterTableInvoiceAddAccNumberNullable extends Migration
+class CreateProductMovementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AlterTableInvoiceAddAccNumberNullable extends Migration
      */
     public function up()
     {
-        Schema::table('invoices',function (Blueprint $table){
-            $table->string('acc_number')->nullable();
+        Schema::create('product_movements', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('Description');
+
+            $table->timestamps();
         });
     }
 
@@ -25,6 +28,6 @@ class AlterTableInvoiceAddAccNumberNullable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('product_movements');
     }
 }

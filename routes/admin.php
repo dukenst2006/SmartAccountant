@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 //});
 //
 
-
+Route::get('/', 'HomeController@index')->name('Home');
 Route::get('lang/{Language}', 'LocalizationController@index')->name('ChangeLanguage');
 Route::group(['prefix' => 'Admin'], function () {
 //'middleware' => ['role:super-admin'] ,

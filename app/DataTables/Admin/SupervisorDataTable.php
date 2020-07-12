@@ -31,7 +31,7 @@ class SupervisorDataTable extends DataTable
     public function query(Supervisor $model)
     {
 
-        return $model->newQuery()->with('marketplace:id,Name');
+        return $model->newQuery();
     }
 
     /**
@@ -89,7 +89,6 @@ class SupervisorDataTable extends DataTable
         return [
             new Column(['data'=>'id', 'name'=>'id' ,'title'=>'#']),
             new Column(['data'=>'user.Name', 'name'=>'user.Name' ,'title'=>__('Models/User.Name')]),
-            new Column(['data'=>'marketplace.Name', 'name'=>'marketplace.Name','title'=>__('Models/Marketplace.Name')]),
             new Column(['data'=>'PhoneNumber', 'name'=>'PhoneNumber','title'=>__('Models/Supervisor.PhoneNumber')]),
 
 

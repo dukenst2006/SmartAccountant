@@ -1,10 +1,3 @@
-<!-- Marketplacesid Field -->
-<div class="form-group col-sm-6">
-    <?php echo Form::label('MarketplacesID', 'Marketplaces:'); ?>
-
-    <?php echo Form::select('MarketplacesID',$marketplaces ?? '', null, ['class' => 'form-control']); ?>
-
-</div>
 
 <!-- Name Field -->
 <div class="form-group col-sm-6">
