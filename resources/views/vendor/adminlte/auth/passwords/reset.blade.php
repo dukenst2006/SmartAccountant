@@ -10,6 +10,7 @@
 
 @section('auth_header', __('adminlte::adminlte.password_reset_message'))
 
+<div class="container">
 @section('auth_body')
     <form action="{{ $password_reset_url }}" method="post">
         {{ csrf_field() }}
@@ -74,4 +75,5 @@
         </button>
 
     </form>
-@stop
+    @stop
+</div>

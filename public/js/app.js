@@ -40503,7 +40503,6 @@ var Dropdown = function ($) {
     $('.dropdown-menu').toggleClass('show');
     $('.dropdown-menu').style.visibility = 'visable';
   });
-  console.log('hhhh vvvvvvvv');
   /**
    * jQuery API
    * ====================================================
@@ -40770,6 +40769,12 @@ var Layout = function ($) {
   $(Selector.SIDEBAR + ' a').on('focusout', function () {
     $(Selector.MAIN_SIDEBAR).removeClass(ClassName.SIDEBAR_FOCUSED);
   });
+  setTimeout(function () {
+    var logoHeight = $('.logo-adjust').outerHeight();
+    var brandHeight = $('.brand-link').outerHeight();
+    var sideValHeight = logoHeight + brandHeight;
+    $('.sidebar').css('height', "calc(99vh - ".concat(sideValHeight, "px)"));
+  }, 3000);
   /**
    * jQuery API
    * ====================================================

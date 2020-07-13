@@ -64,6 +64,7 @@ public function filter(){
     )-> when(request('q'), function ($query, $role) {
         $query->where('Barcode','like','%'.request('q').'%')
             ->orWhere('Name','like','%'.request('q').'%');
+
     })->limit(10)->get();
 
 

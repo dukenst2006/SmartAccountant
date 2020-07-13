@@ -1,24 +1,44 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\DataTables\Admin\EmployeeDataTable;
-use App\Http\Requests\Admin;
-use App\Http\Requests\Admin\CreateEmployeeRequest;
-use App\Http\Requests\Admin\UpdateEmployeeRequest;
-use App\Models\Marketplace;
-use \App\Models\MarketplaceOwner;
-use App\Repositories\Admin\EmployeeRepository;
-use App\Repositories\UserRepository;
+use App\DataTables\InvoiceDataTable;
+use App\Http\Requests;
+use App\Http\Requests\CreateInvoiceRequest;
+use App\Http\Requests\UpdateInvoiceRequest;
+use App\Repositories\InvoiceRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
-use Illuminate\Support\Facades\DB;
 use Response;
 
 class InvoiceController extends AppBaseController
 {
+    /** @var  InvoiceRepository */
+    private $invoiceRepository;
+
+    public function __construct(InvoiceRepository $invoiceRepo)
+    {
+        $this->invoiceRepository = $invoiceRepo;
+    }
+
+
+
+
     public  function sale(){
-        return view('admin.Invoices.createSale');
+
+        return view('admin.Invoices.createSale')->with(['paymenttypes'=>$this->invoiceRepository->GetDataForSelect('payment_types')]);
+    }
+
+    public  function StoreSaleInvoice( ) {
+
+        $input = request()->all();
+
+
+
+        return auth()->user()->id;
+
+
+
     }
 
     public  function raw(){

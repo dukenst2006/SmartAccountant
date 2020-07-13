@@ -130,7 +130,7 @@ const Dropdown = (($) => {
         $('.dropdown-menu').style.visibility='visable';
 
     })
-    console.log('hhhh vvvvvvvv');
+    
 
     /**
      * jQuery API

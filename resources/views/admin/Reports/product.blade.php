@@ -1,11 +1,33 @@
 @extends('adminlte::page')
-@section('title', 'Stocks')
+@section('title', 'تقارير المنتجات')
 
 @section('content_header')
+    <h1>تقارير المنتجات</h1>
 @stop
 
 @section('content')
+
     <div class="row justify-content-center">
+
+
+        <div class="col-md-8">
+
+            <p class="text-center">
+                <strong> أعلي 10 منتجات مبيعاً هذا الشهر</strong>
+            </p>
+            <div id="chart">
+
+                {!! $productchart->container() !!}
+
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="row justify-content-center">
+
+
     <div class="col-md-8">
 
 
@@ -13,7 +35,7 @@
 
             <div id="chart">
 
-{{--                {!! $inventoriesCharts->container() !!}--}}
+               {!! $productchart->container() !!}
 
             </div>
 
@@ -21,6 +43,7 @@
     </div>
 
     </div>
+
     <div class="clearfix"></div>
 
         @include('flash::message')
@@ -30,13 +53,13 @@
 
         </div>
         <div class="text-center">
-{{--        @include('adminlte-templates::common.paginate', ['records' => $inventories])--}}
+{{--       @include('adminlte-templates::common.paginate', ['records' => $inventories])--}}
 
         </div>
 
 @endsection
 
 @section('customejs')
-{{--    {!! $inventoriesCharts->script() !!}--}}
+    {!! $productchart->script() !!}
 @endsection
 

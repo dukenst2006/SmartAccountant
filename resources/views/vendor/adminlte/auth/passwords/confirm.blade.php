@@ -18,15 +18,16 @@
 @endif
 
 @section('body')
+   <div class="container">
     <div class="lockscreen-wrapper">
 
         {{-- Lockscreen logo --}}
-        <div class="lockscreen-logo">
+        {{-- <div class="lockscreen-logo">
             <a href="{{ $dashboard_url }}">
                 <img src="{{ asset(config('adminlte.logo_img')) }}" height="50">
                 {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
             </a>
-        </div>
+        </div> --}}
 
         {{-- Lockscreen user name --}}
         <div class="lockscreen-name">
@@ -79,6 +80,7 @@
         </div>
 
     </div>
+   </div>
 @stop
 
 @section('adminlte_js')

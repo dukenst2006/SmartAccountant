@@ -134,9 +134,30 @@
                                             </button>
 
 
+
+
+
                                         </td>
                                     </tr>
 
+
+                                    <tr>
+                                        <th>طريقة الدفع:</th>
+                                        <td class="text-center">
+
+                                            <!-- PaymentTypeID Field -->
+                                            <div class="form-group">
+
+                                                <?php echo Form::select('PaymentTypeID',$paymenttypes, 0,['class' => 'form-control' , 'v-model'=>'PaymentTypeID']); ?>
+
+                                            </div>
+
+
+
+
+                                        </td>
+
+                                    </tr>
 
                                     <tr>
                                         <th>المتبقي:</th>
@@ -157,7 +178,6 @@
 
         </div>
 
-
         <div class="row text-center animated bounceInDown ">
             <div class="col-md-12" style="font-family: 'Cairo SemiBold',serif;">
 
@@ -172,12 +192,15 @@
                         style="font-family: cairo, serif; font-weight: 700;">
 
                     <i class="fas fa-fw fa-print"></i>
-                  حفظ
+                    حفظ وطباعة
                 </button>
 
 
             </div>
         </div>
+
+
+
 
 
     </div>
@@ -244,12 +267,9 @@
             });
 
 
-            calcluaterows();
 
         });
-        $(".calculateclass").on('change', 'input', function () {
-            calcluaterows();
-        });
+
 
     </script>
 
@@ -267,20 +287,14 @@
                 invoice_total: 0,
                 invoice_paid: 0,
                 invoice_rest: 0,
-                deliverday: 1,
                 deliverdate:'',
+                PaymentTypeID:1,
                 invoice_products: [],
                 products:[],
                 
             },
             methods: {
-                datacalc(){
-                    var date = new Date();
 
-                    date.setDate(date.getDate() + parseInt( this.deliverday));
-
-                    this.deliverdate=date.toLocaleDateString();
-                },
                 completedinvoice(){
 
 
@@ -291,7 +305,6 @@
                     this.invoice_paid = 0;
                     this.calculateTotal();
                     this.customrename = "";
-                    this.deliverday = 1;
                 },
 
                 storebill() {
@@ -308,7 +321,7 @@
 
 
                         let $this = $("#btnFetch");
-                        $this.button('loading');
+                        $this.text('loading');
                         $this.prop("disabled", true);
                         $this.data('original-text', $this.html());
                         $this.html(`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`);
@@ -316,8 +329,7 @@
 
                         $.ajax({
                             type: "post",
-                            
-                            url:"#",
+                            url: "<?php echo e(route('invoice.store')); ?>",
                             dataType: 'json',
                             'contentType': 'application/json',
 
@@ -327,7 +339,7 @@
                                     'total': this.invoice_total,
                                     'paid': this.invoice_paid,
                                     'reset': this.invoice_rest,
-                                    'deliverday':this.deliverday,
+                                    'paymenttypeid': this.PaymentTypeID,
                                     'billitems': this.invoice_products,
                                     '_token': _token
                                 }),
@@ -339,8 +351,6 @@
                                 $this.prop("disabled", false);
                                 $this.html($this.data('original-text'));
                                 this.resetdata();
-                                $("#printf").attr("src", "invoice/print/" + data.invoice_id);
-
                             })
                             .fail(function (data) {
                                 swal.fire("Invoice !", "Make Sure From Your Data", "error");

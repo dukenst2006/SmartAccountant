@@ -1,3 +1,5 @@
+
+
 <?php ( $dashboard_url = View::getSection('dashboard_url') ?? config('adminlte.dashboard_url', 'home') ); ?>
 
 <?php if(config('adminlte.use_route_url', false)): ?>
@@ -17,16 +19,10 @@
     <div class="<?php echo e($auth_type ?? 'login'); ?>-box">
 
         
-        <div class="<?php echo e($auth_type ?? 'login'); ?>-logo">
-            <a href="<?php echo e($dashboard_url); ?>">
-                <img src="<?php echo e(asset(config('adminlte.logo_img'))); ?>" height="50">
-                <?php echo config('adminlte.logo', '<b>Admin</b>LTE'); ?>
-
-            </a>
-        </div>
+        
 
         
-        <div class="card <?php echo e(config('adminlte.classes_auth_card', 'card-outline card-primary')); ?>">
+        <div class="card <?php echo e(config('adminlte.classes_auth_card', ' card-primary')); ?>">
 
             
             <?php if (! empty(trim($__env->yieldContent('auth_header')))): ?>

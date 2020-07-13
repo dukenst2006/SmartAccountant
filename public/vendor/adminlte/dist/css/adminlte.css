@@ -20331,10 +20331,8 @@ html.maximized-card {
   -ms-flex-pack: center;
   justify-content: center;
 }
-
-.login-box,
-.register-box {
-  width: 360px;
+.login-box, .register-box {
+  margin: auto;
 }
 
 @media (max-width: 576px) {
@@ -20350,12 +20348,11 @@ html.maximized-card {
   background: #ffffff;
   border-top: 0;
   color: #666;
-  padding: 20px;
 }
 
 .login-card-body .input-group .form-control,
 .register-card-body .input-group .form-control {
-  border-right: 0;
+  border-left: 0;
 }
 
 .login-card-body .input-group .form-control:focus,
@@ -20391,9 +20388,8 @@ html.maximized-card {
 .login-card-body .input-group .input-group-text,
 .register-card-body .input-group .input-group-text {
   background-color: transparent;
-  border-bottom-right-radius: 0.25rem;
-  border-left: 0;
-  border-top-right-radius: 0.25rem;
+  border-radius: 0.25rem 0 0 .25rem;
+  border-right: 0;
   color: #777;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -20551,8 +20547,8 @@ html.maximized-card {
 .projects img.table-avatar,
 .projects .table-avatar img {
   border-radius: 50%;
-  display: inline;
-  width: 2.5rem;
+  display: inline-block;
+  width: 2.5rem ;
 }
 
 .projects .project-state {

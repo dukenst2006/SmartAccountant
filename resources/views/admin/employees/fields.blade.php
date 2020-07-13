@@ -18,6 +18,12 @@
 </div>
 
 
+<!-- Marketplaceid Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('MarketplaceID', __('Models/Marketplace.Name')) !!}
+    {!! Form::select('MarketplaceID',$marketplaces, null,['class' => 'form-control']) !!}
+</div>
+
 
 
 <!-- Nationality Field -->
@@ -83,6 +89,6 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit(__('General.Create '), ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit(__('Buttons.Create'), ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('admin.employees.index') }}" class="btn btn-default">{{ __('Buttons.Cancel') }}</a>
 </div>

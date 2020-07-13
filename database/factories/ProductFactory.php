@@ -26,6 +26,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'UserID' =>  factory(App\Models\User::class),
         'ProductCategoryID' => factory(App\Models\ProductCategory::class),
         'ProductSubCategoryID' => factory(App\Models\ProductSubCategory::class),
+        'WarehouseID' =>1,
         'Name' => $faker->sentence(3),
         'Quantity' => $faker->randomNumber(3),
         'QuantityTypeID' => $faker->numberBetween(1,3),

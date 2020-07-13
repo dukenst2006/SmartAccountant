@@ -2,10 +2,12 @@
 
 @section('adminlte_css')
     @yield('css')
+    <link rel="stylesheet" href="{{asset('css/login.css')}}">
 @stop
 
 @section('classes_body', 'login-page')
-
+<div class="container">
+    
 @php( $password_email_url = View::getSection('password_email_url') ?? config('adminlte.password_email_url', 'password/email') )
 @php( $dashboard_url = View::getSection('dashboard_url') ?? config('adminlte.dashboard_url', 'home') )
 
@@ -52,6 +54,7 @@
             </div>
         </div>
     </div>
+</div>
 @stop
 
 @section('adminlte_js')

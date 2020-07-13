@@ -11,9 +11,9 @@ const Layout = (($) => {
    * ====================================================
    */
 
-  const NAME               = 'Layout'
-  const DATA_KEY           = 'lte.layout'
-  const EVENT_KEY          = `.${DATA_KEY}`
+  const NAME = 'Layout'
+  const DATA_KEY = 'lte.layout'
+  const EVENT_KEY = `.${DATA_KEY}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
   const Event = {
@@ -21,39 +21,39 @@ const Layout = (($) => {
   }
 
   const Selector = {
-    HEADER         : '.main-header',
-    MAIN_SIDEBAR   : '.main-sidebar',
-    SIDEBAR        : '.main-sidebar .sidebar',
-    CONTENT        : '.content-wrapper',
-    BRAND          : '.brand-link',
-    CONTENT_HEADER : '.content-header',
-    WRAPPER        : '.wrapper',
+    HEADER: '.main-header',
+    MAIN_SIDEBAR: '.main-sidebar',
+    SIDEBAR: '.main-sidebar .sidebar',
+    CONTENT: '.content-wrapper',
+    BRAND: '.brand-link',
+    CONTENT_HEADER: '.content-header',
+    WRAPPER: '.wrapper',
     CONTROL_SIDEBAR: '.control-sidebar',
     CONTROL_SIDEBAR_CONTENT: '.control-sidebar-content',
     CONTROL_SIDEBAR_BTN: '[data-widget="control-sidebar"]',
-    LAYOUT_FIXED   : '.layout-fixed',
-    FOOTER         : '.main-footer',
-    PUSHMENU_BTN   : '[data-widget="pushmenu"]',
-    LOGIN_BOX      : '.login-box',
-    REGISTER_BOX   : '.register-box'
+    LAYOUT_FIXED: '.layout-fixed',
+    FOOTER: '.main-footer',
+    PUSHMENU_BTN: '[data-widget="pushmenu"]',
+    LOGIN_BOX: '.login-box',
+    REGISTER_BOX: '.register-box'
   }
 
   const ClassName = {
-    HOLD           : 'hold-transition',
-    SIDEBAR        : 'main-sidebar',
-    CONTENT_FIXED  : 'content-fixed',
+    HOLD: 'hold-transition',
+    SIDEBAR: 'main-sidebar',
+    CONTENT_FIXED: 'content-fixed',
     SIDEBAR_FOCUSED: 'sidebar-focused',
-    LAYOUT_FIXED   : 'layout-fixed',
-    NAVBAR_FIXED   : 'layout-navbar-fixed',
-    FOOTER_FIXED   : 'layout-footer-fixed',
-    LOGIN_PAGE     : 'login-page',
-    REGISTER_PAGE  : 'register-page',
+    LAYOUT_FIXED: 'layout-fixed',
+    NAVBAR_FIXED: 'layout-navbar-fixed',
+    FOOTER_FIXED: 'layout-footer-fixed',
+    LOGIN_PAGE: 'login-page',
+    REGISTER_PAGE: 'register-page',
     CONTROL_SIDEBAR_SLIDE_OPEN: 'control-sidebar-slide-open',
     CONTROL_SIDEBAR_OPEN: 'control-sidebar-open',
   }
 
   const Default = {
-    scrollbarTheme : 'os-theme-light',
+    scrollbarTheme: 'os-theme-light',
     scrollbarAutoHide: 'l',
     panelAutoHeight: true,
     loginRegisterAutoHeight: true,
@@ -66,7 +66,7 @@ const Layout = (($) => {
 
   class Layout {
     constructor(element, config) {
-      this._config  = config
+      this._config = config
       this._element = element
 
       this._init()
@@ -116,11 +116,11 @@ const Layout = (($) => {
 
         if (typeof $.fn.overlayScrollbars !== 'undefined') {
           $(Selector.SIDEBAR).overlayScrollbars({
-            className       : this._config.scrollbarTheme,
-            sizeAutoCapable : true,
-            scrollbars : {
-              autoHide: this._config.scrollbarAutoHide, 
-              clickScrolling : true
+            className: this._config.scrollbarTheme,
+            sizeAutoCapable: true,
+            scrollbars: {
+              autoHide: this._config.scrollbarAutoHide,
+              clickScrolling: true
             }
           })
         }
@@ -216,8 +216,10 @@ const Layout = (($) => {
       })
     }
 
-    
+
   }
+
+
 
   /**
    * Data API
@@ -236,6 +238,14 @@ const Layout = (($) => {
     $(Selector.MAIN_SIDEBAR).removeClass(ClassName.SIDEBAR_FOCUSED);
   })
 
+
+  setTimeout(() => {
+    var logoHeight = $('.logo-adjust').outerHeight();
+    var brandHeight = $('.brand-link').outerHeight();
+    var sideValHeight = logoHeight + brandHeight;
+    $('.sidebar').css('height', `calc(99vh - ${sideValHeight}px)`)
+  },3000)
+ 
   /**
    * jQuery API
    * ====================================================
@@ -247,8 +257,9 @@ const Layout = (($) => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
     return Layout._jQueryInterface
   }
-
   return Layout
 })(jQuery)
 
 export default Layout
+
+

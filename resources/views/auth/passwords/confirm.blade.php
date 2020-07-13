@@ -18,6 +18,7 @@
 @endif
 
 @section('body')
+<div class="container">
     <div class="lockscreen-wrapper">
 
         {{-- Lockscreen logo --}}
@@ -79,6 +80,7 @@
         </div>
 
     </div>
+</div>
 @stop
 
 @section('adminlte_js')

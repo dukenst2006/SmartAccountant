@@ -27049,7 +27049,7 @@ html.maximized-card {
 
 .login-box,
 .register-box {
-  width: 360px;
+  margin: auto;
 }
 
 @media (max-width: 576px) {
@@ -27065,7 +27065,6 @@ html.maximized-card {
   background: #ffffff;
   border-top: 0;
   color: #666;
-  padding: 20px;
 }
 
 .login-card-body .input-group .form-control,

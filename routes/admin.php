@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 
-
-
 //Route::get('/seedfresh', function () {
 ////  \Illuminate\Support\Facades\Artisan::call('migrate:fresh');
 //    Artisan::call('db:seed');
@@ -13,7 +11,9 @@ use Illuminate\Support\Facades\Route;
 //});
 //
 
-Route::get('/', 'HomeController@index')->name('Home');
+Route::get('/text', function (){
+   return view('home');
+});
 Route::get('lang/{Language}', 'LocalizationController@index')->name('ChangeLanguage');
 Route::group(['prefix' => 'Admin'], function () {
 //'middleware' => ['role:super-admin'] ,
@@ -34,21 +34,24 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::resource('settings', 'SettingsController')->except('create', 'edit', 'destroy', 'show', 'store');
     Route::resource('companies', 'CompanyController');
     Route::resource('suppliers', 'SupplierController');
+
     Route::get('invoicerawcreatesale', 'InvoiceController@sale')->name('invoice.createsale');
     Route::get('invoiceraw', 'InvoiceController@raw')->name('invoice.createraw');
-    Route::get('treasure','TreasureController@index')->name('treasure');
+
+
+    Route::get('treasure', 'TreasureController@index')->name('treasure');
     Route::get('MainStock', 'StockController@index')->name('mainstock');
     Route::get('MarketplacesStocks', 'StockController@MarketplacesStocks')->name('marketplacesstocks');
-    Route::resource('inventories', 'InventoryController')->only(['show','index']);
-    Route::resource('warehouses', 'WarehouseController')->only(['show','index']);
+    Route::resource('inventories', 'InventoryController')->only(['show', 'index']);
+    Route::resource('warehouses', 'WarehouseController')->only(['show', 'index']);
 
 
-    Route::resource('EmployeeSalary','EmployeeSalaryController');
+    Route::resource('EmployeeSalary', 'EmployeeSalaryController');
 
     Route::get('BondVoucher', 'BondsController@BondVoucher');
 
 
-    Route::group(['namespace'=>'\App\Http\Controllers\Reports'], function (){
+    Route::group(['namespace' => '\App\Http\Controllers\Reports'], function () {
 
         Route::get('ProductReport', 'ProductReportController@index')->name('productreport');
         Route::get('MarketplacesReport', 'MarketplacesReportController@index')->name('marketplacesreport');

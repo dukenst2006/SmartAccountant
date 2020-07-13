@@ -4,10 +4,11 @@
 
 @section('auth_body')
 
+<div class="container">
     @if(session('resent'))
-        <div class="alert alert-success" role="alert">
-            {{ __('adminlte::adminlte.verify_email_sent') }}
-        </div>
+    <div class="alert alert-success" role="alert">
+        {{ __('adminlte::adminlte.verify_email_sent') }}
+    </div>
     @endif
 
     {{ __('adminlte::adminlte.verify_check_your_email') }}
@@ -19,5 +20,6 @@
             {{ __('adminlte::adminlte.verify_request_another') }}
         </button>.
     </form>
+</div>
 
 @stop

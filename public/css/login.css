@@ -1,0 +1,281 @@
+/* 
+* created by Mohamed hendy [ mohamadhendy14@gmail.com]
+* Bootstrap v4.5.x
+*/
+/* *** Global ***/
+.log-in-t {
+    direction: rtl;
+    text-align: right;
+    font-family: "DroidArabicKufi";
+    height: 100vh;
+}
+.log-in-t a:hover {
+    text-decoration: none;
+}
+.log-in-t button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.log-in-t .form-control {
+    height: calc(28px + 0.75rem + 2px);
+}
+.log-in-t .my-shadow {
+    box-shadow: 1px 1px 5px 0px rgba(193, 193, 193, 0.32),
+        -1px -1px 5px 0px rgba(193, 193, 193, 0.32);
+}
+/*--- Fonts ----- */
+@font-face {
+    font-family: "29LTBukra";
+    src: url("../fonts/29ltbukrabold.otf");
+}
+@font-face {
+    font-family: "icofont";
+    src: url("../fonts/icofont.ttf");
+}
+@font-face {
+    font-family: "AJannatLT";
+    src: url("../fonts/a-jannat-lt.ttf");
+}
+@font-face {
+    font-family: "Cairo";
+    src: url("../fonts/Cairo-Regular.ttf");
+}
+@font-face {
+    font-family: "DroidArabicKufi";
+    src: url("../fonts/DroidKufi-Regular.ttf");
+}
+.log-in-t .buk-29 {
+    font-family: "29LTBukra";
+}
+.log-in-t .aja-font {
+    font-family: "AJannatLT";
+}
+.log-in-t .cairo {
+    font-family: "Cairo";
+}
+.log-in-t .kufi {
+    font-family: "DroidArabicKufi";
+}
+
+/* Login Page */
+.log-in-t .login-logo {
+    width: 300px;
+    margin-right: 8px;
+}
+.log-in-t button:focus {
+    outline: 0;
+}
+.log-in-t .form-control:focus {
+    outline: 0;
+    box-shadow: none;
+}
+.log-in-t .icons-input {
+    max-width: 40px;
+}
+.log-in-t .icon-left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.log-in-t .icon-right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.log-in-t .login-div {
+    margin: auto;
+    flex-grow: 1;
+}
+.log-in-t .login-cont {
+    width: 506px;
+}
+.log-in-t .login-div2 {
+    max-width: 650px;
+}
+.log-in-t .content-log {
+    padding: 20px;
+}
+.log-in-t .main-login {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    min-height: 83vh;
+    justify-content: center;
+}
+.log-in-t .btn-bl {
+    background-color: #3988dd;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+.log-in-t .login-form .form-control {
+    border: 1px solid rgba(167, 167, 167, 0.5);
+    border-radius: 0;
+    background-color: aliceblue;
+}
+.log-in-t .login-form .form-control::placeholder {
+    color: rgba(61, 61, 61, 0.767);
+    font-size: 14px;
+}
+.log-in-t .login-form .icon-color {
+    color: rgba(61, 61, 61, 0.767);
+    background-color: aliceblue;
+    margin-left: -5px;
+    margin-right: -2px;
+}
+.log-in-t .login-form button:hover {
+    background-color: #104a88;
+    color: #fff;
+}
+.log-in-t .log-dir {
+    font-size: 15px;
+    color: gray;
+}
+.log-in-t .min-sky {
+    font-family: "Poppins", sans-serif;
+}
+.log-in-t .forgot-pass {
+    font-size: 12px;
+}
+
+.log-in-t .save-invoice {
+    border-radius: 30px;
+}
+.log-in-t .form-fog {
+    width: 506px;
+    margin-top: 40px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+    background-color: #fff;
+}
+.log-in-t {
+    background-image: radial-gradient(
+        circle,
+        #6702d59c,
+        #5932db9c,
+        #4d49de9c,
+        #475ade9c,
+        #4769dc9c,
+        #4874de9c,
+        #4b7edf9c,
+        #5288e09c,
+        #5492e79c,
+        #569cee9c,
+        #5aa6f59c,
+        #5fb0fb9c
+    );
+}
+.login-box {
+    width: 100% !important;
+    height: 100vh !important;
+}
+.login-logo .card-body.login-card-body {
+    padding: 0 !important;
+}
+.login-logo .card-body {
+    position: 0 !important;
+}
+.login-card-body {
+    padding: 0;
+}
+.card-body {
+    padding: 0 !important;
+}
+.login-cont footer {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    margin: 1;
+    bottom: 0;
+    margin: 0 !important;
+    text-align: center;
+}
+label[for="remember"] {
+    padding: 0;
+    margin-right: 30px;
+}
+[class*="icheck-"] > input:first-child + label::before,
+[class*="icheck-"] > input:first-child + input[type="hidden"] + label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #d3cfc8;
+    border-radius: 0px;
+    margin-left: 16px;
+    margin-right: -28px;
+}
+.login-box .card.card-outline {
+    margin-bottom: 0;
+}
+.login-box,
+.register-box {
+    margin: auto;
+}
+.login-card-body .input-group .input-group-text,
+.register-card-body .input-group .input-group-text {
+    border-left: 1px solid #ddd !important;
+    border-right: 0 !important;
+    background-color: transparent;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input-group {
+  padding: 10px;
+}
+.input-group input{
+  border-right: 1px solid #DDD !important;
+  border-radius: 0 .25rem .25rem 0;
+  border-left: 0;
+}
+.login-box .card-primary{
+  margin-bottom: 0 !important;
+}
+.register-box {
+  margin: 137px auto;
+}
+
+@media (max-width: 576px) {
+    .login-box,
+    .register-box {
+        padding: 0 !important;
+    }
+    .log-in-t {
+        height: 114vh;
+    }
+   
+}
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .log-in-t .invoice-label {
+        font-size: 11px;
+    }
+    .log-in-t .form-fog {
+        margin-left: auto;
+        margin-right: auto;
+        width: 320px;
+    }
+    .log-in-t .login-logo {
+        width: 240px;
+    }
+    .log-in-t .login-cont {
+        width: auto;
+    }
+    .login-box,
+    .login-box .card {
+        margin: 0 !important;
+    }
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}

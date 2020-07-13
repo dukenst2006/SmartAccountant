@@ -17,44 +17,46 @@
     @php( $dashboard_url = $register_url ? url($dashboard_url) : '' )
 @endif
 
+<div class="container">
 @section('body')
-    <div class="lockscreen-wrapper">
-        <div class="lockscreen-logo">
-            <a href="{{ $dashboard_url }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
-        </div>
-
-        <div class="lockscreen-name">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</div>
-
-        <div class="lockscreen-item">
-            @if(config('adminlte.usermenu_image'))
-            <div class="lockscreen-image">
-                <img src="{{ Auth::user()->adminlte_image() }}" alt="{{ Auth::user()->name }}">
+        <div class="lockscreen-wrapper">
+            <div class="lockscreen-logo">
+                <a href="{{ $dashboard_url }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
             </div>
-            @endif
-
-            <form method="POST" action="{{ route('password.confirm') }}" class="lockscreen-credentials @if(!config('adminlte.usermenu_image'))ml-0 @endif">
-                @csrf
-                <div class="input-group">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('adminlte::adminlte.password') }}" autofocus>
-
-                    <div class="input-group-append">
-                        <button type="submit" class="btn"><i class="fas fa-arrow-right text-muted"></i></button>
-                    </div>
+    
+            <div class="lockscreen-name">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</div>
+    
+            <div class="lockscreen-item">
+                @if(config('adminlte.usermenu_image'))
+                <div class="lockscreen-image">
+                    <img src="{{ Auth::user()->adminlte_image() }}" alt="{{ Auth::user()->name }}">
                 </div>
-            </form>
-        </div>
-        @error('password')
-            <div class="lockscreen-subitem text-center" role="alert">
-                <b class="text-danger">{{ $message }}</b>
+                @endif
+    
+                <form method="POST" action="{{ route('password.confirm') }}" class="lockscreen-credentials @if(!config('adminlte.usermenu_image'))ml-0 @endif">
+                    @csrf
+                    <div class="input-group">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('adminlte::adminlte.password') }}" autofocus>
+    
+                        <div class="input-group-append">
+                            <button type="submit" class="btn"><i class="fas fa-arrow-right text-muted"></i></button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        @enderror
-        <div class="help-block text-center">
-            {{ __('adminlte::adminlte.confirm_password_message') }}
-        </div>
-        <div class="text-center">
-            <a href="{{ $password_reset_url }}">
-                {{ __('adminlte::adminlte.i_forgot_my_password') }}
-            </a>
+            @error('password')
+                <div class="lockscreen-subitem text-center" role="alert">
+                    <b class="text-danger">{{ $message }}</b>
+                </div>
+            @enderror
+            <div class="help-block text-center">
+                {{ __('adminlte::adminlte.confirm_password_message') }}
+            </div>
+            <div class="text-center">
+                <a href="{{ $password_reset_url }}">
+                    {{ __('adminlte::adminlte.i_forgot_my_password') }}
+                </a>
+            </div>
         </div>
     </div>
 @stop

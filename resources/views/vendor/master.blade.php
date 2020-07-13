@@ -24,7 +24,7 @@
      <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
     {{-- Base Stylesheets --}}
     @if(!config('adminlte.enabled_laravel_mix'))
-   
+
         <link rel="stylesheet" href="{{ asset('vendor/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
 
         {{-- Configured Stylesheets --}}
@@ -68,6 +68,7 @@
         <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
     @endif
 
+    @yield('customecss')
 
 </head>
 
