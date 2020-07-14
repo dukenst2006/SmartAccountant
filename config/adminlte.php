@@ -96,7 +96,7 @@ return [/*
     'classes_content_wrapper' => '',
     'classes_content_header' => 'container-fluid',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-light-maroon elevation-5',
+    'classes_sidebar' => 'sidebar-light-primarysk elevation-5',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand-md',
@@ -262,6 +262,30 @@ return [/*
                     'route' => 'admin.suppliers.index',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ],
+
+                [
+                    'text' => 'SuppliersInvoices',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-file-invoice-dollar',
+                    'submenu' => [
+
+                        [
+                            'text' => 'create',
+                            'url' => '#',
+                            'icon' => 'fas fa-fw fa-plus-circle',
+                        ],
+                        [
+                            'text' => 'all',
+                            'url' => '#',
+                            'icon' => 'fas fa-fw fa-layer-group',
+                        ],
+                    ],
+
+                ],
+
+
+
+
 
                 [
                     'text' => 'Companies',

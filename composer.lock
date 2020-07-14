@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66dcf000d83e114eb595b8fea24fb9f9",
+    "content-hash": "2ad2b4f8906babab52ebb461eca70c00",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -2996,6 +2996,120 @@
                 "shell"
             ],
             "time": "2020-05-03T19:32:03+00:00"
+        },
+        {
+            "name": "raggitech/laravel-currency",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RaggiTech/laravel-currency.git",
+                "reference": "4b9b79381d1a4214375e6395ee2dae76f6002b9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RaggiTech/laravel-currency/zipball/4b9b79381d1a4214375e6395ee2dae76f6002b9c",
+                "reference": "4b9b79381d1a4214375e6395ee2dae76f6002b9c",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=6.0",
+                "php": ">=7.2",
+                "raggitech/laravel-readable": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RaggiTech\\Laravel\\Currency\\CurrencyServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RaggiTech\\Laravel\\Currency\\": "src"
+                },
+                "files": [
+                    "src/Helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Moamen Eltouny",
+                    "email": "support@raggitech.com",
+                    "homepage": "https://raggitech.com"
+                }
+            ],
+            "description": "Laravel - Multi Currencies For Model.",
+            "keywords": [
+                "currencies",
+                "currency",
+                "laravel",
+                "money",
+                "php"
+            ],
+            "time": "2020-03-05T11:31:44+00:00"
+        },
+        {
+            "name": "raggitech/laravel-readable",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RaggiTech/laravel-readable.git",
+                "reference": "022138015609edec9b523cd41f3b5b4eff3c49ec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RaggiTech/laravel-readable/zipball/022138015609edec9b523cd41f3b5b4eff3c49ec",
+                "reference": "022138015609edec9b523cd41f3b5b4eff3c49ec",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=6.0",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RaggiTech\\Laravel\\Readable\\ReadableServiceProvider"
+                    ],
+                    "aliases": {
+                        "Readable": "RaggiTech\\Laravel\\Readable\\Readable"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RaggiTech\\Laravel\\Readable\\": "src"
+                },
+                "files": [
+                    "src/Helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Moamen Eltouny",
+                    "email": "support@raggitech.com",
+                    "homepage": "https://raggitech.com"
+                }
+            ],
+            "description": "Laravel - Readable Number (Integer|decimal) & DateTime & Time Length & File Size.",
+            "keywords": [
+                "human readable",
+                "laravel",
+                "php",
+                "raggitech",
+                "readable"
+            ],
+            "time": "2020-06-08T12:38:30+00:00"
         },
         {
             "name": "ralouphie/getallheaders",

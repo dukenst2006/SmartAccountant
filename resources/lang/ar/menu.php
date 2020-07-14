@@ -26,6 +26,7 @@ return [
 
     'Companies' => 'الشركات',
     'Suppliers' => 'الموردين',
+    'SuppliersInvoices' => 'فواتير الموردين',
 
 
     'PublicAdministration' => 'الإدارة العامة',

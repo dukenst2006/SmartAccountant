@@ -26,13 +26,14 @@ class CreateProductsTable extends Migration
         $table->unsignedBigInteger('QuantityTypeID');
         $table->double('PurchasingPrice');
         $table->double('SellingPrice');
-        $table->double('LowPrice')->nullable()->default(null);  //  For What ?
+        $table->double('LowPrice')->nullable()->default(null);
         $table->string('Image');
         $table->dateTime('ExpiryDate')->nullable()->default(null);
         $table->string('Barcode');
         $table->double('Quantity');
         $table->boolean('UnlimitedQuantity')->default(false);
-        $table->boolean('CanExpired')->default(true);
+        $table->boolean('CanExpired')->default(true);          // اذا كان المنتج لا ينتهي صلاحيتة
+        $table->boolean('ExcludeFromVAT')->default(false);   // خيار استثناء هذا المنتج من الضرائب
         $table->timestamps();
 
 

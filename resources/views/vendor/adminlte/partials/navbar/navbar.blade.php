@@ -62,6 +62,14 @@
         @if(config('adminlte.right_sidebar'))
             @include('vendor.adminlte.partials.navbar.menu-item-right-sidebar-toggler')
         @endif
+
+
+
+
+
+
+
+
     </ul>
 
 </nav>
