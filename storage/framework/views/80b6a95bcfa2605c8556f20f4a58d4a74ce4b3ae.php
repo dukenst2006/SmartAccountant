@@ -37,7 +37,7 @@
         <?php echo $__env->make('adminlte::plugins', ['type' => 'css'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <?php endif; ?>
-
+    <link rel="stylesheet" href="<?php echo e(asset('css/login.css')); ?>">
     <?php if(app()->getLocale() == "ar"): ?>
         <link rel="stylesheet" href="<?php echo e(asset('css/ar.css')); ?>">
     <?php endif; ?>

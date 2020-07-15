@@ -84,6 +84,7 @@ class ProductDataTable extends DataTable
             new Column(['data' => 'Image', 'name' => 'Image', 'title' => __('Models/Product.Image')]),
             new Column(['data' => 'ExpiryDate', 'name' => 'ExpiryDate', 'title' => __('Models/Product.ExpiryDate')]),
             new Column(['data' => 'Barcode', 'name' => 'Barcode', 'title' => __('Models/Product.Barcode')]),
+            new Column(['data' => 'ExcludeFromVAT', 'name' => 'ExcludeFromVAT', 'title' => __('General.Product.ExcludeFromVAT')]),
             new Column([ 'data' => 'UnlimitedQuantity', 'name' => 'UnlimitedQuantity', 'title' => __('Models/Product.UnlimitedQuantity') ]),
         ];
     }

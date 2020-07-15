@@ -49,9 +49,25 @@
                     <?php endif; ?>
                 </p>
             </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
         <?php else: ?>
             <?php echo $__env->yieldContent('usermenu_header'); ?>
         <?php endif; ?>
+
+
+
 
         
         <?php echo $__env->renderEach('vendor.adminlte.partials.navbar.dropdown-item', $adminlte->menu("navbar-user"), 'item'); ?>

@@ -19,8 +19,6 @@
                                 <option v-for="(market,k) in markets" :value="k">@{{ market }}</option>
                             </select>
                         </div>
-
-
                     </div>
                 </div>
                 <!-- /.card-body -->
@@ -69,21 +67,12 @@
                                     <tbody id="product_Body">
 
                                     <tr class='text-center' role='row'>
-                                        <td>كاش</td>
+                                        <td>دفع نقدي</td>
                                         <template v-if="last_invoice != null && last_invoice[0] != null">
                                             <td>@{{ last_invoice[0].AccountNumber }}</td>
                                             <td>@{{ last_invoice[0].Total }}</td>
                                             <td>@{{ last_invoice[0].Paid }}</td>
                                             <td>@{{ last_invoice[0].Rest }}</td>
-                                        </template>
-                                    </tr>
-                                    <tr class='text-center' role='row'>
-                                        <td>تحويل بنكي</td>
-                                        <template v-if="last_invoice != null && last_invoice[1] != null">
-                                            <td>@{{ last_invoice[1].AccountNumber }}</td>
-                                            <td>@{{ last_invoice[1].Total }}</td>
-                                            <td>@{{ last_invoice[1].Paid }}</td>
-                                            <td>@{{ last_invoice[1].Rest }}</td>
                                         </template>
                                     </tr>
                                     <tr class='text-center' role='row'>
@@ -95,7 +84,15 @@
                                             <td>@{{ last_invoice[2].Rest }}</td>
                                         </template>
                                     </tr>
-
+                                    <tr class='text-center' role='row'>
+                                        <td>تحويل بنكي</td>
+                                        <template v-if="last_invoice != null && last_invoice[1] != null">
+                                            <td>@{{ last_invoice[1].AccountNumber }}</td>
+                                            <td>@{{ last_invoice[1].Total }}</td>
+                                            <td>@{{ last_invoice[1].Paid }}</td>
+                                            <td>@{{ last_invoice[1].Rest }}</td>
+                                        </template>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -133,21 +130,12 @@
                                     <tbody id="product_Body">
 
                                     <tr class='text-center' role='row'>
-                                        <td>كاش</td>
+                                        <td>دفع نقدي</td>
                                         <template v-if="last_invoice_day != null && last_invoice_day[0] != null">
                                             <td>@{{ last_invoice_day[0].AccountNumber }}</td>
                                             <td>@{{ last_invoice_day[0].Total }}</td>
                                             <td>@{{ last_invoice_day[0].Paid }}</td>
                                             <td>@{{ last_invoice_day[0].Rest }}</td>
-                                        </template>
-                                    </tr>
-                                    <tr class='text-center' role='row'>
-                                        <td>تحويل بنكي</td>
-                                        <template v-if="last_invoice_day != null && last_invoice_day[1] != null">
-                                            <td>@{{ last_invoice_day[1].AccountNumber }}</td>
-                                            <td>@{{ last_invoice_day[1].Total }}</td>
-                                            <td>@{{ last_invoice_day[1].Paid }}</td>
-                                            <td>@{{ last_invoice_day[1].Rest }}</td>
                                         </template>
                                     </tr>
                                     <tr class='text-center' role='row'>
@@ -157,6 +145,15 @@
                                             <td>@{{ last_invoice_day[2].Total }}</td>
                                             <td>@{{ last_invoice_day[2].Paid }}</td>
                                             <td>@{{ last_invoice_day[2].Rest }}</td>
+                                        </template>
+                                    </tr>
+                                    <tr class='text-center' role='row'>
+                                        <td>تحويل بنكي</td>
+                                        <template v-if="last_invoice_day != null && last_invoice_day[1] != null">
+                                            <td>@{{ last_invoice_day[1].AccountNumber }}</td>
+                                            <td>@{{ last_invoice_day[1].Total }}</td>
+                                            <td>@{{ last_invoice_day[1].Paid }}</td>
+                                            <td>@{{ last_invoice_day[1].Rest }}</td>
                                         </template>
                                     </tr>
                                     </tbody>

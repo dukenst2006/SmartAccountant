@@ -34,6 +34,11 @@
     {!! Form::label('PurchasingPrice',  __('Models/Product.PurchasingPrice')) !!}
     {!! Form::number('PurchasingPrice', null, ['class' => 'form-control']) !!}
 </div>
+<!-- ExcludeFromVAT Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('ExcludeFromVAT',  __('General.Product.ExcludeFromVAT')) !!}
+    {!! Form::checkbox('ExcludeFromVAT', 1,null, ['class' => '']) !!}
+</div>
 
 <!-- Sellingprice Field -->
 <div class="form-group col-sm-6">

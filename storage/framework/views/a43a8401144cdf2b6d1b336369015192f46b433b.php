@@ -55,21 +55,7 @@
 
 </div>
 
-<!-- Latitude Field -->
-<div class="form-group col-sm-6">
-    <?php echo Form::label('Latitude', __('Models/Marketplace.Latitude')); ?>
 
-    <?php echo Form::text('Latitude', null, ['class' => 'form-control']); ?>
-
-</div>
-
-<!-- Longitude Field -->
-<div class="form-group col-sm-6">
-    <?php echo Form::label('Longitude', __('Models/Marketplace.Longitude')); ?>
-
-    <?php echo Form::text('Longitude', null, ['class' => 'form-control']); ?>
-
-</div>
 
 <!-- Safebalance Field -->
 <div class="form-group col-sm-6">
@@ -87,11 +73,23 @@
 
 </div>
 
-<!-- Logo Field -->
-<div class="form-group col-sm-6">
-    <?php echo Form::label('Logo', __('Models/Marketplace.Logo')); ?>
 
-    <?php echo Form::file('Logo', ['class' => 'form-control']); ?>
+<div class="form-group col-sm-6">
+    <?php echo Form::label('Attachment', "Attachment"); ?>
+
+    <?php echo Form::file('Attachment', ['class' => 'form-control']); ?>
+
+</div>
+<div class="form-group col-sm-6">
+    <?php echo Form::label('CommercialRegister', "CommercialRegister"); ?>
+
+    <?php echo Form::file('CommercialRegister', ['class' => 'form-control']); ?>
+
+</div>
+<div class="form-group col-sm-6">
+    <?php echo Form::label('LeaseContract', "LeaseContract"); ?>
+
+    <?php echo Form::file('LeaseContract', ['class' => 'form-control']); ?>
 
 </div>
 

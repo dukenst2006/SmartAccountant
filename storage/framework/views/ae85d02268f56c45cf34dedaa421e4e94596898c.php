@@ -63,6 +63,14 @@
         <?php if(config('adminlte.right_sidebar')): ?>
             <?php echo $__env->make('vendor.adminlte.partials.navbar.menu-item-right-sidebar-toggler', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php endif; ?>
+
+
+
+
+
+
+
+
     </ul>
 
 </nav>

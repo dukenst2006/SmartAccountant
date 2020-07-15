@@ -53,8 +53,10 @@ class MarketplaceController extends AppBaseController
     public function store(CreateMarketplaceRequest $request)
     {
         $input = $request->all();
-        $input['Logo'] = $this->marketplaceRepository->StoreFile($request->file('Logo'),'');
         $input['CompanyRegisterImage'] = $this->marketplaceRepository->StoreFile($request->file('CompanyRegisterImage'),'');
+        $input['CommercialRegister'] = $this->marketplaceRepository->StoreFile($request->file('CommercialRegister'),'');
+        $input['LeaseContract'] = $this->marketplaceRepository->StoreFile($request->file('LeaseContract'),'');
+        $input['Attachment'] = $this->marketplaceRepository->StoreFile($request->file('Attachment'),'');
         $marketplace = $this->marketplaceRepository->create($input);
 
         Flash::success('Marketplace saved successfully.');

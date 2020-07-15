@@ -21,6 +21,13 @@
     <?php echo Form::text('Country', null, ['class' => 'form-control']); ?>
 
 </div>
+<!-- Country Field -->
+<div class="form-group col-sm-6">
+    <?php echo Form::label('IBAN', __('General.Bank Account Number').':'); ?>
+
+    <?php echo Form::text('IBAN', null, ['class' => 'form-control']); ?>
+
+</div>
 
 <!-- Phonenumber Field -->
 <div class="form-group col-sm-6">

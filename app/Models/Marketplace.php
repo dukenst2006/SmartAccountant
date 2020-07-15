@@ -55,11 +55,11 @@ class Marketplace extends Model
         'Address',
         'TaxNumber',
         'Email',
-        'Latitude',
-        'Longitude',
         'SafeBalance',
         'CompanyRegisterImage',
-        'Logo'
+        'CommercialRegister',
+        'LeaseContract',
+        'Attachment',
     ];
 
     /**
@@ -77,11 +77,8 @@ class Marketplace extends Model
         'Address' => 'string',
         'TaxNumber' => 'string',
         'Email' => 'string',
-        'Latitude' => 'string',
-        'Longitude' => 'string',
         'SafeBalance' => 'float',
         'CompanyRegisterImage' => 'string',
-        'Logo' => 'string'
     ];
 
     /**
@@ -97,11 +94,8 @@ class Marketplace extends Model
         'Address' => 'required',
         'TaxNumber' => 'required',
         'Email' =>['required', 'string', 'email', 'max:255', 'unique:marketplaces'],
-        'Latitude' => 'required',
-        'Longitude' => 'required',
         'SafeBalance' => 'required',
         'CompanyRegisterImage' => 'required',
-        'Logo' => 'required'
     ];
 
     /**

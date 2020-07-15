@@ -21,11 +21,26 @@ class MarketplaceDataTable extends DataTable
         $dataTable = new EloquentDataTable($query);
 
         return $dataTable
-
-            ->addColumn('Logo', function($data) { return '<img src="https://picsum.photos/100/100" alt="" width="50" class=" img-fluid">';})
-            ->addColumn('CompanyRegisterImage', function($data) { return '<img src="https://picsum.photos/100/100" alt="" width="50" class=" img-fluid">';})
+            ->addColumn('CompanyRegisterImage', function($data) {
+                return $this->fileColumn($data->CompanyRegisterImage);
+            })
+            ->addColumn('CommercialRegister', function($data) {
+                return $this->fileColumn($data->CommercialRegister);
+            })
+            ->addColumn('LeaseContract', function($data) {
+                return $this->fileColumn($data->LeaseContract);
+            })
+            ->addColumn('Attachment', function($data) {
+                return $this->fileColumn($data->Attachment);
+            })
             ->addColumn('action','admin.marketplaces.datatables_actions')
-            ->rawColumns(['Logo', 'CompanyRegisterImage','action']);
+            ->rawColumns([
+                'CompanyRegisterImage',
+                'CommercialRegister',
+                'LeaseContract',
+                'Attachment',
+                'action',
+                ]);
     }
 
     /**
@@ -38,7 +53,9 @@ class MarketplaceDataTable extends DataTable
     {
         return $model->newQuery();
     }
-
+    public function fileColumn($data){
+        return "<a class='btn btn-success' href='".asset($data == null ? "https://www.elegantthemes.com/blog/wp-content/uploads/2020/02/000-404.png" :'storage/'.$data)."' download> <i class='fa fa-save'></i> </a>";
+    }
     /**
      * Optional method if you want to use html builder.
      *
@@ -80,11 +97,11 @@ class MarketplaceDataTable extends DataTable
             new Column(['data'=>'Address', 'name'=>'Address' ,'title'=>__('Models/Marketplace.Address')]),
             new Column(['data'=>'TaxNumber', 'name'=>'TaxNumber' ,'title'=>__('Models/Marketplace.TaxNumber')]),
             new Column(['data'=>'Email', 'name'=>'Email' ,'title'=>__('Models/Marketplace.Email')]),
-            new Column(['data'=>'Latitude', 'name'=>'Latitude' ,'title'=>__('Models/Marketplace.Latitude')]),
-            new Column(['data'=>'Longitude', 'name'=>'Longitude' ,'title'=>__('Models/Marketplace.Longitude')]),
             new Column(['data'=>'SafeBalance', 'name'=>'SafeBalance' ,'title'=>__('Models/Marketplace.SafeBalance')]),
             new Column(['data'=>'CompanyRegisterImage', 'name'=>'CompanyRegisterImage' ,'title'=>__('Models/Marketplace.CompanyRegisterImage')]),
-            new Column(['data'=>'Logo', 'name'=>'Logo' ,'title'=>__('Models/Marketplace.Logo')]),
+            new Column(['data'=>'CommercialRegister', 'name'=>'CommercialRegister' ,'title'=>__("General.Marketplace.CommercialRegister")]),
+            new Column(['data'=>'LeaseContract', 'name'=>'LeaseContract' ,'title'=>__("General.Marketplace.LeaseContract")]),
+            new Column(['data'=>'Attachment', 'name'=>'Attachment' ,'title'=>__("General.Marketplace.Attachment")]),
 
 
 

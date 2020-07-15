@@ -73,7 +73,8 @@ class Product extends Model
         'Image',
         'ExpiryDate',
         'Barcode',
-        'UnlimitedQuantity'
+        'UnlimitedQuantity',
+        'ExcludeFromVAT'
     ];
 
 //protected $with= ['stock.marketplace:id' ];

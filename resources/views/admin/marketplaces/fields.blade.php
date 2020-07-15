@@ -41,17 +41,7 @@
     {!! Form::email('Email', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Latitude Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('Latitude', __('Models/Marketplace.Latitude')) !!}
-    {!! Form::text('Latitude', null, ['class' => 'form-control']) !!}
-</div>
 
-<!-- Longitude Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('Longitude', __('Models/Marketplace.Longitude')) !!}
-    {!! Form::text('Longitude', null, ['class' => 'form-control']) !!}
-</div>
 
 <!-- Safebalance Field -->
 <div class="form-group col-sm-6">
@@ -65,10 +55,18 @@
     {!! Form::file('CompanyRegisterImage', ['class' => 'form-control']) !!}
 </div>
 
-<!-- Logo Field -->
+
 <div class="form-group col-sm-6">
-    {!! Form::label('Logo', __('Models/Marketplace.Logo')) !!}
-    {!! Form::file('Logo', ['class' => 'form-control']) !!}
+    {!! Form::label('Attachment', "Attachment") !!}
+    {!! Form::file('Attachment', ['class' => 'form-control']) !!}
+</div>
+<div class="form-group col-sm-6">
+    {!! Form::label('CommercialRegister', "CommercialRegister") !!}
+    {!! Form::file('CommercialRegister', ['class' => 'form-control']) !!}
+</div>
+<div class="form-group col-sm-6">
+    {!! Form::label('LeaseContract', "LeaseContract") !!}
+    {!! Form::file('LeaseContract', ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

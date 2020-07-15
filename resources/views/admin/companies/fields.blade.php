@@ -15,6 +15,11 @@
     {!! Form::label('Country', __('Models/Companies.Country').':') !!}
     {!! Form::text('Country', null, ['class' => 'form-control']) !!}
 </div>
+<!-- Country Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('IBAN', __('General.Bank Account Number').':') !!}
+    {!! Form::text('IBAN', null, ['class' => 'form-control']) !!}
+</div>
 
 <!-- Phonenumber Field -->
 <div class="form-group col-sm-6">

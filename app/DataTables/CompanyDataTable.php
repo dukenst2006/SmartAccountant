@@ -92,6 +92,7 @@ class CompanyDataTable extends DataTable
             'Name' => new Column(['title' => __('Models/Companies.Name'), 'data' => 'Name']),
             'Address' => new Column(['title' => __('Models/Companies.Address'), 'data' => 'Address']),
             'Country' => new Column(['title' => __('Models/Companies.Country'), 'data' => 'Country']),
+            'IBAN' => new Column(['title' => __('General.Bank Account Number'), 'data' => 'IBAN']),
             'PhoneNumber' => new Column(['title' => __('Models/Companies.PhoneNumber'), 'data' => 'PhoneNumber']),
             'Description' => new Column(['title' => __('Models/Companies.Description'), 'data' => 'Description'])
         ];

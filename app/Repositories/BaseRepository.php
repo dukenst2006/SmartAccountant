@@ -246,7 +246,7 @@ abstract class BaseRepository
     public function StoreFile($file, $default = '')
     {
         if ($file != null) {
-            $img = Storage::disk('public')->put('images', $file);
+            $img = Storage::disk('public')->put('files', $file);
             return $img;
         } else {
             return $default;

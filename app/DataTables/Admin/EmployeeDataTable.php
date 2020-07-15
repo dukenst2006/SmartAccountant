@@ -25,13 +25,13 @@ class EmployeeDataTable extends DataTable
         return $dataTable
 
             ->addColumn('ProfileImage', function($data) {
-                return "<img src='".asset('storage/'.$data->ProfileImage)."' alt='' width='50' class=' img-fluid'>";
+                return $this->fileColumn($data->ProfileImage);
             })
             ->addColumn('IdentityImage', function($data) {
-                return "<img src='".asset('storage/'.$data->IdentityImage)."' alt='' width='50' class=' img-fluid'>";
+                return $this->fileColumn($data->IdentityImage);
             })
             ->addColumn('EmploymentContractImage', function($data) {
-                return "<img src='".asset('storage/'.$data->EmploymentContractImage)."' alt='' width='50' class=' img-fluid'>";
+                return $this->fileColumn($data->EmploymentContractImage);
             })
             ->addColumn('action', 'admin.employees.datatables_actions')
             ->rawColumns(['ProfileImage','IdentityImage','EmploymentContractImage','action'])
@@ -48,6 +48,9 @@ class EmployeeDataTable extends DataTable
     {
 
         return $model->newQuery();
+    }
+    public function fileColumn($data){
+        return "<a class='btn btn-success' href='".asset($data == null ? "https://www.elegantthemes.com/blog/wp-content/uploads/2020/02/000-404.png" :'storage/'.$data)."' download> <i class='fa fa-save'></i> </a>";
     }
 
     /**

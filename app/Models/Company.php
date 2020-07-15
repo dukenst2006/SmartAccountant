@@ -32,7 +32,8 @@ class Company extends Model
         'Address',
         'Country',
         'PhoneNumber',
-        'Description'
+        'Description',
+        'IBAN',
     ];
 
     /**

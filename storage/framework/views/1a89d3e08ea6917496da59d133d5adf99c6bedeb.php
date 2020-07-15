@@ -24,6 +24,14 @@
 </div>
 
 
+<!-- Marketplaceid Field -->
+<div class="form-group col-sm-6">
+    <?php echo Form::label('MarketplaceID', __('Models/Marketplace.Name')); ?>
+
+    <?php echo Form::select('MarketplaceID',$marketplaces, null,['class' => 'form-control']); ?>
+
+</div>
+
 
 
 <!-- Nationality Field -->
@@ -109,7 +117,7 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    <?php echo Form::submit(__('General.Create'), ['class' => 'btn btn-primary']); ?>
+    <?php echo Form::submit(__('Buttons.Create'), ['class' => 'btn btn-primary']); ?>
 
     <a href="<?php echo e(route('admin.employees.index')); ?>" class="btn btn-default"><?php echo e(__('Buttons.Cancel')); ?></a>
 </div>
