@@ -20,6 +20,6 @@ use Illuminate\Support\Str;
 $factory->define(Safe::class, function (Faker $faker) {
     return [
         'Balance' => $faker->numberBetween(20000,50000),
-        'MarketplacesID' => factory(App\Models\Marketplace::class),
+        'MarketplaceID' => factory(App\Models\Marketplace::class),
     ];
 });

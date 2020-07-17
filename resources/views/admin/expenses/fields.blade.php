@@ -1,7 +1,7 @@
-<!-- Marketplacesid Field -->
+<!-- MarketplaceID Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('MarketplacesID', __('Models/Marketplace.Name')) !!}
-    {!! Form::select('MarketplacesID',$market_places, null, ['class' => 'form-control']) !!}
+    {!! Form::label('MarketplaceID', __('Models/Marketplace.Name')) !!}
+    {!! Form::select('MarketplaceID',$market_places, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Expensescategoriesid Field -->

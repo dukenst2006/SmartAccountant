@@ -189,26 +189,26 @@
     },
     {
         "type": "relation",
-        "relation": "1tm,Expense,MarketplacesID"
+        "relation": "1tm,Expense,MarketplaceID"
     },
     {
         "type": "relation",
-        "relation": "1tm,Invoice,MarketplacesID"
+        "relation": "1tm,Invoice,MarketplaceID"
     },
     {
         "type": "relation",
-        "relation": "1tm,ProductCategory,MarketplacesID"
+        "relation": "1tm,ProductCategory,MarketplaceID"
     },
     {
         "type": "relation",
-        "relation": "1tm,Product,MarketplacesID"
+        "relation": "1tm,Product,MarketplaceID"
     },
     {
         "type": "relation",
-        "relation": "1tm,Safe,MarketplacesID"
+        "relation": "1tm,Safe,MarketplaceID"
     },
     {
         "type": "relation",
-        "relation": "1tm,Stock,MarketplacesID"
+        "relation": "1tm,Stock,MarketplaceID"
     }
 ]

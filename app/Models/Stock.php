@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Database\Eloquent\Collection $marketplace1s
  * @property \Illuminate\Database\Eloquent\Collection $products
  * @property integer $MarketplacesOwnerID
- * @property integer $MarketplacesID
+ * @property integer $MarketplaceID
  */
 class Stock extends Model
 {
@@ -30,7 +30,7 @@ class Stock extends Model
 
     public $fillable = [
         'MarketplacesOwnerID',
-        'MarketplacesID'
+        'MarketplaceID'
     ];
 
     /**
@@ -41,7 +41,7 @@ class Stock extends Model
     protected $casts = [
         'id' => 'integer',
         'MarketplacesOwnerID' => 'integer',
-        'MarketplacesID' => 'integer'
+        'MarketplaceID' => 'integer'
     ];
 
     /**

@@ -12,6 +12,23 @@
             <h3 class="card-title">{{__('Models/Warehouse.CardTitle')}}</h3>
         </div>
         <div class="card-body card-body table-responsive p-0">
+            <div class="col-md-12">
+                <p class="text-center">
+                    <strong>اعلي 10 كميات بالمخزن الرئيسي</strong>
+                </p>
+
+                <div class="chart text-center">
+
+
+                    <div id="chart" style="height: 300px; width: 1072px;" height="300" width="1072">
+
+                        {!! $chart->container() !!}
+
+                    </div>
+                </div>
+
+            </div>
+
 
             <div class="col-3 animated bounceInUp m-5">
 
@@ -63,3 +80,6 @@
 
 @endsection
 
+@section('customejs')
+    {!! $chart->script() !!}
+@endsection

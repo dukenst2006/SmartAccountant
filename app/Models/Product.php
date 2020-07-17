@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property User $user
  * @property Collection $invoiceItems
  * @property integer $UserID
- * @property integer $MarketplacesID
+ * @property integer $MarketplaceID
  * @property integer $ProductCategoryID
  * @property integer $ProductSubCategoryID
  * @property string $Name

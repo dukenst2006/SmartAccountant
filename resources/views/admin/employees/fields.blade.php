@@ -4,6 +4,7 @@
     {!! Form::text('Name', $employee->User->Name?? '' , ['class' => 'form-control' ]) !!}
 </div>
 
+
 <!-- UserPassword Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Password',__('/Models/User.Password')) !!}

@@ -12,10 +12,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @package App\Models
  * @version July 13, 2020, 1:26 pm UTC
  *
- * @property Marketplace $marketplacesid
+ * @property Marketplace $MarketplaceID
  * @property PaymentType $paymenttypeid
  * @property Collection $invoiceItems
- * @property integer $MarketplacesID
+ * @property integer $MarketplaceID
  * @property integer $UserID
  * @property number $Total
  * @property number $Paid
@@ -37,7 +37,7 @@ class Invoice extends Model
 
 
     public $fillable = [
-        'MarketplacesID',
+        'MarketplaceID',
         'UserID',
         'Total',
         'Paid',
@@ -55,7 +55,7 @@ class Invoice extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'MarketplacesID' => 'integer',
+        'MarketplaceID' => 'integer',
         'UserID' => 'integer',
         'Total' => 'float',
         'Paid' => 'float',
@@ -72,7 +72,7 @@ class Invoice extends Model
      * @var array
      */
     public static $rules = [
-        'MarketplacesID' => 'required',
+        'MarketplaceID' => 'required',
         'UserID' => 'required',
         'Total' => 'required',
         'Paid' => 'required',
@@ -86,7 +86,7 @@ class Invoice extends Model
      **/
     public function marketplace()
     {
-        return $this->belongsTo(Marketplace::class, 'MarketplacesID');
+        return $this->belongsTo(Marketplace::class, 'MarketplaceID');
     }
 
     /**

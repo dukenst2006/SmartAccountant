@@ -18,7 +18,7 @@ class InventoryRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'MarketplacesID',
+        'MarketplaceID',
         'WarehouseID'
     ];
 

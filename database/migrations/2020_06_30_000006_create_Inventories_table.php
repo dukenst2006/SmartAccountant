@@ -15,12 +15,12 @@ class CreateInventoriesTable extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('MarketplacesID');
+            $table->unsignedBigInteger('MarketplaceID');
             $table->unsignedBigInteger('WarehouseID');
             $table->timestamps();
 
 
-            $table->foreign('MarketplacesID')->references('id')->on('marketplaces')->onDelete('cascade');
+            $table->foreign('MarketplaceID')->references('id')->on('marketplaces')->onDelete('cascade');
             $table->foreign('WarehouseID')->references('id')->on('warehouses')->onDelete('cascade');
         });
 

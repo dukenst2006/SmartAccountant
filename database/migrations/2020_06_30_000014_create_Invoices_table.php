@@ -15,7 +15,7 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('MarketplacesID');
+            $table->unsignedBigInteger('MarketplaceID');
             $table->unsignedBigInteger('UserID');
             $table->string('CustomerName')->nullable();
             $table->string('acc_number')->nullable();
@@ -26,7 +26,7 @@ class CreateInvoicesTable extends Migration
             $table->boolean('IsRaw')->default(false);
             $table->string('RawFile')->nullable()->default('');
             $table->timestamps();
-            $table->foreign('MarketplacesID')->references('id')->on('marketplaces')->onDelete('cascade');
+            $table->foreign('MarketplaceID')->references('id')->on('marketplaces')->onDelete('cascade');
             $table->foreign('PaymentTypeID')->references('id')->on('payment_types')->onDelete('cascade');
         });
     }

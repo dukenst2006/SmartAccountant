@@ -17,7 +17,7 @@ class ProductCategoryRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'MarketplacesID',
+        'MarketplaceID',
         'Name'
     ];
 

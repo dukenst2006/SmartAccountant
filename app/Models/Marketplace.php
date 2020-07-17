@@ -127,7 +127,7 @@ class Marketplace extends Model
      **/
     public function expenses()
     {
-        return $this->hasMany(\App\Models\Expense::class, 'MarketplacesID');
+        return $this->hasMany(\App\Models\Expense::class, 'MarketplaceID');
     }
 
     /**
@@ -135,7 +135,7 @@ class Marketplace extends Model
      **/
     public function expensesCategories()
     {
-        return $this->hasMany(\App\Models\ExpensesCategory::class, 'MarketplacesID');
+        return $this->hasMany(\App\Models\ExpensesCategory::class, 'MarketplaceID');
     }
 
     /**
@@ -143,7 +143,7 @@ class Marketplace extends Model
      **/
     public function invoices()
     {
-        return $this->hasMany(\App\Models\Invoice::class, 'MarketplacesID');
+        return $this->hasMany(\App\Models\Invoice::class, 'MarketplaceID');
     }
 
     /**
@@ -151,7 +151,7 @@ class Marketplace extends Model
      **/
     public function productCategories()
     {
-        return $this->hasMany(\App\Models\ProductCategory::class, 'MarketplacesID');
+        return $this->hasMany(\App\Models\ProductCategory::class, 'MarketplaceID');
     }
 
 

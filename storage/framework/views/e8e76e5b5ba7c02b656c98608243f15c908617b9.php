@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title', 'Stocks'); ?>
 
 <?php $__env->startSection('content_header'); ?>
@@ -11,6 +12,24 @@
             <h3 class="card-title"><?php echo e(__('Models/Warehouse.CardTitle')); ?></h3>
         </div>
         <div class="card-body card-body table-responsive p-0">
+            <div class="col-md-12">
+                <p class="text-center">
+                    <strong>اعلي 10 كميات بالمخزن الرئيسي</strong>
+                </p>
+
+                <div class="chart text-center">
+
+
+                    <div id="chart" style="height: 300px; width: 1072px;" height="300" width="1072">
+
+                        <?php echo $chart->container(); ?>
+
+
+                    </div>
+                </div>
+
+            </div>
+
 
             <div class="col-3 animated bounceInUp m-5">
 
@@ -63,5 +82,9 @@
 
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('customejs'); ?>
+    <?php echo $chart->script(); ?>
+
+<?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\Laravel-Projects\Smart Accountant\resources\views/admin/warehouses/index.blade.php ENDPATH**/ ?>

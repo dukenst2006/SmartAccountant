@@ -10,10 +10,10 @@ use Eloquent as Model;
  * @package App\Models
  * @version July 6, 2020, 6:10 am UTC
  *
- * @property \App\Models\Marketplace $marketplacesid
+ * @property \App\Models\Marketplace $MarketplaceID
  * @property \Illuminate\Database\Eloquent\Collection $expenses
  * @property \Illuminate\Database\Eloquent\Collection $expensesSubCategories
- * @property integer $MarketplacesID
+ * @property integer $MarketplaceID
  * @property string $Name
  */
 class ExpensesCategory extends Model
@@ -28,7 +28,7 @@ class ExpensesCategory extends Model
 
 
     public $fillable = [
-        'MarketplacesID',
+        'MarketplaceID',
         'Name'
     ];
 
@@ -39,7 +39,7 @@ class ExpensesCategory extends Model
      */
     protected $casts = [
         'ID' => 'integer',
-        'MarketplacesID' => 'integer',
+        'MarketplaceID' => 'integer',
         'Name' => 'string'
     ];
 
@@ -49,16 +49,16 @@ class ExpensesCategory extends Model
      * @var array
      */
     public static $rules = [
-        'MarketplacesID' => 'required',
+        'MarketplaceID' => 'required',
         'Name' => 'required'
     ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function marketplacesid()
+    public function MarketplaceID()
     {
-        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplacesID');
+        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplaceID');
     }
 
     /**

@@ -46,6 +46,13 @@
     <?php echo Form::number('PurchasingPrice', null, ['class' => 'form-control']); ?>
 
 </div>
+<!-- ExcludeFromVAT Field -->
+<div class="form-group col-sm-6">
+    <?php echo Form::label('ExcludeFromVAT',  __('General.Product.ExcludeFromVAT')); ?>
+
+    <?php echo Form::checkbox('ExcludeFromVAT', 1,null, ['class' => '']); ?>
+
+</div>
 
 <!-- Sellingprice Field -->
 <div class="form-group col-sm-6">

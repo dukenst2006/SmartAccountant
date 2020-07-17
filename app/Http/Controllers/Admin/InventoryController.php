@@ -55,7 +55,7 @@ class InventoryController extends AppBaseController
 
 
         $inventoriesCharts->labels(collect($inventories->items())->pluck(['marketplace'])->collect()->pluck('Name'));
-            $inventoriesCharts->dataset('الخسائر', 'pie', collect($inventories->items())->pluck('products_count'))->backgroundcolor($backgroundColor);
+            $inventoriesCharts->dataset('المنتجات', 'pie', collect($inventories->items())->pluck('products_count'))->backgroundcolor($backgroundColor);
 
 
 

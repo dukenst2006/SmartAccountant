@@ -303,13 +303,28 @@ return [/*
                             'icon' => 'fas fa-fw fa-layer-group',
                         ],
                     ],
-                ]
+                ],
+
+
+
 
 
             ],
 
 
+
         ],
+
+        [
+
+            'text' => 'messages',
+            'icon' => 'fas fa fa-comments',
+            'route'=>'admin.chat',
+            'icon_color' => 'green',
+
+        ],
+
+
 
         ['header' => 'PublicAdministration'],
         [

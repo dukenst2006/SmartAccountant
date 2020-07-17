@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Factory;
 
 $factory->define(ExpensesCategory::class, function (Faker $faker) {
     return [
-        'MarketplacesID' => factory(\App\Models\Marketplace::class),
+        'MarketplaceID' => factory(\App\Models\Marketplace::class),
         'Name' => $faker->sentence(4)
     ];
 });

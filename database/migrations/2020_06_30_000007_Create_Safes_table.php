@@ -15,11 +15,11 @@ class CreateSafesTable extends Migration
     {
         Schema::create('safes', function (Blueprint $table) {
             $table->bigIncrements('ID');
-            $table->unsignedBigInteger('MarketplacesID');
+            $table->unsignedBigInteger('MarketplaceID');
             $table->double('Balance');
             $table->timestamps();
 
-            $table->foreign('MarketplacesID')->references('ID')->on('marketplaces')->onDelete('cascade');
+            $table->foreign('MarketplaceID')->references('ID')->on('marketplaces')->onDelete('cascade');
 
         });
     }

@@ -137,6 +137,9 @@
       <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
       <path value="$PROJECT_DIR$/vendor/raggitech/laravel-readable" />
       <path value="$PROJECT_DIR$/vendor/raggitech/laravel-currency" />
+      <path value="$PROJECT_DIR$/vendor/musonza/chat" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-fractal" />
+      <path value="$PROJECT_DIR$/vendor/spatie/fractalistic" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

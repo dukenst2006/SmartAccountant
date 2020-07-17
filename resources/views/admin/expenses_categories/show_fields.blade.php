@@ -1,7 +1,7 @@
-<!-- Marketplacesid Field -->
+<!-- MarketplaceID Field -->
 <div class="form-group">
-    {!! Form::label('MarketplacesID', 'Marketplacesid:') !!}
-    <p>{{ $expensesCategory->MarketplacesID }}</p>
+    {!! Form::label('MarketplaceID', 'MarketplaceID:') !!}
+    <p>{{ $expensesCategory->MarketplaceID }}</p>
 </div>
 
 <!-- Name Field -->

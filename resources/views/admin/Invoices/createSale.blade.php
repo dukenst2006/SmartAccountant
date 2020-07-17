@@ -7,34 +7,32 @@
 
 @section('content')
 
-    <div class="row justify-content-center animated bounceInLeft">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">المنتجات</h3>
-                </div>
-                <div class="card-body overflow-auto" style="max-height: 200px;">
-                    <div class="card-body">
-                        <div class="form-group col-md-12">
-                            <label for="productselection">
-                                Products
-                            </label>
-                            <select class="form-control select2-selection--single" id="productselection"></select>
-                        </div>
 
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div>
-    </div>
 
     <div id="root">
 
+        <div class="row justify-content-center animated bounceInLeft">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">الاصناف</h3>
+                    </div>
+                    <div class="card-body overflow-auto" style="max-height: 200px;">
+                        @foreach ($products as $product)
+                            <button id="#"
+                                    style="direction: rtl; margin: 3px; font-family: cairo,serif; font-weight: 700;"
+                                    class="btn animated btn-success  btn-lg"
+                                    @click="addNewRow">
+                                {{$product->Name}}
+                                <i class="fas fa-fw fa-plus-circle"></i>
+                            </button>
+                        @endforeach
+                    </div>
 
 
+                </div>
+            </div>
+        </div>
         <div class="row animated bounceInUp">
             <div class="col-12">
                 <div class="card" style="font-family: 'Cairo', sans-serif;font-weight: 900;">
@@ -213,66 +211,6 @@
 @stop
 
 @section('customejs')
-    <script>
-        var _token = "{{ csrf_token() }}";
-        $.ajaxSetup({headers: {'csrftoken': '{{ csrf_token() }}'}});
-        $.fn.select2.defaults.set( "theme", "bootstrap" );
-        $('#productselection').select2({
-            theme: "bootstrap",
-            width: null,
-            containerCssClass: ':all:',
-            cache: true,
-            ajax: {
-                placeholder: 'Search for a Products',
-                url: '{{route('product.LiveSearch')}}',
-                dataType: 'json',
-
-                data: function (params) {
-                    var query = {
-                        q: params.term,
-                    };
-                    return query;
-                },
-                processResults: function (data) {
-                    return {
-                        results: data.results,
-                    };
-                },
-            },
-            templateResult: formatRepo,
-            minimumInputLength: 1,
-        });
-        function formatRepo(product) {
-            if (product.loading) {
-                return product.name;
-            }
-            var $container = $(
-                "<div class='select2-result-Product clearfix'>" + "<i class='float-right fas fa-plus text-green'></i>" +
-                "<div class='select2-result-Product__name'></div>" +
-                "<div class='select2-result-Product__barcode'></div>" +
-                "</div>"
-            );
-            $container.find(".select2-result-Product__name").text('Name : ' + product.Name);
-            $container.find(".select2-result-Product__barcode").text('Barcode : ' + product.Barcode);
-            return $container;
-        }
-
-        $("#productselection").on('select2:select', function (selection) {
-            document.getElementById('root').__vue__.invoice_products.push({
-                product_no: selection.params.data.id,
-                product_name: selection.params.data.Name,
-                product_price: selection.params.data.SellingPrice,
-                product_qty: 1,
-                line_total:selection.params.data.SellingPrice,
-            });
-
-
-
-        });
-
-
-    </script>
-
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 

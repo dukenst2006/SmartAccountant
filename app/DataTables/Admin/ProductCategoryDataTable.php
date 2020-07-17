@@ -65,7 +65,7 @@ class ProductCategoryDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'MarketplacesID',
+            'MarketplaceID',
             'Name'
         ];
     }

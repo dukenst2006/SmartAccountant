@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\DataTables\Admin\ProductDataTable;
-use App\Http\Requests\Admin;
 use App\Http\Requests\Admin\CreateProductRequest;
 use App\Http\Requests\Admin\UpdateProductRequest;
-use App\product;
-use App\Repositories\Admin\ProductRepository;
+use App\Repositories\ProductRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Contracts\View\Factory;

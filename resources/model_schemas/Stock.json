@@ -24,7 +24,7 @@
         "inView": true
     },
     {
-        "name": "MarketplacesID",
+        "name": "MarketplaceID",
         "dbType": "bigInteger,false,true",
         "htmlType": null,
         "validations": null,
@@ -61,7 +61,7 @@
     },
     {
         "type": "relation",
-        "relation": "mt1,Marketplace,MarketplacesID"
+        "relation": "mt1,Marketplace,MarketplaceID"
     },
     {
         "type": "relation",

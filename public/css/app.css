@@ -18165,6 +18165,10 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
   color: #343a40;
 }
 
+.navbar-nav {
+  flex-wrap: wrap;
+}
+
 .brand-link {
   display: block;
   font-size: 1.25rem;
@@ -27049,7 +27053,7 @@ html.maximized-card {
 
 .login-box,
 .register-box {
-  margin: auto;
+  width: 360px;
 }
 
 @media (max-width: 576px) {
@@ -27065,6 +27069,7 @@ html.maximized-card {
   background: #ffffff;
   border-top: 0;
   color: #666;
+  padding: 20px;
 }
 
 .login-card-body .input-group .form-control,

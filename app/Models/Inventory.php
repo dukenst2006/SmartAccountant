@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Marketplace $marketplaces
  * @property Warehouse $warehouse
  * @property Collection $products
- * @property integer $MarketplacesID
+ * @property integer $MarketplaceID
  * @property integer $WarehouseID
  */
 class Inventory extends Model
@@ -30,7 +30,7 @@ class Inventory extends Model
 
 
     public $fillable = [
-        'MarketplacesID',
+        'MarketplaceID',
         'WarehouseID'
     ];
 
@@ -42,7 +42,7 @@ class Inventory extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'MarketplacesID' => 'integer',
+        'MarketplaceID' => 'integer',
         'WarehouseID' => 'integer'
     ];
 
@@ -52,7 +52,7 @@ class Inventory extends Model
      * @var array
      */
     public static $rules = [
-        'MarketplacesID' => 'required',
+        'MarketplaceID' => 'required',
         'WarehouseID' => 'required'
     ];
 
@@ -61,7 +61,7 @@ class Inventory extends Model
      **/
     public function marketplace()
     {
-        return $this->belongsTo(Marketplace::class, 'MarketplacesID');
+        return $this->belongsTo(Marketplace::class, 'MarketplaceID');
     }
 
     /**

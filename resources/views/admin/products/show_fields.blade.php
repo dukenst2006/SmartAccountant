@@ -4,10 +4,10 @@
     <p>{{ $product->UserID }}</p>
 </div>
 
-<!-- Marketplacesid Field -->
+<!-- MarketplaceID Field -->
 <div class="form-group">
-    {!! Form::label('MarketplacesID', 'Marketplacesid:') !!}
-    <p>{{ $product->MarketplacesID }}</p>
+    {!! Form::label('MarketplaceID', 'MarketplaceID:') !!}
+    <p>{{ $product->MarketplaceID }}</p>
 </div>
 
 <!-- Productcategoryid Field -->

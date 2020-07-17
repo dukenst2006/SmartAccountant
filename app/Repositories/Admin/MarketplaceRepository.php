@@ -68,7 +68,7 @@ class MarketplaceRepository extends BaseRepository
 
 
         $model->save();
-        Inventory::create(['MarketplacesID'=>$model->id , 'WarehouseID'=> Warehouse::find($this->GetMyOwner())->id ]);
+        Inventory::create(['MarketplaceID'=>$model->id , 'WarehouseID'=> Warehouse::find($this->GetMyOwner())->id ]);
         return $model;
     }
 

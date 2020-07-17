@@ -3,18 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Expense
-
  * @package App\Models
-
  * @version July 6, 2020, 6:04 am UTC
  *
  * @property \App\Models\ExpensesCategory $expensescategoriesid
- * @property \App\Models\ExpensesSubCategory $expensessubcategoriesid
- * @property \App\Models\Marketplace $marketplacesid
- * @property integer $MarketplacesID
+ * @property ExpensesSubCategory $expensessubcategoriesid
+ * @property Marketplace $Marketplace
  * @property integer $ExpensesCategoriesID
  * @property integer $ExpensesSubCategoriesID
  * @property string $Name
@@ -34,7 +32,7 @@ class Expense extends Model
 
 
     public $fillable = [
-        'MarketplacesID',
+        'MarketplaceID',
         'ExpensesCategoriesID',
         'ExpensesSubCategoriesID',
         'Name',
@@ -50,7 +48,7 @@ class Expense extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'MarketplacesID' => 'integer',
+        'MarketplaceID' => 'integer',
         'ExpensesCategoriesID' => 'integer',
         'ExpensesSubCategoriesID' => 'integer',
         'Name' => 'string',
@@ -65,7 +63,7 @@ class Expense extends Model
      * @var array
      */
     public static $rules = [
-        'MarketplacesID' => 'required',
+        'MarketplaceID' => 'required',
         'ExpensesCategoriesID' => 'required',
         'Name' => 'required',
         'Price' => 'required',
@@ -75,7 +73,7 @@ class Expense extends Model
 
     protected $with = ['marketplace:id,Name', 'expensescategory:id,Name', 'expensessubcategory:id,Name'];
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
     public function expensescategory()
     {
@@ -83,18 +81,18 @@ class Expense extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
     public function expensessubcategory()
     {
-        return $this->belongsTo(\App\Models\ExpensesSubCategory::class, 'ExpensesSubCategoriesID');
+        return $this->belongsTo(ExpensesSubCategory::class, 'ExpensesSubCategoriesID');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      **/
     public function marketplace()
     {
-        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplacesID');
+        return $this->belongsTo(Marketplace::class, 'MarketplaceID');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Http\Resources\MarketPlaceResource;
 use App\Models\Employee;
+use App\Models\Marketplace;
 use App\Models\MarketplaceOwner;
 use App\Models\Marketplaces;
 use App\Models\Supervisor;
@@ -271,6 +272,20 @@ abstract class BaseRepository
 
 
     }
+
+
+
+
+    /**
+     * Get The OwnerID Even If he is himself
+     */
+    public function GetOwnerMarketplaces()
+    {
+     return Marketplace::where('MarketplaceOwnerID', $this->GetMyOwner())->get();
+
+
+    }
+
 
 
 }

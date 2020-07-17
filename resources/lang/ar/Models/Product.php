@@ -5,7 +5,7 @@ use Yajra\DataTables\Html\Column;
 return [
 
     'UserID' => 'معرف المستخدم',
-    'MarketplacesID' => "معرّف الأسواق",
+    'MarketplaceID' => "معرّف الأسواق",
     'ProductCategoryID' => "التنصيف الأساسي",
     'ProductSubCategoryID' => "التنصيف الفرعي",
     'Name' => 'اسم',

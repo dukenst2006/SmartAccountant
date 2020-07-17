@@ -18,7 +18,7 @@ class StockRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'MarketplacesOwnerID',
-        'MarketplacesID'
+        'MarketplaceID'
     ];
 
     /**

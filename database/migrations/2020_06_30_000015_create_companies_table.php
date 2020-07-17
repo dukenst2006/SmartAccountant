@@ -15,14 +15,16 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('UserID');
+            $table->unsignedBigInteger('MarketplaceOwnerID');
             $table->string('Name');
             $table->string('Address');
             $table->string('Country');
             $table->string('PhoneNumber');
             $table->string('Description')->nullable();
-            $table->foreign('UserID')->references('id')->on('users');
+            $table->string('IBAN')->nullable();
             $table->timestamps();
+
+            $table->foreign('MarketplaceOwnerID')->references('id')->on('marketplace_owners')->onDelete('cascade');
         });
     }
 

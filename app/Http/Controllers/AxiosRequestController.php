@@ -36,7 +36,7 @@ class AxiosRequestController extends Controller
         $invs = array();
         foreach ($paymentTypes as $p){
             foreach ($invoices as $i){
-                if (Carbon::parse($i->created_at)->diffInHours()  < 2 && $i->MarketplacesID == $request['ID']&& $p->id == $i->PaymentTypeID){
+                if (Carbon::parse($i->created_at)->diffInHours()  < 2 && $i->MarketplaceID == $request['ID']&& $p->id == $i->PaymentTypeID){
                     $invs[$counter] = $i;
                     $counter++;
                     break;
@@ -52,7 +52,7 @@ class AxiosRequestController extends Controller
         $invs = array();
         foreach ($paymentTypes as $p){
             foreach ($invoices as $i){
-                if ($i->created_at->format('d') + 1 ==  Carbon::now()->format('d') && $i->MarketplacesID == $request->get('ID') && $p->id == $i->PaymentTypeID){
+                if ($i->created_at->format('d') + 1 ==  Carbon::now()->format('d') && $i->MarketplaceID == $request->get('ID') && $p->id == $i->PaymentTypeID){
                     $invs[$counter] = $i;
                     $counter++;
                     break;

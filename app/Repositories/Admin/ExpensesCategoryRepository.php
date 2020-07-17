@@ -17,7 +17,7 @@ class ExpensesCategoryRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'MarketplacesID',
+        'MarketplaceID',
         'Name'
     ];
 

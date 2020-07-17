@@ -22,7 +22,7 @@ $factory->define(Expense::class, function (Faker $faker) {
 
     return [
 
-            'MarketplacesID' => factory(\App\Models\Marketplace::class),
+            'MarketplaceID' => factory(\App\Models\Marketplace::class),
             'ExpensesCategoriesID' => factory(App\Models\ExpensesCategory::class),
             'ExpensesSubCategoriesID' => factory(App\Models\ExpensesSubCategory::class),
             'Name' =>$faker->sentence(3),

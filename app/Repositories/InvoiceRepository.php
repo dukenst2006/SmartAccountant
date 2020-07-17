@@ -17,7 +17,7 @@ class InvoiceRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'MarketplacesID',
+        'MarketplaceID',
         'UserID',
         'Total',
         'Paid',

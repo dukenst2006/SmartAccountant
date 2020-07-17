@@ -3,10 +3,10 @@
 return array (
   'singular' => 'Invoice',
   'plural' => 'Invoices',
-  'fields' => 
+  'fields' =>
   array (
     'id' => 'Id',
-    'MarketplacesID' => 'Marketplacesid',
+    'MarketplaceID' => 'MarketplaceID',
     'UserID' => 'Userid',
     'Total' => 'Total',
     'Paid' => 'Paid',

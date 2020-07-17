@@ -3,10 +3,10 @@
 return array (
   'singular' => 'Inventory',
   'plural' => 'Inventories',
-  'fields' => 
+  'fields' =>
   array (
     'id' => 'Id',
-    'MarketplacesID' => 'Marketplacesid',
+    'MarketplaceID' => 'MarketplaceID',
     'WarehouseID' => 'Warehouseid',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',

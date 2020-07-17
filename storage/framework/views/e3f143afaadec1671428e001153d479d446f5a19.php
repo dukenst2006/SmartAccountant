@@ -6,6 +6,7 @@
 
 </div>
 
+
 <!-- UserPassword Field -->
 <div class="form-group col-sm-6">
     <?php echo Form::label('Password',__('/Models/User.Password')); ?>

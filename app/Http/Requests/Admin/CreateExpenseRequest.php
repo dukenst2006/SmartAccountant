@@ -30,7 +30,7 @@ class CreateExpenseRequest extends FormRequest
     public function attributes()
     {
         return [
-            'MarketplacesID' => "الفرع",
+            'MarketplaceID' => "الفرع",
             'ExpensesCategoriesID' =>__('expenses.expenses_category'),
             'Name' => "الاسم",
             'Price' => "السعر",

@@ -3,7 +3,7 @@
         <tr>
             <th class="text-center">Marketplacesownerid</th>
 
-        <th class="text-center">Marketplacesid</th>
+        <th class="text-center">MarketplaceID</th>
 
 
         <th tabindex="0" rowspan="1" class="text-center" style="min-width: 180px;">Action</th>
@@ -14,7 +14,7 @@
         <tr>
             <td class="text-center">{{ $stock->MarketplacesOwnerID }}</td>
 
-            <td class="text-center">{{ $stock->MarketplacesID }}</td>
+            <td class="text-center">{{ $stock->MarketplaceID }}</td>
 
             <td>
 
