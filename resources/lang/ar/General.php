@@ -45,7 +45,5 @@ return [
         'Branch'    =>  "فرع",
         'Companies' =>  "الشركات",
     ],
-    'Product'   =>  [
-        'ExcludeFromVAT'    =>  'المنتج ليس خاضع لضريبة القيمة المضافة'
-    ]
+
 ];

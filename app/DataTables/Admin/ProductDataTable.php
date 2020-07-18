@@ -25,7 +25,7 @@ class ProductDataTable extends DataTable
             ->addColumn('Image', function ($data) {
                 return '<img src="https://picsum.photos/100/100" alt="" width="50" class=" img-fluid">';
             })
-            ->addColumn(__('Buttons.Action'), 'admin.products.datatables_actions')
+            ->addColumn('action', 'admin.products.datatables_actions')
             ->rawColumns(['Image', 'action']);
     }
 
@@ -84,7 +84,7 @@ class ProductDataTable extends DataTable
             new Column(['data' => 'Image', 'name' => 'Image', 'title' => __('Models/Product.Image')]),
             new Column(['data' => 'ExpiryDate', 'name' => 'ExpiryDate', 'title' => __('Models/Product.ExpiryDate')]),
             new Column(['data' => 'Barcode', 'name' => 'Barcode', 'title' => __('Models/Product.Barcode')]),
-            new Column(['data' => 'ExcludeFromVAT', 'name' => 'ExcludeFromVAT', 'title' => __('General.Product.ExcludeFromVAT')]),
+            new Column(['data' => 'ExcludeFromVAT', 'name' => 'ExcludeFromVAT', 'title' => __('Models/Product.ExcludeFromVAT')]),
             new Column([ 'data' => 'UnlimitedQuantity', 'name' => 'UnlimitedQuantity', 'title' => __('Models/Product.UnlimitedQuantity') ]),
         ];
     }
