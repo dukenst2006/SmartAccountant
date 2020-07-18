@@ -48,6 +48,11 @@
                                 <input type="file" name="Logo" id="logo_pic" class="form-control">
                             </div>
 
+                            <div class="form-group col-sm-6">
+                                {!! Form::label('Logo',  __('Models/Product.Image')) !!}
+                                {!! Form::file('Logo', ['class' => 'form-control']) !!}
+                            </div>
+
                             <div class="form-group col-md-6">
                                 <label for="phone">{{__('adminPanel.phone')}}</label>
                                 <input type="number" name="PhoneNumber" id="phone" class="form-control" value="{{$setting->PhoneNumber}}">

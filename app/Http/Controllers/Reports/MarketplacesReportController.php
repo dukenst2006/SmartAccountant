@@ -22,14 +22,24 @@ class MarketplacesReportController extends AppBaseController
     public function index()
     {
 
+
+// Last Year
+
+// LastMonth
         $marketplaces=  $this->invoiceRepository->GetOwnerMarketplaces();
 
-        $invoices =  Invoice::whereIn('MarketplacesID' , $marketplaces->pluck('id'))->where('IsRaw',false)->get();
+        $invoices =  Invoice::whereIn('MarketplacesID' , $marketplaces->pluck('id'))->where('IsRaw',false)
+            ->whereYear('created_at', '=', now()->year)
+            ->whereMonth('created_at', '=', now()->month)->get();
              $invoices->sum('Total');
 
         $chart = new ProductChart ;
-        $chart->labels(['pr1','pr1','pr1','pr1','pr1','pr1','pr1',]);
-        $chart->dataset('المنتجات', 'line',[10000, 9000,8000,7000,6000,5000,4000,3000,2000,1000])->backgroundcolor("rgba(0, 0, 0, 0.1)")->color("rgb(153, 102, 255)")->fill(false);
+       $chart->labels(['18th', '20th', '22nd', '24th', '26th', '28th', '30th']);
+
+       foreach ($marketplaces as $marketplace)
+        $chart->dataset($marketplace->Name, 'line',[100, 120, 170, 167, 180, 177, 160])->color("rgb(153, 102, 255)");
+
+     //   $chart->dataset('2', 'line',[60, 80, 70, 67, 80, 77, 100])->color("rgb(153, 100, 255)");
 
 
         return view('admin.Reports.marketplaces')->with(['chart'=>$chart]);

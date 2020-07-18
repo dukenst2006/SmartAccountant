@@ -18,7 +18,7 @@ class ProductSubCategoryDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'admin.product_sub_categories.datatables_actions');
+        return $dataTable->addColumn(__('Buttons.Action'), 'admin.product_sub_categories.datatables_actions');
     }
 
     /**

@@ -19,7 +19,7 @@ class CompanyDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'admin.companies.datatables_actions');
+        return $dataTable->addColumn(__('Buttons.Action'), 'admin.companies.datatables_actions');
     }
 
     /**

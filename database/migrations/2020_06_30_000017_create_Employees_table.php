@@ -17,7 +17,6 @@ class CreateEmployeesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('UserID');
             $table->unsignedBigInteger('MarketplaceOwnerID');
-            $table->unsignedBigInteger('MarketplaceID');
             $table->string('Nationality');
             $table->string('JobTitle');
             $table->string('NationalID');

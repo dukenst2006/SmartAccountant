@@ -50,7 +50,7 @@ class Supervisor extends Model
      * @var array
      */
     public static $rules = [
-        'MarketplaceOwnerID' => 'required',
+
         'PhoneNumber' => 'required'
     ];
 

@@ -4,6 +4,7 @@ namespace App\Repositories\Admin;
 
 use App\Models\Supervisor;
 use App\Repositories\BaseRepository;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class SupervisorRepository
@@ -52,6 +53,21 @@ class SupervisorRepository extends BaseRepository
         return $model;
     }
 
+    /**
+     * Create model record
+     *
+     * @param  array  $input
+     *
+     * @return Model
+     */
+    public function create($input)
+    {
+        $model = $this->model->newInstance($input);
+        $model->MarketplaceOwnerID = $this->GetMyOwner();
+        $model->save();
+
+        return $model;
+    }
 
 
 

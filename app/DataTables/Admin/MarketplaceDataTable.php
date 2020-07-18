@@ -33,13 +33,13 @@ class MarketplaceDataTable extends DataTable
             ->addColumn('Attachment', function($data) {
                 return $this->fileColumn($data->Attachment);
             })
-            ->addColumn('action','admin.marketplaces.datatables_actions')
+            ->addColumn(__('Buttons.Action'),'admin.marketplaces.datatables_actions')
             ->rawColumns([
                 'CompanyRegisterImage',
                 'CommercialRegister',
                 'LeaseContract',
                 'Attachment',
-                'action',
+                __('Buttons.Action'),
                 ]);
     }
 

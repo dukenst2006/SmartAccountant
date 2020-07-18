@@ -18,7 +18,7 @@ class ExpensesSubCategoryDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'admin.expenses_sub_categories.datatables_actions');
+        return $dataTable->addColumn(__('Buttons.Action'), 'admin.expenses_sub_categories.datatables_actions');
     }
 
     /**

@@ -19,7 +19,7 @@ class SupplierDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'admin.suppliers.datatables_actions');
+        return $dataTable->addColumn(__('Buttons.Action'), 'admin.suppliers.datatables_actions');
     }
 
     /**

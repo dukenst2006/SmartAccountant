@@ -18,7 +18,7 @@ class SupervisourDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'admin.supervisours.datatables_actions');
+        return $dataTable->addColumn(__('Buttons.Action'), 'admin.supervisours.datatables_actions');
     }
 
     /**

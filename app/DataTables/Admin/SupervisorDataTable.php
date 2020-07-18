@@ -19,7 +19,7 @@ class SupervisorDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'admin.supervisors.datatables_actions');
+        return $dataTable->addColumn(__('Buttons.Action'), 'admin.supervisors.datatables_actions');
     }
 
     /**
@@ -89,6 +89,7 @@ class SupervisorDataTable extends DataTable
         return [
             new Column(['data'=>'id', 'name'=>'id' ,'title'=>'#']),
             new Column(['data'=>'user.Name', 'name'=>'user.Name' ,'title'=>__('Models/User.Name')]),
+            new Column(['data'=>'PhoneNumber', 'name'=>'PhoneNumber','title'=>__('Models/Supervisor.JobTitle')]),
             new Column(['data'=>'PhoneNumber', 'name'=>'PhoneNumber','title'=>__('Models/Supervisor.PhoneNumber')]),
 
 

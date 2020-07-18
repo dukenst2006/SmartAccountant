@@ -10,7 +10,6 @@
 
     <div id="root">
 
-
         <div class="row justify-content-center animated bounceInLeft">
             <div class="col-md-8">
                 <div class="card">

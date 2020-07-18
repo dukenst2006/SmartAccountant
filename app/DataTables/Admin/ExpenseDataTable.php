@@ -19,7 +19,7 @@ class ExpenseDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'admin.expenses.datatables_actions');
+        return $dataTable->addColumn(__('Buttons.Action'), 'admin.expenses.datatables_actions');
     }
 
     /**

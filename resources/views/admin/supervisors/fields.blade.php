@@ -17,12 +17,13 @@
     {!! Form::email('Email', $supervisor->User->Email?? '' , ['class' => 'form-control']) !!}
 </div>
 
-
-<!-- Marketplaceid Field -->
+<!-- Jobtitle Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('MarketplaceID', __('Models/Marketplace.Name')) !!}
-    {!! Form::select('MarketplaceID',$marketplaces, null,['class' => 'form-control']) !!}
+    {!! Form::label('JobTitle', __('Models/Supervisor.JobTitle')) !!}
+    {!! Form::text('JobTitle', null, ['class' => 'form-control']) !!}
 </div>
+
+
 
 <!-- Phonenumber Field -->
 <div class="form-group col-sm-6">

@@ -651,3 +651,56 @@ body:not(.sidebar-mini-md) {
             min-width: 250px;
     }
 }
+
+
+/* chat*/
+.chat-syb {
+    height: 85vh;
+}
+.bdg-num {
+    height: 30px;
+    width: 30px;
+    background-color: #fc8368;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 80%;
+}
+.main-chat-usr {
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+.urs-img-ch {
+    width: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.contact-chat-list {
+    direction: ltr;
+    padding: 10px;
+    background-color: #ffffffd9;
+    box-shadow: 1px 1px 3px #DDD, -1px -1px 3px #DDD;
+    border-radius: 16px;
+    margin: 10px 3px;
+}
+
+.chat-syb2 {
+    height: 68vh;
+}
+.more-cht-btn {
+    display: block;
+    width: 100%;
+    margin: auto;
+    padding: 5px 10px;
+    background-color: #fc8368;
+    color: #FFF;
+    border: 0;
+    font-weight: bold;
+}
+.ct-mn-lst{
+    box-shadow: 1px 1px 3px #DDD, -1px -1px 3px #DDD;
+}

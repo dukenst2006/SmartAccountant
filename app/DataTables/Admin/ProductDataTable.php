@@ -25,7 +25,7 @@ class ProductDataTable extends DataTable
             ->addColumn('Image', function ($data) {
                 return '<img src="https://picsum.photos/100/100" alt="" width="50" class=" img-fluid">';
             })
-            ->addColumn('action', 'admin.products.datatables_actions')
+            ->addColumn(__('Buttons.Action'), 'admin.products.datatables_actions')
             ->rawColumns(['Image', 'action']);
     }
 

@@ -33,7 +33,7 @@ class EmployeeDataTable extends DataTable
             ->addColumn('EmploymentContractImage', function($data) {
                 return $this->fileColumn($data->EmploymentContractImage);
             })
-            ->addColumn('action', 'admin.employees.datatables_actions')
+            ->addColumn(__('Buttons.Action'), 'admin.employees.datatables_actions')
             ->rawColumns(['ProfileImage','IdentityImage','EmploymentContractImage','action'])
             ->blacklist(['ProfileImage','IdentityImage','EmploymentContractImage']);
     }

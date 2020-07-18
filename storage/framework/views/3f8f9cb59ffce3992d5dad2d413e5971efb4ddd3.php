@@ -12,7 +12,7 @@
         <div class="col-md-8">
 
             <p class="text-center">
-                <strong> المبيعات</strong>
+                <strong> مبيعات الفروع لاخر شهر</strong>
             </p>
             <div id="chart">
 
