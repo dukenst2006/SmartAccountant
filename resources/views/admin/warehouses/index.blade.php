@@ -64,6 +64,7 @@
             <div class="card-header">
                 <h3 class="card-title">Products</h3>
             </div>
+            <div class="col-12 text-left" href="{{route('ProductExport')}}">excel</div>
             <div class="card-body card-body table-responsive p-0">
                 @include('flash::message')
                 @include('admin.products.table')

@@ -29,10 +29,7 @@ $factory->define(Marketplace::class, function (Faker $faker) {
         'Address' => $faker->address,
         'TaxNumber' => $faker->numerify('##############'),
         'Email' => $faker->email,
-        'Latitude' => $faker->latitude,
-        'Longitude' => $faker->longitude,
         'SafeBalance' => $faker->numberBetween(20000,50000),
         'CompanyRegisterImage' => $faker->imageUrl(),
-        'Logo' => $faker->imageUrl(),
     ];
 });

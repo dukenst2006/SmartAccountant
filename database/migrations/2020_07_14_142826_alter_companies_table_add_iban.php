@@ -13,9 +13,6 @@ class AlterCompaniesTableAddIban extends Migration
      */
     public function up()
     {
-        Schema::table('companies',function (Blueprint $blueprint){
-            $blueprint->string('IBAN')->nullable();
-        });
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\DataTables\Admin\ProductDataTable;
+use App\Exports\ProductsExport;
 use App\Http\Requests\Admin\CreateProductRequest;
 use App\Http\Requests\Admin\UpdateProductRequest;
 use App\Repositories\ProductRepository;
@@ -10,6 +11,7 @@ use Flash;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
+use Maatwebsite\Excel\Facades\Excel;
 use Response;
 
 class ProductController extends AppBaseController
@@ -163,6 +165,10 @@ class ProductController extends AppBaseController
         return response()->json(['results' => $this->productRepository->filter()]);
 
 
+    }
+    public function export()
+    {
+        return Excel::download(new ProductsExport(), 'products.xlsx');
     }
 
 

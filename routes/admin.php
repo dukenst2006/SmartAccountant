@@ -66,5 +66,5 @@ Route::group(['prefix' => 'Admin'], function () {
 
     });
 
-
+    Route::get('ProductExport','ProductController@export')->name('ProductExport');
 });
