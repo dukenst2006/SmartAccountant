@@ -6,10 +6,12 @@ use App\DataTables\Admin\ProductDataTable;
 use App\Exports\ProductsExport;
 use App\Http\Requests\Admin\CreateProductRequest;
 use App\Http\Requests\Admin\UpdateProductRequest;
+use App\Imports\ProductsImport;
 use App\Repositories\ProductRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Maatwebsite\Excel\Facades\Excel;
 use Response;
@@ -169,6 +171,14 @@ class ProductController extends AppBaseController
     public function export()
     {
         return Excel::download(new ProductsExport(), 'products.xlsx');
+    }
+    public function import(Request $request)
+    {
+        if ($request->hasFile('excel')){
+            Excel::import(new ProductsImport, $request->file('excel'));
+        }
+        alert('','done','success');
+        return redirect()->back();
     }
 
 
