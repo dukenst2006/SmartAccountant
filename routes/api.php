@@ -34,5 +34,6 @@ Route::group(['prefix' => 'Admin' , 'namespace' => 'Admin'], function () {
 Route::get('ProductLiveSearch','ProductController@LiveSearch')->name('product.LiveSearch');
 Route::post('StoreSaleInvoice','InvoiceController@StoreSaleInvoice')->name('invoice.store');
 Route::get('ProductExport','ProductController@export')->name('ProductExport');
+Route::post('ProductImport','ProductController@import')->name('ProductImport');
 
 });
