@@ -15,7 +15,7 @@ class CreateBondsTable extends Migration
     {
         Schema::create('bonds', function (Blueprint $table) {
             $table->id();
-            $table->bigIncrements('MarketplaceOwnerID');
+            $table->unsignedBigInteger('MarketplaceOwnerID');
 
             $table->timestamps();
         });

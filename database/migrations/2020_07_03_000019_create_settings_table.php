@@ -16,7 +16,7 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('MarketplaceOwnerID');
+            $table->unsignedBigInteger('MarketplaceOwnerID')->nullable();             ;
             $table->boolean('IsSiteActive')->default(true); //حالة الموقع
             $table->boolean('MessageEn')->default(true);
             $table->boolean('messageAr')->default(true);
