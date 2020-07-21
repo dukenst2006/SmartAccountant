@@ -34,7 +34,6 @@
 
         {{-- Content Wrapper --}}
         <div class="content-wrapper {{ config('adminlte.classes_content_wrapper') ?? '' }}">
-
             {{-- Content Header --}}
             <div class="content-header">
                 <div class="{{ config('vendor.adminlte.classes_content_header') ?: $def_container_class }}">

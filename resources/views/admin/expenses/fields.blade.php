@@ -28,18 +28,18 @@
     {!! Form::number('Price', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Description Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('Description',__('Models/Expenses.Description')) !!}
-    {!! Form::textarea('Description', null, ['class' => 'form-control']) !!}
-</div>
+
 
 <!-- Date Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Date',__('Models/Expenses.Date')) !!}
     {!! Form::date('Date', null, ['class' => 'form-control','id'=>'Date']) !!}
 </div>
-
+<!-- Description Field -->
+<div class="form-group col-sm-12">
+    {!! Form::label('Description',__('Models/Expenses.Description')) !!}
+    {!! Form::textarea('Description', null, ['class' => 'form-control']) !!}
+</div>
 @push('scripts')
     <script type="text/javascript">
         $('#Date').datetimepicker({

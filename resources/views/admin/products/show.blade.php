@@ -2,7 +2,7 @@
 @section('title', 'Products')
 
 @section('content_header')
-    <h1>Product</h1>
+    <h1>@lang('Models/Product.Product')</h1>
 @stop
 
 
@@ -15,15 +15,15 @@
 
      <div class="card card-primary col-12">
             <div class="card-header">
-                <h3 class="card-title">Product</h3>
+                <h3 class="card-title">@lang('Models/Product.Product')</h3>
             </div>
 
 
-              <div class="card-body">
+              <div class="card-body" style="padding: 20px !important;">
 
                  <form >
                     @include('admin.products.show_fields')
-                    <a href="{{ route('admin.products.index') }}" class="btn btn-warning"><i class="fas fa-backward" style="cursor: pointer;"></i>Back</a>
+                    <a href="{{ route('admin.products.index') }}" class="btn btn-warning"><i class="fas fa-backward" style="cursor: pointer;"></i> رجوع </a>
                 </form>
 
 

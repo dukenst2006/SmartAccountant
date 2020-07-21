@@ -9,7 +9,7 @@
 
     
     <div class="sidebar">
-        <nav class="mt-2">
+        <nav class="">
             <ul class="nav nav-pills nav-sidebar flex-column <?php echo e(config('adminlte.classes_sidebar_nav', '')); ?>"
                 data-widget="treeview" role="menu"
                 <?php if(config('adminlte.sidebar_nav_animation_speed') != 300): ?>

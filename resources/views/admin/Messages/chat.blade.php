@@ -2,7 +2,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Chat</h1>
+    <h1>@lang('General.chat')</h1>
 @stop
 
 @section('content')
@@ -13,7 +13,7 @@
     <div class="col-md-8 ">
         <div class="card direct-chat direct-chat-primary   ">
             <div class="card-header ui-sortable-handle" style="cursor: move;">
-                <h3 class="card-title">Direct Chat</h3>
+                <h3 class="card-title">@lang('General.chat_direct')</h3>
 
                 <div class="card-tools">
                     <span data-toggle="tooltip" title="3 New Messages" class="badge badge-primary">3</span>
@@ -215,7 +215,7 @@
             <div class="chat-syb card mb-0 ">
                 <div class="card-header">
                     <h5 class="mb-0 text-center">
-                        Contacts   <i class="fas fa-id-card-alt"></i>
+                           <i class="fas fa-id-card-alt"></i>  @lang('General.contacts')
                     </h5>
                 </div>
                 <div class="card-body overflow-auto">

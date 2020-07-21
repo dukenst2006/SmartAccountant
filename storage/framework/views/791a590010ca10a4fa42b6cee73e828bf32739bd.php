@@ -34,7 +34,6 @@
 
         
         <div class="content-wrapper <?php echo e(config('adminlte.classes_content_wrapper') ?? ''); ?>">
-
             
             <div class="content-header">
                 <div class="<?php echo e(config('vendor.adminlte.classes_content_header') ?: $def_container_class); ?>">

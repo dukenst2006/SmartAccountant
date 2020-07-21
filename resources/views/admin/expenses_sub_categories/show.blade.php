@@ -2,7 +2,7 @@
 @section('title', 'Expenses Sub Categories')
 
 @section('content_header')
-    <h1>Expenses Sub Category</h1>
+    <h1>{{__('Models/Expenses.ExpensesSubCategory')}}</h1>
 @stop
 
 
@@ -15,7 +15,7 @@
 
      <div class="card card-primary col-12">
             <div class="card-header">
-                <h3 class="card-title">Expenses Sub Category</h3>
+                <h3 class="card-title">{{__('Models/Expenses.ExpensesSubCategory')}}</h3>
             </div>
 
 

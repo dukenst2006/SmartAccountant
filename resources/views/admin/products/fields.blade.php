@@ -34,11 +34,7 @@
     {!! Form::label('PurchasingPrice',  __('Models/Product.PurchasingPrice')) !!}
     {!! Form::number('PurchasingPrice', null, ['class' => 'form-control']) !!}
 </div>
-<!-- ExcludeFromVAT Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('ExcludeFromVAT',  __('General.Product.ExcludeFromVAT')) !!}
-    {!! Form::checkbox('ExcludeFromVAT', 1,null, ['class' => '']) !!}
-</div>
+
 
 <!-- Sellingprice Field -->
 <div class="form-group col-sm-6">
@@ -57,19 +53,43 @@
     {!! Form::label('Image',  __('Models/Product.Image')) !!}
     {!! Form::file('Image', ['class' => 'form-control']) !!}
 </div>
-
+<!-- Barcode Field -->
+<div class="form-group col-sm-6   ">
+    {!! Form::label('Barcode',  __('Models/Product.Barcode')) !!}
+    {!! Form::text('Barcode', null, ['class' => 'form-control']) !!}
+</div>
 <!-- Expirydate Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ExpiryDate',  __('Models/Product.ExpiryDate')) !!}
     {!! Form::date('ExpiryDate', null, ['class' => 'form-control','id'=>'ExpiryDate']) !!}
 
-    {!! Form::label('UnlimitedQuantity',  __('Models/Product.CanExpired')) !!}
+</div>
+
+<!-- Unlimitedquantity Field -->
+<div class="form-group col-sm-12 mt-2">
+
     <label class="checkbox-inline">
         {!! Form::hidden('CanExpired', 0) !!}
         {!! Form::checkbox('CanExpired', '1', null) !!}
     </label>
+    {!! Form::label('UnlimitedQuantity',  __('Models/Product.CanExpired')) !!}
+
+</div>
+<div class="form-group col-sm-12">
+    <label class="checkbox-inline">
+        {!! Form::hidden('UnlimitedQuantity', 0) !!}
+        {!! Form::checkbox('UnlimitedQuantity', '1', null) !!}
+    </label>
+    {!! Form::label('UnlimitedQuantity',  __('Models/Product.UnlimitedQuantity')) !!}
+
 </div>
 
+<!-- ExcludeFromVAT Field -->
+<div class="form-group col-sm-12">
+    {!! Form::checkbox('ExcludeFromVAT', 1,null, ['class' => '']) !!}
+    {!! Form::label('ExcludeFromVAT',  __('General.Product.ExcludeFromVAT')) !!}
+
+</div>
 @push('scripts')
     <script type="text/javascript">
         $('#ExpiryDate').datetimepicker({
@@ -80,20 +100,7 @@
     </script>
 @endpush
 
-<!-- Barcode Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('Barcode',  __('Models/Product.Barcode')) !!}
-    {!! Form::text('Barcode', null, ['class' => 'form-control']) !!}
-</div>
 
-<!-- Unlimitedquantity Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('UnlimitedQuantity',  __('Models/Product.UnlimitedQuantity')) !!}
-    <label class="checkbox-inline">
-        {!! Form::hidden('UnlimitedQuantity', 0) !!}
-        {!! Form::checkbox('UnlimitedQuantity', '1', null) !!}
-    </label>
-</div>
 
 
 <!-- Submit Field -->

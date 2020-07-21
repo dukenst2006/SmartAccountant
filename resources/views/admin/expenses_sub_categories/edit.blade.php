@@ -3,7 +3,7 @@
 
 @section('content_header')
      <h1>
-            Expenses Sub Category
+         {{__('Models/Expenses.ExpensesSubCategory')}}
         </h1>
 @stop
 
@@ -13,7 +13,7 @@
        @include('adminlte-templates::common.errors')
         <div class="card box-primary col-12">
             <div class="card-header text-right">
-                   <h3 class="card-title">Expenses Sub Category</h3>
+                   <h3 class="card-title">{{__('Models/Expenses.ExpensesSubCategory')}}</h3>
 
                </div>
            <div class="card-body">

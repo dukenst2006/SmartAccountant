@@ -89,8 +89,8 @@ class SupervisorDataTable extends DataTable
         return [
             new Column(['data'=>'id', 'name'=>'id' ,'title'=>'#']),
             new Column(['data'=>'user.Name', 'name'=>'user.Name' ,'title'=>__('Models/User.Name')]),
-            new Column(['data'=>'PhoneNumber', 'name'=>'PhoneNumber','title'=>__('Models/Supervisor.JobTitle')]),
             new Column(['data'=>'PhoneNumber', 'name'=>'PhoneNumber','title'=>__('Models/Supervisor.PhoneNumber')]),
+            new Column(['data'=>'Department', 'name'=>'Department','title'=>__('Models/Supervisor.Department')]),
 
 
         ];

@@ -958,7 +958,6 @@
 
 // /* fix small issue
 .sidebar {
-    height: 72vh !important;
     width: 104%;
     overflow: auto;
 }
@@ -1001,4 +1000,29 @@
 }
 .sidebar .nav-link p {
     font-weight: normal !important;
+}
+
+[class*=sidebar-light-] .nav-sidebar > .nav-item > .nav-link.active {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #212529;
+}
+
+[class*=sidebar-light-] .nav-sidebar > .nav-item > .nav-treeview {
+    background: transparent;
+}
+.sidebar-mini.sidebar-collapse .nav-sidebar .nav-link p {
+    margin-right: 0px !important;
+}
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .brand-image, .sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused .brand-image {
+    margin-right: auto !important;
+}
+a {
+    transition: .1s all ease-in-out;
+}
+
+.nav-sidebar .nav-header {
+    background-color: #053395b5 !important;
+    color: #ffffff !important;
+    font-weight: normal;
+    border: 0;
 }

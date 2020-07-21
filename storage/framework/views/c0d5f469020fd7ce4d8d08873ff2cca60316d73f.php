@@ -6,33 +6,34 @@
 
 <?php $__env->startSection('content'); ?>
 
+    <div class="row justify-content-center animated bounceInLeft">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">المنتجات</h3>
+                </div>
+                <div class="card-body overflow-auto" style="max-height: 200px;">
+                    <div class="card-body">
+                        <div class="form-group col-md-12">
+                            <label for="productselection">
+                                ادخل اسم المنتج او الباركود
+                            </label>
+                            <select class="form-control select2-selection--single" id="productselection"></select>
+                        </div>
 
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 
     <div id="root">
 
-        <div class="row justify-content-center animated bounceInLeft">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">الاصناف</h3>
-                    </div>
-                    <div class="card-body overflow-auto" style="max-height: 200px;">
-                        <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <button id="#"
-                                    style="direction: rtl; margin: 3px; font-family: cairo,serif; font-weight: 700;"
-                                    class="btn animated btn-success  btn-lg"
-                                    @click="addNewRow">
-                                <?php echo e($product->Name); ?>
-
-                                <i class="fas fa-fw fa-plus-circle"></i>
-                            </button>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </div>
 
 
-                </div>
-            </div>
-        </div>
         <div class="row animated bounceInUp">
             <div class="col-12">
                 <div class="card" style="font-family: 'Cairo', sans-serif;font-weight: 900;">
@@ -41,21 +42,7 @@
                     </div>
                     <div class="card-body table-responsive p-0 ">
                         <div class="row">
-                            <div class="row col-sm-12 justify-content-center">
 
-                                <div class="form-group " style="direction: rtl;width: 609px;">
-
-                                    <label class="form-check-label float-right" for="cusname"> اسم العميل</label>
-
-                                    <input name="cusname" id="cusname" type="text" placeholder="اسم العميل"
-                                           v-model="customrename" class=" text-center form-control input-lg mw-50"
-                                           style="    font-weight: 800;">
-
-                                </div>
-
-
-
-                            </div>
 
 
                             <div class="col-sm-12">
@@ -133,30 +120,9 @@
                                             </button>
 
 
-
-
-
                                         </td>
                                     </tr>
 
-
-                                    <tr>
-                                        <th>طريقة الدفع:</th>
-                                        <td class="text-center">
-
-                                            <!-- PaymentTypeID Field -->
-                                            <div class="form-group">
-
-                                                <?php echo Form::select('PaymentTypeID',$paymenttypes, 0,['class' => 'form-control' , 'v-model'=>'PaymentTypeID']); ?>
-
-                                            </div>
-
-
-
-
-                                        </td>
-
-                                    </tr>
 
                                     <tr>
                                         <th>المتبقي:</th>
@@ -176,6 +142,7 @@
             </div>
 
         </div>
+
 
         <div class="row text-center animated bounceInDown ">
             <div class="col-md-12" style="font-family: 'Cairo SemiBold',serif;">
@@ -199,9 +166,6 @@
         </div>
 
 
-
-
-
     </div>
 
 
@@ -212,6 +176,69 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('customejs'); ?>
+    <script>
+        var _token = "<?php echo e(csrf_token()); ?>";
+        $.ajaxSetup({headers: {'csrftoken': '<?php echo e(csrf_token()); ?>'}});
+        $.fn.select2.defaults.set( "theme", "bootstrap" );
+        $('#productselection').select2({
+            theme: "bootstrap",
+            width: null,
+            containerCssClass: ':all:',
+            cache: true,
+            ajax: {
+                placeholder: 'Search for a Products',
+                url: '<?php echo e(route('product.LiveSearch')); ?>',
+                dataType: 'json',
+
+                data: function (params) {
+                    var query = {
+                        q: params.term,
+                    };
+                    return query;
+                },
+                processResults: function (data) {
+                    return {
+                        results: data.results,
+                    };
+                },
+            },
+            templateResult: formatRepo,
+            minimumInputLength: 1,
+        });
+        function formatRepo(product) {
+            if (product.loading) {
+                return product.name;
+            }
+            var $container = $(
+                "<div class='select2-result-Product clearfix'>" + "<i class='float-right fas fa-plus text-green'></i>" +
+                "<div class='select2-result-Product__name'></div>" +
+                "<div class='select2-result-Product__barcode'></div>" +
+                "</div>"
+            );
+            $container.find(".select2-result-Product__name").text('Name : ' + product.Name);
+            $container.find(".select2-result-Product__barcode").text('Barcode : ' + product.Barcode);
+            return $container;
+        }
+
+        $("#productselection").on('select2:select', function (selection) {
+            document.getElementById('root').__vue__.invoice_products.push({
+                product_no: selection.params.data.id,
+                product_name: selection.params.data.Name,
+                product_price: selection.params.data.SellingPrice,
+                product_qty: 1,
+                line_total:selection.params.data.SellingPrice,
+            });
+
+
+            calcluaterows();
+
+        });
+        $(".calculateclass").on('change', 'input', function () {
+            calcluaterows();
+        });
+
+    </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
@@ -220,20 +247,25 @@
         var app = new Vue({
             el: '#root',
             data: {
-                customrename: '',
                 cutomer_paid: 0,
                 cutomer_rest: 0,
                 invoice_total: 0,
                 invoice_paid: 0,
                 invoice_rest: 0,
+                deliverday: 1,
                 deliverdate:'',
-                PaymentTypeID:1,
                 invoice_products: [],
                 products:[],
                 
             },
             methods: {
+                datacalc(){
+                    var date = new Date();
 
+                    date.setDate(date.getDate() + parseInt( this.deliverday));
+
+                    this.deliverdate=date.toLocaleDateString();
+                },
                 completedinvoice(){
 
 
@@ -243,11 +275,11 @@
                     this.invoice_products = [];
                     this.invoice_paid = 0;
                     this.calculateTotal();
-                    this.customrename = "";
+                    this.deliverday = 1;
                 },
 
                 storebill() {
-                    if (this.customrename == '' || this.invoice_products.length == null) {
+                    if (this.invoice_products.length == null) {
                         swal.fire("خطأ!",
                             "<b>تأكد من ادخال</b>" +
                             "<ul style='direction: rtl; font-weight: 800; '>" +
@@ -260,7 +292,7 @@
 
 
                         let $this = $("#btnFetch");
-                        $this.text('loading');
+                        $this.button('loading');
                         $this.prop("disabled", true);
                         $this.data('original-text', $this.html());
                         $this.html(`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`);
@@ -268,17 +300,17 @@
 
                         $.ajax({
                             type: "post",
-                            url: "<?php echo e(route('invoice.store')); ?>",
+                            
+                            url:"#",
                             dataType: 'json',
                             'contentType': 'application/json',
 
                             data:
                                 JSON.stringify({
-                                    'customername': this.customrename,
                                     'total': this.invoice_total,
                                     'paid': this.invoice_paid,
                                     'reset': this.invoice_rest,
-                                    'paymenttypeid': this.PaymentTypeID,
+                                    'deliverday':this.deliverday,
                                     'billitems': this.invoice_products,
                                     '_token': _token
                                 }),
@@ -290,6 +322,8 @@
                                 $this.prop("disabled", false);
                                 $this.html($this.data('original-text'));
                                 this.resetdata();
+                                $("#printf").attr("src", "invoice/print/" + data.invoice_id);
+
                             })
                             .fail(function (data) {
                                 swal.fire("Invoice !", "Make Sure From Your Data", "error");

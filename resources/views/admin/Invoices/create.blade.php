@@ -6,7 +6,6 @@
 @stop
 
 @section('content')
-
     <div class="row justify-content-center animated bounceInLeft">
         <div class="col-md-8">
             <div class="card">
@@ -30,11 +29,7 @@
             </div>
         </div>
     </div>
-
     <div id="root">
-
-
-
         <div class="row animated bounceInUp">
             <div class="col-12">
                 <div class="card" style="font-family: 'Cairo', sans-serif;font-weight: 900;">
@@ -43,21 +38,7 @@
                     </div>
                     <div class="card-body table-responsive p-0 ">
                         <div class="row">
-                            <div class="row col-sm-12 justify-content-center">
 
-                                <div class="form-group " style="direction: rtl;width: 609px;">
-
-                                    <label class="form-check-label float-right" for="cusname"> اسم العميل</label>
-
-                                    <input name="cusname" id="cusname" type="text" placeholder="اسم العميل"
-                                           v-model="customrename" class=" text-center form-control input-lg mw-50"
-                                           style="    font-weight: 800;">
-
-                                </div>
-
-
-
-                            </div>
 
 
                             <div class="col-sm-12">
@@ -110,7 +91,7 @@
                         </div>
                         <div class="row float-right  overflow-hidden">
                             <div class="table-responsive">
-                                <table class="table calculateclass overflow-hidden w-50" style="direction: rtl;">
+                                <table class="table calculateclass overflow-hidden" style="direction: rtl;">
                                     <tbody>
 
                                     <tr>
@@ -121,7 +102,7 @@
 
                                     <tr>
                                         <th>المدفوع:</th>
-                                        <td class="">
+                                        <td class="d-flex">
                                             <input style="direction: ltr;" @change="calculateTotal"
                                                    v-model="invoice_paid" class="text-center text-bold"
                                                    id="invoce_paid" type="number" value="0"
@@ -262,7 +243,6 @@
         var app = new Vue({
             el: '#root',
             data: {
-                customrename: '',
                 cutomer_paid: 0,
                 cutomer_rest: 0,
                 invoice_total: 0,
@@ -291,16 +271,14 @@
                     this.invoice_products = [];
                     this.invoice_paid = 0;
                     this.calculateTotal();
-                    this.customrename = "";
                     this.deliverday = 1;
                 },
 
                 storebill() {
-                    if (this.customrename == '' || this.invoice_products.length == null) {
+                    if ( this.invoice_products.length == null) {
                         swal.fire("خطأ!",
                             "<b>تأكد من ادخال</b>" +
                             "<ul style='direction: rtl; font-weight: 800; '>" +
-                            "<li>اسم العميل</li>" +
                             "<li>اصناف الفاتورة</li>" +
                             "</ul>"
                             ,
@@ -324,7 +302,6 @@
 
                             data:
                                 JSON.stringify({
-                                    'customername': this.customrename,
                                     'total': this.invoice_total,
                                     'paid': this.invoice_paid,
                                     'reset': this.invoice_rest,

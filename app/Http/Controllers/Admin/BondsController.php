@@ -10,6 +10,7 @@ use Response;
 class BondsController extends AppBaseController
 {
 
+
     public function BondVoucher()
     {
 
@@ -18,4 +19,19 @@ class BondsController extends AppBaseController
     }
 
 
+
+
+    public function CreateBondVoucher()
+    {
+
+        return view('admin.Bonds.createbondvoucher');
+
+    }
+
+    public function storebondvoucher()
+    {
+
+dd(request());
+
+    }
 }

@@ -11,10 +11,10 @@
                         @csrf
                         @method('PATCH')
                         <span class="d-inline-block d-flex flex-wrap">
-   <label for="">{{__("General.Enter initial Capital")}}</label>
-   <input type="text" class="capital-input mr-2 mb-2" name="Capital" value="{{$setting->Capital}}"
-          placeholder="ادخل رأس المال الإفتتاحى">
-   <button class="btn btn-success d-inline-block mb-2 mr-2 "><i class="fas fa-pencil-alt"></i> تعديل </button>
+                       <label class="d-flex align-items-center" for="">{{__("General.Enter initial Capital")}}</label>
+                       <input type="text" class="capital-input mr-2 mb-2" name="Capital" value="{{$setting->Capital}}"
+                              placeholder="ادخل رأس المال الإفتتاحى">
+                       <button class="btn btn-success d-inline-block mb-2 mr-2 "><i class="fas fa-pencil-alt"></i> تعديل </button>
                         </span>
                     </form>
                 </div>
@@ -25,7 +25,7 @@
     <div class="row m-4">
         <div class="col-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" style="padding: 20px !important;">
                     <form action="{{ route('admin.settings.update', '1')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
@@ -34,9 +34,9 @@
                                 <label for="is_site_active">{{__('adminPanel.is_site_active')}}</label>
                                 <select class="form-control" name="IsSiteActive" id="is_site_active">
                                     <option
-                                        {{\App\Models\Settings::all()->first()->IsSiteActive ?'selected':'' }} value="1">{{__('General.Activate')}}</option>
+                                            {{\App\Models\Settings::all()->first()->IsSiteActive ?'selected':'' }} value="1">{{__('General.Activate')}}</option>
                                     <option
-                                        {{!\App\Models\Settings::all()->first()->IsSiteActive ?'selected':'' }} value="0">{{__('General.Deactivate')}}</option>
+                                            {{!\App\Models\Settings::all()->first()->IsSiteActive ?'selected':'' }} value="0">{{__('General.Deactivate')}}</option>
                                 </select>
                                 {{--       <x-error name="is_site_active"></x-error>--}}
                             </div>
@@ -52,29 +52,22 @@
 
                             <div class="form-group col-sm-6">
 
-                                {!! Form::label('Stamp',     __('GeneralSettings.Stamp')) !!}
+                                {!! Form::label('Stamp',     __('General.Stamp')) !!}
                                 {!! Form::file('Stamp',      ['class' => 'form-control']) !!}
 
                             </div>
 
                             <div class="form-group col-sm-6">
-                                {!! Form::label('VAT',  __('GeneralSettings.VAT') . ' %' ) !!}
+                                {!! Form::label('VAT',  __('General.VAT') . ' %' ) !!}
                                 {!! Form::number('VAT', null, ['class' => 'form-control']) !!}
 
-                                {!! Form::label('EnableVAT',  __('GeneralSettings.EnableVAT')) !!}
+
                                 <label class="checkbox-inline">
                                     {!! Form::hidden('EnableVAT', 0) !!}
                                     {!! Form::checkbox('EnableVAT', '1', null) !!}
                                 </label>
-
+                                {!! Form::label('EnableVAT',  __('General.EnableVAT')) !!}
                             </div>
-
-
-
-
-
-
-
 
 
                             <div class="form-group col-md-6">
@@ -137,7 +130,7 @@
                         <div class="row mt-5">
                             <div class="col-12">
                                 <button class="btn btn-primary" type="submit"><i
-                                        class="fa fa-save"></i> {{__('adminPanel.save')}} </button>
+                                            class="fa fa-save"></i> {{__('adminPanel.save')}} </button>
 
                             </div>
                         </div>
