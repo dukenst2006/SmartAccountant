@@ -2,27 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\{
-    Bonds,
-    Models\Product
-};
 use Flash;
-use App\Repositories\Admin\BondsRepository;
-use App\Http\Controllers\AppBaseController;
 use Response;
+use App\Models\Product;
+use App\Repositories\Admin\BondsVouchersRepository;
+use App\Http\Controllers\AppBaseController;
 
 
 class BondsController extends AppBaseController
 {
 
     /**
-     * @var  \App\Repositories\Admin\BondsRepository
+     * @var  \App\Repositories\Admin\BondsVouchersRepository
      * */
-    private $BondsRepository;
+    private $BondsVouchersRepository;
 
-    public function __construct(BondsRepository $BondsRepository)
+    public function __construct(BondsVouchersRepository $BondsVouchersRepository)
     {
-        $this->BondsRepository = $BondsRepository;
+        $this->BondsVouchersRepository = $BondsVouchersRepository;
     }
 
     public function BondVoucher()
@@ -43,7 +40,7 @@ class BondsController extends AppBaseController
     }
 
     /**
-     * Store new bond into database
+     * Store new bond voucher into database
      * 
      * @return RESPONSE_JSON
      */
@@ -56,9 +53,9 @@ class BondsController extends AppBaseController
         foreach ($billitems as $key => $bill) {
 
             if($products[$key]->id == $bill['product_no']) {
-                
+
                 if($bill['product_qty'] <= $products[$key]->Quantity) {
-                    $this->BondsRepository->createNewBond(request()->customername, request()->bonddate, $bill);
+                    $this->BondsVouchersRepository->createNewBondVoucher(request()->customername, request()->bonddate, $bill);
                     return response()->json('success', 200);
                 }
 

@@ -5,9 +5,9 @@ namespace App;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 
-class Bonds extends Model
+class BondsVouchers extends Model
 {
-    public $table = 'bonds';
+    public $table = 'bonds_vouchers';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -37,7 +37,7 @@ class Bonds extends Model
     ];
 
     /**
-     * This relation return a product belongs to this bond.
+     * This relation return a product belongs to this bond voucher.
      * 
      * @return BelongsTo
      */

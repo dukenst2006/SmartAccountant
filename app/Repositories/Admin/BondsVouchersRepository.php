@@ -3,19 +3,19 @@
 namespace App\Repositories\Admin;
 
 use App\{
-    Bonds,
+    BondsVouchers,
     Models\Product
 };
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class EmployeeRepository
+ * Class BondsVouchersRepository
  * @package App\Repositories\Admin
- * @version July 6, 2020, 5:31 am UTC
+ * @version July 22, 2020, 12:31 am UTC
 */
 
-class BondsRepository extends BaseRepository
+class BondsVouchersRepository extends BaseRepository
 {
     /**
      * @var array
@@ -43,7 +43,7 @@ class BondsRepository extends BaseRepository
      **/
     public function model()
     {
-        return Bonds::class;
+        return BondsVouchers::class;
     }
 
     /**
@@ -55,9 +55,9 @@ class BondsRepository extends BaseRepository
      *
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model
      */
-    public function createNewBond(string $customername, string $bonddate, array $bill)
+    public function createNewBondVoucher(string $customername, string $bonddate, array $bill)
     {
-        Bonds::create([
+        BondsVouchers::create([
             "MarketplaceOwnerID" => 1,
             "ProductID" => $bill['product_no'],
             "ClientName" => $customername,
