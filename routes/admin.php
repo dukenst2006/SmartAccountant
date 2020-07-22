@@ -49,8 +49,13 @@ Route::group(['prefix' => 'Admin'], function () {
 
     Route::resource('EmployeeSalary', 'EmployeeSalaryController');
 
+    // BondVoucher
     Route::get('BondVoucher', 'BondsController@BondVoucher');
-    Route::post('BondVoucher/Store', 'BondsController@storebondvoucher')->name('bondsvoucher.store');
+    Route::post('BondVoucher/Store', 'BondsController@storeBondVoucher')->name('bondsvoucher.store');
+    
+    // BondAmmount
+    Route::get('BondAmmount', 'BondsController@CreateBondAmmount');
+    Route::post('BondAmmount/Store', 'BondsController@storeBondAmmount')->name('bondsammout.store');
 
 
     Route::group(['namespace' => '\App\Http\Controllers\Reports'], function () {

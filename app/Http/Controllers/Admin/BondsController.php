@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Flash;
 use Response;
 use App\Models\Product;
-use App\Repositories\Admin\BondsVouchersRepository;
+use App\Repositories\Admin\{
+    BondsVouchersRepository,
+    BondsAmmountRepository
+};
 use App\Http\Controllers\AppBaseController;
 
 
@@ -17,12 +20,18 @@ class BondsController extends AppBaseController
      * */
     private $BondsVouchersRepository;
 
-    public function __construct(BondsVouchersRepository $BondsVouchersRepository)
+    /**
+     * @var  \App\Repositories\Admin\BondAmmountRepository
+     * */
+    private $BondAmmountRepository;
+
+    public function __construct(BondsVouchersRepository $BondsVouchersRepository, BondAmmountRepository $BondAmmountRepository)
     {
         $this->BondsVouchersRepository = $BondsVouchersRepository;
+        $this->BondAmmountRepository = $BondAmmountRepository
     }
 
-    public function BondVoucher()
+    public function bondVoucher()
     {
 
         return view('admin.Bonds.createbondvoucher');
@@ -39,12 +48,19 @@ class BondsController extends AppBaseController
 
     }
 
+    public function CreateBondAmmount()
+    {
+
+        return view('admin.Bonds.createbondammount');
+
+    }
+
     /**
      * Store new bond voucher into database
      * 
      * @return RESPONSE_JSON
      */
-    public function storebondvoucher()
+    public function storeBondVoucher()
     {
         $billitems = request()->billitems;
         $productsIDs = array_column(request()->billitems, 'product_no');
@@ -62,5 +78,15 @@ class BondsController extends AppBaseController
                 return response()->json("A product with name " . $bill['product_name'] . " Quantity more big than the exists Quantity in Inventore", 400);
             }
         }
+    }
+
+    /**
+     * Store new bond ammount into database
+     * 
+     * @return RESPONSE_JSON
+     */
+    public function storeBondAmmount()
+    {
+        $this->BondsVouchersRepository->createNewBondAmmount(request()->all());
     }
 }
