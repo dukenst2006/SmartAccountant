@@ -50,6 +50,7 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::resource('EmployeeSalary', 'EmployeeSalaryController');
 
     Route::get('BondVoucher', 'BondsController@BondVoucher');
+    Route::post('BondVoucher/Store', 'BondsController@storebondvoucher')->name('bonds.store');
 
 
     Route::group(['namespace' => '\App\Http\Controllers\Reports'], function () {

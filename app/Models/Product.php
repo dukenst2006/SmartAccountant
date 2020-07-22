@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Bonds;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -105,6 +106,13 @@ class Product extends Model
     ];
 
     /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = ['warehouse'];
+
+    /**
      * @return BelongsTo
      **/
     public function inventory()
@@ -160,8 +168,13 @@ class Product extends Model
         return $this->belongsTo(User::class, 'UserID');
     }
 
-
-
-
-
+    /**
+     * This relation return all bonds related to this product.
+     * 
+     * @return HasMany
+     **/
+    public function bonds()
+    {
+        return $this->hasMany(Bonds::class);
+    }
 }
