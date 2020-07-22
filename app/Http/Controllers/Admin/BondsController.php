@@ -7,7 +7,7 @@ use Response;
 use App\Models\Product;
 use App\Repositories\Admin\{
     BondsVouchersRepository,
-    BondsAmmountRepository
+    BondAmmountRepository
 };
 use App\Http\Controllers\AppBaseController;
 
@@ -28,7 +28,7 @@ class BondsController extends AppBaseController
     public function __construct(BondsVouchersRepository $BondsVouchersRepository, BondAmmountRepository $BondAmmountRepository)
     {
         $this->BondsVouchersRepository = $BondsVouchersRepository;
-        $this->BondAmmountRepository = $BondAmmountRepository
+        $this->BondAmmountRepository = $BondAmmountRepository;
     }
 
     public function bondVoucher()
@@ -51,7 +51,7 @@ class BondsController extends AppBaseController
     public function CreateBondAmmount()
     {
 
-        return view('admin.Bonds.createbondammount');
+        return view('admin.Bonds.createbondamount');
 
     }
 
@@ -87,6 +87,8 @@ class BondsController extends AppBaseController
      */
     public function storeBondAmmount()
     {
-        $this->BondsVouchersRepository->createNewBondAmmount(request()->all());
+        $this->BondAmmountRepository->createNewBondAmmount(request()->all());
+        alert()->success('Bond Ammount Stored Successfully');
+        return back();
     }
 }

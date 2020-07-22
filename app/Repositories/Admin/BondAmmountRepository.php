@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @version July 22, 2020, 05:31 am UTC
 */
 
-class BondsAmmountRepository extends BaseRepository
+class BondAmmountRepository extends BaseRepository
 {
     /**
      * @var array
