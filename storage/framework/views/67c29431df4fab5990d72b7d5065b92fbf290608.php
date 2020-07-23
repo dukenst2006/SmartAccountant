@@ -6,7 +6,30 @@
 <?php $__env->startSection('content'); ?>
     <div class="row justify-content-center">
     <div class="col-md-8">
-
+        <div class="card">
+            <div class="card-header">
+                فلتر
+            </div>
+            <div class="card-body p-2">
+                <form class="p-3" action="<?php echo e(route('admin.bondsreport')); ?>" method="get">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for=""><?php echo e(__('Safe.From')); ?></label>
+                                <input type="date" class="form-control" name="from">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for=""><?php echo e(__('Safe.To')); ?></label>
+                                <input type="date" class="form-control" name="to">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success"><?php echo e(__('بحث')); ?></button>
+                </form>
+            </div>
+        </div>
 
 
 
@@ -34,21 +57,17 @@
 
             </div>
 
-
-    </div>
-    </div>
-
-    <div class=" row">
-        <div class="col-6">
-            <table class="table-bordered table">
-                <thead class="thead-light">
+        <div class=" row">
+            <div class="col-6">
+                <table class="table-bordered table">
+                    <thead class="thead-light">
                     <th>#</th>
                     <th><?php echo e(__('Models/Bonds.Columns.MarketPlaceOwner')); ?></th>
                     <th><?php echo e(__('Models/Bonds.Columns.ClientName')); ?></th>
                     <th><?php echo e(__('Models/Bonds.Columns.Amount')); ?></th>
                     <th><?php echo e(__('Models/Bonds.Columns.BondDate')); ?></th>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     <?php $__currentLoopData = $BondAmounts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $B): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <td><?php echo e($B->id); ?></td>
                         <td><?php echo e($B->MarketPlace); ?></td>
@@ -56,20 +75,20 @@
                         <td><?php echo e($B->ammount); ?></td>
                         <td><?php echo e($B->ammount_date); ?></td>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-6">
-            <table class="table-bordered table">
-                <thead class="thead-light">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-6">
+                <table class="table-bordered table">
+                    <thead class="thead-light">
                     <th>#</th>
                     <th><?php echo e(__('Models/Bonds.Columns.MarketPlaceOwner')); ?></th>
                     <th><?php echo e(__('Models/Bonds.Columns.Products')); ?></th>
                     <th><?php echo e(__('Models/Bonds.Columns.ClientName')); ?></th>
                     <th><?php echo e(__('Models/Bonds.Columns.Quantity')); ?></th>
                     <th><?php echo e(__('Models/Bonds.Columns.BondDate')); ?></th>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     <?php $__currentLoopData = $BondVouchers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $B): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
                             <td><?php echo e($B->id); ?></td>
@@ -80,9 +99,11 @@
                             <td><?php echo e($B->BondDate); ?></td>
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
+    </div>
     </div>
     <div class="clearfix"></div>
 

@@ -7,7 +7,30 @@
 @section('content')
     <div class="row justify-content-center">
     <div class="col-md-8">
-
+        <div class="card">
+            <div class="card-header">
+                فلتر
+            </div>
+            <div class="card-body p-2">
+                <form class="p-3" action="{{route('admin.bondsreport')}}" method="get">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="">{{__('Safe.From')}}</label>
+                                <input type="date" class="form-control" name="from">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="">{{__('Safe.To')}}</label>
+                                <input type="date" class="form-control" name="to">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">{{__('بحث')}}</button>
+                </form>
+            </div>
+        </div>
 
 
 
@@ -33,21 +56,17 @@
 
             </div>
 
-
-    </div>
-    </div>
-
-    <div class=" row">
-        <div class="col-6">
-            <table class="table-bordered table">
-                <thead class="thead-light">
+        <div class=" row">
+            <div class="col-6">
+                <table class="table-bordered table">
+                    <thead class="thead-light">
                     <th>#</th>
                     <th>{{__('Models/Bonds.Columns.MarketPlaceOwner')}}</th>
                     <th>{{__('Models/Bonds.Columns.ClientName')}}</th>
                     <th>{{__('Models/Bonds.Columns.Amount')}}</th>
                     <th>{{__('Models/Bonds.Columns.BondDate')}}</th>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     @foreach($BondAmounts as $B)
                         <td>{{$B->id}}</td>
                         <td>{{$B->MarketPlace}}</td>
@@ -55,20 +74,20 @@
                         <td>{{$B->ammount}}</td>
                         <td>{{$B->ammount_date}}</td>
                     @endforeach
-                </tbody>
-            </table>
-        </div>
-        <div class="col-6">
-            <table class="table-bordered table">
-                <thead class="thead-light">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-6">
+                <table class="table-bordered table">
+                    <thead class="thead-light">
                     <th>#</th>
                     <th>{{__('Models/Bonds.Columns.MarketPlaceOwner')}}</th>
                     <th>{{__('Models/Bonds.Columns.Products')}}</th>
                     <th>{{__('Models/Bonds.Columns.ClientName')}}</th>
                     <th>{{__('Models/Bonds.Columns.Quantity')}}</th>
                     <th>{{__('Models/Bonds.Columns.BondDate')}}</th>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     @foreach($BondVouchers as $B)
                         <tr>
                             <td>{{$B->id}}</td>
@@ -79,9 +98,11 @@
                             <td>{{$B->BondDate}}</td>
                         </tr>
                     @endforeach
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
+    </div>
     </div>
     <div class="clearfix"></div>
 
