@@ -24,7 +24,7 @@ class ObserverServiceProvider extends ServiceProvider
     public function boot()
     {
 
-      //  \App\Models\Marketplace::observe(\App\Observers\MarketplaceObserver::class);
+       \App\Models\User::observe(\App\Observers\UserObserver::class);
 
     }
 }

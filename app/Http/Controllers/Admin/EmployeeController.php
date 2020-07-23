@@ -8,7 +8,7 @@ use App\Http\Requests\Admin\CreateEmployeeRequest;
 use App\Http\Requests\Admin\UpdateEmployeeRequest;
 use App\Models\Marketplace;
 use \App\Models\MarketplaceOwner;
-use App\Repositories\Admin\EmployeeRepository;
+use App\Repositories\EmployeeRepository;
 use App\Repositories\UserRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
@@ -20,7 +20,7 @@ class EmployeeController extends AppBaseController
 
 
     private $employeeRepository;
-    /** @var  \App\Repositories\UserRepository */
+    /** @var  UserRepository */
     private $userRepository;
 
 

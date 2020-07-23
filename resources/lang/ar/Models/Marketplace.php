@@ -18,4 +18,7 @@ return [
     'SafeBalance' => 'رصيد الخزنه',
     'CompanyRegisterImage' => 'صورة السجل التجاري',
     'Logo' => 'الشعار',
+    'Attachment' => 'المرفقات',
+    'CommercialRegister' => 'السجل التجارى',
+    'LeaseContract' => 'صورة عقد الإيجار',
 ];

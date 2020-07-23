@@ -34,9 +34,9 @@
                                 <label for="is_site_active">{{__('adminPanel.is_site_active')}}</label>
                                 <select class="form-control" name="IsSiteActive" id="is_site_active">
                                     <option
-                                            {{\App\Models\Settings::all()->first()->IsSiteActive ?'selected':'' }} value="1">{{__('General.Activate')}}</option>
+                                            {{auth()->user()->settings->IsSiteActive ?'selected':'' }} value="1">{{__('General.Activate')}}</option>
                                     <option
-                                            {{!\App\Models\Settings::all()->first()->IsSiteActive ?'selected':'' }} value="0">{{__('General.Deactivate')}}</option>
+                                            {{auth()->user()->settings->IsSiteActive ?'selected':'' }} value="0">{{__('General.Deactivate')}}</option>
                                 </select>
                                 {{--       <x-error name="is_site_active"></x-error>--}}
                             </div>
@@ -59,12 +59,12 @@
 
                             <div class="form-group col-sm-6">
                                 {!! Form::label('VAT',  __('General.VAT') . ' %' ) !!}
-                                {!! Form::number('VAT', null, ['class' => 'form-control']) !!}
+                                {!! Form::number('VAT', $setting->VAT, ['class' => 'form-control']) !!}
 
 
                                 <label class="checkbox-inline">
                                     {!! Form::hidden('EnableVAT', 0) !!}
-                                    {!! Form::checkbox('EnableVAT', '1', null) !!}
+                                    {!! Form::checkbox('EnableVAT', '1', $setting->EnableVAT) !!}
                                 </label>
                                 {!! Form::label('EnableVAT',  __('General.EnableVAT')) !!}
                             </div>
@@ -86,71 +86,76 @@
                                 <input type="email" name="Email" id="email_address" class="form-control"
                                        value="{{$setting->Email}}">
                             </div>
-                        </div>
-                        <div class="row">
 
-                            {{--   <div class="col-6">--}}
-                            {{--       <label for="closingMessageEnglish">{{__('adminPanel.closing_message')}} - {{__('English')}}</label>--}}
-                            {{--       <textarea class="form-control msg" name="message_en" id="message_en" cols="30" rows="10">--}}
-                            {{--           {{\App\Models\Settings::all()->first()->trans->where('lang_code', 'en')->first()->message}}--}}
-                            {{--       </textarea>--}}
-                            {{--       <x-error name="message_en"></x-error>--}}
-                            {{-- </div>--}}
+                            <div class="form-group col-sm-6">
+                                {!! Form::label('Currency', __('GeneralSettings.Currency')) !!}
+                                {!! Form::select('Currency',['SAR'=>'ريال','AED'=>'درهم','USD'=>'دولار'], $setting->Currency,['class' => 'form-control']) !!}
+                            </div>
+</div>
+<div class="row">
 
-                            <div class="col-12">
-                                <label for="closingMessageArabic">{{__('adminPanel.closing_message')}}
-                                    - {{__('Arabic')}}</label>
-                                <textarea class="form-control msg" name="message_ar" id="message_ar" cols="30"
-                                          rows="10">
+{{--   <div class="col-6">--}}
+{{--       <label for="closingMessageEnglish">{{__('adminPanel.closing_message')}} - {{__('English')}}</label>--}}
+{{--       <textarea class="form-control msg" name="message_en" id="message_en" cols="30" rows="10">--}}
+{{--           {{\App\Models\Settings::all()->first()->trans->where('lang_code', 'en')->first()->message}}--}}
+{{--       </textarea>--}}
+{{--       <x-error name="message_en"></x-error>--}}
+{{-- </div>--}}
+
+<div class="col-12">
+ <label for="closingMessageArabic">{{__('adminPanel.closing_message')}}
+     - {{__('Arabic')}}</label>
+ <textarea class="form-control msg" name="message_ar" id="message_ar" cols="30"
+           rows="10">
 {{--           {{\App\Models\Settings::all()->first()->trans->where('lang_code', 'ar')->first()->message}}--}}
 
-       </textarea>
-                                {{--       <x-error name="message_ar"></x-error>--}}
-                            </div>
-                        </div>
+</textarea>
+ {{--       <x-error name="message_ar"></x-error>--}}
+</div>
+</div>
 
-                        <div class="row mt-2">
-                            <div class="form-group col-md-6">
-                                <label for="program_status">{{__('adminPanel.is_program_active')}}</label>
-                                <select class="form-control" name="program_status" id="program_status">
-                                    {{--       <option {{\App\Models\Settings::all()->first()->program_status ?'selected':'' }} value="1">{{__('Active')}}</option>--}}
-                                    {{--       <option {{!\App\Models\Settings::all()->first()->program_status ?'selected':'' }} value="0">{{__('Not Active')}}</option>--}}
-                                </select>
-                                {{--       <x-error name="program_status"></x-error>--}}
-                            </div>
+<div class="row mt-2">
+<div class="form-group col-md-6">
+ <label for="program_status">{{__('adminPanel.is_program_active')}}</label>
+ <select class="form-control" name="program_status" id="program_status">
+     {{--       <option {{\App\Models\Settings::all()->first()->program_status ?'selected':'' }} value="1">{{__('Active')}}</option>--}}
+     {{--       <option {{!\App\Models\Settings::all()->first()->program_status ?'selected':'' }} value="0">{{__('Not Active')}}</option>--}}
+ </select>
+ {{--       <x-error name="program_status"></x-error>--}}
+</div>
 
-                            <div class="form-group col-md-6">
-                                <label for="end_date">{{__('adminPanel.program_end_date')}}</label>
-                                <input type="date" name="program_end_date" id="end_date" class="form-control" value=" ">
-                                {{--   <input type="date" name="program_end_date" id="end_date" class="form-control" value="{{\App\Models\Settings::all()->first()->program_end_date}}">--}}
-                            </div>
-                        </div>
+<div class="form-group col-md-6">
+ <label for="end_date">{{__('adminPanel.program_end_date')}}</label>
+ <input type="date" name="program_end_date" id="end_date" class="form-control" value=" ">
+ {{--   <input type="date" name="program_end_date" id="end_date" class="form-control" value="{{\App\Models\Settings::all()->first()->program_end_date}}">--}}
+</div>
+</div>
 
 
-                        <div class="row mt-5">
-                            <div class="col-12">
-                                <button class="btn btn-primary" type="submit"><i
-                                            class="fa fa-save"></i> {{__('adminPanel.save')}} </button>
+<div class="row mt-5">
+<div class="col-12">
+ <button class="btn btn-primary" type="submit"><i
+             class="fa fa-save"></i> {{__('Buttons.Save')}} </button>
 
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
 @endsection
 @section('customejs')
-    <script src="{{asset('tinymce/tinymce.min.js')}}"></script>
-    <script>
+<script src="{{asset('tinymce/tinymce.min.js')}}"></script>
+<script>
 
-        tinymce.init({
-            selector: "#message_ar",
-            language: 'ar',
-            directionality: "rtl"
-        });
-        tinymce.init({
-            selector: "#message_en",
-        });
-    </script>
+tinymce.init({
+selector: "#message_ar",
+language: 'ar',
+directionality: "rtl"
+});
+tinymce.init({
+selector: "#message_en",
+});
+</script>
 @endsection

@@ -3,7 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\{
-    BondsVouchers,
+    Models\BondsVouchers,
     Models\Product
 };
 use App\Repositories\BaseRepository;
@@ -72,10 +72,10 @@ class BondsVouchersRepository extends BaseRepository
 
     /**
      * Update Product Quantity after bonding finished
-     * 
+     *
      * @param int $product_no
      * @param int $product_qty
-     * 
+     *
      * @return bool
      */
     private function updateProductQuantityAfterChange(int $product_no, int $product_qty)

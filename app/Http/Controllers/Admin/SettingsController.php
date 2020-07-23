@@ -5,26 +5,30 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Settings;
 use Cassandra\Set;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class SettingsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function index()
     {
-        $setting = Settings::query()->first();
-        return view('admin.settings.index',compact('setting'));
+
+        $setting = auth()->user()->settings;
+        return view('admin.settings.index', compact('setting'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -34,8 +38,8 @@ class SettingsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -45,8 +49,8 @@ class SettingsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Settings $settings
-     * @return \Illuminate\Http\Response
+     * @param  Settings  $settings
+     * @return Response
      */
     public function show(Settings $settings)
     {
@@ -56,8 +60,8 @@ class SettingsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Settings $settings
-     * @return \Illuminate\Http\Response
+     * @param  Settings  $settings
+     * @return Response
      */
     public function edit(Settings $settings)
     {
@@ -67,9 +71,9 @@ class SettingsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Settings $settings
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Settings  $settings
+     * @return Response
      */
     public function update(Request $request, Settings $settings)
     {
@@ -87,8 +91,16 @@ class SettingsController extends Controller
 //            'program_end_date' => trans('adminPanel.program_end_date'),
 //        ]);
 
-        Settings::all()->first()->update($request->except("_token",'_method','Logo'));
-        Settings::all()->first()->update(['Logo' => Storage::put('images',$request->file('Logo'))]);
+
+        auth()->user()->settings->update($request->except("_token", '_method', 'Logo'));
+
+        auth()->user()->settings->Currency = $request->get('Currency');
+        auth()->user()->settings->VAT = $request->get('VAT');
+        auth()->user()->settings->save();
+
+        if ($request->hasFile('Logo'))
+            auth()->user()->settings->update(['Logo' => Storage::put('images', $request->file('Logo'))]);
+
 
 //        foreach (Langs::all() as $lang) {
 //            foreach (Settings::all()->first()->trans as $tran) {
@@ -99,15 +111,16 @@ class SettingsController extends Controller
 //                }
 //            }
 //        }
-        toast(trans('Updated successfully'), 'success')->position(session('locale') == 'ar' ? 'bottom-start' : 'bottom-end');
+        toast(trans('Updated successfully'),
+            'success')->position(session('locale') == 'ar' ? 'bottom-start' : 'bottom-end');
         return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Settings $settings
-     * @return \Illuminate\Http\Response
+     * @param  Settings  $settings
+     * @return Response
      */
     public function destroy(Settings $settings)
     {

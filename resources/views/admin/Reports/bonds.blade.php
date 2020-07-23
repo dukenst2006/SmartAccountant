@@ -13,7 +13,7 @@
 
             <div id="chart">
 
-{{--                {!! $inventoriesCharts->container() !!}--}}
+                {!! $ammountchart->container() !!}
 
             </div>
 
@@ -21,6 +21,23 @@
     </div>
 
     </div>
+    <div class="row justify-content-center">
+    <div class="col-md-8">
+
+
+
+
+            <div id="chart">
+
+                {!! $voucherchart->container() !!}
+
+            </div>
+
+
+    </div>
+    </div>
+
+
     <div class="clearfix"></div>
 
         @include('flash::message')
@@ -37,6 +54,7 @@
 @endsection
 
 @section('customejs')
-{{--    {!! $inventoriesCharts->script() !!}--}}
+    {!! $ammountchart->script() !!}
+    {!! $voucherchart->script() !!}
 @endsection
 

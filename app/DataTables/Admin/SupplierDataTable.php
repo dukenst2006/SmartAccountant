@@ -19,7 +19,7 @@ class SupplierDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn(__('Buttons.Action'), 'admin.suppliers.datatables_actions');
+        return $dataTable->addColumn('action', 'admin.suppliers.datatables_actions');
     }
 
     /**
@@ -43,7 +43,7 @@ class SupplierDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false, 'title' =>'Actions'])
+            ->addAction(['width' => '120px', 'printable' => false, 'title' =>__('Buttons.Action')])
             ->parameters([
                 'dom'       => 'Bfrtip',
                 'stateSave' => true,

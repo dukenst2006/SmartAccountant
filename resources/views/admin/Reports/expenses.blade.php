@@ -30,7 +30,7 @@
 
     </div>
     <div class="text-center">
-                @include('adminlte-templates::common.paginate', ['records' => $expenses])
+{{--                @include('adminlte-templates::common.paginate', ['records' => $expenses])--}}
 
     </div>
 

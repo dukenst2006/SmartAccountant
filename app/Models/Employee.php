@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @package App\Models
  * @version July 6, 2020, 5:31 am UTC
  *
- * @property \App\Models\Marketplace $marketplaceid
+ * @property Marketplace $marketplaceid
  * @property User $User
  * @property Collection $employeeSalaryInfos
  * @property integer $UserID
@@ -91,7 +93,7 @@ class Employee extends Model
      **/
     public function marketplace()
     {
-        return $this->belongsTo(\App\Models\Marketplace::class, 'MarketplaceID');
+        return $this->belongsTo(Marketplace::class, 'MarketPlaceID');
     }
 
     /**

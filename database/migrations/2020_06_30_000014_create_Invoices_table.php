@@ -26,6 +26,7 @@ class CreateInvoicesTable extends Migration
             $table->boolean('IsRaw')->default(false);
             $table->string('RawFile')->nullable()->default('');
             $table->timestamps();
+            $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('MarketplaceID')->references('id')->on('marketplaces')->onDelete('cascade');
             $table->foreign('PaymentTypeID')->references('id')->on('payment_types')->onDelete('cascade');
         });

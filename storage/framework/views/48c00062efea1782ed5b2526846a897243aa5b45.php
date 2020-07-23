@@ -1,7 +1,7 @@
 <?php $__env->startSection('title', 'Products'); ?>
 
 <?php $__env->startSection('content_header'); ?>
-        <h1>    Product</h1>
+        <h1>    <?php echo app('translator')->get('Models/Product.Product'); ?> </h1>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -10,13 +10,15 @@
         <?php echo $__env->make('adminlte-templates::common.errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="card box-primary">
         <div class="card-header">
-                    <h3 class="card-title">Product</h3>
+                    <h3 class="card-title"> <?php echo app('translator')->get('Models/Product.Product'); ?>  </h3>
                 </div>
-            <div class="card-body">
+            <div class="card-body" style="padding: 10px !important;">
                     <?php echo Form::open(['route' => 'admin.products.store','files'=>true]); ?>
 
 
-                        <?php echo $__env->make('admin.products.fields', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        <div class="row w-100 m-0 p-0">
+                            <?php echo $__env->make('admin.products.fields', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        </div>
 
                     <?php echo Form::close(); ?>
 

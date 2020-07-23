@@ -36,6 +36,8 @@ class MarketplacesReportController extends AppBaseController
         $chart = new ProductChart ;
        $chart->labels(['18th', '20th', '22nd', '24th', '26th', '28th', '30th']);
 
+
+
        foreach ($marketplaces as $marketplace)
         $chart->dataset($marketplace->Name, 'line',[100, 120, 170, 167, 180, 177, 160])->color("rgb(153, 102, 255)");
 

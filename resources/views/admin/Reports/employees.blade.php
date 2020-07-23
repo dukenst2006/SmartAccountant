@@ -13,7 +13,7 @@
 
             <div id="chart">
 
-{{--                {!! $inventoriesCharts->container() !!}--}}
+                {!! $employeechart->container() !!}
 
             </div>
 
@@ -37,6 +37,6 @@
 @endsection
 
 @section('customejs')
-{{--    {!! $inventoriesCharts->script() !!}--}}
+    {!! $employeechart->script() !!}
 @endsection
 
