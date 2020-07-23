@@ -23,4 +23,7 @@ class Settings extends Model
         'Logo',
         ];
 
+
+
+
 }

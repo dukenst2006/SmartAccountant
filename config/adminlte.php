@@ -402,18 +402,17 @@ return [/*
 
         [
             'text' => 'Bonds',
-            'url' => '#',
             'icon' => 'fas fa-fw fa-money-bill-alt',
             'icon_color' => 'orange',
             'submenu' => [
                 [
                     'text' => 'BondVoucher',
-                    'url' => '/Admin/BondVoucher',
+                        'route' => 'admin.bondsvoucher.create',
                     'icon' => 'fas fa-truck-loading',
                 ],
                 [
                     'text' => 'BondAmount',
-                    'url' => '#',
+                    'route' => 'admin.bondsammout.create',
                     'icon' => 'fa fa-donate',
                 ],
             ],
@@ -526,17 +525,17 @@ return [/*
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
 
-                [
-                    'text' => 'FinancialReport',
-                    'route'=>'admin.financialreport',
-                    'icon' => 'fas fa-fw fa-cubes',
-                ],
+//                [
+//                    'text' => 'FinancialReport',
+//                    'route'=>'admin.financialreport',
+//                    'icon' => 'fas fa-fw fa-cubes',
+//                ],
 
-                [
-                    'text' => 'MostActive',
-                    'route'=>'admin.mostactivereport',
-                    'icon' => 'fas fa-fw fa-cubes',
-                ],
+//                [
+//                    'text' => 'MostActive',
+//                    'route'=>'admin.mostactivereport',
+//                    'icon' => 'fas fa-fw fa-cubes',
+//                ],
 
                 [
                     'text' => 'BondsReport',

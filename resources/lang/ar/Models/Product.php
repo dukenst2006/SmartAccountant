@@ -5,10 +5,12 @@ use Yajra\DataTables\Html\Column;
 return [
 
     'UserID' => 'معرف المستخدم',
-    'MarketplaceID' => "معرّف الأسواق",
+    'MarketplacesID' => "معرّف الأسواق",
     'ProductCategoryID' => "التنصيف الأساسي",
     'ProductSubCategoryID' => "التنصيف الفرعي",
     'Name' => 'اسم',
+    'Product' => 'المنتج',
+    'Products' => 'المنتجات',
     'Quantity' => 'كمية',
     'QuantityTypeID' => "نوع الكمية",
     'PurchasingPrice' => "سعر الشراء",
@@ -19,5 +21,6 @@ return [
     'Barcode' => 'الرمز الشريطي',
     'CanExpired' => 'تضمين الصلاحيه (منتج لديه تاريخ صلاحيه)',
     'UnlimitedQuantity' => 'كمية غير محدودة',
-    'ExcludeFromVAT'    =>  'المنتج ليس خاضع لضريبة القيمة المضافة'
+    'ProductCategories' => 'الأصناف الرئيسية',
+    'ProductSubCategories' => 'الأصناف الفرعية',
 ];

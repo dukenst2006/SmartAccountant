@@ -19,7 +19,7 @@ class ExpenseDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn(__('Buttons.Action'), 'admin.expenses.datatables_actions');
+        return $dataTable->addColumn('action', 'admin.expenses.datatables_actions');
     }
 
     /**
@@ -43,7 +43,7 @@ class ExpenseDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false])
+            ->addAction([ 'title'=>__('Buttons.Action'),'width' => '120px', 'printable' => false])
             ->parameters([
                 'dom'       => 'Bfrtip',
                 'stateSave' => true,

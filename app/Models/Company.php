@@ -27,7 +27,7 @@ class Company extends Model
 
 
     public $fillable = [
-        'UserID',
+        'MarketplaceOwnerID',
         'Name',
         'Address',
         'Country',

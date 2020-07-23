@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Repositories\BondsAmmountRepository;
 use Flash;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Response;
 use App\Models\Product;
-use App\Repositories\Admin\{
-    BondsVouchersRepository,
-    BondAmmountRepository
-};
+use App\Repositories\Admin\{ BondsVouchersRepository};
 use App\Http\Controllers\AppBaseController;
 
 
@@ -16,19 +16,19 @@ class BondsController extends AppBaseController
 {
 
     /**
-     * @var  \App\Repositories\Admin\BondsVouchersRepository
+     * @var  BondsVouchersRepository
      * */
     private $BondsVouchersRepository;
 
     /**
-     * @var  \App\Repositories\Admin\BondAmmountRepository
+     * @var  BondsAmmountRepository
      * */
-    private $BondAmmountRepository;
+    private $BondsAmmountRepository;
 
-    public function __construct(BondsVouchersRepository $BondsVouchersRepository, BondAmmountRepository $BondAmmountRepository)
+    public function __construct(BondsVouchersRepository $BondsVouchersRepository, BondsAmmountRepository $BondAmmountRepository)
     {
         $this->BondsVouchersRepository = $BondsVouchersRepository;
-        $this->BondAmmountRepository = $BondAmmountRepository;
+        $this->BondsAmmountRepository = $BondAmmountRepository;
     }
 
     public function bondVoucher()
@@ -57,14 +57,14 @@ class BondsController extends AppBaseController
 
     /**
      * Store new bond voucher into database
-     * 
-     * @return RESPONSE_JSON
+     *
+     * @return JsonResponse
      */
     public function storeBondVoucher()
     {
         $billitems = request()->billitems;
         $productsIDs = array_column(request()->billitems, 'product_no');
-        $products = Product::whereIn('id', $productsIDs)->get(); 
+        $products = Product::whereIn('id', $productsIDs)->get();
 
         foreach ($billitems as $key => $bill) {
 
@@ -82,13 +82,13 @@ class BondsController extends AppBaseController
 
     /**
      * Store new bond ammount into database
-     * 
-     * @return RESPONSE_JSON
+     *
+     * @return RedirectResponse
      */
     public function storeBondAmmount()
     {
-        $this->BondAmmountRepository->createNewBondAmmount(request()->all());
-        alert()->success('Bond Ammount Stored Successfully');
+        $this->BondsAmmountRepository->create(request()->all());
+        alert()->success('تم حفظ السند بنجاح');
         return back();
     }
 }

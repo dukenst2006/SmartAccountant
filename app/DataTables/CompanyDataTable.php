@@ -19,7 +19,7 @@ class CompanyDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn(__('Buttons.Action'), 'admin.companies.datatables_actions');
+        return $dataTable->addColumn('action', 'admin.companies.datatables_actions')->rawColumns([ 'action']);
     }
 
     /**
@@ -43,7 +43,7 @@ class CompanyDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false, 'title' => __('crud.action')])
+            ->addAction(['width' => '120px', 'printable' => false, 'title' =>__('Buttons.Action')])
             ->parameters([
                 'dom'       => 'Bfrtip',
                 'stateSave' => true,

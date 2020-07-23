@@ -46,7 +46,7 @@ class HomeController extends Controller
 
 
         $usersChart = new  DashboardChart;
-        $settings = Settings::query()->first();
+        $settings = auth()->user()->settings;
         $totalPaid = Invoice::query()->sum('Paid');
         $gains  =   Expense::query()->sum('Price') - Invoice::query()->sum('Paid');
         $lose  =   Expense::query()->sum('Price') - Invoice::query()->sum('Paid') ;

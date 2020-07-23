@@ -17,34 +17,51 @@
                 </div>
                 <div class="card-body p-0 ">
                     {!! Form::open(['route' => 'admin.bondsammout.store', 'method' => 'post']) !!}
-                            
-                        {!! Form::token() !!} 
+
+                        {!! Form::token() !!}
 
                         <div class="form-group row col-sm-6 m-3">
                             {!! Form::label('client_name', 'اسم العميل') !!}
                             {!! Form::text('client_name', null, ['class' => 'form-control']) !!}
                         </div>
-        
+
                         <div class="form-group row col-sm-6 m-3">
                             {!! Form::label('ammount_date', 'التاريخ') !!}
                             {!! Form::date('ammount_date', null, ['class' => 'form-control']) !!}
                         </div>
-        
+
                         <div class="form-group row col-sm-6 m-3">
                             {!! Form::label('ammount', 'المبلغ') !!}
                             {!! Form::number('ammount', '0', ['class' => 'form-control']) !!}
                         </div>
-        
-                        <div class="col-md-12" style="font-family: 'Cairo SemiBold',serif;">
-        
-                        <button type="submit" id="btnFetch" class="btn btn-success btn-lg"
-                                style="font-family: cairo, serif; font-weight: 700;">
-        
-                            <i class="fas fa-fw fa-save"></i>
-                            حفظ                 
-                        </button>
+
+
+
+                            <!-- Submit Field -->
+                            <div class="form-group col-sm-12">
+                                {!! Form::submit(__('Buttons.Save'), ['class' => 'btn btn-primary']) !!}
+                                <a href="{{ route('Home') }}" class="btn btn-default">{{__('Buttons.Cancel')}}</a>
+                            </div>
+
                     {!! Form::close() !!}
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             </div>
         </div>

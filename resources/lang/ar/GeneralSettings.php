@@ -18,6 +18,7 @@ return [
     'program_end_date'=>'تاريخ انتهاء البرنامج',
     'save' => ' حفظ ',
     'store_name' => 'اسم المتجر',
+    'Currency' => 'العملة',
     'logo_picture' => 'الشعار',
     'Stamp' => 'الختم',
     'VAT' => 'الضريبة',

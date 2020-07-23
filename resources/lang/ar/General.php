@@ -5,7 +5,7 @@ return [
     'Deactivate'            =>  "موقوف",
     'Add'                   =>  "اضافة",
     'All'                   =>  "الكل",
-    'Create'                =>  "انشاء",
+    'Create'                =>  "إنشاء",
     'Delete'                =>  "حذف",
     'Back'                  =>  "عودة",
     'Edit'                  =>  "تعديل",
@@ -23,6 +23,24 @@ return [
     'phone' => 'الهاتف',
     'subscribe_number' => ' رقم الإشتراك',
     'email_address' => 'البريد الإلكترونى',
+    'chat' => 'المراسلات',
+    'EnableVAT' => 'تفعيل ضريبة القيمه المضافة',
+    'VAT' => 'ضريبة القيمه المضافة',
+    'Stamp' => 'صورة التوثيق',
+    'contacts' => 'جهات الإتصال',
+    'chat_direct' => 'الدردشة المباشرة',
+    'notification' => 'إشعار',
+    'all_notifications' => 'مشاهدة كل الإشعارات',
+    'new_messages' => 'رسائل الجديدة',
+    'message' => 'رسالة',
+    'all_messages' => 'مشاهدة كل الرسائل',
+    'friend_request' => 'طلبات صداقة',
+    'new_report' => 'تقارير جديد',
+    'hours' => 'ساعة',
+    'hours_ago' => ' ساعات ماضية',
+    'since' => 'منذ',
+    'minutes' => 'دقيقة',
+    'day' => 'يوم',
 
 
 
@@ -41,9 +59,10 @@ return [
     'Titles' => [
         'Employees' =>  "الموظفين",
         'Suppliers' =>  "الموردين",
-
         'Branch'    =>  "فرع",
         'Companies' =>  "الشركات",
     ],
-
+    'Product'   =>  [
+        'ExcludeFromVAT'    =>  'المنتج ليس خاضع لضريبة القيمة المضافة'
+    ]
 ];
