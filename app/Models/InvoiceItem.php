@@ -25,6 +25,8 @@ class InvoiceItem extends Model
 
     public $table = 'invoice_items';
 
+    public $timestamps = false;
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
