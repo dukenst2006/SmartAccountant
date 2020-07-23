@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Reports;
 use App\Charts\BondsChart;
 use App\Http\Controllers\AppBaseController;
+use App\Models\BondsAmmount;
+use App\Models\BondsVouchers;
 use App\Repositories\Admin\BondsVouchersRepository;
 use App\Repositories\BondsAmmountRepository;
 
@@ -33,8 +35,9 @@ class BondsReportController extends AppBaseController
         $vouchers =  $this->bondsvouchersrepository ->all()->take(30);
         $voucherchart->labels($vouchers->pluck('client_name'));
         $voucherchart->dataset('سندات المبالغ', 'bar',$vouchers->pluck('ammount'))->backgroundcolor("rgb(255, 159, 64)")->color("rgb(255, 159, 64)");
-
-        return view('admin.Reports.bonds',compact('ammountchart','voucherchart'));
+        $BondAmounts = BondsAmmount::paginate(10);
+        $BondVouchers = BondsVouchers::paginate(10);
+        return view('admin.Reports.bonds',compact('ammountchart','voucherchart','BondAmounts','BondVouchers'));
     }
 
 }
