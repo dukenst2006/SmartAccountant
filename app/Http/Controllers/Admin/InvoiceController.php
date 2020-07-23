@@ -57,10 +57,9 @@ class InvoiceController extends AppBaseController
 
     public function StoreSaleInvoice()
     {
+        $this->invoiceRepository->createNewSaleInvoice(request()->all());
 
-        $input = request()->all();
-
-        return auth()->user()->id;
+        return response()->json(['success' => 'Sale Invoice Stored Successfully'], 200);
     }
 
     public  function raw(){
@@ -71,7 +70,6 @@ class InvoiceController extends AppBaseController
 
     public function StoreRawInvoice()
     {
-        
         $this->invoiceRepository->createNewRawInvoice(request()->all());
 
         alert()->success('Raw Invoice Stored Successfully');

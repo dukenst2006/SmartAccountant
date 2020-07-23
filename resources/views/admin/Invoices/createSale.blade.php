@@ -293,7 +293,7 @@
 
 
                         let $this = $("#btnFetch");
-                        $this.button('loading');
+                        // $this.button('loading');
                         $this.prop("disabled", true);
                         $this.data('original-text', $this.html());
                         $this.html(`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`);
@@ -301,8 +301,7 @@
 
                         $.ajax({
                             type: "post",
-                            {{--url: "{{route('invoice.store')}}",--}}
-                            url:"#",
+                            url: "{{route('admin.invoice.storesaleinvoice')}}",
                             dataType: 'json',
                             'contentType': 'application/json',
 
