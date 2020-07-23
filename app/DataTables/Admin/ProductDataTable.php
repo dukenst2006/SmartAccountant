@@ -76,7 +76,7 @@ class ProductDataTable extends DataTable
 
             new Column([ 'data' => 'id', 'name' => 'id', 'title' => '#' ]),
             new Column([ 'data' => 'productcategory.Name', 'name' => 'productcategory.Name', 'title' => __('Models/Product.ProductCategoryID') ]),
-            new Column([  "defaultContent"=> "-", 'data' => 'productsubcategory.Name', 'name' => 'productsubcategory.Name', 'title' => __('Models/Product.ProductSubCategoryID') ]),
+            new Column([ "defaultContent"=> "-", 'data' => 'productsubcategory.Name', 'name' => 'productsubcategory.Name', 'title' => __('Models/Product.ProductSubCategoryID') ]),
             new Column([ 'data' => 'Name', 'name' => 'Name', 'title' => __('Models/Product.Name')]), new Column(['data' => 'Quantity', 'name' => 'Quantity', 'title' => __('Models/Product.Quantity')]),
             new Column([ 'data' => 'PurchasingPrice' , 'name' => 'PurchasingPrice' , 'title' => __('Models/Product.PurchasingPrice') ]),
             new Column([ 'data' => 'SellingPrice', 'name' => 'SellingPrice', 'title' => __('Models/Product.SellingPrice') ]),
