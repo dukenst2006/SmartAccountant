@@ -21,6 +21,7 @@ class Settings extends Model
         'Website',
         'SerialNumber',
         'Logo',
+        'VAT',
         ];
 
 }

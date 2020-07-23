@@ -59,7 +59,7 @@
 
                             <div class="form-group col-sm-6">
                                 {!! Form::label('VAT',  __('GeneralSettings.VAT') . ' %' ) !!}
-                                {!! Form::number('VAT', null, ['class' => 'form-control']) !!}
+                                {!! Form::number('VAT', $setting->VAT, ['class' => 'form-control']) !!}
 
                                 {!! Form::label('EnableVAT',  __('GeneralSettings.EnableVAT')) !!}
                                 <label class="checkbox-inline">

@@ -88,7 +88,10 @@ class SettingsController extends Controller
 //        ]);
 
         Settings::all()->first()->update($request->except("_token",'_method','Logo'));
-        Settings::all()->first()->update(['Logo' => Storage::put('images',$request->file('Logo'))]);
+        if($request->hasFile('Logo')){
+
+            Settings::all()->first()->update(['Logo' => Storage::put('images',$request->file('Logo'))]);
+        }
 
 //        foreach (Langs::all() as $lang) {
 //            foreach (Settings::all()->first()->trans as $tran) {
