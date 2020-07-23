@@ -77,6 +77,13 @@
                 </form>
             </div>
             <div class="card-body card-body table-responsive p-0">
+     <div class="row col-12 text-center justify-content-center">
+         <a class="btn btn-success btn-lg" href="<?php echo e(route('admin.products.create')); ?>">
+             <span class="fa fa-plus-square"></span>
+             <?php echo e(__('Buttons.Add')); ?></a>
+
+     </div>
+
                 <?php echo $__env->make('flash::message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 <?php echo $__env->make('admin.products.table', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 

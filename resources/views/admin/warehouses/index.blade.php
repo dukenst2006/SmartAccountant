@@ -76,6 +76,13 @@
                 </form>
             </div>
             <div class="card-body card-body table-responsive p-0">
+     <div class="row col-12 text-center justify-content-center">
+         <a class="btn btn-success btn-lg" href="{{route('admin.products.create')}}">
+             <span class="fa fa-plus-square"></span>
+             {{__('Buttons.Add')}}</a>
+
+     </div>
+
                 @include('flash::message')
                 @include('admin.products.table')
 

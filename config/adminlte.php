@@ -401,8 +401,8 @@ return [/*
         ['header' => 'FinancialManagement'],
 
         [
-            'text' => 'Bonds',
-            'icon' => 'fas fa-fw fa-money-bill-alt',
+            'text' => 'Treasury',
+            'icon' => 'fas fa-fw fa-donate',
             'icon_color' => 'orange',
             'submenu' => [
                 [
@@ -410,21 +410,18 @@ return [/*
                         'route' => 'admin.bondsvoucher.create',
                     'icon' => 'fas fa-truck-loading',
                 ],
+
                 [
-                    'text' => 'BondAmount',
-                    'route' => 'admin.bondsammout.create',
-                    'icon' => 'fa fa-donate',
+                    'text' => 'Treasury',
+                    'route' => 'admin.treasure',
+                    'icon' => 'fas fa-fw fa-donate',
+                    'icon_color' => 'green',
                 ],
             ],
 
         ],
 
-        [
-            'text' => 'Treasury',
-            'route' => 'admin.treasure',
-            'icon' => 'fas fa-fw fa-donate',
-            'icon_color' => 'green',
-        ],
+
 
         [
             'text' => 'Safe',
@@ -463,6 +460,11 @@ return [/*
             'url' => '#',
             'icon' => 'fas fa-fw fa-money-bill-alt',
             'submenu' => [
+                [
+                    'text' => 'BondAmount',
+                    'route' => 'admin.bondsammout.create',
+                    'icon' => 'fa fa-donate',
+                ],
 
                 [
                     'text' => 'create',
@@ -476,6 +478,8 @@ return [/*
                     'icon' => 'fas fa-fw fa-cubes',
 
                 ],
+
+
                 [
                     'text' => 'ExpensesCategories',
                     'icon' => 'fas fa fa-city',
