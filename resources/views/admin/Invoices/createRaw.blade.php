@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="form-group row col-sm-6 m-3">
-                                {!! Form::label('PaymentTypeID', __('Models/Marketplace.Name')) !!}
+                                {!! Form::label('PaymentTypeID', __('Models/Invoice.PaymentTypeID')) !!}
                                 {!! Form::select('PaymentTypeID',$payment_types, null,['class' => 'form-control']) !!}
                             </div>
 

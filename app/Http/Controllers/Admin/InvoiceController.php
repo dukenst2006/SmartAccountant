@@ -12,7 +12,7 @@ use Response;
 use App\Repositories\{
     InvoiceRepository,
     ProductRepository,
-    Admin\EmployeeRepository
+    EmployeeRepository
 };
 
 class InvoiceController extends AppBaseController
@@ -40,7 +40,11 @@ class InvoiceController extends AppBaseController
         $this->employeeRepository = $employeeRepository;
     }
 
-
+    public function showRawInvoices()
+    {
+        $rawInvoices = $this->invoiceRepository->getAllRawInvoices()->get();
+        return view('admin.Invoices.index', compact('rawInvoices'));
+    }
 
 
     public  function sale(){
@@ -62,17 +66,25 @@ class InvoiceController extends AppBaseController
     public  function raw(){
         $marketplaces = $this->employeeRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID');
         $payment_types = $this->invoiceRepository->GetDataForSelect('payment_types');
-        
         return view('admin.Invoices.createRaw', compact('marketplaces', 'payment_types'));
     }
 
-    public  function StoreRawInvoice()
+    public function StoreRawInvoice()
     {
         
         $this->invoiceRepository->createNewRawInvoice(request()->all());
 
         alert()->success('Raw Invoice Stored Successfully');
 
-        return back();
+        return redirect(route('admin.invoice.invoicerawall'));
+    }
+
+    public function deleterRawInvoice($id)
+    {
+        $this->invoiceRepository->deleteRawInvoice($id);
+
+        alert()->success('Raw Invoice Stored Successfully');
+
+        return redirect(route('admin.invoice.invoicerawall'));
     }
 }

@@ -53,7 +53,7 @@ class InvoiceRepository extends BaseRepository
      *
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model
      */
-    public function createNewRawInvoice($inputs)
+    public function createNewRawInvoice(array $inputs)
     {
         $user_id = auth()->user()->id;
         $model = $this->model->newInstance($inputs);
@@ -70,5 +70,15 @@ class InvoiceRepository extends BaseRepository
         $model->save();
 
         return $model;
+    }
+
+    public function getAllRawInvoices()
+    {
+        return Invoice::where('isRaw', true);
+    }
+
+    public function deleteRawInvoice(int $id)
+    {
+        Invoice::where('id',$id)->delete();
     }
 }
