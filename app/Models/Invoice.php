@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Marketplace $MarketplaceID
  * @property PaymentType $paymenttypeid
  * @property Collection $invoiceItems
- * @property integer $MarketplaceID
+
  * @property integer $UserID
  * @property number $Total
  * @property number $Paid
