@@ -54,7 +54,7 @@ class CompanyController extends AppBaseController
         $input = $request->all();
 
         $company = $this->companyRepository->create($input);
-        $company->MarketplaceOwnerID=$this->companyRepository->GetMyOwner();
+
 
         Flash::success(__('messages.saved', ['model' => __('models/companies.singular')]));
 

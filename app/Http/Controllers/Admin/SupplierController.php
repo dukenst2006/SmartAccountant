@@ -42,7 +42,7 @@ class SupplierController extends AppBaseController
 
 
 
-        return view('admin.suppliers.create')->with('companies',$this->supplierRepository->GetDataForSelect('companies','UserID'));
+        return view('admin.suppliers.create')->with('companies',$this->supplierRepository->GetDataForSelect('companies','MarketplaceOwnerID'));
     }
 
     /**

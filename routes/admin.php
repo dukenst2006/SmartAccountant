@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/text', function (){
    return view('home');
 });
+
+
 Route::get('lang/{Language}', 'LocalizationController@index')->name('ChangeLanguage');
 Route::group(['prefix' => 'Admin'], function () {
 //'middleware' => ['role:super-admin'] ,
@@ -49,7 +51,13 @@ Route::group(['prefix' => 'Admin'], function () {
 
     Route::resource('EmployeeSalary', 'EmployeeSalaryController');
 
-    Route::get('BondVoucher', 'BondsController@BondVoucher');
+    // BondVoucher
+    Route::get('BondVoucher', 'BondsController@BondVoucher')->name('bondsvoucher.create');
+    Route::post('BondVoucher/Store', 'BondsController@storeBondVoucher')->name('bondsvoucher.store');
+
+    // BondAmmount
+    Route::get('BondAmmount', 'BondsController@CreateBondAmmount')->name('bondsammout.create');
+    Route::post('BondAmmount/Store', 'BondsController@storeBondAmmount')->name('bondsammout.store');
 
 
     Route::group(['namespace' => '\App\Http\Controllers\Reports'], function () {

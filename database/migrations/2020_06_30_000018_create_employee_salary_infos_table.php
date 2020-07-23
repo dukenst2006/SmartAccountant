@@ -24,7 +24,7 @@ class CreateEmployeeSalaryInfosTable extends Migration
 
 
 
-            $table->foreign('EmployeeID')->references('id')->on('Employees')->onDelete('cascade');
+            $table->foreign('EmployeeID')->references('id')->on('employees')->onDelete('cascade');
 
         });
     }

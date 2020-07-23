@@ -16,7 +16,7 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('MarketplaceOwnerID')->nullable();
+            $table->unsignedBigInteger('UserID')->nullable();             ;
             $table->boolean('IsSiteActive')->default(true); //حالة الموقع
             $table->boolean('MessageEn')->default(true);
             $table->boolean('messageAr')->default(true);
@@ -31,10 +31,11 @@ class CreateSettingsTable extends Migration
             $table->string('Logo')->nullable();  // شعار المؤسسة
             $table->string('Stamp')->nullable();     // صورة ختم المؤسسة
             $table->double('VAT')->default(0);  // ضريبه القيمة المضافة .. نسبه مؤيه
+            $table->string('Currency')->default('SAR');  // ضريبه القيمة المضافة .. نسبه مؤيه
             $table->boolean('EnableVAT')->default(true);  // تفعيل حساب الضرائب علي الاسعار.
             $table->timestamps();
 
-            $table->foreign('MarketplaceOwnerID')->references('id')->on('marketplace_owners')->onDelete('cascade');
+            $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');
 
         });
         \App\Models\Settings::query()->create();

@@ -27,7 +27,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
+protected $with=['settings'];
     /**
      * The attributes that should be cast to native types.
      *
@@ -50,8 +50,14 @@ class User extends Authenticatable
 
 public function Employee()
 {
-    return $this->hasOne(Employee::class,'UserID','ID');
+    return $this->hasOne(Employee::class,'UserID','id');
 }
+
+
+    public function settings()
+    {
+        return $this->hasOne(Settings::class,'UserID','id');
+    }
 
 
 

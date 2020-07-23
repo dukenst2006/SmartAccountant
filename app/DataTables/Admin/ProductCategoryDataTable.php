@@ -18,7 +18,7 @@ class ProductCategoryDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn(__('Buttons.Action'), 'admin.product_categories.datatables_actions');
+        return $dataTable->addColumn('action', 'admin.product_categories.datatables_actions');
     }
 
     /**
@@ -42,7 +42,7 @@ class ProductCategoryDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false])
+            ->addAction([ 'title'=>__('Buttons.Action'),'width' => '120px', 'printable' => false])
             ->parameters([
                 'dom'       => 'Bfrtip',
                 'stateSave' => true,

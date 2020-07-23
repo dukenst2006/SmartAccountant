@@ -18,14 +18,14 @@ class CreateProductMovementsTable extends Migration
             $table->unsignedBigInteger('UserID');
             $table->unsignedBigInteger('ProductID');
             $table->integer('Quantity');
-            $table->unsignedBigInteger('MovementID');
+            $table->unsignedBigInteger('MovementTypeID');
 
 
 
 
-            $table->foreign('UserID')->on('Users')->references('id');
-            $table->foreign('ProductID')->on('Products')->references('id');
-            $table->foreign('MovementID')->on('product_movements')->references('id');
+            $table->foreign('UserID')->on('users')->references('id');
+            $table->foreign('ProductID')->on('products')->references('id');
+            $table->foreign('MovementTypeID')->on('product_movement_types')->references('id');
             $table->timestamps();
         });
     }

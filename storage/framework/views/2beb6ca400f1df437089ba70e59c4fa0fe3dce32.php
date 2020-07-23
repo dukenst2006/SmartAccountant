@@ -46,13 +46,7 @@
     <?php echo Form::number('PurchasingPrice', null, ['class' => 'form-control']); ?>
 
 </div>
-<!-- ExcludeFromVAT Field -->
-<div class="form-group col-sm-6">
-    <?php echo Form::label('ExcludeFromVAT',  __('General.Product.ExcludeFromVAT')); ?>
 
-    <?php echo Form::checkbox('ExcludeFromVAT', 1,null, ['class' => '']); ?>
-
-</div>
 
 <!-- Sellingprice Field -->
 <div class="form-group col-sm-6">
@@ -77,7 +71,13 @@
     <?php echo Form::file('Image', ['class' => 'form-control']); ?>
 
 </div>
+<!-- Barcode Field -->
+<div class="form-group col-sm-6   ">
+    <?php echo Form::label('Barcode',  __('Models/Product.Barcode')); ?>
 
+    <?php echo Form::text('Barcode', null, ['class' => 'form-control']); ?>
+
+</div>
 <!-- Expirydate Field -->
 <div class="form-group col-sm-6">
     <?php echo Form::label('ExpiryDate',  __('Models/Product.ExpiryDate')); ?>
@@ -85,7 +85,10 @@
     <?php echo Form::date('ExpiryDate', null, ['class' => 'form-control','id'=>'ExpiryDate']); ?>
 
 
-    <?php echo Form::label('UnlimitedQuantity',  __('Models/Product.CanExpired')); ?>
+</div>
+
+<!-- Unlimitedquantity Field -->
+<div class="form-group col-sm-12 mt-2">
 
     <label class="checkbox-inline">
         <?php echo Form::hidden('CanExpired', 0); ?>
@@ -93,8 +96,30 @@
         <?php echo Form::checkbox('CanExpired', '1', null); ?>
 
     </label>
+    <?php echo Form::label('UnlimitedQuantity',  __('Models/Product.CanExpired')); ?>
+
+
+</div>
+<div class="form-group col-sm-12">
+    <label class="checkbox-inline">
+        <?php echo Form::hidden('UnlimitedQuantity', 0); ?>
+
+        <?php echo Form::checkbox('UnlimitedQuantity', '1', null); ?>
+
+    </label>
+    <?php echo Form::label('UnlimitedQuantity',  __('Models/Product.UnlimitedQuantity')); ?>
+
+
 </div>
 
+<!-- ExcludeFromVAT Field -->
+<div class="form-group col-sm-12">
+    <?php echo Form::checkbox('ExcludeFromVAT', 1,null, ['class' => '']); ?>
+
+    <?php echo Form::label('ExcludeFromVAT',  __('General.Product.ExcludeFromVAT')); ?>
+
+
+</div>
 <?php $__env->startPush('scripts'); ?>
     <script type="text/javascript">
         $('#ExpiryDate').datetimepicker({
@@ -105,25 +130,7 @@
     </script>
 <?php $__env->stopPush(); ?>
 
-<!-- Barcode Field -->
-<div class="form-group col-sm-6">
-    <?php echo Form::label('Barcode',  __('Models/Product.Barcode')); ?>
 
-    <?php echo Form::text('Barcode', null, ['class' => 'form-control']); ?>
-
-</div>
-
-<!-- Unlimitedquantity Field -->
-<div class="form-group col-sm-6">
-    <?php echo Form::label('UnlimitedQuantity',  __('Models/Product.UnlimitedQuantity')); ?>
-
-    <label class="checkbox-inline">
-        <?php echo Form::hidden('UnlimitedQuantity', 0); ?>
-
-        <?php echo Form::checkbox('UnlimitedQuantity', '1', null); ?>
-
-    </label>
-</div>
 
 
 <!-- Submit Field -->

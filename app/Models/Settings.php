@@ -24,4 +24,7 @@ class Settings extends Model
         'VAT',
         ];
 
+
+
+
 }

@@ -48,7 +48,7 @@ class CompanyRepository extends BaseRepository
     public function create($input)
     {
         $model = $this->model->newInstance($input);
-        $model->UserID= Auth()->user()->id;
+        $model->MarketplaceOwnerID=$this->GetMyOwner();
         $model->save();
 
         return $model;

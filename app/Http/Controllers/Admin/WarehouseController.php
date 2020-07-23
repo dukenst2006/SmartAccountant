@@ -33,6 +33,7 @@ class WarehouseController extends AppBaseController
      */
     public function index(ProductDataTable $productDataTable)
     {
+
       $product=  $this ->productRepository->GetTop10InWarehouse();
         $chart = new WarehouseChart();
 

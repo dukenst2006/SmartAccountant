@@ -243,8 +243,7 @@
 
                         $.ajax({
                             type: "post",
-                            url: "{{route('bond.store')}}",
-                            url:"#",
+                            url: "{{url('Admin/BondVoucher/Store')}}",
                             dataType: 'json',
                             'contentType': 'application/json',
 
