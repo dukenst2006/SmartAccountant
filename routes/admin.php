@@ -39,7 +39,11 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::get('chat', function (){return view('admin.Messages.chat');})->name('chat');
 
     Route::get('invoicerawcreatesale', 'InvoiceController@sale')->name('invoice.createsale');
+    Route::get('invoicerawall', 'InvoiceController@showRawInvoices')->name('invoice.invoicerawall');
     Route::get('invoiceraw', 'InvoiceController@raw')->name('invoice.createraw');
+    Route::post('invoiceraw/store', 'InvoiceController@StoreRawInvoice')->name('invoice.storerowinvoice');
+    Route::get('invoiceraw/{id}/delete', 'InvoiceController@deleterRawInvoice')->name('admin.delete.rawInvoice');
+
 
 
     Route::get('treasure', 'TreasureController@index')->name('treasure');
