@@ -58,7 +58,7 @@
                             </div>
 
                             <div class="form-group col-sm-6">
-                                {!! Form::label('VAT',  __('GeneralSettings.VAT') . ' %' ) !!}
+                                {!! Form::label('VAT',  __('General.VAT') . ' %' ) !!}
                                 {!! Form::number('VAT', $setting->VAT, ['class' => 'form-control']) !!}
 
 
@@ -89,7 +89,7 @@
                             </div>
 
                             <div class="form-group col-sm-6">
-                                {!! Form::label('Currency', __('GeneralSettings.Currency')) !!}
+                                {!! Form::label('Currency', __('General.Currency')) !!}
                                 {!! Form::select('Currency',['SAR'=>'ريال','AED'=>'درهم','USD'=>'دولار'], $setting->Currency,['class' => 'form-control']) !!}
                             </div>
 </div>

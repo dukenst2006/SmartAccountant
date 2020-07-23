@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title', 'Stocks'); ?>
 
 <?php $__env->startSection('content_header'); ?>

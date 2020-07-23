@@ -16,24 +16,33 @@
 
 </div>
 
-<a href="<?php echo e($dashboard_url); ?>"
+<div class="main-sid-ctl">
+    <a href="<?php echo e($dashboard_url); ?>"
 
-   <?php if($layoutHelper->isLayoutTopnavEnabled()): ?>
-   class="navbar-brand  text-center <?php echo e(config('adminlte.classes_brand')); ?>"
-   <?php else: ?>
-   class="brand-link text-center   <?php echo e(config('adminlte.classes_brand')); ?>"
-    <?php endif; ?>>
+       <?php if($layoutHelper->isLayoutTopnavEnabled()): ?>
+       class="navbar-brand  text-center <?php echo e(config('adminlte.classes_brand')); ?>"
+       <?php else: ?>
+       class="brand-link text-center   <?php echo e(config('adminlte.classes_brand')); ?>"
+            <?php endif; ?>>
 
-    
-
-
+        
 
 
-    
-    <span class="brand-text font-weight-light <?php echo e(config('adminlte.classes_brand_text')); ?>">
+
+
+        
+        <span class="brand-text font-weight-light <?php echo e(config('adminlte.classes_brand_text')); ?>">
         <?php echo config('adminlte.logo', '<b>Admin</b>LTE'); ?>
 
     </span>
 
-</a>
-<?php /**PATH F:\Laravel-Projects\Smart Accountant\resources\views/vendor/adminlte/partials/common/brand-logo-xs.blade.php ENDPATH**/ ?>
+    </a>
+    <div class="all-ctr">
+        <div id="upSideBar">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+        <div id="downSideBar">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+</div><?php /**PATH F:\Laravel-Projects\Smart Accountant\resources\views/vendor/adminlte/partials/common/brand-logo-xs.blade.php ENDPATH**/ ?>

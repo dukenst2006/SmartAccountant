@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('content'); ?>
     <div class="container pt-3">
 
@@ -13,7 +14,8 @@
                         <h4 class="info-box-number">
                             <?php echo e($settings->Capital); ?>
 
-                            ر.س
+                            <?php echo e(__('General.Currencies.'.auth()->user()->settings->Currency)); ?>
+
 
                         </h4>
 
@@ -45,7 +47,8 @@
 
                             <?php echo e($gains); ?>
 
-                            ر.س
+                        <?php echo e(__('General.Currencies.'.auth()->user()->settings->Currency)); ?>
+
                         </h4>
 
 
@@ -68,7 +71,8 @@
 
                             <?php echo e($totalPaid); ?>
 
-                            ر.س
+                            <?php echo e(__('General.Currencies.'.auth()->user()->settings->Currency)); ?>
+
                         </h4>
 
 
@@ -93,7 +97,8 @@
 
                           <?php echo e($lose); ?>
 
-                            ر.س
+                            <?php echo e(__('General.Currencies.'.auth()->user()->settings->Currency)); ?>
+
                         </h4>
 
 

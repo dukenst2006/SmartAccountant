@@ -2,7 +2,7 @@
 @section('title', 'Employees')
 
 @section('content_header')
-    <h1>Employee</h1>
+    <h1>{{__('General.Titles.Employee')}}</h1>
 @stop
 
 
@@ -15,15 +15,15 @@
 
      <div class="card card-primary col-12">
             <div class="card-header">
-                <h3 class="card-title">Employee</h3>
+                <h3 class="card-title">{{__('General.Titles.Employee')}}</h3>
             </div>
 
 
-              <div class="card-body">
+              <div class="card-body" style="padding: 20px !important;">
 
-                 <form >
+                 <form class="lye-emp" >
                     @include('admin.employees.show_fields')
-                    <a href="{{ route('admin.employees.index') }}" class="btn btn-warning"><i class="fas fa-backward" style="cursor: pointer;"></i>Back</a>
+                    <a href="{{ route('admin.employees.index') }}" class="btn btn-warning"><i class="fas fa-backward" style="cursor: pointer;"></i> رجوع </a>
                 </form>
 
 

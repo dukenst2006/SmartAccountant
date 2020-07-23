@@ -26,3 +26,11 @@
          class="{{ config('adminlte.logo_img_xl_class', 'brand-image-xs') }} logo-xl">
 
 </a>
+<div class="all-ctr">
+    <div id="upSideBar">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+    <div id="downSideBar">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</div>

@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
         $QuantityTypeSeeder->run();
 
 
-//        $PaymentTypesSeeder =new PaymentTypesSeeder();
-//        $PaymentTypesSeeder->run();
-//
+        $PaymentTypesSeeder =new PaymentTypesSeeder();
+        $PaymentTypesSeeder->run();
+
 //        $PermissionSeeder =new PermissionSeeder();
 //        $PermissionSeeder->run();
 //
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
 //
 //
 //
-//        factory(App\Models\Product::class, 50)->create();
+        factory(App\Models\Product::class, 50)->create();
 
 
 

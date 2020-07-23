@@ -50,7 +50,7 @@ class InvoiceController extends AppBaseController
     public  function sale(){
 
         return view('admin.Invoices.createSale')
-            ->with(['paymenttypes'=>$this->invoiceRepository->GetDataForSelect('payment_types'),
+            ->with(['payment_types'=>$this->invoiceRepository->GetDataForSelect('payment_types'),
                     'products'=> $this->productRepository->GetTop10InWarehouse()
             ]);
     }

@@ -41,6 +41,15 @@ return [
     'since' => 'منذ',
     'minutes' => 'دقيقة',
     'day' => 'يوم',
+    'Currency' => 'العملة',
+
+
+    'Currencies' =>  [
+        'SAR'   =>  "ر.س",
+        'USD'      =>  "$",
+        'AED'     =>  "AED",
+    ],
+
 
 
 
@@ -58,6 +67,7 @@ return [
     ],
     'Titles' => [
         'Employees' =>  "الموظفين",
+        'Employee' =>  "الموظف",
         'Suppliers' =>  "الموردين",
         'Branch'    =>  "فرع",
         'Companies' =>  "الشركات",
@@ -65,5 +75,19 @@ return [
     'Product'   =>  [
         'ExcludeFromVAT'    =>  'المنتج ليس خاضع لضريبة القيمة المضافة'
     ],
-    'Currency'  =>  ['SAR'=>'ريال','AED'=>'درهم','USD'=>'دولار'],
+    'fields' => [
+      'Marketplaceid' => ' ID  المتجر',
+      'Marketplaceownerid' => ' ID  مالك المتجر',
+      'Nationality' => 'الجنسية',
+      'Jobtitle' => 'عنوان الوظيفة',
+      'Nationalid' => 'الهوية الوطنية',
+      'Phonenumber' => 'رقم الجوال',
+      'Profileimage' => 'صورة الملف الشخصي',
+      'Identityimage' => 'صورة الهوية',
+      'Employmentcontractimage' => 'صورة عقد العمل',
+      'Iban' => 'رقم الايبان',
+      'sex' => 'الجنس',
+      'Salary' => 'الراتب',
+      'back' => 'رجوع',
+]
 ];

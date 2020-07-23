@@ -1,11 +1,10 @@
-@extends('adminlte::page')
-@section('title', 'فاتوره جديده')
+<?php $__env->startSection('title', 'فاتوره جديده'); ?>
 
-@section('content_header')
+<?php $__env->startSection('content_header'); ?>
     <h1>فاتورة جديده</h1>
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <div class="row justify-content-center animated bounceInLeft">
         <div class="col-md-8">
@@ -129,8 +128,10 @@
                                         <th>المتبقي:</th>
                                         <td v-text="invoice_rest" id="invoce_Rest" class="text-bold text-center">0</td>
 
-                                        {!! Form::label('PaymentTypeID', __('Models/Invoice.PaymentTypeID')) !!}
-                                        {!! Form::select('PaymentTypeID',$payment_types, null,['class' => 'form-control' , 'v-model'=>"Payment_Type"]) !!}
+                                        <?php echo Form::label('PaymentTypeID', __('Models/Invoice.PaymentTypeID')); ?>
+
+                                        <?php echo Form::select('PaymentTypeID',$payment_types, null,['class' => 'form-control' , 'v-model'=>"Payment_Type"]); ?>
+
 
 
                                     </tr>
@@ -175,15 +176,15 @@
 
 
 
-@stop
-@section('css')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('css'); ?>
 
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('customejs')
+<?php $__env->startSection('customejs'); ?>
     <script>
-        var _token = "{{ csrf_token() }}";
-        $.ajaxSetup({headers: {'csrftoken': '{{ csrf_token() }}'}});
+        var _token = "<?php echo e(csrf_token()); ?>";
+        $.ajaxSetup({headers: {'csrftoken': '<?php echo e(csrf_token()); ?>'}});
         $.fn.select2.defaults.set( "theme", "bootstrap" );
         $('#productselection').select2({
             theme: "bootstrap",
@@ -192,7 +193,7 @@
             cache: true,
             ajax: {
                 placeholder: 'Search for a Products',
-                url: '{{route('product.LiveSearch')}}',
+                url: '<?php echo e(route('product.LiveSearch')); ?>',
                 dataType: 'json',
 
                 data: function (params) {
@@ -248,7 +249,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
-        var _token = "{{ csrf_token() }}";
+        var _token = "<?php echo e(csrf_token()); ?>";
         var app = new Vue({
             el: '#root',
             data: {
@@ -263,7 +264,7 @@
                 deliverdate:'',
                 invoice_products: [],
                 products:[],
-                {{--products:@json($products)--}}
+                
             },
             methods: {
                 datacalc(){
@@ -307,7 +308,7 @@
 
                         $.ajax({
                             type: "post",
-                            url: "{{route('admin.invoice.storesaleinvoice')}}",
+                            url: "<?php echo e(route('admin.invoice.storesaleinvoice')); ?>",
                             dataType: 'json',
                             'contentType': 'application/json',
 
@@ -420,10 +421,12 @@
 
 
 
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('adminlte_css')
-    <link rel="stylesheet" href="{{asset('css/xselect2-bootstrap.min.css')}}">
+<?php $__env->startSection('adminlte_css'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('css/xselect2-bootstrap.min.css')); ?>">
 
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\Laravel-Projects\Smart Accountant\resources\views/admin/Invoices/createSale.blade.php ENDPATH**/ ?>

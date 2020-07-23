@@ -13,7 +13,7 @@
                         <h4 class="info-box-text">{{__('Dashboard.Capital')}}</h4>
                         <h4 class="info-box-number">
                             {{$settings->Capital}}
-                            {{__('General.Currency.'.auth()->user()->settings->Currency)}}
+                            {{__('General.Currencies.'.auth()->user()->settings->Currency)}}
 
                         </h4>
 
@@ -44,7 +44,7 @@
                         <h4 class="info-box-number">
 
                             {{$gains}}
-                        {{__('General.Currency.'.auth()->user()->settings->Currency)}}
+                        {{__('General.Currencies.'.auth()->user()->settings->Currency)}}
                         </h4>
 
 
@@ -66,7 +66,7 @@
                         <h4 class="info-box-number">
 
                             {{$totalPaid}}
-                            {{__('General.Currency.'.auth()->user()->settings->Currency)}}
+                            {{__('General.Currencies.'.auth()->user()->settings->Currency)}}
                         </h4>
 
 
@@ -90,7 +90,7 @@
                         <h4 class="info-box-number">
 
                           {{$lose}}
-                            {{__('General.Currency.'.auth()->user()->settings->Currency)}}
+                            {{__('General.Currencies.'.auth()->user()->settings->Currency)}}
                         </h4>
 
 

@@ -2,15 +2,15 @@
 @section('title', 'Safe')
 
 @section('content_header')
-    <h1>الخزنة</h1>
+    <h1><i class="fas fa-money-bill-wave"></i> الخزنة </h1>
 @stop
 
 @section('content')
     <div id="root">
             <div class="row justify-content-center animated slideInDown ">
-            <div class="card card-primary col-8">
+            <div class="card card-primary col-8 overflow-hidden">
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row" style="border-bottom: 5px solid #5b75b5;">
 
                         <div class="form-group col-12 p-3">
                             {!! Form::label('MarketplaceID', __('Models/Marketplace.Name')) !!}
@@ -37,12 +37,12 @@
                 <div class="row">
                     <div class="col-12 p-3">
                         <div class="card">
-                            <div class="card-header">
-                                <h4>اخر الحركات المالية (مباشر)</h4>
+                            <div class="card-header main-bg-blu-color">
+                                <h4 class="mb-0 text-white text-center" >اخر الحركات المالية  مباشر </h4>
                             </div>
                             <div class="card-body">
                                 <table style="direction: rtl;" id="product_table"
-                                       class="table table-bordered table-hover dataTable dtr-inline calculateclass"
+                                       class="table table-bordered  table-striped table-hover dataTable dtr-inline calculateclass"
                                        role="grid">
                                     <thead>
                                     <tr class="text-center" role="row">
@@ -57,6 +57,9 @@
                                         </th>
                                         <th class="text-center" tabindex="0" rowspan="1">
                                             المدفوع
+                                        </th>
+                                        <th class="text-center" tabindex="0" rowspan="1">
+                                            قيمة الضريبة
                                         </th>
                                         <th class="text-center" tabindex="0" rowspan="1">
                                             الباقي
@@ -100,12 +103,12 @@
                     </div>
                     <div class="col-12 p-3">
                         <div class="card">
-                            <div class="card-header">
-                                <h4>اخر الحركات المالية</h4>
+                            <div class="card-header main-bg-blu-color">
+                                <h4 class="mb-0 text-white text-center">  اخر الحركات المالية <small style="font-size: 70%;"> ( الحركه الماليه الماضيه يتم تحديثها بتوقيت ١٢ مساءًً )</small></h4>
                             </div>
                             <div class="card-body">
                                 <table style="direction: rtl;" id="product_table"
-                                       class="table table-bordered table-hover dataTable dtr-inline calculateclass"
+                                       class="table table-bordered  table-striped table-hover dataTable dtr-inline calculateclass"
                                        role="grid">
                                     <thead>
                                     <tr class="text-center" role="row">
@@ -120,6 +123,9 @@
                                         </th>
                                         <th class="text-center" tabindex="0" rowspan="1">
                                             المدفوع
+                                        </th>
+                                        <th class="text-center" tabindex="0" rowspan="1">
+                                            قيمة الضريبة
                                         </th>
                                         <th class="text-center" tabindex="0" rowspan="1">
                                             الباقي

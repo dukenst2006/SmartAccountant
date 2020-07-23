@@ -704,3 +704,34 @@ body:not(.sidebar-mini-md) {
 .ct-mn-lst{
     box-shadow: 1px 1px 3px #DDD, -1px -1px 3px #DDD;
 }
+.form-control {
+    padding: 3px 0.75rem !important;
+}
+.pagination {
+    text-align: center;
+    justify-content: center !important;
+}
+.page-item.active .page-link {
+    color: #ffffff !important;
+    background-color: #5b75b5 !important;
+    border-color: #5b75b5 !important;
+}
+.page-link {
+    color: #5b75b5 !important;
+}
+.content-header h1 {
+    color: #5b75b5;
+    font-weight: bold;
+}
+.main-bg-blu-color {
+    background-color: #5b75b5 !important;
+}
+.main-footer {
+    text-align: center;
+}
+
+.lye-emp .form-group {
+    box-shadow: 1px 1px 5px #DDD, -1px -1px 5px #DDD;
+    padding: 10px;
+    background-color: #ffffff;
+}

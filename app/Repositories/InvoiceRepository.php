@@ -60,7 +60,7 @@ class InvoiceRepository extends BaseRepository
     {
         $user_id = auth()->user()->id;
         $model = $this->model->newInstance($inputs);
-        
+
         $model->MarketplaceID = $inputs['MarketplaceID'];
         $model->CustomerName = $inputs['CustomerName'];
         $model->UserID = auth()->user()->id || $user_id;
@@ -94,18 +94,58 @@ class InvoiceRepository extends BaseRepository
      */
     public function createNewSaleInvoice(array $inputs)
     {
-        dd($inputs);
-        $user_id = auth()->user()->id;
+
+
         $model = $this->model->newInstance($inputs);
-        
+
         $model->MarketplaceID = 1;
-        $model->UserID = auth()->user()->id || $user_id;
+        $model->UserID = auth()->user()->id;
         $model->Total = $this->_calculateTotalWithVAT($inputs);
         $model->Paid = $inputs['paid'];
         $model->Rest = $inputs['reset'];
         $model->PaymentTypeID = 1;
         $model->IsRaw = false;
-        $model->save();
+
+
+        $items = [];
+
+        foreach ($inputs['billitems'] as $invoiceitem) {
+
+            array_push($items, new InvoiceItem([
+                'ProductID' => $invoiceitem['product_no'],
+                'QuantityTypeID' => 1,
+                'Quantity' => $invoiceitem['product_qty'],
+                'UnitPrice' => $invoiceitem['product_price'],
+                'Total' => $invoiceitem['line_total']
+            ]));
+
+        }
+
+        $model->invoiceItems()->saveMany($items);
+
+
+
+                /*
+
+                prod 1  		         10
+                prod 2  	   	         10
+                prod 3 Ex ture	         10
+                prod 4  Ex true	         10
+                --------------------------------------------
+
+                $Vat = Setting->vat      == 50%
+                Invoice_Total =  40
+                =================
+                40 + (Vat)
+                (Vat) = 10+10 = 20 * 50% = 10
+                40+10 =50
+
+                 Invoice_Total = 50
+
+                */
+
+
+                ////////////////////////// YOUR Original CODE //////////////////////////
 
         foreach ($inputs['billitems'] as $item) {
             InvoiceItem::create([
@@ -132,7 +172,7 @@ class InvoiceRepository extends BaseRepository
             }
 
         }
-        
+
         return ($total * auth()->user()->settings->VAT) + $inputs['total'];
     }
 }

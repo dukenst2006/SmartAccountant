@@ -235,7 +235,12 @@ const Layout = (($) => {
   $(Selector.SIDEBAR + ' a').on('focusout', () => {
     $(Selector.MAIN_SIDEBAR).removeClass(ClassName.SIDEBAR_FOCUSED);
   })
-console.log('hello')
+  setTimeout(function () {
+    var logoHeight = $('.logo-adjust').outerHeight();
+    var brandHeight = $('.main-sid-ctl').outerHeight();
+    var sideValHeight = logoHeight + brandHeight;
+    $('.sidebar').css('height', "calc(99vh - ".concat(sideValHeight, "px)"));
+  }, 3000);
   /**
    * jQuery API
    * ====================================================

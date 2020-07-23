@@ -2,7 +2,7 @@
 @section('title', 'Safe')
 
 @section('content_header')
-    <h1>الخزينة</h1>
+    <h1><i class="fas fa-dollar-sign"></i> الخزينة </h1>
 @stop
 
 @section('content')
@@ -52,15 +52,14 @@
 
             </div>
         </div>
-        <table class="table table-bordered">
-            <tr>
+        <div class="main-tbl" style="overflow:auto;">
+        <table class="table table-bordered  table-striped">
+            <tr  class=" text-white main-bg-blu-color">
                 <th>المتجر</th>
                 <th>عدد الفواتير</th>
                 <th>اجمالي قيمة الفواتير</th>
                 <th>اجمالي قيمة المدفوع</th>
                 <th>اجمالي قيمة المتبقي</th>
-                <th>اجمالي قيمة الضريبة المضافة</th>
-                <th>اجمالي قيمة بعد خصم الضريبة</th>
                 <th>اجمالي المصاريف</th>
                 <th>صافي</th>
             </tr>
@@ -71,18 +70,17 @@
                     <td>{{$market->invoices->sum('Total')}}</td>
                     <td>{{$market->invoices->sum('Paid')}}</td>
                     <td>{{$market->invoices->sum('Rest')}}</td>
-                    <td>{{($market->invoices->sum('Paid') / 100) * auth()->user()->settings->VAT}}</td>
-                    <td>{{($market->invoices->sum('Paid') / 100) *  (100 - auth()->user()->settings->VAT)}}</td>
                     <td>{{$market->expenses->sum('Price')}}</td>
-                    <td>{{($market->invoices->sum('Paid') / 100) *  (100 - auth()->user()->settings->VAT) - $market->expenses->sum('Price')}}</td>
+                    <td>{{$market->invoices->sum('Paid') - $market->expenses->sum('Price')}}</td>
                 </tr>
             @endforeach
 
             <tr>
-                <td colspan="5" class="text-center">
+                <td colspan="7" class="text-center">
                     {{$markets}}
                 </td>
             </tr>
         </table>
+        </div>
     </div>
 @endsection

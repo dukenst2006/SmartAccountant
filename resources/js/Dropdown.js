@@ -125,9 +125,20 @@ const Dropdown = (($) => {
         }, 1)
     });
     // make menu work
-    $(document).on('click', '.dropdown-toggle[data-toggle="dropdown"]', function() {
+    $(document).on('click', '.dropdown-toggle[data-toggle="dropdown"]', function () {
         $(this).next().toggleClass('show');
         $(this).parent().siblings().find('.dropdown-menu').removeClass('show');
+
+    });
+    $(document).on('click','.nav-header', function() {
+        $(this).nextUntil('.nav-header').slideToggle();
+    })
+    $('.nav-sidebar:first-child').add
+    $(document).on('click','#upSideBar', function() {
+        $('.nav-sidebar > .nav-item').slideUp();
+    })
+    $(document).on('click','#downSideBar', function() {
+        $('.nav-sidebar > .nav-item').slideDown();
     })
     /**
      * jQuery API

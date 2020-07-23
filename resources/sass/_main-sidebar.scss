@@ -1026,3 +1026,41 @@ a {
     font-weight: normal;
     border: 0;
 }
+
+.nav-sidebar .nav-header {
+    cursor: pointer;
+}
+.all-ctr {
+    background-color: #053395 !important;
+    color: #ffffff !important;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.all-ctr >div {
+    padding: 4px 0;
+    width: 50%;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .2s all ease-in-out;
+}
+.all-ctr #upSideBar {
+    background-color: #4bb481;
+}
+.all-ctr #upSideBar:hover {
+    background-color: #17d777;
+}
+.all-ctr #downSideBar {
+    background-color: #3f8eca;
+}
+.all-ctr #downSideBar:hover {
+    background-color: #3a6a8f;
+}
+.os-theme-dark > .os-scrollbar, .os-theme-light > .os-scrollbar {
+    display: none !important;
+}
+.os-content {
+    padding: 0 !important;
+}

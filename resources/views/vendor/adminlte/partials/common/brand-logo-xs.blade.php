@@ -16,22 +16,32 @@
 
 </div>
 
-<a href="{{ $dashboard_url }}"
+<div class="main-sid-ctl">
+    <a href="{{ $dashboard_url }}"
 
-   @if($layoutHelper->isLayoutTopnavEnabled())
-   class="navbar-brand  text-center {{ config('adminlte.classes_brand') }}"
-   @else
-   class="brand-link text-center   {{ config('adminlte.classes_brand') }}"
-    @endif>
+       @if($layoutHelper->isLayoutTopnavEnabled())
+       class="navbar-brand  text-center {{ config('adminlte.classes_brand') }}"
+       @else
+       class="brand-link text-center   {{ config('adminlte.classes_brand') }}"
+            @endif>
 
-    {{-- Small brand logo --}}
-
-
+        {{-- Small brand logo --}}
 
 
-    {{-- Brand text --}}
-    <span class="brand-text font-weight-light {{ config('adminlte.classes_brand_text') }}">
+
+
+        {{-- Brand text --}}
+        <span class="brand-text font-weight-light {{ config('adminlte.classes_brand_text') }}">
         {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
     </span>
 
-</a>
+    </a>
+    <div class="all-ctr">
+        <div id="upSideBar">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+        <div id="downSideBar">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+</div>
