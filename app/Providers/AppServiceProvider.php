@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
 //                $query->time
 //            );
 //        });
+\Schema::defaultStringLength(191);
 
 
     }
