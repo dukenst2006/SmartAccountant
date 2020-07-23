@@ -38,6 +38,7 @@ class Invoice extends Model
 
     public $fillable = [
         'MarketplaceID',
+        'CustomerName',
         'UserID',
         'Total',
         'Paid',
@@ -57,6 +58,7 @@ class Invoice extends Model
         'id' => 'integer',
         'MarketplaceID' => 'integer',
         'UserID' => 'integer',
+        'CustomerName' => 'string',
         'Total' => 'float',
         'Paid' => 'float',
         'Rest' => 'float',
@@ -73,7 +75,7 @@ class Invoice extends Model
      */
     public static $rules = [
         'MarketplaceID' => 'required',
-        'UserID' => 'required',
+        // 'UserID' => 'required',
         'Total' => 'required',
         'Paid' => 'required',
         'Rest' => 'required',

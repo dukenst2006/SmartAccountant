@@ -45,4 +45,30 @@ class InvoiceRepository extends BaseRepository
     {
         return Invoice::class;
     }
+
+    /**
+     * Create Raw Invoice record
+     *
+     * @param array $inputs
+     *
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model
+     */
+    public function createNewRawInvoice($inputs)
+    {
+        $user_id = auth()->user()->id;
+        $model = $this->model->newInstance($inputs);
+        
+        $model->MarketplaceID = $inputs['MarketplaceID'];
+        $model->CustomerName = $inputs['CustomerName'];
+        $model->UserID = auth()->user()->id || $user_id;
+        $model->Total = $inputs['Total'];
+        $model->Paid = $inputs['Paid'];
+        $model->Rest = $inputs['Rest'];
+        $model->PaymentTypeID = 1;
+        $model->IsRaw = true;
+        $model->RawFile = \Storage::put('RawInvoices', $inputs['RawFile']);
+        $model->save();
+
+        return $model;
+    }
 }

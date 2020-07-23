@@ -6,23 +6,38 @@ use App\DataTables\InvoiceDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateInvoiceRequest;
 use App\Http\Requests\UpdateInvoiceRequest;
-use App\Repositories\InvoiceRepository;
-use App\Repositories\ProductRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
+use App\Repositories\{
+    InvoiceRepository,
+    ProductRepository,
+    Admin\EmployeeRepository
+};
 
 class InvoiceController extends AppBaseController
 {
-    /** @var  InvoiceRepository */
+    /**
+     * @var  InvoiceRepository
+     */
     private $invoiceRepository;
-    /** @var  ProductRepository */
+
+    /**
+     * @var  ProductRepository
+     */
+
     private $productRepository;
 
-    public function __construct(InvoiceRepository $invoiceRepo ,  ProductRepository $productRepo)
+    /**
+     * @var  RawInvoiceRepository
+    */
+    private $employeeRepository;
+
+    public function __construct(InvoiceRepository $invoiceRepo ,  ProductRepository $productRepo, EmployeeRepository $employeeRepository)
     {
         $this->invoiceRepository = $invoiceRepo;
         $this->productRepository = $productRepo;
+        $this->employeeRepository = $employeeRepository;
     }
 
 
@@ -36,19 +51,28 @@ class InvoiceController extends AppBaseController
             ]);
     }
 
-    public  function StoreSaleInvoice( ) {
+    public function StoreSaleInvoice()
+    {
 
         $input = request()->all();
 
-
-
         return auth()->user()->id;
-
-
-
     }
 
     public  function raw(){
-        return view('admin.Invoices.createRaw');
+        $marketplaces = $this->employeeRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID');
+        $payment_types = $this->invoiceRepository->GetDataForSelect('payment_types');
+        
+        return view('admin.Invoices.createRaw', compact('marketplaces', 'payment_types'));
+    }
+
+    public  function StoreRawInvoice()
+    {
+        
+        $this->invoiceRepository->createNewRawInvoice(request()->all());
+
+        alert()->success('Raw Invoice Stored Successfully');
+
+        return back();
     }
 }

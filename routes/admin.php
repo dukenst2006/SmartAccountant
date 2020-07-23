@@ -38,6 +38,7 @@ Route::group(['prefix' => 'Admin'], function () {
 
     Route::get('invoicerawcreatesale', 'InvoiceController@sale')->name('invoice.createsale');
     Route::get('invoiceraw', 'InvoiceController@raw')->name('invoice.createraw');
+    Route::post('invoiceraw/store', 'InvoiceController@StoreRawInvoice')->name('invoice.storerowinvoice');
 
 
     Route::get('treasure', 'TreasureController@index')->name('treasure');
