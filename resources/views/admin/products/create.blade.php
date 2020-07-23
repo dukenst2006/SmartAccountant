@@ -2,7 +2,7 @@
 @section('title', 'Products')
 
 @section('content_header')
-        <h1>    Product</h1>
+        <h1>    @lang('Models/Product.Product') </h1>
 @stop
 
 @section('content')
@@ -11,12 +11,14 @@
         @include('adminlte-templates::common.errors')
         <div class="card box-primary">
         <div class="card-header">
-                    <h3 class="card-title">Product</h3>
+                    <h3 class="card-title"> @lang('Models/Product.Product')  </h3>
                 </div>
-            <div class="card-body">
+            <div class="card-body" style="padding: 10px !important;">
                     {!! Form::open(['route' => 'admin.products.store','files'=>true]) !!}
 
-                        @include('admin.products.fields')
+                        <div class="row w-100 m-0 p-0">
+                            @include('admin.products.fields')
+                        </div>
 
                     {!! Form::close() !!}
             </div>

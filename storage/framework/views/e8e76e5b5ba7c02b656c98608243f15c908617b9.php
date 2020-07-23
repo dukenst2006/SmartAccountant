@@ -66,7 +66,17 @@
             <div class="card-header">
                 <h3 class="card-title">Products</h3>
             </div>
-            <div class="col-12 text-left" href="<?php echo e(route('ProductExport')); ?>">excel</div>
+            <div class="col-12 text-left">
+                <form action="<?php echo e(route('ProductImport')); ?>" method="post">
+                    <?php echo csrf_field(); ?>
+                    <div class="form-group">
+                        <label for="">import</label>
+                        <input type="file" name="excel" class="form-control">
+                    </div>
+                    <button class="btn btn-primary" type="submit">process</button>
+                    <a class="btn btn-success" href="<?php echo e(route('ProductExport')); ?>">Export</a>
+                </form>
+            </div>
             <div class="card-body card-body table-responsive p-0">
                 <?php echo $__env->make('flash::message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 <?php echo $__env->make('admin.products.table', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

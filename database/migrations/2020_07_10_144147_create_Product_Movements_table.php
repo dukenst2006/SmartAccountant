@@ -17,6 +17,7 @@ class CreateProductMovementsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('UserID');
             $table->unsignedBigInteger('ProductID');
+            $table->integer('Quantity');
             $table->unsignedBigInteger('MovementID');
 
 

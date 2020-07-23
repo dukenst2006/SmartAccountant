@@ -17,8 +17,8 @@ class CreateSupervisorsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('UserID');
             $table->unsignedBigInteger('MarketplaceOwnerID');
-
             $table->string('PhoneNumber');
+            $table->string('Department')->default('');
             $table->timestamps();
 
             $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');

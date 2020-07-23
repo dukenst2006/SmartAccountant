@@ -15,7 +15,7 @@
             <div class="card-header">
                 <h3 class="card-title">{{__("General.Create")}}</h3>
             </div>
-            <div class="card-body">
+            <div class="card-body" style="padding: 10px !important;">
                 {!! Form::open(['route' => 'admin.companies.store']) !!}
 
                 @include('admin.companies.fields')

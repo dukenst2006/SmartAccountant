@@ -2,7 +2,7 @@
 @section('title', 'Expenses Sub Categories')
 
 @section('content_header')
-        <h1>    Expenses Sub Category</h1>
+        <h1>{{__('Models/Expenses.ExpensesSubCategory')}}</h1>
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
         @include('adminlte-templates::common.errors')
         <div class="card box-primary">
         <div class="card-header">
-                    <h3 class="card-title">Expenses Sub Category</h3>
+                    <h3 class="card-title">{{__('Models/Expenses.ExpensesSubCategory')}}</h3>
                 </div>
             <div class="card-body">
                     {!! Form::open(['route' => 'admin.expensesSubCategories.store']) !!}

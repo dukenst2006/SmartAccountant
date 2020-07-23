@@ -17,10 +17,10 @@
     {!! Form::email('Email', $supervisor->User->Email?? '' , ['class' => 'form-control']) !!}
 </div>
 
-<!-- Jobtitle Field -->
+<!-- Department Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('JobTitle', __('Models/Supervisor.JobTitle')) !!}
-    {!! Form::text('JobTitle', null, ['class' => 'form-control']) !!}
+    {!! Form::label('Department', __('Models/Supervisor.Department')) !!}
+    {!! Form::text('Department', null, ['class' => 'form-control']) !!}
 </div>
 
 

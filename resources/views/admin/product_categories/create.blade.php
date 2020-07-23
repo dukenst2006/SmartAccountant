@@ -2,7 +2,7 @@
 @section('title', 'Product Categories')
 
 @section('content_header')
-        <h1>    Product Category</h1>
+        <h1> {{__('Models/Product.ProductCategories')}}</h1>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
         @include('flash::message')
         <div class="card box-primary">
         <div class="card-header">
-                    <h3 class="card-title">Product Category</h3>
+                    <h3 class="card-title">{{__('Models/Product.ProductCategories')}}</h3>
                 </div>
             <div class="card-body">
                     {!! Form::open(['route' => 'admin.productCategories.store']) !!}

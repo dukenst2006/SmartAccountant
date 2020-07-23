@@ -2,7 +2,7 @@
 @section('title', 'Expenses Categories')
 
 @section('content_header')
-        <h1>Expenses Categories</h1>
+        <h1>{{__('Models/Expenses.ExpensesCategory')}}</h1>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
         {{-- Cards --}}
         <div class="card col-11">
             <div class="card-header">
-                <h3 class="card-title">Expenses Categories</h3>
+                <h3 class="card-title">{{__('Models/Expenses.ExpensesCategory')}}</h3>
             </div>
             <div class="card-body card-body table-responsive p-0">
                 @include('flash::message')

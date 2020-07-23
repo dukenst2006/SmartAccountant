@@ -6,15 +6,17 @@
             <div class="card-header">
                 انشاء
             </div>
-            <div class="card-body">
+            <div class="card-body" style="padding: 10px !important;">
                 {!! Form::open(['route' => 'admin.EmployeeSalary.store','files'=> true]) !!}
-                <div class="form-group col-sm-12">
-                    {!! Form::label('Name',__('/Models/User.Name')) !!}
-                    {!! Form::text('Name', null , ['class' => 'form-control' ]) !!}
-                </div>
-                <div class="form-group col-sm-12">
-                    {!! Form::label('MarketPlaceID',__('menu.Marketplaces')) !!}
-                    {!! Form::select('MarketPlaceID', $MarketPlaces ,null , ['class' => 'form-control' ]) !!}
+                <div class="row m-0 p-0 w-100">
+                    <div class="form-group col-sm-6">
+                        {!! Form::label('Name',__('/Models/User.Name')) !!}
+                        {!! Form::text('Name', null , ['class' => 'form-control' ]) !!}
+                    </div>
+                    <div class="form-group col-sm-6">
+                        {!! Form::label('MarketPlaceID',__('menu.Marketplaces')) !!}
+                        {!! Form::select('MarketPlaceID', $MarketPlaces ,null , ['class' => 'form-control' ]) !!}
+                    </div>
                 </div>
                 <div class="form-group col-sm-12">
                     {!! Form::label('File',__('General.File')) !!}

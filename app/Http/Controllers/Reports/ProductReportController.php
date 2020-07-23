@@ -26,16 +26,13 @@ class ProductReportController extends AppBaseController
     {
 
         $products=   $this->invoiceRepository
-                ->allQuery()->with('invoiceItems')
-                ->whereYear('created_at', '=', now()->year)
-                ->whereMonth('created_at', '=', now()->month)
-                ->get()->pluck('invoiceItems')->flatten()->groupBy('ProductID')->Map(function ($items) {
-              $quantity = $items->sum('Quantity');
-              return [ 'Quantity'=>$quantity   , 'Name'=>$items->first()->product->name] ;
-
-          })->SortByDesc('Quantity')->take(10);
-
-
+        ->allQuery()->with('invoiceItems')
+        ->whereYear('created_at', '=', now()->year)
+        ->whereMonth('created_at', '=', now()->month)
+        ->get()->pluck('invoiceItems')->flatten()->groupBy('ProductID')->Map(function ($items) {
+        $quantity = $items->sum('Quantity');
+        return [ 'Quantity'=>$quantity   , 'Name'=>$items->first()->product->name];
+        })->SortByDesc('Quantity')->take(10);
 
         $productchart = new ProductChart ;
 

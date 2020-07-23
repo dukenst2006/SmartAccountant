@@ -57,15 +57,15 @@
 
 
 <div class="form-group col-sm-6">
-    {!! Form::label('Attachment', "Attachment") !!}
+    {!! Form::label('Attachment', __('Models/Marketplace.Attachment')) !!}
     {!! Form::file('Attachment', ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-6">
-    {!! Form::label('CommercialRegister', "CommercialRegister") !!}
+    {!! Form::label('CommercialRegister', __('Models/Marketplace.CommercialRegister'))  !!}
     {!! Form::file('CommercialRegister', ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-6">
-    {!! Form::label('LeaseContract', "LeaseContract") !!}
+    {!! Form::label('LeaseContract', __('Models/Marketplace.LeaseContract')) !!}
     {!! Form::file('LeaseContract', ['class' => 'form-control']) !!}
 </div>
 

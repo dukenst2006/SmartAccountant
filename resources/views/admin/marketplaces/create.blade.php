@@ -13,10 +13,12 @@
         <div class="card-header">
                     <h3 class="card-title">{{__("General.Create")}}</h3>
                 </div>
-            <div class="card-body">
+            <div class="card-body" style="padding: 10px !important;">
                     {!! Form::open(['route' => 'admin.marketplaces.store','files'=>true]) !!}
 
-                        @include('admin.marketplaces.fields')
+                       <div class="row w-100 p-0 m-0">
+                           @include('admin.marketplaces.fields')
+                       </div>
 
                     {!! Form::close() !!}
             </div>

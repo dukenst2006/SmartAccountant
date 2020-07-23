@@ -11,6 +11,7 @@
                     <div class="info-box-content">
                         <h4 class="info-box-text"><?php echo e(__('Dashboard.Capital')); ?></h4>
                         <h4 class="info-box-number">
+                            <?php echo e($settings->Capital); ?>
 
                             ر.س
 

@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property integer $UserID
  * @property integer $MarketplaceOwnerID
  * @property string $PhoneNumber
+ * @property string $Department
  */
 class Supervisor extends Model
 {
@@ -29,7 +30,8 @@ class Supervisor extends Model
     public $fillable = [
         'UserID',
         'MarketplaceOwnerID',
-        'PhoneNumber'
+        'PhoneNumber',
+        'Department'
     ];
 
     /**
@@ -41,7 +43,8 @@ class Supervisor extends Model
         'id' => 'integer',
         'UserID' => 'integer',
         'MarketplaceOwnerID' => 'integer',
-        'PhoneNumber' => 'string'
+        'PhoneNumber' => 'string',
+        'Department' => 'string'
     ];
 
     /**
