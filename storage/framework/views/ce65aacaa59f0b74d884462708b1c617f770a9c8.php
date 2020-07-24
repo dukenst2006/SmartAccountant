@@ -128,6 +128,12 @@
                                         <th>المتبقي:</th>
                                         <td v-text="invoice_rest" id="invoce_Rest" class="text-bold text-center">0</td>
 
+                                        <?php echo Form::label('PaymentTypeID', __('Models/Invoice.PaymentTypeID')); ?>
+
+                                        <?php echo Form::select('PaymentTypeID',$payment_types, null,['class' => 'form-control' , 'v-model'=>"Payment_Type"]); ?>
+
+
+
                                     </tr>
 
 
@@ -247,6 +253,8 @@
         var app = new Vue({
             el: '#root',
             data: {
+
+                Payment_Type: 'CASH',
                 cutomer_paid: 0,
                 cutomer_rest: 0,
                 invoice_total: 0,
@@ -292,7 +300,7 @@
 
 
                         let $this = $("#btnFetch");
-                        $this.button('loading');
+                        // $this.button('loading');
                         $this.prop("disabled", true);
                         $this.data('original-text', $this.html());
                         $this.html(`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`);
@@ -300,14 +308,14 @@
 
                         $.ajax({
                             type: "post",
-                            
-                            url:"#",
+                            url: "<?php echo e(route('admin.invoice.storesaleinvoice')); ?>",
                             dataType: 'json',
                             'contentType': 'application/json',
 
                             data:
                                 JSON.stringify({
                                     'total': this.invoice_total,
+                                    'payment_type': this.Payment_Type,
                                     'paid': this.invoice_paid,
                                     'reset': this.invoice_rest,
                                     'deliverday':this.deliverday,
