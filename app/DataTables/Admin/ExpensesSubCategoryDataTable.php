@@ -3,6 +3,7 @@
 namespace App\DataTables\Admin;
 
 use App\Models\ExpensesSubCategory;
+use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -18,7 +19,8 @@ class ExpensesSubCategoryDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'admin.expenses_sub_categories.datatables_actions');
+        return $dataTable->addColumn('action', 'admin.expenses_sub_categories.datatables_actions')
+            ->rawColumns(['action']);
     }
 
     /**
@@ -65,8 +67,9 @@ class ExpensesSubCategoryDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'ExpensesCategoryID',
-            'Name'
+            new Column (['data'=>'id', 'name'=>'id' ,'title'=>'#']),
+            new Column(['data'=>'Name', 'name'=>'Name','title'=>__('Models/ProductCategory.Name')]),
+
         ];
     }
 

@@ -1,11 +1,10 @@
-@extends('adminlte::page')
-@section('title', 'فواتير البيع')
+<?php $__env->startSection('title', 'فواتير البيع'); ?>
 
-@section('content_header')
+<?php $__env->startSection('content_header'); ?>
     <h1>فواتير البيع</h1>
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <main class="main">
         <!-- Start top-section -->
         <div class="logo-show-mobile">
@@ -13,7 +12,7 @@
         </div>
         <div class="title-table">
             <div class="right-sec">
-                <p>{{ $invoice->CustomerName }}</p>
+                <p><?php echo e($invoice->CustomerName); ?></p>
                 <p>الرياض - الحمراء</p>
                 <p>الرقم الضريبي <span class="en-font">(12554877)</span></p>
             </div>
@@ -36,30 +35,32 @@
                     <th>السعر</th>
                     <th>المجموع</th>
                 </tr>
-                @foreach($invoice->invoiceItems as $item)
+                <?php $__currentLoopData = $invoice->invoiceItems; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td>{{ $item->product->name }}</td>
-                        <td>{{ $item->Quantity }}</td>
-                        <td>{{ $item->UnitPrice }}$</td>
-                        <td>{{ $item->Total }}$</td>
+                        <td><?php echo e($item->product->name); ?></td>
+                        <td><?php echo e($item->Quantity); ?></td>
+                        <td><?php echo e($item->UnitPrice); ?>$</td>
+                        <td><?php echo e($item->Total); ?>$</td>
                     </tr>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </table>
         </div>
         <!-- End Table -->
         <!-- Start bottom-section -->
         <div class="bottom-section">
-            <p>يشمل القيمة الماضفة <span>{{ auth()->user()->settings->VAT }}%</span></p>
+            <p>يشمل القيمة الماضفة <span><?php echo e(auth()->user()->settings->VAT); ?>%</span></p>
             <p>ضريبة <span>10%</span> : <span>$190</span></p>
-            <span class="grand-total">المبلغ الاجمالي : <span class="en-font">${{ $invoice->Total }}</span></span>
+            <span class="grand-total">المبلغ الاجمالي : <span class="en-font">$<?php echo e($invoice->Total); ?></span></span>
         </div>
         <div class="barcode">
             <img src="/Images/barcode.PNG" alt="barcode">
         </div>
         <!-- End bottom-section -->
     </main>
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('adminlte_css')
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-@endsection
+<?php $__env->startSection('adminlte_css'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('css/main.css')); ?>">
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/smart-acc.io/resources/views/admin/Invoices/receipt.blade.php ENDPATH**/ ?>

@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateInvoiceRequest;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
+use App\Models\Invoice;
 use App\Repositories\{
     InvoiceRepository,
     ProductRepository,
@@ -38,6 +39,17 @@ class InvoiceController extends AppBaseController
         $this->invoiceRepository = $invoiceRepo;
         $this->productRepository = $productRepo;
         $this->employeeRepository = $employeeRepository;
+    }
+
+    public function saleInvoicesIndex()
+    {
+        $sale_invoices = $this->invoiceRepository->getAllInvoicesWhere(false)->get();
+        return view('admin.Invoices.sale_invoices_index', compact('sale_invoices'));   
+    }
+
+    public function showsaleInvoicesDetails(Invoice $invoice)
+    {
+        return view('admin.Invoices.receipt', compact('invoice'));
     }
 
     public function showRawInvoices()

@@ -72,6 +72,7 @@ class InvoiceRepository extends BaseRepository
         $model->RawFile = \Storage::put('RawInvoices', $inputs['RawFile']);
         $model->save();
 
+
         return $model;
     }
 
@@ -114,7 +115,7 @@ class InvoiceRepository extends BaseRepository
     }
 
     private function _calculateTotalWithVAT(array $inputs) : float
-    {               
+    {
         $VAT = auth()->user()->settings->VAT;
         $totalInvoice = $inputs['total'];
         $total_vat = 0;
@@ -147,5 +148,10 @@ class InvoiceRepository extends BaseRepository
         }
 
         return $items;
+    }
+
+    public function getAllInvoicesWhere(bool $isRaw)
+    {
+        return Invoice::where('isRaw', $isRaw);
     }
 }

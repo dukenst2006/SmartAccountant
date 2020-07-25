@@ -21,7 +21,7 @@ return [
 
     'HumanResources' => 'الموارد البشرية',
     'Supervisors' => 'موظفي الإدارة',
-    'Employee' => 'الموظفين',
+    'Employee' => 'موظفي الفروع',
     'EmployeesSalaries' => 'رواتب الموظفين',
 
     'Companies' => 'الشركات',

@@ -6,7 +6,7 @@ return [
     'Columns'   =>  [
         'MarketPlaceOwner' => 'صاحب المتجر',
         'Products'  =>  'المنتجات',
-        'ClientName'  =>  'اسم العميل',
+        'ClientName'  =>  'اسم الموظف',
         'Quantity'  =>  'كمية',
         'BondDate'  =>  'تاريخ السند',
         'Amount'  =>  'المبلغ',
