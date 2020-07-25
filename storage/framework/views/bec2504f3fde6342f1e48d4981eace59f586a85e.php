@@ -1,5 +1,5 @@
-@extends('adminlte::page')
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <div class="container pt-3">
 
 
@@ -10,10 +10,12 @@
                 <div class="info-box bg-info">
 
                     <div class="info-box-content">
-                        <h4 class="info-box-text">{{__('Dashboard.Capital')}}</h4>
+                        <h4 class="info-box-text"><?php echo e(__('Dashboard.Capital')); ?></h4>
                         <h4 class="info-box-number">
-                            {{$settings->Capital}}
-                            {{__('General.Currencies.'.auth()->user()->settings->Currency)}}
+                            <?php echo e($settings->Capital); ?>
+
+                            <?php echo e(__('General.Currencies.'.auth()->user()->settings->Currency)); ?>
+
 
                         </h4>
 
@@ -40,11 +42,13 @@
                 <div class="info-box bg-success">
 
                     <div class="info-box-content">
-                        <h4 class="info-box-text">{{__('Dashboard.Profits')}}</h4>
+                        <h4 class="info-box-text"><?php echo e(__('Dashboard.Profits')); ?></h4>
                         <h4 class="info-box-number">
 
-                            {{$gains}}
-                        {{__('General.Currencies.'.auth()->user()->settings->Currency)}}
+                            <?php echo e($gains); ?>
+
+                        <?php echo e(__('General.Currencies.'.auth()->user()->settings->Currency)); ?>
+
                         </h4>
 
 
@@ -62,11 +66,13 @@
                 <div class="info-box bg-warning">
 
                     <div class="info-box-content">
-                        <h4 class="info-box-text">{{__('Dashboard.Sales')}}</h4>
+                        <h4 class="info-box-text"><?php echo e(__('Dashboard.Sales')); ?></h4>
                         <h4 class="info-box-number">
 
-                            {{$totalPaid}}
-                            {{__('General.Currencies.'.auth()->user()->settings->Currency)}}
+                            <?php echo e($totalPaid); ?>
+
+                            <?php echo e(__('General.Currencies.'.auth()->user()->settings->Currency)); ?>
+
                         </h4>
 
 
@@ -86,11 +92,13 @@
                 <div class="info-box bg-danger">
 
                     <div class="info-box-content">
-                        <h4 class="info-box-text">{{__('Dashboard.Losses')}}</h4>
+                        <h4 class="info-box-text"><?php echo e(__('Dashboard.Losses')); ?></h4>
                         <h4 class="info-box-number">
 
-                          {{$lose}}
-                            {{__('General.Currencies.'.auth()->user()->settings->Currency)}}
+                          <?php echo e($lose); ?>
+
+                            <?php echo e(__('General.Currencies.'.auth()->user()->settings->Currency)); ?>
+
                         </h4>
 
 
@@ -188,7 +196,8 @@
 
                 <div id="chart" style="height: 300px; width: 1072px;" height="300" width="1072">
 
-                    {!! $usersChart->container() !!}
+                    <?php echo $usersChart->container(); ?>
+
 
                 </div>
             </div>
@@ -201,9 +210,12 @@
 
 
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('customejs')
-    {!! $usersChart->script() !!}
-@endsection
+<?php $__env->startSection('customejs'); ?>
+    <?php echo $usersChart->script(); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\Laravel-Projects\Smart Accountant\resources\views/admin/home.blade.php ENDPATH**/ ?>

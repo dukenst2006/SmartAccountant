@@ -140,3 +140,32 @@
   flex-wrap: wrap;
 
 }
+
+
+@media (max-width: 767.98px) {
+  .main-header > .navbar-nav {
+    padding: 5px;
+    width: 100%;
+  }
+  .main-header .case-info {
+    padding: 5px;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.case-info > div {
+  font-size: 15px
+}
+.navbar-nav .dropdown-menu {
+  position: absolute;
+  float: none;
+}
+.case-info > .navbar-nav {
+  padding: 0;
+}
+.case-info > .navbar-nav .nav-link {
+  margin: 0 15px;
+}
