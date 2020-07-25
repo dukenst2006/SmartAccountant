@@ -56,7 +56,6 @@ class ProductDataTable extends DataTable
                 'stateSave' => true,
                 'order' => [[0, 'desc']],
                 'buttons' => [
-
                     ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -99,3 +98,5 @@ class ProductDataTable extends DataTable
         return 'products_datatable_'.time();
     }
 }
+
+

@@ -1,0 +1,155 @@
+@font-face {
+    src: url('../fonts/Droid.ttf');
+    font-family: Droid;
+}
+
+* {
+    margin: 0;
+    font-family: Droid;
+}
+
+.img-fluid {
+    max-width: 100%;
+}
+
+td:not(:first-child),
+.bottom-section p span,
+.en-font {
+    font-family: sans-serif, Verdana, Tahoma;
+    letter-spacing: 1px;
+}
+
+.main {
+    margin: 40px auto;
+    font-size: 15px;
+}
+
+.logo-show-mobile {
+    margin: auto;
+    display: none;
+}
+
+.logo,
+.logo-show-mobile {
+    width: 100px;
+    height: 100px;
+}
+
+.logo img {
+    margin-top: 8px;
+}
+
+
+/* Start table */
+
+.title-table {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.right-sec,
+.center-sec p:not(:last-child) {
+    color: #f15740;
+}
+
+.right-sec,
+.center-sec {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 7px;
+}
+
+table th {
+    background-color: #11274c;
+    color: #fff;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #e9e9e9;
+}
+
+
+/* End table */
+
+
+/* Start bottom-section */
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.bottom-section :nth-child(2) {
+    margin: 0 10px;
+}
+
+.grand-total {
+    padding: 4px 12px;
+    color: #fff;
+    background-color: #11274c;
+}
+
+.barcode {
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+/* End bottom-section */
+
+
+/* Start media query */
+
+@media(max-width:450px) {
+    .main {
+        margin: 0 auto 12px;
+    }
+    .logo-show-mobile {
+        display: block;
+    }
+    .logo-show-mobile img {
+        margin-top: 25px;
+    }
+    .logo {
+        display: none;
+    }
+}
+
+@media(max-width:767px) {
+    .main {
+        width: 97%;
+        font-size: 13.5px;
+    }
+    .title-table {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13.5px;
+    }
+    .title-table,
+    .bottom-section {
+        font-size: 13.5px;
+    }
+}
+
+@media(min-width:768px) {
+    .main {
+        width: 720px;
+    }
+}
+
+
+/* End media query */

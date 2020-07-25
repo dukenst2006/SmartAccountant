@@ -1,11 +1,10 @@
 <?php
 
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBondsVouchersTable extends Migration
+class CreateBoundVoucherItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +13,15 @@ class CreateBondsVouchersTable extends Migration
      */
     public function up()
     {
-        Schema::create('bonds_vouchers', function (Blueprint $table) {
+            Schema::create('bound_voucher_items', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('MarketplaceOwnerID');
+            $table->unsignedBigInteger('BondVouchersID');
             $table->unsignedBigInteger('ProductID');
-            $table->string('ClientName');
             $table->double('Quantity');
-            $table->date('BondDate');
+
+
+            $table->foreign('BondVouchersID')->references('id')->on('bonds_vouchers')->onDelete('cascade');
             $table->foreign('ProductID')->references('id')->on('products')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
@@ -33,6 +32,6 @@ class CreateBondsVouchersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bonds');
+        Schema::dropIfExists('bound_voucher_items');
     }
 }

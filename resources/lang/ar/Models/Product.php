@@ -8,6 +8,7 @@ return [
     'MarketplacesID' => "معرّف الأسواق",
     'ProductCategoryID' => "التنصيف الأساسي",
     'ProductSubCategoryID' => "التنصيف الفرعي",
+    'ExcludeFromVAT' => "معفي من الضريبة",
     'Name' => 'اسم',
     'Product' => 'المنتج',
     'Products' => 'المنتجات',
