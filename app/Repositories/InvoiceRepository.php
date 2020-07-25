@@ -148,4 +148,9 @@ class InvoiceRepository extends BaseRepository
 
         return $items;
     }
+
+    public function getAllInvoicesWhere(bool $isRaw)
+    {
+        return Invoice::where('isRaw', $isRaw);
+    }
 }
