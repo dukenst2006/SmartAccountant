@@ -446,8 +446,14 @@ return [/*
                     'icon' => 'fas fa-fw fa-plus-circle',
                 ],
                 [
-                    'text' => 'all',
-                    'url' => '#',
+                    'text' => 'AllSaleInvoices',
+                    'route' => 'admin.invoice.all',
+                    'icon' => 'fas fa-fw fa-layer-group',
+                ],
+
+                [
+                    'text' => 'AllRawInvoices',
+                    'route' => 'admin.invoice.invoicerawall',
                     'icon' => 'fas fa-fw fa-layer-group',
                 ]
 

@@ -27,9 +27,9 @@
         @if(!empty($sale_invoices))
         @foreach($sale_invoices as $invoice)
         <tr>
-            <td>               
-                <a title="عرض" href="{{ route('admin.sale_invoice.show', $invoice->id) }}" class="" style="color: #e87c85">
-                    {{ $invoice->id }}
+            <td>
+                <a title="عرض" href="{{ route('admin.sale_invoice.show', $invoice->id) }}" class='btn btn-warning btn-sm' style="color: #ffffff">
+                    <i class="fas fa-2x fa-eye"></i>
                 </a>
             </td>
             <td>{{ $invoice->marketplace->Name }}</td>

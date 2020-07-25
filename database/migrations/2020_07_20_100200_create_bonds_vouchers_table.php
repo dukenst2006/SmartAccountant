@@ -17,11 +17,8 @@ class CreateBondsVouchersTable extends Migration
         Schema::create('bonds_vouchers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('MarketplaceOwnerID');
-            $table->unsignedBigInteger('ProductID');
             $table->string('ClientName');
-            $table->double('Quantity');
             $table->date('BondDate');
-            $table->foreign('ProductID')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }

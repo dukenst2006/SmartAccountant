@@ -63,6 +63,8 @@ return [
     'Invoices' => 'الفواتير',
     'RawInvoices' => 'إنشاء فاتوره كتابية',
     'SaleInvoices' => 'أنشاء فاتوره مبيعات',
+    'AllSaleInvoices' => 'جميع فواتير المبيعات',
+    'AllRawInvoices' => 'جميع الفواتير الكتابيه',
 
 
 
