@@ -161,7 +161,7 @@ class Marketplace extends Model
      **/
     public function inventory()
     {
-        return $this->hasOne(\App\Models\Inventory::class, 'id');
+        return $this->hasOne(Inventory::class, 'MarketPlaceID','ID');
     }
 
 

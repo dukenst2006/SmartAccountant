@@ -1,14 +1,15 @@
 @extends('adminlte::page')
 @section('content')
     <div class="container pt-3">
+
         <div class="card p-3">
             <form action="{{route('admin.ProductTableView')}}" method="get">
                 <div class="form-group">
                     <label for="">{{__('Models/Marketplace.Name')}}</label>
-                    <select name="InventoryID" class="form-control">
+                    <select name="MarketID" class="form-control">
                         <option value="">{{__('General.All')}}</option>
-                        @foreach(@App\Models\Inventory::all() as $M)
-                            <option value="{{$M->id}}">{{$M->MarketPlace->Name}}</option>
+                        @foreach(@App\Models\Marketplace::all() as $M)
+                            <option value="{{$M->id}}">{{$M->Name}}</option>
                         @endforeach
                     </select>
                     <button type="submit" class="btn btn-success">{{__('money.search')}}</button>
@@ -37,6 +38,8 @@
             @endforeach
             </tbody>
         </table>
-        {{$products->links()}}
+        @if($products->count() > 0)
+            {{$products->links()}}
+        @endif
     </div>
 @endsection
