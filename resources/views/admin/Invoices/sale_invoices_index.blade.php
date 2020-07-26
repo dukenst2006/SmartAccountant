@@ -20,6 +20,7 @@
             <th scope="col">الاجمالي</th>
             <th scope="col">المدفوع</th>
             <th scope="col">المتبقي</th>
+            <th scope="col">حالة الفاتورة</th>
             <!-- <th scope="col">الوضع</th> -->
             <th scope="col">اجراءات</th>
         </tr>
@@ -40,6 +41,7 @@
             <td class="text-info">{{ $invoice->Total }}</td>
             <td>{{ $invoice->Paid }}</td>
             <td>{{ $invoice->Rest }}</td>
+            <td><small>{{ ($invoice->Rest != 0)? "غير مسدد" : "مسدد" }}</small></td>
             <!-- <td><input type="checkbox"> </td> -->
             <td>
             {{--
@@ -50,7 +52,8 @@
                 <a title="ارسال ايميل" href="" class="" style="color: #6a6a6a"><i class="fas fa-envelope"></i></a>
                 <a title="السلة" href="" class="" style="color: #3b5998"><i class="fas fa-shopping-cart"></i></a>
                 --}}
-                <a title="حذف" href="invoiceraw/{{ $invoice->id }}/delete" class="text-danger"><i class="far fa-trash-alt"></i></a>
+                <a title="تعديل" href="sale-invoice/{{ $invoice->id }}/edit" class="text-info"><i class="fas fa-pencil-alt"></i></a>
+                <a title="حذف" href="sale-invoice/{{ $invoice->id }}/delete" class="text-danger"><i class="far fa-trash-alt"></i></a>
             </td>
         </tr>
         @endforeach

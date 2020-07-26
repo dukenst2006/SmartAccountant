@@ -19,6 +19,7 @@
             <th scope="col">الاجمالي</th>
             <th scope="col">المدفوع</th>
             <th scope="col">المتبقي</th>
+            <th scope="col">حالة الفاتورة</th>
             <!-- <th scope="col">الوضع</th> -->
             <th scope="col">اجراءات</th>
         </tr>
@@ -39,10 +40,12 @@
             <td class="text-info"><?php echo e($invoice->Total); ?></td>
             <td><?php echo e($invoice->Paid); ?></td>
             <td><?php echo e($invoice->Rest); ?></td>
+            <td><small><?php echo e(($invoice->Rest != 0)? "غير مسدد" : "مسدد"); ?></small></td>
             <!-- <td><input type="checkbox"> </td> -->
             <td>
             
-                <a title="حذف" href="invoiceraw/<?php echo e($invoice->id); ?>/delete" class="text-danger"><i class="far fa-trash-alt"></i></a>
+                <a title="تعديل" href="sale-invoice/<?php echo e($invoice->id); ?>/edit" class="text-info"><i class="fas fa-pencil-alt"></i></a>
+                <a title="حذف" href="sale-invoice/<?php echo e($invoice->id); ?>/delete" class="text-danger"><i class="far fa-trash-alt"></i></a>
             </td>
         </tr>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

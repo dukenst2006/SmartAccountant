@@ -44,6 +44,9 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::get('invoicerawcreatesale', 'InvoiceController@sale')->name('invoice.createsale');
     Route::post('storesaleinvoice', 'InvoiceController@storeSaleInvoice')->name('invoice.storesaleinvoice');
     Route::get('show-sale-invoice/{invoice}', 'InvoiceController@showsaleInvoicesDetails')->name('sale_invoice.show');
+    Route::get('sale-invoice/{invoice}/edit', 'InvoiceController@editSaleInvoice')->name('sale_invoice.edit');
+    Route::put('sale-invoice/{invoice}', 'InvoiceController@updateSaleInvoice')->name('sale_invoice.update');
+    Route::get('sale-invoice/{id}/delete', 'InvoiceController@deleterSaleInvoice')->name('admin.delete.saleinvoice');
 
     Route::get('invoicerawall', 'InvoiceController@showRawInvoices')->name('invoice.invoicerawall');
     Route::get('invoiceraw', 'InvoiceController@raw')->name('invoice.createraw');
