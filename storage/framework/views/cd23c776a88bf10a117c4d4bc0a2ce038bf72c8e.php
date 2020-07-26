@@ -1,13 +1,14 @@
 <?php $__env->startSection('content'); ?>
     <div class="container pt-3">
+
         <div class="card p-3">
             <form action="<?php echo e(route('admin.ProductTableView')); ?>" method="get">
                 <div class="form-group">
                     <label for=""><?php echo e(__('Models/Marketplace.Name')); ?></label>
-                    <select name="InventoryID" class="form-control">
+                    <select name="MarketID" class="form-control">
                         <option value=""><?php echo e(__('General.All')); ?></option>
-                        <?php $__currentLoopData = @App\Models\Inventory::all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $M): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($M->id); ?>"><?php echo e($M->MarketPlace->Name); ?></option>
+                        <?php $__currentLoopData = @App\Models\Marketplace::all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $M): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($M->id); ?>"><?php echo e($M->Name); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                     <button type="submit" class="btn btn-success"><?php echo e(__('money.search')); ?></button>
@@ -36,8 +37,10 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
         </table>
-        <?php echo e($products->links()); ?>
+        <?php if($products->count() > 0): ?>
+            <?php echo e($products->links()); ?>
 
+        <?php endif; ?>
     </div>
 <?php $__env->stopSection(); ?>
 

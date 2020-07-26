@@ -7,6 +7,7 @@ use App\Exports\ProductsExport;
 use App\Http\Requests\Admin\CreateProductRequest;
 use App\Http\Requests\Admin\UpdateProductRequest;
 use App\Imports\ProductsImport;
+use App\Models\Marketplace;
 use App\Models\Product;
 use App\Repositories\ProductRepository;
 use Flash;
@@ -39,9 +40,15 @@ class ProductController extends AppBaseController
     }
     public  function TableView(){
         $products = Product::query()->paginate(10);
-        if (isset($_GET['InventoryID'])){
-            if ($_GET['InventoryID'] > 0){
-                $products = Product::query()->where('InventoryID','=',$_GET['InventoryID'])->paginate(10);
+        if (isset($_GET['MarketID'])){
+            if ($_GET['MarketID'] > 0){
+                $market = Marketplace::query()->find($_GET['MarketID']);
+                $inventory = $market->inventory;
+                if ($inventory != null){
+                    $products = Product::query()->where('InventoryID','=',$inventory->id)->paginate(10);
+                }else{
+                    $products = collect([]);
+                }
             }
         }
         return view('admin.ProductsView.index',compact('products'));
