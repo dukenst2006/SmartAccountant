@@ -2,23 +2,46 @@
 
 namespace App\Observers;
 
+use App\Models\Inventory;
 use App\Models\Marketplace;
 use App\Models\Safe;
 use App\Models\Stock;
+use App\Models\Warehouse;
+use App\Repositories\BaseRepository;
 use App\Repositories\StockRepository;
+use App\Repositories\WarehouseRepository;
 use Illuminate\Console\Events\ScheduledTaskFinished;
 
 class MarketplaceObserver
 {
+
+    /** @var  BaseRepository */
+    private $BaseRepository;
+
+    public function __construct(BaseRepository $baseRepo )
+    {
+
+        $this->BaseRepository = $baseRepo;
+
+    }
+
+
     /**
      * Handle the marketplace "created" event.
      *
-     * @param  \App\Models\Marketplace  $marketplace
+     * @param  Marketplace  $marketplace
      * @return void
      */
+
+
     public function created(Marketplace $marketplace)
     {
-        // Create A New Safe For This Marketplace
+
+        //Create The inventory
+        $inventory = new Inventory();
+        $inventory->MarketplaceID=$marketplace->id;
+        $inventory->WarehouseID= Warehouse::where('MarketplaceOwnerID',$this->BaseRepository->GetMyOwner())->first()->id;
+        $inventory->save();
 
 
     }
@@ -28,16 +51,11 @@ class MarketplaceObserver
     /**
      * Handle the marketplace "creating" event.
      *
-     * @param  \App\Models\Marketplace  $marketplace
+     * @param  Marketplace  $marketplace
      * @return void
      */
     public function creating(Marketplace $marketplace)
     {
-            //Create The Main Stock
-            $stock = new Stock();
-            $stock->marketplaceid=auth()->user()->id;
-            $stock->save();
-            $marketplace->StockID=$stock->id;
 
 
 
@@ -52,7 +70,7 @@ class MarketplaceObserver
     /**
      * Handle the marketplace "updated" event.
      *
-     * @param  \App\Models\Marketplace  $marketplace
+     * @param  Marketplace  $marketplace
      * @return void
      */
     public function updated(Marketplace $marketplace)
@@ -63,7 +81,7 @@ class MarketplaceObserver
     /**
      * Handle the marketplace "deleted" event.
      *
-     * @param  \App\Models\Marketplace  $marketplace
+     * @param  Marketplace  $marketplace
      * @return void
      */
     public function deleted(Marketplace $marketplace)
@@ -74,7 +92,7 @@ class MarketplaceObserver
     /**
      * Handle the marketplace "restored" event.
      *
-     * @param  \App\Models\Marketplace  $marketplace
+     * @param  Marketplace  $marketplace
      * @return void
      */
     public function restored(Marketplace $marketplace)
@@ -85,7 +103,7 @@ class MarketplaceObserver
     /**
      * Handle the marketplace "force deleted" event.
      *
-     * @param  \App\Models\Marketplace  $marketplace
+     * @param  Marketplace  $marketplace
      * @return void
      */
     public function forceDeleted(Marketplace $marketplace)
