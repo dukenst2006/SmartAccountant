@@ -2,28 +2,27 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Eloquent as Model;
 
 /**
  * Class BoundVoucherItem
  * @package App\Models
- * @version July 25, 2020, 11:18 am UTC
+ * @version July 26, 2020, 1:38 am UTC
  *
- * @property BondsVouchers $bondvoucher
- * @property Product $product
- * @property integer $BondVoucher
- * @property integer $Product
+ * @property \App\Models\BondsVoucher $bondvouchersid
+ * @property \App\Models\Product $productid
+ * @property integer $BondVouchersID
+ * @property integer $ProductID
  * @property number $Quantity
  */
 class BoundVoucherItem extends Model
 {
 
     public $table = 'bound_voucher_items';
-
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-    public $timestamps = false;
+
 
 
 
@@ -57,18 +56,18 @@ class BoundVoucherItem extends Model
     ];
 
     /**
-     * @return BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function bondvoucher()
+    public function bondvouchersid()
     {
-        return $this->belongsTo(BondsVoucher::class, 'BondVouchersID');
+        return $this->belongsTo(\App\Models\BondsVoucher::class, 'BondVouchersID');
     }
 
     /**
-     * @return BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function product()
+    public function productid()
     {
-        return $this->belongsTo(Product::class, 'ProductID');
+        return $this->belongsTo(\App\Models\Product::class, 'ProductID');
     }
 }

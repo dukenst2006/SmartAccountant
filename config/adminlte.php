@@ -271,14 +271,14 @@ return [/*
 
                         [
                             'text' => 'create',
-                            'url' => '#',
+                            'route' => 'admin.supplier-invoice.create',
                             'icon' => 'fas fa-fw fa-plus-circle',
                         ],
                         [
                             'text' => 'all',
-                            'url' => '#',
+                            'route' => 'admin.supplier-invoice.index',
                             'icon' => 'fas fa-fw fa-layer-group',
-                        ],
+                        ]
                     ],
 
                 ],

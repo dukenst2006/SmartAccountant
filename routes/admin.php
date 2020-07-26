@@ -36,6 +36,9 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::resource('settings', 'SettingsController')->except('create', 'edit', 'destroy', 'show', 'store');
     Route::resource('companies', 'CompanyController');
     Route::resource('suppliers', 'SupplierController');
+    Route::resource('supplier-invoice', 'SupplierInvoiceController');
+
+
     Route::get('chat', function (){return view('admin.Messages.chat');})->name('chat');
 
     Route::get('sale-invoices', 'InvoiceController@saleInvoicesIndex')->name('invoice.all');

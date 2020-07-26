@@ -64,6 +64,7 @@ class Employee extends Model
         'EmploymentContractImage',
         'IBAN',
         'Sex',
+
         'Salary'
     ];
     protected $with = ['user:id,Name,Email,Password', 'marketplace:id,Name'];
