@@ -3,8 +3,8 @@
     <div class="container pt-3">
 
 
-        <div class="row col-12">
-            <div class="col-3 animated bounceInUp">
+        <div class="row w-100 m-0 p-0">
+            <div class="col-xl-3 col-md-6 animated bounceInUp">
 
 
                 <div class="info-box bg-info">
@@ -37,7 +37,7 @@
 
 
             <!-- ./col -->
-            <div class="col-3 animated bounceInDown">
+            <div class="col-xl-3 col-md-6  animated bounceInDown">
 
                 <div class="info-box bg-success">
 
@@ -61,7 +61,7 @@
 
             </div>
             <!-- ./col -->
-            <div class="col-3 animated bounceInUp">
+            <div class="col-xl-3 col-md-6  animated bounceInUp">
 
                 <div class="info-box bg-warning">
 
@@ -87,7 +87,7 @@
 
             </div>
             <!-- ./col -->
-            <div class="col-3 animated bounceInDown">
+            <div class="col-xl-3 col-md-6  animated bounceInDown">
                 <!-- small box -->
                 <div class="info-box bg-danger">
 
