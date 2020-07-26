@@ -97,6 +97,37 @@ class ProductDataTable extends DataTable
     {
         return 'products_datatable_'.time();
     }
+
+
+
+
+
+    /**
+     * Process dataTables needed render output.
+     *
+     * @param string $view
+     * @param array $data
+     * @param array $mergeData
+     * @return mixed
+     */
+    public function render($view, $data = [], $mergeData = [])
+    {
+        if ($this->request()->ajax() && $this->request()->wantsJson()) {
+            return app()->call([$this, 'ajax']);
+        }
+
+        if ($action = $this->request()->get('action') and in_array($action, $this->actions)) {
+            if ($action == 'print') {
+                return app()->call([$this, 'printPreview']);
+            }
+
+            return app()->call([$this, $action]);
+        }
+
+        return view($view, $data, $mergeData)->with($this->dataTableVariable, $this->getHtmlBuilder());
+    }
+
+
 }
 
 
