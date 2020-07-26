@@ -1,12 +1,11 @@
-@extends('adminlte::page')
-@section('title', 'الفواتير')
+<?php $__env->startSection('title', 'الفواتير'); ?>
 
-@section('content_header')
+<?php $__env->startSection('content_header'); ?>
     <h1 class="mb-3"><i class="fas fa-file-invoice-dollar"></i> الفواتير </h1>
-@stop
+<?php $__env->stopSection(); ?>
 
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="main-tbl" style="overflow:auto;">
     <table class="table table-striped" style="min-width: 1000px">
@@ -25,20 +24,20 @@
         </tr>
         </thead>
         <tbody class="text-center">
-        @foreach($rawInvoices as $invoice)
+        <?php $__currentLoopData = $rawInvoices; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $invoice): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <tr>
             <td>
-                <a title="عرض" href="{{ route('admin.raw_invoice.show', $invoice->id) }}" class='btn btn-warning btn-sm' style="color: #ffffff">
+                <a title="عرض" href="<?php echo e(route('admin.raw_invoice.show', $invoice->id)); ?>" class='btn btn-warning btn-sm' style="color: #ffffff">
                     <i class="fas fa-2x fa-eye"></i>
                 </a>
             </td>
-            <td>{{ $invoice->marketplace->Name }}</td>
-            <td class="text-info">{{ $invoice->paymenttype->Name }}</td>
-            <td class="text-info">{{ $invoice->invoice_code }}</td>
-            <td>{{ $invoice->CustomerName }}</td>
-            <td class="text-info">{{ $invoice->Total }}</td>
-            <td>{{ $invoice->Paid }}</td>
-            <td>{{ $invoice->Rest }}</td>
+            <td><?php echo e($invoice->marketplace->Name); ?></td>
+            <td class="text-info"><?php echo e($invoice->paymenttype->Name); ?></td>
+            <td class="text-info"><?php echo e($invoice->invoice_code); ?></td>
+            <td><?php echo e($invoice->CustomerName); ?></td>
+            <td class="text-info"><?php echo e($invoice->Total); ?></td>
+            <td><?php echo e($invoice->Paid); ?></td>
+            <td><?php echo e($invoice->Rest); ?></td>
             <!-- <td><input type="checkbox"> </td> -->
             <td>
                 <!-- <a title="بحث"  href="" class="text-dark"><i class="fas fa-search"></i></a>
@@ -47,14 +46,15 @@
                 <a title="تحميل" href="" class="text-success"><i class="fas fa-download"></i></a>
                 <a title="ارسال ايميل" href="" class="" style="color: #6a6a6a"><i class="fas fa-envelope"></i></a>
                 <a title="السلة" href="" class="" style="color: #3b5998"><i class="fas fa-shopping-cart"></i></a> -->
-                <a title="حذف" href="invoiceraw/{{ $invoice->id }}/delete" class="text-danger"><i class="far fa-trash-alt"></i></a>
+                <a title="حذف" href="invoiceraw/<?php echo e($invoice->id); ?>/delete" class="text-danger"><i class="far fa-trash-alt"></i></a>
             </td>
         </tr>
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
 </div>
 
 
 
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/smart-acc.io/resources/views/admin/Invoices/index.blade.php ENDPATH**/ ?>

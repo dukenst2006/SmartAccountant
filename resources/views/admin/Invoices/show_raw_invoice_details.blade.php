@@ -2,7 +2,7 @@
 @section('title', 'فواتير البيع')
 
 @section('content_header')
-    <h1>فواتير البيع</h1>
+    <h1>فواتير كتابية</h1>
 @stop
 
 @section('content')
@@ -13,14 +13,13 @@
         </div>
         <div class="title-table">
             <div class="right-sec">
-                <p>{{ $invoice->CustomerName }}</p>
                 <p>الرياض - الحمراء</p>
                 <p>الرقم الضريبي <span class="en-font">(12554877)</span></p>
             </div>
             <div class="center-sec">
                 <p>رقم الفاتورة: {{ $invoice->invoice_code }}</p>
                 <p class="en-font"> <b>  {{ $invoice->id }} #</b>
-                <p>                    
+                <p>
                     حالة الفاتورة {{ ($invoice->Rest != 0)? "(غير مسدد)" : "(مسدد)" }}
                 </p>
             </div>
@@ -33,19 +32,13 @@
         <div style="overflow-x:auto;">
             <table>
                 <tr>
-                    <th>المنتجات</th>
-                    <th>الكمية</th>
-                    <th>السعر</th>
-                    <th>المجموع</th>
+                    <th>المدفوع</th>
+                    <th>المتبقى</th>
                 </tr>
-                @foreach($invoice->invoiceItems as $item)
                     <tr>
-                        <td>{{ $item->product->name }}</td>
-                        <td>{{ $item->Quantity }}</td>
-                        <td>{{ $item->UnitPrice }}$</td>
-                        <td>{{ $item->Total }}$</td>
+                        <td>{{ $invoice->Paid }}$</td>
+                        <td>{{ $invoice->Rest }}$</td>
                     </tr>
-                @endforeach
             </table>
         </div>
         <!-- End Table -->

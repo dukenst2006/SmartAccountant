@@ -26,7 +26,7 @@ class InvoiceObserver
      */
     public function creating(Invoice $invoice)
     {
-    	$invoice_code = sha1(rand().date('l jS \of F Y h:i:s A'));
+    	$invoice_code = substr(uniqid(), 4) . "-" . rand(1000,9999);
     	$invoice->invoice_code = $invoice_code;
     }
 

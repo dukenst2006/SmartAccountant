@@ -84,15 +84,8 @@ class SupplierInvoiceController extends AppBaseController
      */
     public function show($id)
     {
-        $supplierInvoice = $this->supplierInvoiceRepository->find($id);
-
-        if (empty($supplierInvoice)) {
-            Flash::error(__('messages.not_found', ['model' => __('models/supplierInvoices.singular')]));
-
-            return redirect(route('supplierInvoices.index'));
-        }
-
-        return view('admin.suppliers.show')->with('supplierInvoice', $supplierInvoice);
+        $invoice = $this->supplierInvoiceRepository->find($id);
+        return view('admin.suppliers.invoice.show', compact('invoice'));
     }
 
 

@@ -74,6 +74,12 @@ class InvoiceController extends AppBaseController
 
         return redirect(route('admin.invoice.invoicerawall'));
     }
+
+    public function rawInvoicesShow(Invoice $invoice)
+    {
+        return view('admin.Invoices.show_raw_invoice_details', compact('invoice'));
+    }
+
     public function deleterRawInvoice($id)
     {
         $this->invoiceRepository->deleteRawInvoice($id);

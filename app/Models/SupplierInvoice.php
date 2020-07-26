@@ -32,7 +32,8 @@ class SupplierInvoice extends Model
         'Amount',
         'Paid',
         'Rest',
-        'note'
+        'note',
+        'invoice_code'
     ];
 
     /**
@@ -48,7 +49,8 @@ class SupplierInvoice extends Model
         'Amount' => 'float',
         'Paid' => 'float',
         'Rest' => 'float',
-        'note' => 'string'
+        'note' => 'string',
+        'invoice_code' => 'string'
     ];
 
     /**
@@ -64,6 +66,8 @@ class SupplierInvoice extends Model
         'Rest' => 'required',
         'note' => 'required'
     ];
+
+    protected $with = ['supplier:id,Name', 'paymenttype:id:Name'];
 
     /**
      * @return BelongsTo
