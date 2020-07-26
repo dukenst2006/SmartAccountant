@@ -105,4 +105,12 @@ class MarketplaceOwner extends Model
     {
         return $this->hasOne(Warehouse::class, 'MarketplaceOwnerID');
     }
+
+    /**
+     * @return HasMany
+     **/
+    public function supplierInvoice()
+    {
+        return $this->hasMany(\App\Models\SupplierInvoice::class, 'MarketplaceOwnerID');
+    }
 }

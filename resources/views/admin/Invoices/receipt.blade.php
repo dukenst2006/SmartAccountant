@@ -19,7 +19,7 @@
             </div>
             <div class="center-sec">
                 <p>رقم الفاتورة</p>
-                <p class="en-font">15485</p>
+                <p class="en-font"> <b>  {{ $invoice->id }} #</b>
                 <p>حالة الفاتورة (مسددة)</p>
             </div>
             <div class="logo">
@@ -48,14 +48,11 @@
         </div>
         <!-- End Table -->
         <!-- Start bottom-section -->
-        <div class="bottom-section">
+        <div class="bottom-section text-bold">
             <p>يشمل القيمة الماضفة <span>{{ auth()->user()->settings->VAT }}%</span></p>
-            <p>ضريبة <span>10%</span> : <span>$190</span></p>
-            <span class="grand-total">المبلغ الاجمالي : <span class="en-font">${{ $invoice->Total }}</span></span>
+            <span class="grand-total text-bold">المبلغ الاجمالي : <span class="en-font">${{ $invoice->Total }}</span></span>
         </div>
-        <div class="barcode">
-            <img src="/Images/barcode.PNG" alt="barcode">
-        </div>
+
         <!-- End bottom-section -->
     </main>
 @stop

@@ -79,4 +79,11 @@ class Supplier extends Model
         return $this->belongsTo(\App\Models\Company::class, 'CompanyID');
     }
 
+    /**
+     * @return HasMany
+     **/
+    public function invoices()
+    {
+        return $this->hasMany(\App\Models\SupplierInvoice::class, 'SupplierID');
+    }
 }

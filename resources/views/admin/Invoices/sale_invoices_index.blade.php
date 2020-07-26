@@ -27,9 +27,9 @@
         @if(!empty($sale_invoices))
         @foreach($sale_invoices as $invoice)
         <tr>
-            <td>               
-                <a title="عرض" href="{{ route('admin.sale_invoice.show', $invoice->id) }}" class="" style="color: #e87c85">
-                    {{ $invoice->id }}
+            <td>
+                <a title="عرض" href="{{ route('admin.sale_invoice.show', $invoice->id) }}" class='btn btn-warning btn-sm' style="color: #ffffff">
+                    <i class="fas fa-2x fa-eye"></i>
                 </a>
             </td>
             <td>{{ $invoice->marketplace->Name }}</td>
@@ -40,12 +40,14 @@
             <td>{{ $invoice->Rest }}</td>
             <!-- <td><input type="checkbox"> </td> -->
             <td>
-{{--                 <a title="بحث"  href="" class="text-dark"><i class="fas fa-search"></i></a>
+            {{--
+                 <a title="بحث"  href="" class="text-dark"><i class="fas fa-search"></i></a>
                 <a title="تعديل" href="" class="text-info"><i class="fas fa-pencil-alt"></i></a>
                 <a title="طباعة" href="" class="" style="color: #e87c85"><i class="fas fa-print"></i></a>
                 <a title="تحميل" href="" class="text-success"><i class="fas fa-download"></i></a>
                 <a title="ارسال ايميل" href="" class="" style="color: #6a6a6a"><i class="fas fa-envelope"></i></a>
-                <a title="السلة" href="" class="" style="color: #3b5998"><i class="fas fa-shopping-cart"></i></a> --}}
+                <a title="السلة" href="" class="" style="color: #3b5998"><i class="fas fa-shopping-cart"></i></a>
+                --}}
                 <a title="حذف" href="invoiceraw/{{ $invoice->id }}/delete" class="text-danger"><i class="far fa-trash-alt"></i></a>
             </td>
         </tr>

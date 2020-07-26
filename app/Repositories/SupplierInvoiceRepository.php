@@ -2,24 +2,26 @@
 
 namespace App\Repositories;
 
-use App\Models\BoundVoucherItem;
+use App\Models\SupplierInvoice;
 use App\Repositories\BaseRepository;
 
 /**
- * Class BoundVoucherItemRepository
+ * Class SupplierInvoiceRepository
  * @package App\Repositories
- * @version July 26, 2020, 1:38 am UTC
+ * @version July 26, 2020, 1:39 am UTC
 */
 
-class BoundVoucherItemRepository extends BaseRepository
+class SupplierInvoiceRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'BondVouchersID',
-        'ProductID',
-        'Quantity'
+        'SupplierID',
+        'Amount',
+        'Paid',
+        'Rest',
+        'note'
     ];
 
     /**
@@ -37,6 +39,11 @@ class BoundVoucherItemRepository extends BaseRepository
      **/
     public function model()
     {
-        return BoundVoucherItem::class;
+        return SupplierInvoice::class;
+    }
+
+    public function getInvoices()
+    {
+        SupplierInvoice::all();
     }
 }

@@ -32,8 +32,8 @@ class CreateEmployeesTable extends Migration
 
 
             $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');
-
             $table->foreign('MarketPlaceID')->on('marketplaces')->references('id');
+
         });
     }
 
