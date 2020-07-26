@@ -7,6 +7,7 @@ use App\Exports\ProductsExport;
 use App\Http\Requests\Admin\CreateProductRequest;
 use App\Http\Requests\Admin\UpdateProductRequest;
 use App\Imports\ProductsImport;
+use App\Models\Product;
 use App\Repositories\ProductRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
@@ -35,6 +36,15 @@ class ProductController extends AppBaseController
     public function index(ProductDataTable $productDataTable)
     {
         return $productDataTable->render('admin.products.index');
+    }
+    public  function TableView(){
+        $products = Product::query()->paginate(10);
+        if (isset($_GET['InventoryID'])){
+            if ($_GET['InventoryID'] > 0){
+                $products = Product::query()->where('InventoryID','=',$_GET['InventoryID'])->paginate(10);
+            }
+        }
+        return view('admin.ProductsView.index',compact('products'));
     }
 
     /**

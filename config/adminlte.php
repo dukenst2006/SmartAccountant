@@ -375,6 +375,10 @@ return [/*
                     'text' => 'create',
                     'route' => 'admin.products.create',
                     'icon' => 'fas fa-fw fa-plus-circle',
+                ],[
+                    'text' => 'all',
+                    'route' => 'admin.ProductTableView',
+                    'icon' => 'fas fa-fw fa-plus-circle',
                 ],
 
             ],
