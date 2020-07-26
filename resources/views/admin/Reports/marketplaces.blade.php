@@ -20,7 +20,46 @@
                 {!! $chart->container() !!}
 
             </div>
-
+            <div class="card">
+                <div class="card-header">
+                    <form method="get" action="{{route('admin.marketplacesreport')}}">
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <label for="">{{__('money.from')}}</label>
+                                <input class="form-control" type="date" name="from" id="">
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="">{{__('money.to')}}</label>
+                                <input class="form-control" type="date" name="to" id="">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success">{{__('money.search')}}</button>
+                    </form>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <th>#</th>
+                            <th>{{__('Models/Marketplace.Name')}}</th>
+                            <th>{{__('dashboard.bills')}}</th>
+                            <th>{{__('Models/Invoice.Paid')}}</th>
+                        </thead>
+                        <tbody>
+                            @foreach($marketplacesTable as $M)
+                                <tr>
+                                    <td>{{$M->id}}</td>
+                                    <td>{{$M->Name}}</td>
+                                    <td>{{$M->invoices->count()}}</td>
+                                    <td>{{$M->invoices->sum('Paid')}}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    {{$marketplacesTable->links()}}
+                </div>
+            </div>
 
         </div>
 
@@ -42,6 +81,6 @@
 @endsection
 
 @section('customejs')
-    {!! $chart->script() !!}
+{{--    {!! $chart->script() !!}--}}
 @endsection
 
