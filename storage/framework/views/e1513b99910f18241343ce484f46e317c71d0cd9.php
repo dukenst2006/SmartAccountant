@@ -15,6 +15,13 @@
 
 </div>
 
+<!-- Marketplaceid Field -->
+<div class="form-group col-sm-6">
+    <?php echo Form::label('MarketplaceID', __('Models/Marketplace.Name')); ?>
+
+    <?php echo Form::select('MarketplaceID',$marketplaces, null,['class' => 'form-control']); ?>
+
+</div>
 <!-- Name Field -->
 <div class="form-group col-sm-6">
     <?php echo Form::label('Name',  __('Models/Product.Name')); ?>

@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\UpdateProductRequest;
 use App\Imports\ProductsImport;
 use App\Models\Marketplace;
 use App\Models\Product;
+use App\Models\Warehouse;
 use App\Repositories\ProductRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
@@ -64,8 +65,11 @@ class ProductController extends AppBaseController
         $quantitytypes = $this->productRepository->GetDataForSelect('quantity_types');
         $product_categories = $this->productRepository->GetDataForSelect('product_categories');
         $product_sub_categories = $this->productRepository->GetDataForSelect('product_sub_categories');
+        $marketplaces = $this->productRepository->GetDataForSelect('marketplaces');
+        $marketplaces["0"] = "المخزن الرئيسي";
+        $marketplaces = array_reverse($marketplaces);
         return view('admin.products.create',
-            compact( 'quantitytypes', 'product_categories', 'product_sub_categories'));
+            compact( 'quantitytypes', 'product_categories', 'product_sub_categories','marketplaces'));
     }
 
     /**
@@ -79,6 +83,10 @@ class ProductController extends AppBaseController
     {
         $input = $request->all();
         $input['Image'] = $this->productRepository->StoreFile($request->file('Image'), '');
+        if ($input['MarketplaceID'] == 0){
+            $input['MarketplaceID'] = null;
+            $input['WarehouseID'] = Warehouse::query()->first()->id;
+        }
         $product = $this->productRepository->create($input);
         Flash::success('Product saved successfully.');
 

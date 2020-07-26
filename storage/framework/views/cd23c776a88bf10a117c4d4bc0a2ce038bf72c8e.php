@@ -15,32 +15,39 @@
                 </div>
             </form>
         </div>
-        <table class="table table-bordered m-2">
-            <thead class="thead-light">
-            <th>#</th>
-            <th><?php echo e(__('Models/Product.Name')); ?></th>
-            <th><?php echo e(__('Models/Product.LowPrice')); ?></th>
-            <th><?php echo e(__('Models/Product.ExpiryDate')); ?></th>
-            <th><?php echo e(__('Models/Product.Quantity')); ?></th>
-            <th><?php echo e(__('Models/Product.PurchasingPrice')); ?></th>
-            </thead>
-            <tbody>
-            <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <tr>
-                    <td><?php echo e($product->id); ?></td>
-                    <td><?php echo e($product->Name); ?></td>
-                    <td><?php echo e($product->LowPrice); ?></td>
-                    <td><?php echo e($product->ExpiryDate); ?></td>
-                    <td><?php echo e($product->Quantity); ?></td>
-                    <td><?php echo e($product->PurchasingPrice); ?></td>
-                </tr>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </tbody>
-        </table>
-        <?php if($products->count() > 0): ?>
-            <?php echo e($products->links()); ?>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-success" href="<?php echo e(route('admin.products.create')); ?>"><i class="fa fa-plus"></i></a>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered m-2">
+                    <thead class="thead-light">
+                    <th>#</th>
+                    <th><?php echo e(__('Models/Product.Name')); ?></th>
+                    <th><?php echo e(__('Models/Product.LowPrice')); ?></th>
+                    <th><?php echo e(__('Models/Product.ExpiryDate')); ?></th>
+                    <th><?php echo e(__('Models/Product.Quantity')); ?></th>
+                    <th><?php echo e(__('Models/Product.PurchasingPrice')); ?></th>
+                    </thead>
+                    <tbody>
+                    <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <tr>
+                            <td><?php echo e($product->id); ?></td>
+                            <td><?php echo e($product->Name); ?></td>
+                            <td><?php echo e($product->LowPrice); ?></td>
+                            <td><?php echo e($product->ExpiryDate); ?></td>
+                            <td><?php echo e($product->Quantity); ?></td>
+                            <td><?php echo e($product->PurchasingPrice); ?></td>
+                        </tr>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </tbody>
+                </table>
+                <?php if($products->count() > 0): ?>
+                    <?php echo e($products->links()); ?>
 
-        <?php endif; ?>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
 <?php $__env->stopSection(); ?>
 
