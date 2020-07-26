@@ -18,7 +18,7 @@
                 <td class="text-center">
 
                     <div class='btn-group'>
-                        <a href="{{ route('admin.inventories.show', [$inventory->id]) }}"
+                        <a href="{{ route('admin.ProductTableView', ['MarketID' =>  $inventory->MarketPlace->id]) }}"
                            class='btn btn-warning btn-sm p-1'><i class="fas fa-2x fa-eye"></i></a>
                     </div>
 
