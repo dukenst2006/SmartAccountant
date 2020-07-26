@@ -80,6 +80,31 @@ class InvoiceController extends AppBaseController
         return view('admin.Invoices.show_raw_invoice_details', compact('invoice'));
     }
 
+    public function editRawInvoice($id)
+    {
+        $marketplaces = $this->employeeRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID');
+        $payment_types = $this->invoiceRepository->GetDataForSelect('payment_types');
+        $invoice = $this->invoiceRepository->find($id);
+        return view('admin.Invoices.edit_raw_invoice', compact('invoice', 'marketplaces', 'payment_types'));
+
+    }
+
+    public function updateRawInvoice(int $id)
+    {
+        $rawInvoice = $this->invoiceRepository->find($id);
+
+        if(empty($rawInvoice)) {
+            Flash::error(__('messages.not_found', ['model' => __('models/suppliers.singular')]));
+            return redirect(route('admin.suppliers.index'));
+        }
+
+        $rawInvoice = $this->invoiceRepository->update(request()->all(), $id);
+
+        Flash::success(__('messages.saved', ['model' => __('Models/SupplierInvoices.CraeteNewSupplierInvoice')]));
+        
+        return redirect(route('admin.invoice.invoicerawall'));
+    }
+
     public function deleterRawInvoice($id)
     {
         $this->invoiceRepository->deleteRawInvoice($id);

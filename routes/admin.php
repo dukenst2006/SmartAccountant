@@ -41,13 +41,16 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::get('chat', function (){return view('admin.Messages.chat');})->name('chat');
 
     Route::get('sale-invoices', 'InvoiceController@saleInvoicesIndex')->name('invoice.all');
-    Route::get('show-sale-invoice/{invoice}', 'InvoiceController@showsaleInvoicesDetails')->name('sale_invoice.show');
     Route::get('invoicerawcreatesale', 'InvoiceController@sale')->name('invoice.createsale');
     Route::post('storesaleinvoice', 'InvoiceController@storeSaleInvoice')->name('invoice.storesaleinvoice');
+    Route::get('show-sale-invoice/{invoice}', 'InvoiceController@showsaleInvoicesDetails')->name('sale_invoice.show');
+
     Route::get('invoicerawall', 'InvoiceController@showRawInvoices')->name('invoice.invoicerawall');
     Route::get('invoiceraw', 'InvoiceController@raw')->name('invoice.createraw');
     Route::post('invoiceraw/store', 'InvoiceController@StoreRawInvoice')->name('invoice.storerowinvoice');
     Route::get('invoice-raw/{invoice}/show', 'InvoiceController@rawInvoicesShow')->name('raw_invoice.show');
+    Route::get('invoice-raw/{invoice}/edit', 'InvoiceController@editRawInvoice')->name('raw_invoice.edit');
+    Route::put('invoice-raw/{invoice}', 'InvoiceController@updateRawInvoice')->name('raw_invoice.update');
     Route::get('invoiceraw/{id}/delete', 'InvoiceController@deleterRawInvoice')->name('admin.delete.rawInvoice');
 
 
