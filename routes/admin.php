@@ -85,10 +85,7 @@ Route::group(['prefix' => 'Admin'], function () {
         Route::get('MostActiveReport', 'MostActiveReportController@index')->name('mostactivereport');
         Route::get('BondsReport', 'BondsReportController@index')->name('bondsreport');
         Route::get('ExpensesReport', 'ExpensesReportController@index')->name('expensesreport');
-
-
-
     });
-
+    Route::get('ProductTableView','ProductController@TableView')->name('ProductTableView');
     Route::get('ProductExport','ProductController@export')->name('ProductExport');
 });

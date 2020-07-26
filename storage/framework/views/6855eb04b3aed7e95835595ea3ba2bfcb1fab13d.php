@@ -1,11 +1,10 @@
-@extends('adminlte::page')
-@section('title', 'Safe')
+<?php $__env->startSection('title', 'Safe'); ?>
 
-@section('content_header')
+<?php $__env->startSection('content_header'); ?>
     <h1><i class="fas fa-dollar-sign"></i> الخزينة </h1>
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div>
         <div class="row col-12  justify-content-center">
             <div class="row col-md-6 col-sm-6 col-6">
@@ -17,7 +16,8 @@
                         <div class="info-box-content">
                             <h1 class="info-box-text">الخسائر</h1>
                             <h2 class="info-box-number">
-                                {{$expenses->sum('Price') - $invoices->sum('paid') > 0? $expenses->sum('Price') - $invoices->sum('paid'):0}}
+                                <?php echo e($expenses->sum('Price') - $invoices->sum('paid') > 0? $expenses->sum('Price') - $invoices->sum('paid'):0); ?>
+
                             </h2>
 
                             <div class="progress">
@@ -37,7 +37,8 @@
                         <div class="info-box-content">
                             <h1 class="info-box-text">الأرباح</h1>
                             <h2 class="info-box-number">
-                                {{$invoices->sum('Paid')  > 0? $invoices->sum('Paid') :0}}
+                                <?php echo e($invoices->sum('Paid')  > 0? $invoices->sum('Paid') :0); ?>
+
                             </h2>
 
                             <div class="progress">
@@ -56,7 +57,8 @@
                         <div class="info-box-content">
                             <h1 class="info-box-text">الضريبة</h1>
                             <h2 class="info-box-number">
-                                {{(($invoices->sum('Paid')  > 0 ? $invoices->sum('Paid') :0)/100) * auth()->user()->settings->VAT}}
+                                <?php echo e((($invoices->sum('Paid')  > 0 ? $invoices->sum('Paid') :0)/100) * auth()->user()->settings->VAT); ?>
+
                             </h2>
 
                             <div class="progress">
@@ -83,25 +85,28 @@
                 <th>اجمالي المصاريف</th>
                 <th>صافي</th>
             </tr>
-            @foreach($markets as $market)
+            <?php $__currentLoopData = $markets; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $market): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td>{{$market->Name}}</td>
-                    <td>{{$market->invoices->count()}}</td>
-                    <td>{{$market->invoices->sum('Total')}}</td>
-                    <td>{{$market->invoices->sum('Paid')}}</td>
-                    <td>{{$market->invoices->sum('Paid') / 100 * auth()->user()->settings->VAT}}</td>
-                    <td>{{$market->invoices->sum('Rest')}}</td>
-                    <td>{{$market->expenses->sum('Price')}}</td>
-                    <td>{{$market->invoices->sum('Paid') - $market->expenses->sum('Price')}}</td>
+                    <td><?php echo e($market->Name); ?></td>
+                    <td><?php echo e($market->invoices->count()); ?></td>
+                    <td><?php echo e($market->invoices->sum('Total')); ?></td>
+                    <td><?php echo e($market->invoices->sum('Paid')); ?></td>
+                    <td><?php echo e($market->invoices->sum('Paid') / 100 * auth()->user()->settings->VAT); ?></td>
+                    <td><?php echo e($market->invoices->sum('Rest')); ?></td>
+                    <td><?php echo e($market->expenses->sum('Price')); ?></td>
+                    <td><?php echo e($market->invoices->sum('Paid') - $market->expenses->sum('Price')); ?></td>
                 </tr>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
             <tr>
                 <td colspan="7" class="text-center">
-                    {{$markets}}
+                    <?php echo e($markets); ?>
+
                 </td>
             </tr>
         </table>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\SmartAccountant\resources\views/admin/treasure/index.blade.php ENDPATH**/ ?>
