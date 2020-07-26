@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Requests\CreateSupplierInvoiceRequest;
 use App\Http\Requests\UpdateSupplierInvoiceRequest;
-use App\Repositories\SupplierInvoiceRepository;
+use App\Repositories\{
+    SupplierInvoiceRepository,
+    Admin\SupplierRepository
+};
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -18,9 +21,13 @@ class SupplierInvoiceController extends AppBaseController
     /** @var  SupplierInvoiceRepository */
     private $supplierInvoiceRepository;
 
-    public function __construct(SupplierInvoiceRepository $supplierInvoiceRepo)
+    /** @var  SupplierInvoiceRepository */
+    private $supplierRepository;
+
+    public function __construct(SupplierInvoiceRepository $supplierInvoiceRepo, SupplierRepository $supplierRepo)
     {
         $this->supplierInvoiceRepository = $supplierInvoiceRepo;
+        $this->supplierRepository = $supplierRepo;
     }
 
     /**
@@ -45,7 +52,8 @@ class SupplierInvoiceController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.suppliers.invoice.create');
+        $suppliers = $this->supplierInvoiceRepository->GetDataForSelect('suppliers', 'MarketplaceOwnerID');
+        return view('admin.suppliers.invoice.create', compact('suppliers'));
     }
 
     /**
@@ -55,12 +63,16 @@ class SupplierInvoiceController extends AppBaseController
      *
      * @return RedirectResponse|Redirector
      */
-    public function store(CreateSupplierInvoiceRequest $request)
+    public function store(Request $request)
     {
+        $marketplaceOwnerID = $this->supplierInvoiceRepository->GetMyOwner();
+        $request->request->add([
+            'MarketplaceOwnerID' => $marketplaceOwnerID
+        ]);
         $input = $request->all();
         $supplierInvoice = $this->supplierInvoiceRepository->create($input);
-        Flash::success(__('messages.saved', ['model' => __('models/supplierInvoices.singular')]));
-        return redirect(route('supplierInvoices.index'));
+        Flash::success(__('messages.saved', ['model' => __('Models/SupplierInvoices.CraeteNewSupplierInvoice')]));
+        return redirect(route('admin.supplier-invoice.index'));
     }
 
     /**

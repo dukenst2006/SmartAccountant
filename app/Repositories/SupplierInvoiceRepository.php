@@ -17,6 +17,7 @@ class SupplierInvoiceRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
+        'SupplierID',
         'Amount',
         'Paid',
         'Rest',

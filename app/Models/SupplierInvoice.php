@@ -26,6 +26,8 @@ class SupplierInvoice extends Model
 
 
     public $fillable = [
+        'MarketplaceOwnerID',
+        'SupplierID',
         'Amount',
         'Paid',
         'Rest',
@@ -39,6 +41,8 @@ class SupplierInvoice extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'MarketplaceOwnerID' => 'integer',
+        'SupplierID' => 'integer',
         'Amount' => 'float',
         'Paid' => 'float',
         'Rest' => 'float',
@@ -51,11 +55,26 @@ class SupplierInvoice extends Model
      * @var array
      */
     public static $rules = [
+        'SupplierID' => 'required',
         'Amount' => 'required',
         'Paid' => 'required',
         'Rest' => 'required',
         'note' => 'required'
     ];
 
-    
+    /**
+     * @return BelongsTo
+     **/
+    public function marketplaceOwner()
+    {
+        return $this->belongsTo(MarketplaceOwner::class, 'MarketplaceOwnerID');
+    }
+
+    /**
+     * @return BelongsTo
+     **/
+    public function supplier()
+    {
+        return $this->belongsTo(\App\Models\Supplier::class, 'SupplierID');
+    }
 }

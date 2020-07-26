@@ -16,6 +16,7 @@ class CreateSupplierInvoicesTable extends Migration
         Schema::create('supplier_invoices', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('MarketplaceOwnerID');
+            $table->unsignedBigInteger('SupplierID');
             $table->double('Amount');
             $table->double('Paid');
             $table->double('Rest');
@@ -23,6 +24,7 @@ class CreateSupplierInvoicesTable extends Migration
             $table->timestamps();
 
             $table->foreign('MarketplaceOwnerID')->references('id')->on('marketplace_owners')->onDelete('cascade');
+            $table->foreign('SupplierID')->references('id')->on('suppliers')->onDelete('cascade');
         });
     }
 

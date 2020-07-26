@@ -68,18 +68,12 @@
                             <button class="btn btn-lg btn-default">{{ __('Buttons.Cancel') }}</button>
                         </div>
 
-                    {!! Form::close() !!}
-                </div>
+                        {!! Form::close() !!}
+                    </div>
             </div>
 
         </div>
-
-
-
     </div>
-
-
-
 @stop
 
 
