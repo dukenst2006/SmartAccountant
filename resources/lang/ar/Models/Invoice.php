@@ -9,4 +9,5 @@ return [
     'Rest' => 'المتبقي',
     'PaymentTypeID' => 'طريقة الدفع',
     'Name' => 'الأسم',
+    'InvoiceCode' => 'كود الفاتورة',
 ];

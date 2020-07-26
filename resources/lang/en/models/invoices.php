@@ -3,6 +3,7 @@
 return array (
   'singular' => 'Invoice',
   'plural' => 'Invoices',
+  'InvoiceCode' => 'Invoice Code',
   'fields' =>
   array (
     'id' => 'Id',

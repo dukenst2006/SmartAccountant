@@ -28,6 +28,10 @@
 
                             </th>
                             <th scope="col">
+                                <?php echo e(__('Models/Invoice.InvoiceCode')); ?>
+
+                            </th>
+                            <th scope="col">
                                 <?php echo e(__('Models/SupplierInvoices.Total')); ?>
 
                             </th>
@@ -48,6 +52,7 @@
                         <tr>
                             <td class="text-info"><?php echo e($invoice->supplier->Name); ?></td>
                             <td><?php echo e($invoice->paymenttype->Name); ?></td>
+                            <td><?php echo e($invoice->invoice_code); ?></td>
                             <td><?php echo e($invoice->Amount); ?>$</td>
                             <td><?php echo e($invoice->Paid); ?>$</td>
                             <td><?php echo e($invoice->Rest); ?>$</td>

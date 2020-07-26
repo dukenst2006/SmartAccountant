@@ -27,6 +27,9 @@
                                 {{ __('Models/Invoice.PaymentTypeID') }}
                             </th>
                             <th scope="col">
+                                {{ __('Models/Invoice.InvoiceCode') }}
+                            </th>
+                            <th scope="col">
                                 {{ __('Models/SupplierInvoices.Total') }}
                             </th>
                             <th scope="col">
@@ -44,6 +47,7 @@
                         <tr>
                             <td class="text-info">{{ $invoice->supplier->Name }}</td>
                             <td>{{ $invoice->paymenttype->Name }}</td>
+                            <td>{{ $invoice->invoice_code }}</td>
                             <td>{{ $invoice->Amount }}$</td>
                             <td>{{ $invoice->Paid }}$</td>
                             <td>{{ $invoice->Rest }}$</td>

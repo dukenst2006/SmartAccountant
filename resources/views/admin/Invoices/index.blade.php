@@ -14,6 +14,7 @@
         <tr style="color: #FFF;background-color: #5b75b5">
             <th scope="col">اسم الفرع</th>
             <th scope="col">طريقة الدفع</th>
+            <th scope="col">كود الفاتورة</th>
             <th scope="col">الأسم</th>
             <th scope="col">الاجمالي</th>
             <th scope="col">المدفوع</th>
@@ -27,6 +28,7 @@
         <tr>
             <td>{{ $invoice->marketplace->Name }}</td>
             <td class="text-info">{{ $invoice->paymenttype->Name }}</td>
+            <td class="text-info">{{ $invoice->invoice_code }}</td>
             <td>{{ $invoice->CustomerName }}</td>
             <td class="text-info">{{ $invoice->Total }}</td>
             <td>{{ $invoice->Paid }}</td>

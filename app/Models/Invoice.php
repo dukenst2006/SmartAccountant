@@ -43,7 +43,8 @@ class Invoice extends Model
         'PaymentTypeID',
         'IsRaw',
         'RawFile',
-        'acc_number'
+        'acc_number',
+        'invoice_code'
     ];
 
     /**
@@ -62,7 +63,8 @@ class Invoice extends Model
         'PaymentTypeID' => 'integer',
         'IsRaw' => 'boolean',
         'RawFile' => 'string',
-        'acc_number' => 'string'
+        'acc_number' => 'string',
+        'invoice_code' => 'string'
     ];
 
     /**

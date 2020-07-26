@@ -1,0 +1,2 @@
+(function(window,$){window.LaravelDataTables=window.LaravelDataTables||{};window.LaravelDataTables["%1$s"]=$("#%1$s").DataTable(%2$s);})(window,jQuery);
+<?php /**PATH /var/www/smart-acc.io/resources/views/vendor/datatables/script.blade.php ENDPATH**/ ?>

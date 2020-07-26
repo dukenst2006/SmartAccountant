@@ -18,7 +18,7 @@
                 <p>الرقم الضريبي <span class="en-font">(12554877)</span></p>
             </div>
             <div class="center-sec">
-                <p>رقم الفاتورة</p>
+                <p>رقم الفاتورة: {{ $invoice->invoice_code }}</p>
                 <p class="en-font"> <b>  {{ $invoice->id }} #</b>
                 <p>حالة الفاتورة (مسددة)</p>
             </div>
