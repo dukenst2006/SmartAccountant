@@ -20,6 +20,7 @@ class MarketplaceObserver
 
     public function __construct(BaseRepository $baseRepo )
     {
+
         $this->BaseRepository = $baseRepo;
 
     }
