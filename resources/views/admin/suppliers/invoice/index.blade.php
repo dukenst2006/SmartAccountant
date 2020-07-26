@@ -41,6 +41,9 @@
                             <th scope="col">
                                 {{ __('Models/SupplierInvoices.Rest') }}
                             </th>
+                            <th scope="col">
+                                حالة الفاتورة
+                            </th>
                             <!-- <th scope="col">الوضع</th> -->
                             <th scope="col">اجراءات</th>
                         </tr>
@@ -59,6 +62,7 @@
                             <td>{{ $invoice->Amount }}$</td>
                             <td>{{ $invoice->Paid }}$</td>
                             <td>{{ $invoice->Rest }}$</td>
+                            <td><small>{{ ($invoice->Rest != 0)? "غير مسدد" : "مسدد" }}</small></td>
                             <!-- <td><input type="checkbox"> </td> -->
                             <td>
                                 <!-- <a title="بحث"  href="" class="text-dark"><i class="fas fa-search"></i></a>
@@ -67,7 +71,9 @@
                                 <a title="تحميل" href="" class="text-success"><i class="fas fa-download"></i></a>
                                 <a title="ارسال ايميل" href="" class="" style="color: #6a6a6a"><i class="fas fa-envelope"></i></a>
                                 <a title="السلة" href="" class="" style="color: #3b5998"><i class="fas fa-shopping-cart"></i></a> -->
-                                <a title="حذف" href="Admin/supplier-invoice/{{ $invoice->id }}/delete" class="text-danger"><i class="far fa-trash-alt"></i></a>
+                                {!! Form::open(['route' => ['admin.supplier-invoice.destroy', $invoice->id], 'method' => 'delete']) !!}
+                                    <button type="submit" class="text-danger"><i class="far fa-trash-alt"></i></button>
+                                {!! Form::close() !!}
                             </td>
                         </tr>
                         @endforeach

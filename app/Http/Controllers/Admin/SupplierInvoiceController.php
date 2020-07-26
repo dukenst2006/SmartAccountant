@@ -88,6 +88,30 @@ class SupplierInvoiceController extends AppBaseController
         return view('admin.suppliers.invoice.show', compact('invoice'));
     }
 
+    public function edit($id)
+    {
+        $suppliers = $this->supplierInvoiceRepository->GetDataForSelect('suppliers', 'MarketplaceOwnerID');
+        $payment_types = $this->supplierInvoiceRepository->GetDataForSelect('payment_types');
+        $invoice = $this->supplierInvoiceRepository->find($id);
+        return view('admin.suppliers.invoice.edit', compact('invoice', 'suppliers', 'payment_types'));
+
+    }
+
+    public function update(Request $request, int $id)
+    {
+        $supplierInvoice = $this->supplierInvoiceRepository->find($id);
+
+        if(empty($supplierInvoice)) {
+            Flash::error(__('messages.not_found', ['model' => __('models/suppliers.singular')]));
+            return redirect(route('admin.suppliers.index'));
+        }
+
+        $supplierInvoice = $this->supplierInvoiceRepository->update($request->all(), $id);
+
+        Flash::success(__('messages.saved', ['model' => __('Models/SupplierInvoices.CraeteNewSupplierInvoice')]));
+        
+        return redirect(route('admin.supplier-invoice.index'));
+    }
 
     /**
      * Remove the specified SupplierInvoice from storage.
@@ -112,6 +136,6 @@ class SupplierInvoiceController extends AppBaseController
 
         Flash::success(__('messages.deleted', ['model' => __('models/supplierInvoices.singular')]));
 
-        return redirect(route('supplierInvoices.index'));
+        return redirect(route('admin.supplier-invoice.index'));
     }
 }

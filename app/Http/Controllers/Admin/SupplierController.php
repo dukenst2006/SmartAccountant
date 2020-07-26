@@ -39,9 +39,6 @@ class SupplierController extends AppBaseController
      */
     public function create()
     {
-
-
-
         return view('admin.suppliers.create')->with('companies',$this->supplierRepository->GetDataForSelect('companies','MarketplaceOwnerID'));
     }
 
