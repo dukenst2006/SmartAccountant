@@ -40,7 +40,6 @@ class SupplierInvoiceController extends AppBaseController
     public function index(Request $request)
     {
         $supplierInvoices = $this->supplierInvoiceRepository->all();
-
         return view('admin.suppliers.invoice.index')
             ->with('supplierInvoices', $supplierInvoices);
     }
@@ -53,7 +52,8 @@ class SupplierInvoiceController extends AppBaseController
     public function create()
     {
         $suppliers = $this->supplierInvoiceRepository->GetDataForSelect('suppliers', 'MarketplaceOwnerID');
-        return view('admin.suppliers.invoice.create', compact('suppliers'));
+        $payment_types = $this->supplierInvoiceRepository->GetDataForSelect('payment_types');
+        return view('admin.suppliers.invoice.create', compact('suppliers', 'payment_types'));
     }
 
     /**

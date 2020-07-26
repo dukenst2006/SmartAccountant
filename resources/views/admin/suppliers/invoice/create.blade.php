@@ -27,13 +27,14 @@
                             </div>
 
                             <div class="form-group row col-sm-6 m-3">
-                                {!! Form::label('Amount', __('Models/SupplierInvoices.Amount')) !!}
-                                {!! Form::text('Amount', null, ['class' => 'form-control']) !!}
+                                {!! Form::label('PaymentTypeID', __('Models/Invoice.PaymentTypeID')) !!}
+                                {!! Form::select('PaymentTypeID',$payment_types, null,['class' => 'form-control']) !!}
                             </div>
+
 
                             <div class="form-group row col-sm-6 m-3">
                                 {!! Form::label('Total', __('Models/SupplierInvoices.Total')) !!}
-                                {!! Form::text('Total', null, ['class' => 'form-control']) !!}
+                                {!! Form::text('Amount', null, ['class' => 'form-control']) !!}
                             </div>
 
 
@@ -47,6 +48,12 @@
                             <div class="form-group row col-sm-6 m-3">
                                 {!! Form::label('Rest', __('Models/SupplierInvoices.Rest')) !!}
                                 {!! Form::text('Rest', null, ['class' => 'form-control']) !!}
+                            </div>
+
+                            <!-- Description Field -->
+                            <div class="orm-group row col-sm-6 m-3">
+                                {!! Form::label('note', __('Models/SupplierInvoices.note').':') !!}
+                                {!! Form::textarea('Description',  __('Models/SupplierInvoices.note') , ['class' => 'form-control']) !!}
                             </div>
 
                             <div class="form-group col-sm-12">

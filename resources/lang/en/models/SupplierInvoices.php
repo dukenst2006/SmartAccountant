@@ -28,6 +28,6 @@ return [
     'Total' => 'Total',
     'Paid' => 'Paid',
     'Rest' => 'Rest',
-    'File' => 'File'
+    'note' => 'Note'
 ];
 

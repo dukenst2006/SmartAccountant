@@ -41,4 +41,9 @@ class SupplierInvoiceRepository extends BaseRepository
     {
         return SupplierInvoice::class;
     }
+
+    public function getInvoices()
+    {
+        SupplierInvoice::all();
+    }
 }

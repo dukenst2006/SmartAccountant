@@ -28,6 +28,7 @@ class SupplierInvoice extends Model
     public $fillable = [
         'MarketplaceOwnerID',
         'SupplierID',
+        'PaymentTypeID',
         'Amount',
         'Paid',
         'Rest',
@@ -43,6 +44,7 @@ class SupplierInvoice extends Model
         'id' => 'integer',
         'MarketplaceOwnerID' => 'integer',
         'SupplierID' => 'integer',
+        'PaymentTypeID' => 'integer',
         'Amount' => 'float',
         'Paid' => 'float',
         'Rest' => 'float',
@@ -56,6 +58,7 @@ class SupplierInvoice extends Model
      */
     public static $rules = [
         'SupplierID' => 'required',
+        'PaymentTypeID' => 'required',
         'Amount' => 'required',
         'Paid' => 'required',
         'Rest' => 'required',
@@ -76,5 +79,13 @@ class SupplierInvoice extends Model
     public function supplier()
     {
         return $this->belongsTo(\App\Models\Supplier::class, 'SupplierID');
+    }
+
+    /**
+     * @return BelongsTo
+     **/
+    public function paymenttype()
+    {
+        return $this->belongsTo(\App\Models\PaymentType::class, 'PaymentTypeID');
     }
 }

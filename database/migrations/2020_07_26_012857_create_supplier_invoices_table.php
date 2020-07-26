@@ -17,6 +17,7 @@ class CreateSupplierInvoicesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('MarketplaceOwnerID');
             $table->unsignedBigInteger('SupplierID');
+            $table->unsignedBigInteger('PaymentTypeID');
             $table->double('Amount');
             $table->double('Paid');
             $table->double('Rest');
@@ -25,6 +26,8 @@ class CreateSupplierInvoicesTable extends Migration
 
             $table->foreign('MarketplaceOwnerID')->references('id')->on('marketplace_owners')->onDelete('cascade');
             $table->foreign('SupplierID')->references('id')->on('suppliers')->onDelete('cascade');
+            $table->foreign('PaymentTypeID')->references('id')->on('payment_types')->onDelete('cascade');
+
         });
     }
 
