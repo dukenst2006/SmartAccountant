@@ -39,16 +39,16 @@
     {!! Form::text('JobTitle', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Nationalid Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('NationalID', __('Models/Employee.IdentityImage')) !!}
-    {!! Form::text('NationalID', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Phonenumber Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('PhoneNumber', __('Models/Employee.PhoneNumber')) !!}
     {!! Form::text('PhoneNumber', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Nationalid Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('NationalID', __('Models/Employee.IdentityImage')) !!}
+    {!! Form::file('NationalID', ['class' => 'form-control']) !!}
 </div>
 
 <!-- Profileimage Field -->

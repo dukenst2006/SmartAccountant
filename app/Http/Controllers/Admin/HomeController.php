@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Charts\DashboardChart;
 use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use App\Models\Expense;
 use App\Models\Invoice;
+use App\Models\Marketplace;
+use App\Models\Product;
 use App\Models\Settings;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -50,7 +53,10 @@ class HomeController extends Controller
         $totalPaid = Invoice::query()->sum('Paid');
         $gains  =   Expense::query()->sum('Price') - Invoice::query()->sum('Paid');
         $lose  =   Expense::query()->sum('Price') - Invoice::query()->sum('Paid') ;
-
+        $lose  =   Expense::query()->sum('Price') - Invoice::query()->sum('Paid') ;
+        $markets = Marketplace::count();
+        $employees = Employee::count();
+        $products = Product::count();
 
         $usersChart->labels(['يناير', 'فبراير', 'مارس', 'ابريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر']);
         $usersChart->dataset('المبيعات', 'bar',[16000, 20000,30000,40000,50000,10000,30000,40000,70000,60000,65000,85000])->backgroundcolor("rgb(236, 201, 75)")->color("rgb(236, 201, 75)");
@@ -58,7 +64,7 @@ class HomeController extends Controller
         $usersChart->dataset('الخسائر',  'bar',[800, 12000,13000,14000,18000,19000,20000,25000,26000,8000,7000,6000])->backgroundcolor("rgb(225, 0, 38)")->color("rgb(225, 0, 38)");
 
 
-        return view('admin.home',compact('usersChart','settings','totalPaid','gains','lose'));
+        return view('admin.home',compact('usersChart','settings','totalPaid','gains','lose','markets','employees','products'));
 
     }
 }

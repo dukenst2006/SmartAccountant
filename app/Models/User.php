@@ -57,10 +57,10 @@ public function Employee()
 }
 
 
-    public function settings()
-    {
-        return $this->hasOne(Settings::class,'UserID','id');
-    }
+public function settings()
+{
+    return $this->hasOne(Settings::class,'UserID','id');
+}
 
 
 

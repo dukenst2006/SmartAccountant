@@ -15,13 +15,13 @@ use Illuminate\Console\Events\ScheduledTaskFinished;
 class MarketplaceObserver
 {
 
-    /** @var  BaseRepository */
-    private $BaseRepository;
+    /** @var  WarehouseRepository */
+    private $WarehouseRepository;
 
-    public function __construct(BaseRepository $baseRepo )
+    public function __construct(WarehouseRepository $warehouseRepo )
     {
 
-        $this->BaseRepository = $baseRepo;
+        $this->WarehouseRepository = $warehouseRepo;
 
     }
 
@@ -40,7 +40,7 @@ class MarketplaceObserver
         //Create The inventory
         $inventory = new Inventory();
         $inventory->MarketplaceID=$marketplace->id;
-        $inventory->WarehouseID= Warehouse::where('MarketplaceOwnerID',$this->BaseRepository->GetMyOwner())->first()->id;
+        $inventory->WarehouseID= Warehouse::where('MarketplaceOwnerID',$this->WarehouseRepository->GetMyOwner())->first()->id;
         $inventory->save();
 
 

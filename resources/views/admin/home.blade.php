@@ -134,7 +134,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">المنتجات</span>
-                        <span class="info-box-number">41,410</span>
+                        <span class="info-box-number">{{$products}}</span>
                     </div>
                     <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-2x  fa-boxes"></i></span>
                     <!-- /.info-box-content -->
@@ -152,7 +152,7 @@
 
                     <div class="info-box-content">
                         <b class="info-box-text">عدد الفروع</b>
-                        <span class="info-box-number">760</span>
+                        <span class="info-box-number">{{$markets}}</span>
                     </div>
                     <span class="info-box-icon bg-success elevation-1"><i class="fas fa-w-2  fa-shopping-cart"></i></span>
                     <!-- /.info-box-content -->
@@ -165,7 +165,7 @@
 
                     <div class="info-box-content">
                         <b class="info-box-text">عدد الموظفين</b>
-                        <span class="info-box-number">2,000</span>
+                        <span class="info-box-number">{{$employees}}</span>
                     </div>
                     <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-2x fa-user-tie"></i></span>
 
