@@ -1,15 +1,15 @@
 <?php
 
-use Yajra\DataTables\Html\Column;
-
 return [
-	'singular' => 'تم حفظ فاتورة مورد بنجاح',
-	'SupplierInvoice' => 'فواتير الموردين',
-	'CraeteNewSupplierInvoice' => 'إنشاء فاتورة مورد جديدة',
-    'Supplier' => 'المورد',
-    'Amount' => 'الكمية',
-    'Total' => 'الاجمالي',
-    'Paid' => 'المدفوع',
-    'Rest' => 'المتبقي',
-    'note' => 'ملاحظات'
+
+    "CraeteNewSupplierInvoice"       =>  "انشاء فاتورة مورد جديدة  ",
+    "SupplierInvoice"       =>  " فاتورة المورد   ",
+    "Supplier"       =>  "اسم المورد   ",
+    "PaymentType"       =>  "طريقة الدفع   ",
+    "Total"       =>  "المبلغ الكلى  ",
+    "Paid"       =>  "المدفوع ",
+    "Rest"       =>  "المتبقى ",
+    "note"       =>  "الملاحظات ",
+    "InvoiceCode"       =>  "رقم الفاتورة ",
+
 ];

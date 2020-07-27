@@ -17,10 +17,10 @@
                 @include('flash::message')
 
                 <div class="text-center">
-                    <table class="table table-striped" style="min-width: 1000px">
+                    <table class="table table-striped" style="min-width: 700px">
                         <thead class="text-center">
-                        <tr style="color: #FFF;background-color: #5b75b5">
-                            <th scope="col">
+                        <tr class="rest-color" style="color: #FFF;background-color: #5b75b5">
+                            <th class="dolamah" scope="col">
                                 مسلسل
                             </th>
                             <th scope="col">
@@ -30,7 +30,7 @@
                                 {{ __('Models/Invoice.PaymentTypeID') }}
                             </th>
                             <th scope="col">
-                                {{ __('Models/Invoice.InvoiceCode') }}
+                                {{ __('Models/SupplierInvoices.InvoiceCode') }}
                             </th>
                             <th scope="col">
                                 {{ __('Models/SupplierInvoices.Total') }}
@@ -41,17 +41,14 @@
                             <th scope="col">
                                 {{ __('Models/SupplierInvoices.Rest') }}
                             </th>
-                            <th scope="col">
-                                حالة الفاتورة
-                            </th>
                             <!-- <th scope="col">الوضع</th> -->
-                            <th scope="col">اجراءات</th>
+                            <th class="dolamah" scope="col">اجراءات</th>
                         </tr>
                         </thead>
                         <tbody class="text-center">
                         @foreach($supplierInvoices as $invoice)
                         <tr>
-                            <td>
+                            <td class="dolamah">
                                 <a title="عرض" href="{{ route('admin.supplier-invoice.show', $invoice->id) }}" class='btn btn-warning btn-sm' style="color: #ffffff">
                                     <i class="fas fa-2x fa-eye"></i>
                                 </a>
@@ -62,19 +59,15 @@
                             <td>{{ $invoice->Amount }}$</td>
                             <td>{{ $invoice->Paid }}$</td>
                             <td>{{ $invoice->Rest }}$</td>
-                            <td><small>{{ ($invoice->Rest != 0)? "غير مسدد" : "مسدد" }}</small></td>
                             <!-- <td><input type="checkbox"> </td> -->
-                            <td>
+                            <td class="dolamah">
                                 <!-- <a title="بحث"  href="" class="text-dark"><i class="fas fa-search"></i></a>
                                 <a title="تعديل" href="" class="text-info"><i class="fas fa-pencil-alt"></i></a>
                                 <a title="طباعة" href="" class="" style="color: #e87c85"><i class="fas fa-print"></i></a>
                                 <a title="تحميل" href="" class="text-success"><i class="fas fa-download"></i></a>
                                 <a title="ارسال ايميل" href="" class="" style="color: #6a6a6a"><i class="fas fa-envelope"></i></a>
                                 <a title="السلة" href="" class="" style="color: #3b5998"><i class="fas fa-shopping-cart"></i></a> -->
-                                <a title="تعديل" href="invoice-raw/{{ $invoice->id }}/edit" class="text-info"><i class="fas fa-pencil-alt"></i></a>
-                                {!! Form::open(['route' => ['admin.supplier-invoice.destroy', $invoice->id], 'method' => 'delete']) !!}
-                                    <button type="submit" class="text-danger"><i class="far fa-trash-alt"></i></button>
-                                {!! Form::close() !!}
+                                <a title="حذف" href="Admin/supplier-invoice/{{ $invoice->id }}/delete" class="text-danger"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         @endforeach

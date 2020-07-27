@@ -6,5 +6,6 @@ return [
     'Name' => 'الأسم',
     'PhoneNumber' => 'رقم الجوال',
     'Description' => 'وصف',
-    "Company"       =>  "الشركة"
+    "Company"       =>  "الشركة",
+    "CraeteNewSupplierInvoice"       =>  "فاتورة مورد جديدة",
 ];

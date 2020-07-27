@@ -56,7 +56,7 @@
                                 {!! Form::textarea('Description',  __('Models/SupplierInvoices.note') , ['class' => 'form-control']) !!}
                             </div>
 
-                            <div class="form-group col-sm-12">
+                            <div class="form-group col-sm-12 dolamah">
                                 <button type="submit" class="btn btn-lg btn-success">{{ __('Buttons.Save') }}</button>
                                 <button class="btn btn-lg btn-default">{{ __('Buttons.Cancel') }}</button>
                             </div>
