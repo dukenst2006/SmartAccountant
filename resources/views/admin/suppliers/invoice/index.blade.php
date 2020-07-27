@@ -71,6 +71,7 @@
                                 <a title="تحميل" href="" class="text-success"><i class="fas fa-download"></i></a>
                                 <a title="ارسال ايميل" href="" class="" style="color: #6a6a6a"><i class="fas fa-envelope"></i></a>
                                 <a title="السلة" href="" class="" style="color: #3b5998"><i class="fas fa-shopping-cart"></i></a> -->
+                                <a title="تعديل" href="invoice-raw/{{ $invoice->id }}/edit" class="text-info"><i class="fas fa-pencil-alt"></i></a>
                                 {!! Form::open(['route' => ['admin.supplier-invoice.destroy', $invoice->id], 'method' => 'delete']) !!}
                                     <button type="submit" class="text-danger"><i class="far fa-trash-alt"></i></button>
                                 {!! Form::close() !!}

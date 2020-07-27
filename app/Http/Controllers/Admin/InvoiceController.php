@@ -55,12 +55,42 @@ class InvoiceController extends AppBaseController
                     'products'=> $this->productRepository->GetTop10InWarehouse()
             ]);
     }
+
     public function StoreSaleInvoice()
     {
         $this->invoiceRepository->createNewSaleInvoice(request()->all());
 
         return response()->json(['success' => 'Sale Invoice Stored Successfully'], 200);
     }
+
+
+    public function editSaleInvoice($id)
+    {
+        $invoice = $this->invoiceRepository->find($id);
+        return view('admin.Invoices.createSale')
+            ->with(['payment_types'=>$this->invoiceRepository->GetDataForSelect('payment_types'),
+                    'products'=> $this->productRepository->GetTop10InWarehouse(),
+                    'invoice' => $invoice
+            ]);
+    }
+
+    public function updateSaleInvoice(int $id)
+    {
+        $rawInvoice = $this->invoiceRepository->find($id);
+
+        if(empty($rawInvoice)) {
+            Flash::error(__('messages.not_found', ['model' => __('models/suppliers.singular')]));
+            return redirect(route('admin.suppliers.index'));
+        }
+
+        $rawInvoice = $this->invoiceRepository->update(request()->all(), $id);
+
+        Flash::success(__('messages.saved', ['model' => __('Models/SupplierInvoices.CraeteNewSupplierInvoice')]));
+        
+        return redirect(route('admin.invoice.invoicerawall'));
+    }
+
+
     public  function raw(){
         $marketplaces = $this->employeeRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID');
         $payment_types = $this->invoiceRepository->GetDataForSelect('payment_types');
@@ -80,6 +110,31 @@ class InvoiceController extends AppBaseController
         return view('admin.Invoices.show_raw_invoice_details', compact('invoice'));
     }
 
+    public function editRawInvoice($id)
+    {
+        $marketplaces = $this->employeeRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID');
+        $payment_types = $this->invoiceRepository->GetDataForSelect('payment_types');
+        $invoice = $this->invoiceRepository->find($id);
+        return view('admin.Invoices.edit_raw_invoice', compact('invoice', 'marketplaces', 'payment_types'));
+
+    }
+
+    public function updateRawInvoice(int $id)
+    {
+        $rawInvoice = $this->invoiceRepository->find($id);
+
+        if(empty($rawInvoice)) {
+            Flash::error(__('messages.not_found', ['model' => __('models/suppliers.singular')]));
+            return redirect(route('admin.suppliers.index'));
+        }
+
+        $rawInvoice = $this->invoiceRepository->update(request()->all(), $id);
+
+        Flash::success(__('messages.saved', ['model' => __('Models/SupplierInvoices.CraeteNewSupplierInvoice')]));
+        
+        return redirect(route('admin.invoice.invoicerawall'));
+    }
+
     public function deleterRawInvoice($id)
     {
         $this->invoiceRepository->deleteRawInvoice($id);
@@ -87,5 +142,14 @@ class InvoiceController extends AppBaseController
         alert()->success('Raw Invoice Stored Successfully');
 
         return redirect(route('admin.invoice.invoicerawall'));
+    }
+
+    public function deleterSaleInvoice($id)
+    {
+        $this->invoiceRepository->delete($id);
+
+        alert()->success('Sale Invoice Stored Successfully');
+
+        return redirect(route('admin.invoice.all'));
     }
 }
