@@ -13,6 +13,7 @@
         </div>
         <div class="title-table">
             <div class="right-sec">
+                <img src="/Images/barcode.png" class="img-fluid" alt="logo" width="100" height="50">
                 <p>الرياض - الحمراء</p>
                 <p>الرقم الضريبي <span class="en-font">(12554877)</span></p>
             </div>
