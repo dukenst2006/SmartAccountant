@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use Illuminate\Auth\Events\Login;
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class LoginSuccessful
+class LogoutSuccess
 {
     /**
      * Create the event listener.
@@ -21,11 +21,13 @@ class LoginSuccessful
     /**
      * Handle the event.
      *
-     * @param  Login  $event
+     * @param  Logout  $login
      * @return void
      */
-    public function handle(Login $event)
-    {
 
+
+    public function handle(Logout $login)
+    {
+  //     $login->user->LastLogout= now();
     }
 }
