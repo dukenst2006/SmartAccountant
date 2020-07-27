@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success">{{__('بحث')}}</button>
+                        <button type="submit" class="btn btn-success">{{__('money.search')}}</button>
                     </form>
                 </div>
             </div>
@@ -51,20 +51,28 @@
 
             </div>
 
-            <table class="table table-bordered">
-                <thead>
+            <table class="table table-bordered text-center">
+                <thead class="thead-dark">
                     <tr>
                         <th>#</th>
                         <th>{{__('Models/Expenses.Price')}}</th>
+                        <th>{{__('Models/Expenses.Name')}}</th>
+                        <th>{{__('Models/Expenses.Description')}}</th>
                         <th>{{__('Models/Expenses.Date')}}</th>
+                        <th>{{__('Models/Expenses.ExpensesMainCategory')}}</th>
+                        <th>{{__('Models/Expenses.ExpensesSubCategory')}}</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($expensesTable as $E)
                         <tr>
-                            <td>{{$E->ID}}</td>
+                            <td>{{$E->id}}</td>
                             <td>{{$E->Price}}</td>
+                            <td>{{$E->Name}}</td>
+                            <td>{{$E->Description}}</td>
                             <td>{{$E->Date}}</td>
+                            <td>{{$E->expensescategory->Name}}</td>
+                            <td>{{$E->expensessubcategory->Name}}</td>
                         </tr>
                     @endforeach
                 </tbody>

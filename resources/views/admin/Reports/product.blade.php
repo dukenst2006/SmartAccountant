@@ -22,6 +22,7 @@
             </div>
 
 
+
         </div>
 
     </div>
@@ -41,7 +42,44 @@
 
 
     </div>
-
+        <div class="card">
+            <div class="card-header">
+                {{__('Models/Product.Products')}}
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered text-center">
+                    <thead class="thead-dark">
+                    <th>#</th>
+                    <th>{{__("Models/Product.Name")}}</th>
+                    <th>{{__("Models/Product.Quantity")}}</th>
+                    <th>{{__("Models/Product.PurchasingPrice")}}</th>
+                    <th>{{__("Models/Product.SellingPrice")}}</th>
+                    <th>{{__("Models/Product.LowPrice")}}</th>
+                    <th>{{__("Models/Product.ExpiryDate")}}</th>
+                    <th>{{__("Models/Product.ProductCategoryID")}}</th>
+                    <th>{{__("Models/Product.ProductSubCategoryID")}}</th>
+                    </thead>
+                    <tbody>
+                    @foreach($products as $P)
+                        <tr>
+                            <td>{{$P->id}}</td>
+                            <td>{{$P->Name}}</td>
+                            <td>{{$P->Quantity}}</td>
+                            <td>{{$P->PurchasingPrice}}</td>
+                            <td>{{$P->SellingPrice}}</td>
+                            <td>{{$P->LowPrice}}</td>
+                            <td>{{$P->ExpiryDate}}</td>
+                            <td>{{$P->ProductCategory->Name}}</td>
+                            <td>{{$P->ProductSubCategory->Name}}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                {{$products->links()}}
+            </div>
+        </div>
     </div>
 
     <div class="clearfix"></div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Reports;
 use App\Charts\ProductChart;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Product;
 use App\Repositories\Admin\EmployeeRepository;
 use App\Repositories\InvoiceRepository;
 use App\Repositories\UserRepository;
@@ -40,7 +41,8 @@ class ProductReportController extends AppBaseController
         foreach ($products  as $product){
         $productchart->dataset($product['Name'], 'bar',[$product['Quantity']])->backgroundcolor("rgb(153, 102, 255)")->color("rgb(153, 102, 255)");
         }
-        return view('admin.Reports.product')->with(['productchart'=>$productchart]);
+        $products = Product::query()->paginate(10);
+        return view('admin.Reports.product',compact('products'))->with(['productchart'=>$productchart]);
     }
 
 

@@ -45,8 +45,16 @@ class MarketplacesReportController extends AppBaseController
      //   $chart->dataset('2', 'line',[60, 80, 70, 67, 80, 77, 100])->color("rgb(153, 100, 255)");
         $from = ($_GET['from'] ?? null) == null ? '1970/12/12' : $_GET['from'] ;
         $to   = ($_GET['to'] ?? null)   == null ? '3000/12/12' : $_GET['to']   ;
-        $marketplacesTable = Marketplace::query()->paginate(10);
-        return view('admin.Reports.marketplaces',compact('marketplacesTable'))->with(['chart'=>$chart]);
+        $marketplaceID = ($_GET['MarketPlaceID'] ?? null) == null?0:$_GET['MarketPlaceID'];
+        $invoices = Invoice::query()->where('created_at','<=',$to)
+            ->where('created_at','>=',$from)->paginate(10);
+        if ($marketplaceID > 0){
+            $invoices = Invoice::query()->where('created_at','<=',$to)
+                ->where('created_at','>=',$from)
+                ->where('MarketPlaceID','=',$marketplaceID)
+                ->paginate(10);
+        }
+        return view('admin.Reports.marketplaces',compact('invoices'))->with(['chart'=>$chart]);
     }
 
 

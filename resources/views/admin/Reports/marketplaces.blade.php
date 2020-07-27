@@ -22,42 +22,69 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <form method="get" action="{{route('admin.marketplacesreport')}}">
+                    <form class="p-3" action="{{route('admin.marketplacesreport')}}" method="get">
                         <div class="row">
-                            <div class="col-6 form-group">
-                                <label for="">{{__('money.from')}}</label>
-                                <input class="form-control" type="date" name="from" id="">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="">{{__('Safe.From')}}</label>
+                                    <input type="date" class="form-control" name="from">
+                                </div>
                             </div>
-                            <div class="col-6 form-group">
-                                <label for="">{{__('money.to')}}</label>
-                                <input class="form-control" type="date" name="to" id="">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="">{{__('Safe.To')}}</label>
+                                    <input type="date" class="form-control" name="to">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="">{{__('Models/Marketplace.Name')}}</label>
+                                    <select name="MarketPlaceID" class="form-control" id="">
+                                        <option value="">كل الفروع</option>
+                                        @foreach(@App\Models\Marketplace::all() as $M)
+                                            <option value="{{$M->id}}">{{$M->Name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-success">{{__('money.search')}}</button>
                     </form>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered text-center">
                         <thead class="thead-dark">
                             <th>#</th>
                             <th>{{__('Models/Marketplace.Name')}}</th>
-                            <th>{{__('dashboard.bills')}}</th>
+                            <th>{{__('Models/Inventory.ProductCount')}}</th>
+                            <th>{{__('Models/Invoice.Total')}}</th>
                             <th>{{__('Models/Invoice.Paid')}}</th>
+                            <th>{{__('Models/Invoice.Rest')}}</th>
+                            <th>{{__('Models/Bonds.Columns.ClientName')}}</th>
+                            <th>{{__('Models/Invoice.PaymentTypeID')}}</th>
+                            <th>{{__('Models/Expenses.Date')}}</th>
+                            <th>{{__('الوقت')}}</th>
                         </thead>
                         <tbody>
-                            @foreach($marketplacesTable as $M)
+                            @foreach($invoices as $M)
                                 <tr>
                                     <td>{{$M->id}}</td>
-                                    <td>{{$M->Name}}</td>
-                                    <td>{{$M->invoices->count()}}</td>
-                                    <td>{{$M->invoices->sum('Paid')}}</td>
+                                    <td>{{$M->MarketPlace->Name}}</td>
+                                    <td>{{$M->invoiceItems->count()}}</td>
+                                    <td>{{$M->sum('Total')}}</td>
+                                    <td>{{$M->sum('Paid')}}</td>
+                                    <td>{{$M->sum('Rest')}}</td>
+                                    <td>{{$M->ClientName ?? __("لم يدون")}}</td>
+                                    <td>{{$M->paymenttype->Name}}</td>
+                                    <td>{{$M->created_at->format('Y/m/d')}}</td>
+                                    <td>{{$M->created_at->format('h:i')}}</td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
                 <div class="card-footer">
-                    {{$marketplacesTable->links()}}
+                    {{$invoices->links()}}
                 </div>
             </div>
 
