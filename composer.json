@@ -23,6 +23,7 @@
         "laravelcollective/html": "^6.1",
         "livewire/livewire": "^1.3",
         "maatwebsite/excel": "^3.1",
+        "milon/barcode": "^7.0",
         "musonza/chat": "^4.4",
         "raggitech/laravel-currency": "^1.0",
         "realrashid/sweet-alert": "^3.1",

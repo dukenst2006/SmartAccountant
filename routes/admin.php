@@ -38,7 +38,7 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::resource('suppliers', 'SupplierController');
     Route::resource('supplier-invoice', 'SupplierInvoiceController');
 
-    Route::get('chat', function (){return view('admin.Messages.chat');})->name('chat');
+    Route::get('chat', 'ChatController@index')->name('chat');
 
     Route::get('sale-invoices', 'InvoiceController@saleInvoicesIndex')->name('invoice.all');
     Route::get('invoicerawcreatesale', 'InvoiceController@sale')->name('invoice.createsale');

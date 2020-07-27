@@ -16,6 +16,9 @@ use App\Repositories\{
 class InvoiceController extends AppBaseController
 {
 
+
+    //'<img src="data:image/png;base64,' . DNS1D::getBarcodePNG('INVOICE ID ', 'C39+',3,50) . '" alt="barcode"   />'
+
         /**
         * @var  InvoiceRepository
         */
@@ -86,7 +89,7 @@ class InvoiceController extends AppBaseController
         $rawInvoice = $this->invoiceRepository->update(request()->all(), $id);
 
         Flash::success(__('messages.saved', ['model' => __('Models/SupplierInvoices.CraeteNewSupplierInvoice')]));
-        
+
         return redirect(route('admin.invoice.invoicerawall'));
     }
 
@@ -131,7 +134,7 @@ class InvoiceController extends AppBaseController
         $rawInvoice = $this->invoiceRepository->update(request()->all(), $id);
 
         Flash::success(__('messages.saved', ['model' => __('Models/SupplierInvoices.CraeteNewSupplierInvoice')]));
-        
+
         return redirect(route('admin.invoice.invoicerawall'));
     }
 

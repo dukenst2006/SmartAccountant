@@ -26,7 +26,7 @@ class InvoiceObserver
      */
     public function creating(Invoice $invoice)
     {
-    	$invoice_code = substr(uniqid(), 4) . "-" . rand(1000,9999);
+    	$invoice_code = substr(uniqid(), 0,4) . "-" . rand(1000,9999);
     	$invoice->invoice_code = $invoice_code;
     }
 

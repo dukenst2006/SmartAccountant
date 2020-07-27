@@ -56,6 +56,9 @@
 
             </div>
 
+        @if(!$BondAmounts->isEmpty())
+
+
         <div class=" row">
             <div class="col-6">
                 <table class="table-bordered table">
@@ -102,6 +105,12 @@
                 </table>
             </div>
         </div>
+    @else
+            <div class="row text-center"><h1> لا يوجد اي سندات مضافة</h1></div>
+
+ @endif
+
+
     </div>
     </div>
     <div class="clearfix"></div>

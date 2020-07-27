@@ -179,7 +179,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-         Maatwebsite\Excel\ExcelServiceProvider::class
+         Maatwebsite\Excel\ExcelServiceProvider::class,
+    Milon\Barcode\BarcodeServiceProvider::class
 
 
 
@@ -239,7 +240,8 @@ return [
         'Flash' => Laracasts\Flash\Flash::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-
+        'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
+        'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
 
     ],
 

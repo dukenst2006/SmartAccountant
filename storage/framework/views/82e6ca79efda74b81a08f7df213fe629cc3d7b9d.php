@@ -1,11 +1,10 @@
-@extends('adminlte::page')
-@section('title', 'Dashboard')
+<?php $__env->startSection('title', 'Dashboard'); ?>
 
-@section('content_header')
-    <h1>@lang('General.chat')</h1>
-@stop
+<?php $__env->startSection('content_header'); ?>
+    <h1><?php echo app('translator')->get('General.chat'); ?></h1>
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="row mb-3 ">
 
@@ -13,7 +12,7 @@
     <div class="col-md-8 ">
         <div class="card direct-chat direct-chat-primary   ">
             <div class="card-header ui-sortable-handle" style="cursor: move;">
-                <h3 class="card-title">@lang('General.chat_direct')</h3>
+                <h3 class="card-title"><?php echo app('translator')->get('General.chat_direct'); ?></h3>
 
                 <div class="card-tools">
                     <span data-toggle="tooltip" title="3 New Messages" class="badge badge-primary">3</span>
@@ -215,27 +214,27 @@
             <div class="chat-syb card mb-0 ">
                 <div class="card-header">
                     <h5 class="mb-0 text-center">
-                           <i class="fas fa-id-card-alt"></i>  @lang('General.contacts')
+                           <i class="fas fa-id-card-alt"></i>  <?php echo app('translator')->get('General.contacts'); ?>
                     </h5>
                 </div>
                 <div class="card-body overflow-auto">
                     <ul class="list-unstyled p-0">
-                    @foreach ($users as $user)
+                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li class="mx-2">
                             <a href="#">
                                 <div class="d-flex justify-content-between contact-chat-list" dir="ltr">
                                     <div class="d-flex alight-items-center">
                                         <img class="urs-img-ch" src="http://lorempixel.com/index.php?generator=1&x=100&y=100&cat=people" alt="">
-                                        <p class="main-chat-usr d-flex align-items-center">{{$user->Name}}</p>
+                                        <p class="main-chat-usr d-flex align-items-center"><?php echo e($user->Name); ?></p>
                                     </div>
                                     <div class="d-flex align-items-center">
-                                        <span class="bdg-num "> @php( print rand(5,30) )</span>
+                                        <span class="bdg-num "> <?php ( print rand(5,30) ); ?></span>
                                     </div>
                                 </div>
                             </a>
                         </li>
 
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>
                 </div>
                 <div class="card-footer bg-white">
@@ -249,5 +248,7 @@
         </div>
     </div>
 </div>
-@stop
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\Laravel-Projects\Smart Accountant\resources\views/admin/Messages/chat.blade.php ENDPATH**/ ?>
