@@ -16,7 +16,20 @@
             <img src="data:image/png;base64,{{ \DNS1D::getBarcodePNG('INVOICE ID ', 'C39+',3,50) }}" alt="barcode" width="100" height="50" />
                 <p>{{ $invoice->CustomerName }}</p>
                 <p>الرياض - الحمراء</p>
-                <p>الرقم الضريبي <span class="en-font">(12554877)</span></p>
+                @if(!empty(auth()->user()->settings->EnableVAT))
+                <p>
+                    الرقم الضريبي 
+                    @if(!empty($invoice->marketplace))
+                        <span class="en-font">
+                            {{ $invoice->marketplace->TaxNumber }}
+                        </span>
+                    @else
+                        <span class="en-font">
+                            خطأ بقاعدة البيانات: لا يوجد رقم ضريبي يرجى تعيينه
+                        </span>
+                    @endif
+                </p>
+                @endif
             </div>
             <div class="center-sec">
                 <p>رقم الفاتورة: {{ $invoice->invoice_code }}</p>
