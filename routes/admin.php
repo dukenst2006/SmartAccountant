@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Route;
 //    return (html_entity_decode('<h1>Migration Complete</h1> <h1>Seeder Complete</h1> <br> <a href="/Admin"> <h1>Go To Dashboard</h1></a>  '));
 //});
 //
-
-Route::get('/text', function (){
-   return view('home');
-});
+//
+//Route::get('/text', function (){
+//   return view('home');
+//});
 
 
 Route::get('lang/{Language}', 'LocalizationController@index')->name('ChangeLanguage');
