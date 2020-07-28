@@ -261,6 +261,7 @@ abstract class BaseRepository
      */
     public function GetMyOwner()
     {
+
         $currentUserID = auth()->user()->id;
         if (MarketplaceOwner::find($currentUserID)) {
             return $currentUserID;

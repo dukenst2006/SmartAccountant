@@ -60,6 +60,8 @@ public function filter(){
             'Quantity',
             'UnlimitedQuantity',
             'SellingPrice',
+            'WarehouseID',
+            'InventoryID',
         ]
     )-> when(request('q'), function ($query, $role) {
         $query->where('Barcode','like','%'.request('q').'%')

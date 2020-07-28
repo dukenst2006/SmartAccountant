@@ -29,6 +29,14 @@
 
                             </div>
 
+                            <!-- Product Movement Field -->
+                            <div class="form-group col-sm-6">
+                                <?php echo Form::label('ProductMovementID', __('Models/ProductMovement.ProductMovementType')); ?>
+
+                                <?php echo Form::select('ProductMovementID',$productmovements  , null,['class' => 'form-control']); ?>
+
+                            </div>
+
 
                             <!-- Submit Field -->
                             <div class="form-group col-sm-12">
@@ -95,10 +103,13 @@
                 "<div class='select2-result-Product clearfix'>" + "<i class='float-right fas fa-plus text-green'></i>" +
                 "<div class='select2-result-Product__name'></div>" +
                 "<div class='select2-result-Product__barcode'></div>" +
+                "<div class='select2-result-IsInWarehouse text-red text-bold'></div>" +
                 "</div>"
             );
             $container.find(".select2-result-Product__name").text('Name : ' + product.Name);
             $container.find(".select2-result-Product__barcode").text('Barcode : ' + product.Barcode);
+            if( product.WarehouseID!=null)
+            $container.find(".select2-result-IsInWarehouse").text('المنتج بالمخزن الرئيسي');
             return $container;
         }
 

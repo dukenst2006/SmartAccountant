@@ -15,7 +15,7 @@ class CreateProductMovementTypesTable extends Migration
     {
         Schema::create('product_movement_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('Description');
+            $table->string('Name');
             $table->timestamps();
         });
     }

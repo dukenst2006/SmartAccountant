@@ -23,7 +23,7 @@ $factory->define(Product::class, function (Faker $faker) {
     return [
 
 
-        'UserID' =>  1,
+        'MarketplaceOwnerID' =>  1,
         'ProductCategoryID' => factory(App\Models\ProductCategory::class),
         'ProductSubCategoryID' => factory(App\Models\ProductSubCategory::class),
         'WarehouseID' =>1,
