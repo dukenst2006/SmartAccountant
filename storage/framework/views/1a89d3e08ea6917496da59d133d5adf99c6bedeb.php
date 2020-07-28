@@ -51,19 +51,19 @@
 
 </div>
 
-<!-- Nationalid Field -->
-<div class="form-group col-sm-6">
-    <?php echo Form::label('NationalID', __('Models/Employee.IdentityImage')); ?>
-
-    <?php echo Form::text('NationalID', null, ['class' => 'form-control']); ?>
-
-</div>
-
 <!-- Phonenumber Field -->
 <div class="form-group col-sm-6">
     <?php echo Form::label('PhoneNumber', __('Models/Employee.PhoneNumber')); ?>
 
     <?php echo Form::text('PhoneNumber', null, ['class' => 'form-control']); ?>
+
+</div>
+
+<!-- Nationalid Field -->
+<div class="form-group col-sm-6">
+    <?php echo Form::label('NationalID', __('Models/Employee.IdentityImage')); ?>
+
+    <?php echo Form::file('NationalID', ['class' => 'form-control']); ?>
 
 </div>
 

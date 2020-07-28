@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
         $PaymentTypesSeeder =new PaymentTypesSeeder();
         $PaymentTypesSeeder->run();
 
-        $productmovementtypesseeder =new ProductMovementTypesSeeder();
-        $productmovementtypesseeder->run();
+//        $productmovementtypesseeder =new ProductMovementSeeder();
+//        $productmovementtypesseeder->run();
 //
 
 

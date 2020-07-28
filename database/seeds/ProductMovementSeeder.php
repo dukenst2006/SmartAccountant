@@ -1,5 +1,4 @@
 <?php
-
 use App\Models\ProductMovementType;
 use Illuminate\Database\Seeder;
 
