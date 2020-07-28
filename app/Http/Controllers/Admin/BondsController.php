@@ -67,10 +67,7 @@ class BondsController extends AppBaseController
         $billitems = request()->billitems;
         $productsIDs = array_column(request()->billitems, 'product_no');
         $products = Product::whereIn('id', $productsIDs)->get();
-
 //        foreach ($billitems as $key => $bill) {
-//
-
 //                    $this->BondsVouchersRepository->createNewBondVoucher(request()->customername, request()->bonddate, $bill);
                     $bond = BondsVouchers::create([
                         "MarketplaceOwnerID" => 1,

@@ -38,6 +38,7 @@ return [
     'Inventories' => 'مخازن الفروع',
 
     'Products' => 'المنتجات',
+    'ProductMoves' => 'نقل المنتجات',
     'Categories' => 'إدارة الأصناف',
     'MainCategories' => 'الأصناف الرئيسة',
     'SubCategories' => 'الأصناف الفرعية',

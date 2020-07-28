@@ -26,6 +26,7 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::resource('employeeSalaryInfos', 'EmployeeSalaryInfoController');
     Route::resource('marketplaces', 'MarketplaceController');
     Route::resource('products', 'ProductController');
+    Route::get('productmoves', 'ProductMovesController@index');
     Route::resource('productCategories', 'ProductCategoriesController');
     Route::resource('productSubCategories', 'ProductSubCategoryController');
     Route::get('safe', 'SafeController@index')->name('safe');

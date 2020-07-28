@@ -405,6 +405,16 @@ return [/*
             ],
         ],
 
+
+        [
+            'text' => 'ProductMoves',
+            'icon' => 'fas fa fa-truck-loading',
+            'route' => 'admin.ProductTableView',
+        ],
+
+
+
+
         [
             'text' => 'Categories',
             'icon' => 'fas fa-fw fa-sitemap',
