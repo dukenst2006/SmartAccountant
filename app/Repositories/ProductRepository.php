@@ -19,7 +19,7 @@ class ProductRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'UserID',
+        'MarketplaceOwnerID',
         'MarketplaceID',
         'ProductCategoryID',
         'ProductSubCategoryID',
@@ -104,7 +104,7 @@ Get Top 10 Stored Product
     {
         $model = $this->model->newInstance($input);
 
-        $model->UserID=auth()->user()->id;
+        $model->MarketplaceOwnerID = $this->GetMyOwner();
         $model->WarehouseID= Warehouse::where('MarketplaceOwnerID',$this->GetMyOwner())->first()->id;
 
         $model->save();

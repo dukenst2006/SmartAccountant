@@ -1,7 +1,7 @@
 <!-- Userid Field -->
 <div class="form-group">
-    {!! Form::label('UserID', 'ID  المستخدم:') !!}
-    <p>{{ $product->UserID }}</p>
+    {!! Form::label('MarketplaceOwnerID', 'ID  المالك:') !!}
+    <p>{{ $product->MarketplaceOwnerID }}</p>
 </div>
 
 <!-- MarketplaceID Field -->

@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property QuantityType $quantitytype
  * @property User $user
  * @property Collection $invoiceItems
- * @property integer $UserID
+ * @property integer $MarketplaceOwnerID
  * @property integer $MarketplaceID
  * @property integer $ProductCategoryID
  * @property integer $ProductSubCategoryID
@@ -60,7 +60,7 @@ class Product extends Model
     ];
     public $table = 'products';
     public $fillable = [
-        'UserID',
+        'MarketplaceOwnerID',
         'ProductCategoryID',
         'ProductSubCategoryID',
         'WarehouseID' ,
@@ -86,7 +86,7 @@ class Product extends Model
      */
     protected $casts = [
         'ID' => 'integer',
-        'UserID' => 'integer',
+        'MarketplaceOwnerID' => 'integer',
         'ProductCategoryID' => 'integer',
         'ProductSubCategoryID' => 'integer',
         'WarehouseID' => 'integer',
@@ -163,9 +163,9 @@ class Product extends Model
     /**
      * @return BelongsTo
      **/
-    public function user()
+    public function marketplaceOwner()
     {
-        return $this->belongsTo(User::class, 'UserID');
+        return $this->belongsTo(MarketplaceOwner::class, 'MarketplaceOwnerID');
     }
 
     /**

@@ -123,6 +123,10 @@ class ProductController extends AppBaseController
     public function edit($id)
     {
         $product = $this->productRepository->find($id);
+        $product_categories = $this->productRepository->GetDataForSelect('product_categories');
+        $product_sub_categories = $this->productRepository->GetDataForSelect('product_sub_categories');
+        $marketplaces = $this->productRepository->GetDataForSelect('marketplaces');
+        $quantitytypes = $this->productRepository->GetDataForSelect('quantity_types');
 
         if (empty($product)) {
             Flash::error('Product not found');
@@ -130,7 +134,13 @@ class ProductController extends AppBaseController
             return redirect(route('admin.products.index'));
         }
 
-        return view('admin.products.edit')->with('product', $product);
+        return view('admin.products.edit')->with([
+            'product' => $product,
+            'marketplaces' => $marketplaces,
+            'quantitytypes' => $quantitytypes,
+            'product_categories' => $product_categories,
+            'product_sub_categories' => $product_sub_categories
+        ]);
     }
 
     /**
