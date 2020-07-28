@@ -33,6 +33,9 @@ class ProductMovesController extends AppBaseController
     public function index()
     {
 
+        $marketplaces = $this->productRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID');
+
+        return view('admin.ProductsMoves.index')->with(['marketplaces'=>$marketplaces]);
     }
 
 
