@@ -83,7 +83,7 @@ return [
     'MarketplacesReport' => 'مبيعات الفروع',
     'EmployeesReport' => 'الموظفين',
     'FinancialReport' => 'الحركه الماليه',
-    'MostActiveReport' => 'الاكثر نشاطاً',
+    'ProductMovement' => 'حركات المخازن',
     'BondsReport' => 'السندات',
     'ExpensesReport' => 'المصروفات',
 
