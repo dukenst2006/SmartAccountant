@@ -24,9 +24,9 @@ class DatabaseSeeder extends Seeder
         $PaymentTypesSeeder =new PaymentTypesSeeder();
         $PaymentTypesSeeder->run();
 
-//        $productmovementtypesseeder =new ProductMovementSeeder();
-//        $productmovementtypesseeder->run();
-//
+        $productmovementtypesseeder =new ProductMovementSeeder();
+        $productmovementtypesseeder->run();
+
 
 
         factory(App\Models\MarketplaceOwner::class, 10)->create();
