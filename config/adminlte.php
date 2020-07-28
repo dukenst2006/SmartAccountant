@@ -247,6 +247,27 @@ return [/*
             ],
         ],
 
+
+
+
+        [
+            'text' => 'AttendingAndLeaving',
+            'icon' => 'fas fa fa-exchange-alt',
+            'submenu' => [
+                [
+                    'text' => 'create',
+                    'route' => 'admin.employees.create',
+                    'icon' => 'fas fa-fw fa-plus-circle',
+                ],
+                [
+                    'text' => 'all',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-layer-group',
+                ],
+
+            ],
+        ],
+
         [
             'text' => 'Suppliers',
             'icon' => 'fas fa fa-people-carry',

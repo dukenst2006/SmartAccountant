@@ -23,6 +23,7 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::get('About', 'AboutController@index')->name('About');
     Route::resource('supervisors', 'SupervisorController');
     Route::resource('employees', 'EmployeeController');
+    Route::resource('employeeSalaryInfos', 'EmployeeSalaryInfoController');
     Route::resource('marketplaces', 'MarketplaceController');
     Route::resource('products', 'ProductController');
     Route::resource('productCategories', 'ProductCategoriesController');

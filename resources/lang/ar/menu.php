@@ -22,6 +22,7 @@ return [
     'HumanResources' => 'الموارد البشرية',
     'Supervisors' => 'موظفي الإدارة',
     'Employee' => 'موظفي الفروع',
+    'AttendingAndLeaving' => 'حضور وغياب',
     'EmployeesSalaries' => 'رواتب الموظفين',
 
     'Companies' => 'الشركات',

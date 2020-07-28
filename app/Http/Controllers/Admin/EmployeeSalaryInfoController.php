@@ -1,85 +1,39 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\EmployeeSalaryInfo;
+use App\Http\Requests\CreateEmployeeSalaryInfoRequest;
+use App\Http\Requests\UpdateEmployeeSalaryInfoRequest;
+use App\Repositories\EmployeeSalaryInfoRepository;
+use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Flash;
+use Response;
 
-class EmployeeSalaryInfoController extends Controller
+class EmployeeSalaryInfoController extends AppBaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    /** @var  EmployeeSalaryInfoRepository */
+    private $employeeSalaryInfoRepository;
+
+    public function __construct(EmployeeSalaryInfoRepository $employeeSalaryInfoRepo)
     {
-        //
+        $this->employeeSalaryInfoRepository = $employeeSalaryInfoRepo;
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the EmployeeSalaryInfo.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     *
+     * @return Response
      */
-    public function create()
+    public function index(Request $request)
     {
-        //
+        $employeeSalaryInfos = $this->employeeSalaryInfoRepository->all();
+
+        return view('admin.employee_salary_infos.index')
+            ->with('employeeSalaryInfos', $employeeSalaryInfos);
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\EmployeeSalaryInfo  $employeeSalaryInfo
-     * @return \Illuminate\Http\Response
-     */
-    public function show(EmployeeSalaryInfo $employeeSalaryInfo)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\EmployeeSalaryInfo  $employeeSalaryInfo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(EmployeeSalaryInfo $employeeSalaryInfo)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\EmployeeSalaryInfo  $employeeSalaryInfo
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, EmployeeSalaryInfo $employeeSalaryInfo)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\EmployeeSalaryInfo  $employeeSalaryInfo
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(EmployeeSalaryInfo $employeeSalaryInfo)
-    {
-        //
-    }
 }

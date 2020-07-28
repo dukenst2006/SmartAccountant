@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Eloquent as Model;
-
 /**
  * Class ProductMovementType
  * @package App\Models
@@ -16,7 +15,7 @@ class ProductMovementType extends Model
 {
 
     public $table = 'product_movement_types';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
