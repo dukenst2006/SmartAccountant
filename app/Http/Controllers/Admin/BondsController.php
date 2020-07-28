@@ -80,7 +80,13 @@ class BondsController extends AppBaseController
                     foreach ($billitems as $key => $item){
                         if($products[$key]->id == $item['product_no']) {
                             if($item['product_qty'] <= $products[$key]->Quantity) {
-                                BoundVoucherItem::query()->create(['BondVouchersID'=>$bond->id,'ProductID'=>$item['product_no'],'Quantity'=>$item['product_qty']]);
+                                $bonditem = new BoundVoucherItem();
+                                $bonditem->BondVouchersID = $bond->id;
+                                $bonditem->ProductID = $item['product_no'];
+                                $bonditem->Quantity = $item['product_qty'];
+                                $bonditem->save();
+                            } else {
+                                return response()->json('الكمية المطلوبة اكثر مما يوجد بالمخازن', 400);
                             }
                         }
                     }

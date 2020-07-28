@@ -24,6 +24,7 @@ class BoundVoucherItem extends Model
     const UPDATED_AT = 'updated_at';
 
 
+    public $timestamps = false;
 
 
     public $fillable = [

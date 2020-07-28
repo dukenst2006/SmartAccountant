@@ -3,27 +3,12 @@
 namespace App\Observers;
 
 use App\Models\{
-    BondsVouchers,
+    BoundVoucherItem,
     ProductMovements   
 };
-use App\Repositories\ProductMovementsRepository;
 
-class BondVoucherObserver
+class BoundVoucherItemObserver
 {
-
-    /**
-     * 
-     * @var $productMovementsRepository
-     */
-    private $productMovementsRepo;
-
-    public function __construct(ProductMovementsRepository $productMovementsRepo )
-    {
-
-        $this->productMovementsRepo = $productMovementsRepo;
-
-    }
-
     /**
      * Handle the BondsVouchers "created" event.
      *
@@ -31,10 +16,16 @@ class BondVoucherObserver
      * @return void
      */
 
-    public function created(BondsVouchers $bondVoucher)
+    public function created(BoundVoucherItem $boundVoucherItem)
     {
-        // $bondVoucher->load('boundvoucheritems');
-        // dd($bondVoucher->boundvoucheritems);
+        $productsMovements = new ProductMovements();
+        $productsMovements->UserID =  auth()->user()->id;
+        $productsMovements->ProductID =  $boundVoucherItem->ProductID;
+        $productsMovements->WarehouseID =  $boundVoucherItem->productid->warehouse->id;
+        $productsMovements->InventoryID =  null;
+        $productsMovements->Quantity =  $boundVoucherItem->Quantity;
+        $productsMovements->MovementTypeID =  1;
+        $productsMovements->save();
     }
 
     /**
@@ -43,8 +34,9 @@ class BondVoucherObserver
      * @param  BondsVouchers  $bondVoucher
      * @return void
      */
-    public function creating(BondsVouchers $bondVoucher)
+    public function creating(BoundVoucherItem $boundVoucherItem)
     {
+        // dd($BoundVoucherItem, 'creating');
         // $bondVoucher->load('boundvoucheritems');
         // dd($bondVoucher->boundvoucheritems);
         // $productsMovements = new ProductMovements();
@@ -63,7 +55,7 @@ class BondVoucherObserver
      * @param  BondsVouchers  $bondVoucher
      * @return void
      */
-    public function updated(BondsVouchers $bondVoucher)
+    public function updated(BoundVoucherItem $boundVoucherItem)
     {
     	//
     }
@@ -74,7 +66,7 @@ class BondVoucherObserver
      * @param  BondsVouchers  $bondVoucher
      * @return void
      */
-    public function deleted(BondsVouchers $bondVoucher)
+    public function deleted(BoundVoucherItem $bondVoucher)
     {
         //
     }
@@ -85,7 +77,7 @@ class BondVoucherObserver
      * @param  BondsVouchers  $bondVoucher
      * @return void
      */
-    public function restored(BondsVouchers $bondVoucher)
+    public function restored(BoundVoucherItem $boundVoucherItem)
     {
         //
     }
@@ -96,7 +88,7 @@ class BondVoucherObserver
      * @param  BondsVouchers  $bondVoucher
      * @return void
      */
-    public function forceDeleted(BondsVouchers $bondVoucher)
+    public function forceDeleted(BoundVoucherItem $boundVoucherItem)
     {
         //
     }
