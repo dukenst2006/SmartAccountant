@@ -15,15 +15,14 @@ class CreateProductCategoriesTable extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('MarketplaceID');
+            $table->unsignedBigInteger('MarketplaceOwnerID');
             $table->string('Name');
             $table->timestamps();
 
 
 
+            $table->foreign('MarketplaceOwnerID')->references('id')->on('marketplace_owners')->onDelete('cascade');
 
-
-            $table->foreign('MarketplaceID')->references('id')->on('marketplaces')->onDelete('cascade');
         });
     }
 
