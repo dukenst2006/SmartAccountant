@@ -410,11 +410,10 @@ return [/*
             'icon_color' => 'orange',
             'submenu' => [
                 [
-                    'text' => 'BondVoucher',
-                        'route' => 'admin.bondsvoucher.create',
-                    'icon' => 'fas fa-truck-loading',
+                    'text' => 'BondAmount',
+                    'route' => 'admin.bondsammout.create',
+                    'icon' => 'fa fa-donate',
                 ],
-
                 [
                     'text' => 'Treasury',
                     'route' => 'admin.treasure',
@@ -470,10 +469,11 @@ return [/*
             'url' => '#',
             'icon' => 'fas fa-fw fa-money-bill-alt',
             'submenu' => [
+
                 [
-                    'text' => 'BondAmount',
-                    'route' => 'admin.bondsammout.create',
-                    'icon' => 'fa fa-donate',
+                    'text' => 'BondVoucher',
+                    'route' => 'admin.bondsvoucher.create',
+                    'icon' => 'fas fa-truck-loading',
                 ],
 
                 [
@@ -560,6 +560,12 @@ return [/*
                 [
                     'text' => 'ExpensesReport',
                     'route'=>'admin.expensesreport',
+                    'icon' => 'fas fa-fw fa-cubes',
+                ],
+
+                [
+                    'text' => 'ProductMovement',
+                    'route'=>'admin.productmovementreport',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
 

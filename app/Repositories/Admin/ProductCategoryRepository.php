@@ -4,6 +4,7 @@ namespace App\Repositories\Admin;
 
 use App\Models\ProductCategory;
 use App\Repositories\BaseRepository;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ProductCategoryRepository
@@ -17,7 +18,7 @@ class ProductCategoryRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'MarketplaceID',
+        'MarketplaceOwnerID',
         'Name'
     ];
 
@@ -38,4 +39,27 @@ class ProductCategoryRepository extends BaseRepository
     {
         return ProductCategory::class;
     }
+
+
+
+
+
+
+    /**
+     * Create model record
+     *
+     * @param  array  $input
+     *
+     * @return Model
+     */
+    public function create($input)
+    {
+        $model = $this->model->newInstance($input);
+
+        $model->MarketplaceOwnerID = $this->GetMyOwner();
+        $model->save();
+
+        return $model;
+    }
+
 }

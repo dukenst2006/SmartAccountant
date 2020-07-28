@@ -21,7 +21,7 @@ use Illuminate\Support\Str;
 
 $factory->define(ProductCategory::class, function (Faker $faker) {
     return [
-        'MarketplaceID' => factory(\App\Models\Marketplace::class),
+        'MarketplaceOwnerID' => 1,
         'Name' => $faker->sentence(4),
     ];
 });

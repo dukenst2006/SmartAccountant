@@ -17,7 +17,11 @@ class CreateProductMovementsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('UserID');
             $table->unsignedBigInteger('ProductID');
+            $table->unsignedBigInteger('WarehouseID');
+            $table->unsignedBigInteger('InventoryID');
             $table->integer('Quantity');
+
+
             $table->unsignedBigInteger('MovementTypeID');
 
 
@@ -26,6 +30,8 @@ class CreateProductMovementsTable extends Migration
             $table->foreign('UserID')->on('users')->references('id');
             $table->foreign('ProductID')->on('products')->references('id');
             $table->foreign('MovementTypeID')->on('product_movement_types')->references('id');
+            $table->foreign('WarehouseID')->on('warehouses')->references('id');
+            $table->foreign('InventoryID')->on('inventories')->references('id');
             $table->timestamps();
         });
     }

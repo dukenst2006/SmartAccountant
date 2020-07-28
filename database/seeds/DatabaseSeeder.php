@@ -1,6 +1,5 @@
 <?php
 
-use App\QuantityType;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 
@@ -25,8 +24,8 @@ class DatabaseSeeder extends Seeder
         $PaymentTypesSeeder =new PaymentTypesSeeder();
         $PaymentTypesSeeder->run();
 
-//        $PermissionSeeder =new PermissionSeeder();
-//        $PermissionSeeder->run();
+        $productmovementtypesseeder =new ProductMovementTypesSeeder();
+        $productmovementtypesseeder->run();
 //
 
 
