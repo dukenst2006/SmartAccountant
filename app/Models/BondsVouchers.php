@@ -44,6 +44,6 @@ protected $with =['boundvoucheritems'];
      */
     public function boundvoucheritems()
     {
-        return $this->hasMany(BoundVoucherItem::class);
+        return $this->hasMany(BoundVoucherItem::class,'BondVouchersID');
     }
 }
