@@ -29,6 +29,7 @@ class ObserverServiceProvider extends ServiceProvider
        \App\Models\Marketplace::observe(\App\Observers\MarketplaceObserver::class);
        \App\Models\Invoice::observe(\App\Observers\InvoiceObserver::class);
        \App\Models\SupplierInvoice::observe(\App\Observers\SupplierInvoiceObserver::class);
+       \App\Models\BondsVouchers::observe(\App\Observers\BondVoucherObserver::class);
 
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class BondsVouchers extends Model
 {
@@ -13,7 +14,7 @@ class BondsVouchers extends Model
     const UPDATED_AT = 'updated_at';
 
 
-
+protected $with =['boundvoucheritems'];
 
     public $fillable = [
         'MarketplaceOwnerID',
@@ -39,11 +40,10 @@ class BondsVouchers extends Model
     /**
      * This relation return a product belongs to this bond voucher.
      *
-     * @return BelongsTo
+     * @return HasMany
      */
-    public function products()
+    public function boundvoucheritems()
     {
-        return $this->belongsToMany(Product::class, 'bound_voucher_items','BondVouchersID','ProductID')
-            ->withPivot('Quantity');
+        return $this->hasMany(BoundVoucherItem::class,'BondVouchersID');
     }
 }
