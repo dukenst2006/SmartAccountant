@@ -40,7 +40,7 @@ class MarketplaceObserver
         //Create The inventory
         $inventory = new Inventory();
         $inventory->MarketplaceID=$marketplace->id;
-        $inventory->WarehouseID= Warehouse::where('MarketplaceOwnerID',$this->WarehouseRepository->GetMyOwner())->first()->id;
+       $inventory->WarehouseID= Warehouse::where('MarketplaceOwnerID',$this->WarehouseRepository->GetMyOwner())->first()->id;
         $inventory->save();
 
 
