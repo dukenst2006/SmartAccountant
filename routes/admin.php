@@ -51,7 +51,7 @@ Route::group(['prefix' => 'Admin'], function () {
 
     Route::get('invoicerawall', 'InvoiceController@showRawInvoices')->name('invoice.invoicerawall');
     Route::get('invoiceraw', 'InvoiceController@raw')->name('invoice.createraw');
-    Route::post('invoiceraw/store', 'InvoiceController@StoreRawInvoice')->name('invoice.storerowinvoice');
+        Route::post('invoiceraw/store', 'InvoiceController@StoreRawInvoice')->name('invoice.storerowinvoice');
     Route::get('invoice-raw/{invoice}/show', 'InvoiceController@rawInvoicesShow')->name('raw_invoice.show');
     Route::get('invoice-raw/{invoice}/edit', 'InvoiceController@editRawInvoice')->name('raw_invoice.edit');
     Route::put('invoice-raw/{invoice}', 'InvoiceController@updateRawInvoice')->name('raw_invoice.update');
