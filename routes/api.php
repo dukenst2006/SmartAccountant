@@ -30,9 +30,36 @@ Route::post('LastInvoice','AxiosRequestController@LastInvoice')->name('LastInvoi
 
 
 Route::group(['prefix' => 'Admin' , 'namespace' => 'Admin'], function () {
+
+
 Route::get('ProductLiveSearch','ProductController@LiveSearch')->name('product.LiveSearch');
 Route::post('BondsController','BondsController@storebondvoucher')->name('bond.store');
 Route::post('StoreSaleInvoice','InvoiceController@StoreSaleInvoice')->name('invoice.store');
 Route::get('ProductExport','ProductController@export')->name('ProductExport');
 Route::post('ProductImport','ProductController@import')->name('ProductImport');
+
+
+
+
+
+//Chat API
+
+
+
+Route::get('conversations', 'ChatController@index');
+Route::post('conversations', 'ChatController@store');
+Route::get('conversations/{conversation}/users', 'ChatController@participants');
+Route::post('conversations/{conversation}/users', 'ChatController@join');
+Route::delete('conversations/{conversation}/users', 'ChatController@leaveConversation');
+Route::get('conversations/{conversation}/messages', 'ChatController@getMessages');
+Route::post('conversations/{conversation}/messages', 'ChatController@sendMessage');
+Route::delete('conversations/{conversation}/messages', 'ChatController@deleteMessages');
 });
+
+
+
+
+
+
+
+

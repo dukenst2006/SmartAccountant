@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -11,10 +12,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @package App\Models\Admin
  * @version July 6, 2020, 6:04 am UTC
  *
- * @property Marketplace $MarketplaceID
- * @property \Illuminate\Database\Eloquent\Collection $productSubCategories
- * @property \Illuminate\Database\Eloquent\Collection $products
- * @property integer $MarketplaceID
+ * @property Marketplace $MarketplaceOwner
+ * @property Collection $productSubCategories
+ * @property Collection $products
+ * @property integer $MarketplaceOwnerID
  * @property string $Name
  */
 class ProductCategory extends Model
@@ -29,7 +30,7 @@ class ProductCategory extends Model
 
 
     public $fillable = [
-        'MarketplaceID',
+        'MarketplaceOwnerID',
         'Name'
     ];
 
@@ -40,7 +41,7 @@ class ProductCategory extends Model
      */
     protected $casts = [
         'ID' => 'integer',
-        'MarketplaceID' => 'integer',
+        'MarketplaceOwnerID' => 'integer',
         'Name' => 'string'
     ];
 
@@ -50,16 +51,15 @@ class ProductCategory extends Model
      * @var array
      */
     public static $rules = [
-        'MarketplaceID' => 'required',
         'Name' => 'required'
     ];
 
     /**
      * @return BelongsTo
      **/
-    public function MarketplaceID()
+    public function MarketplaceOwnerID()
     {
-        return $this->belongsTo(Marketplace::class, 'MarketplaceID');
+        return $this->belongsTo(MarketplaceOwner::class, 'MarketplaceOwnerID');
     }
 
     /**
@@ -67,7 +67,7 @@ class ProductCategory extends Model
      **/
     public function productSubCategories()
     {
-        return $this->hasMany(\App\Models\ProductSubCategory::class, 'ProductCategoryID');
+        return $this->hasMany(ProductSubCategory::class, 'ProductCategoryID');
     }
 
     /**
@@ -75,6 +75,6 @@ class ProductCategory extends Model
      **/
     public function products()
     {
-        return $this->hasMany(\App\Models\Product::class, 'ProductCategoryID');
+        return $this->hasMany(Product::class, 'ProductCategoryID');
     }
 }
