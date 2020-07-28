@@ -409,7 +409,7 @@ return [/*
         [
             'text' => 'ProductMoves',
             'icon' => 'fas fa fa-truck-loading',
-            'route' => 'admin.ProductTableView',
+            'url' => 'Admin/productmoves',
         ],
 
 
