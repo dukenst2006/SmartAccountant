@@ -90,4 +90,7 @@ Route::group(['prefix' => 'Admin'], function () {
     });
     Route::get('ProductTableView','ProductController@TableView')->name('ProductTableView');
     Route::get('ProductExport','ProductController@export')->name('ProductExport');
+//    Route::resource('salary_info','EmployeeSalaryInfoController');
+    //salary infos for one employee
+    Route::get('Employee/{employee}/SalaryInfos','EmployeeController@salaryInfos')->name('SalaryInfos');
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\CreateEmployeeSalaryInfoRequest;
 use App\Http\Requests\UpdateEmployeeSalaryInfoRequest;
+use App\Models\EmployeeSalaryInfo;
 use App\Repositories\EmployeeSalaryInfoRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -34,6 +35,33 @@ class EmployeeSalaryInfoController extends AppBaseController
         return view('admin.employee_salary_infos.index')
             ->with('employeeSalaryInfos', $employeeSalaryInfos);
 
+    }
+    public function store(Request $request){
+        $request->validate([
+            'Description'   =>  'required',
+        ]);
+        $input = $request->except('_token');
+        $empSal = new EmployeeSalaryInfo($input);
+        $empSal->save();
+        alert('',__('Success'),'success');
+        return redirect()->back();
+    }
+    public function update(Request $request,EmployeeSalaryInfo $employeeSalaryInfo){
+        $request->validate([
+            'Description'   =>  'required',
+        ]);
+        $input = $request->except('_token','_method');
+        $employeeSalaryInfo->update($input);
+        alert('',__('Success'),'success');
+        return redirect()->back();
+    }
+    public function destroy(EmployeeSalaryInfo $employeeSalaryInfo){
+        $employeeSalaryInfo->delete();
+        alert('',__('Success'),'success');
+        return redirect()->back();
+    }
+    public function edit(EmployeeSalaryInfo $employeeSalaryInfo){
+        return view('admin.employee_salary_infos.edit',compact('employeeSalaryInfo'));
     }
 
 }

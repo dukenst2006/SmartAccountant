@@ -19,7 +19,7 @@ class EmployeeSalaryInfo extends Model
 {
 
     public $table = 'employee_salary_infos';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -61,7 +61,7 @@ class EmployeeSalaryInfo extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function employeeid()
+    public function employee()
     {
         return $this->belongsTo(\App\Models\Employee::class, 'EmployeeID');
     }

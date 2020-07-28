@@ -18,8 +18,13 @@
                 <h3 class="card-title">{{__('General.Titles.Employee')}}</h3>
             </div>
 
-
-              <div class="card-body" style="padding: 20px !important;">
+        <div class="col-12 justify-content-center">
+            <div class="col-3">
+                <img width="100%" src="{{asset($employee->ProfileImage)}}">
+            </div>
+        </div>
+         <div class="card-body" style="padding: 20px !important;">
+             <a class="btn btn-primary m-2" href="{{route('admin.SalaryInfos',$employee)}}">معلومات الراتب</a>
 
                  <form class="lye-emp" >
                     @include('admin.employees.show_fields')

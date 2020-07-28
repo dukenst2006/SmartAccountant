@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ProductMovementType;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 
@@ -17,15 +18,17 @@ class DatabaseSeeder extends Seeder
 
     public function run()
     {
-         $QuantityTypeSeeder =new QuantityTypeSeeder();
+        ProductMovementType::create(['Description' => 'من المخزن الرئيسي الي مخزن الفرع']);
+        ProductMovementType::create([ 'Description'=>'من مخزن الفرع الي المخزن الرئيسي' ]);
+        ProductMovementType::create([ 'Description'=>'سند صرف بضاعه' ]);
+
+        $QuantityTypeSeeder =new QuantityTypeSeeder();
         $QuantityTypeSeeder->run();
 
 
         $PaymentTypesSeeder =new PaymentTypesSeeder();
         $PaymentTypesSeeder->run();
 
-        $productmovementtypesseeder =new ProductMovementSeeder();
-        $productmovementtypesseeder->run();
 
 
 

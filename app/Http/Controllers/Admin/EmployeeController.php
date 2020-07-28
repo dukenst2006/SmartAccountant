@@ -6,6 +6,7 @@ use App\DataTables\Admin\EmployeeDataTable;
 use App\Http\Requests\Admin;
 use App\Http\Requests\Admin\CreateEmployeeRequest;
 use App\Http\Requests\Admin\UpdateEmployeeRequest;
+use App\Models\Employee;
 use App\Models\Marketplace;
 use \App\Models\MarketplaceOwner;
 use App\Repositories\EmployeeRepository;
@@ -172,6 +173,10 @@ class EmployeeController extends AppBaseController
         Flash::success('Employee deleted successfully.');
 
         return redirect(route('admin.employees.index'));
+    }
+    public function salaryInfos(Employee $employee){
+        $infos = $employee->employeeSalaryInfos;
+        return view('admin.employee_salary_infos.index',compact('infos','employee'));
     }
 
 }
