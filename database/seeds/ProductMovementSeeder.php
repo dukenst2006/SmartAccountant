@@ -11,8 +11,10 @@ class ProductMovementSeeder extends Seeder
      */
     public function run()
     {
+
         ProductMovementType::create(['Description' => 'من المخزن الرئيسي الي مخزن الفرع']);
         ProductMovementType::create([ 'Description'=>'من مخزن الفرع الي المخزن الرئيسي' ]);
+        ProductMovementType::create([ 'Description'=>'سند صرف بضاعه' ]);
 
     }
 }
