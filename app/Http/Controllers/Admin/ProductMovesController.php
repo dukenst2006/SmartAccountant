@@ -39,13 +39,59 @@ class ProductMovesController extends AppBaseController
         return view('admin.ProductsMoves.index')->with(['marketplaces'=>$marketplaces , 'productmovements'=>$ProductMovements]);
     }
 
-
-
-    public function move( )
+    public function move()
     {
-           //Move
+        $Product =  $this->productRepository->find(request()->ProductID);
+        if(!empty($Product)) {
+            if(request()->ProductMovementID == 1 && $Product->Inventory == null) {
+                $marketplace = \App\Models\Marketplace::find(request()->MarketplaceID)->with('inventory')->first();
+                if(request()->Quantity == $Product->Quantity) {
+                    $Product->InventoryID = $marketplace->inventory->id;
+                    $Product->save();
+                    alert()->success('raw success');
+                    return back();
+                } elseif(request()->Quantity > $Product->Quantity) {
+                    // create new raw for the product with the new quantity and InventoryID frontend Marketplace->InventoryID
+                    $otherProduct = clone $Product;
+                    $otherProduct->InventoryID = $marketplace->inventory->id;
+                    $otherProduct->Quantity = request()->Quantity;
+                    $otherProduct->save();
+                    // subtract the quantity of product the previos raw from the new product raw
+                    $previosQuantity = request()->Quantity - $Product->Quantity;
+                    $Product->Quantity = $previosQuantity;
+                    $Product->save();
+                    alert()->success('raw success');
+                    return back();
+                }
+
+                alert()->error('error message');
+                return back();
+            } elseif(request()->ProductMovementID == 2 && !empty($Product->InventoryID)) {
+                $Warehouse = \App\Models\Warehouse::where('MarketplaceOwnerID', $this->productRepository->GetMyOwner())->first();
+                if(request()->Quantity == $Product->Quantity) {
+                    // store WarehouseID and InventoryID = null
+                    $Product->WarehouseID = $Warehouse->id;
+                    $Product->save();
+                    alert()->success('raw success');
+                    return back();
+                } elseif(request()->Quantity > $Product->Quantity) {
+                    // create new raw for the product with the new quantity and InventoryID frontend Marketplace->InventoryID
+                    $otherProduct = clone $Product;
+                    $otherProduct->WarehouseID = $Warehouse->id;
+                    $otherProduct->Quantity = request()->Quantity;
+                    $otherProduct->save();
+                    // subtract the quantity of product the previos raw from the new product raw
+                    $previosQuantity = request()->Quantity - $Product->Quantity;
+                    $Product->Quantity = $previosQuantity;
+                    $Product->save();
+                    alert()->success('raw success');
+                    return back();
+                } elseif(request()->Quantity < $Product->Quantity) {
+                    alert()->error('raw success');
+                }
+            }
+        }
+
+        dd(request()->all());
     }
-
-
-
 }
