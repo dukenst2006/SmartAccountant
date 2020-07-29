@@ -43,7 +43,7 @@ class ProductMovesController extends AppBaseController
     {
         $Product =  $this->productRepository->find(request()->ProductID);
         if(!empty($Product)) {
-            if(request()->ProductMovementID == 1 && $Product->Inventory == null) {
+            if(request()->MovementType == 'Warehouse' && $Product->Inventory == null) {
                 $marketplace = \App\Models\Marketplace::find(request()->MarketplaceID)->with('inventory')->first();
                 if(request()->Quantity == $Product->Quantity) {
                     $Product->InventoryID = $marketplace->inventory->id;
@@ -62,11 +62,10 @@ class ProductMovesController extends AppBaseController
                     $Product->save();
                     alert()->success('raw success');
                     return back();
+                } elseif(request()->Quantity < $Product->Quantity) {
+                    alert()->error('error message1');
                 }
-
-                alert()->error('error message');
-                return back();
-            } elseif(request()->ProductMovementID == 2 && !empty($Product->InventoryID)) {
+            } elseif(request()->MovementType == 'Inventory' && !empty($Product->InventoryID)) {
                 $Warehouse = \App\Models\Warehouse::where('MarketplaceOwnerID', $this->productRepository->GetMyOwner())->first();
                 if(request()->Quantity == $Product->Quantity) {
                     // store WarehouseID and InventoryID = null
@@ -87,11 +86,9 @@ class ProductMovesController extends AppBaseController
                     alert()->success('raw success');
                     return back();
                 } elseif(request()->Quantity < $Product->Quantity) {
-                    alert()->error('raw success');
+                    alert()->error('error message2');
                 }
             }
         }
-
-        dd(request()->all());
     }
 }

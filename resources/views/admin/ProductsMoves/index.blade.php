@@ -13,7 +13,7 @@
                 <div class="card-header">
                     <h3 class="card-title">المنتجات</h3>
                 </div>
-                <div class="card-body overflow-auto" style="max-height: 400px;">
+                <div class="card-body overflow-auto" style="max-height: 500px;">
                     <div class="card-body">
                         {!! Form::open(['route' => 'admin.productmoves.move.to', 'method' => 'post']) !!}
                         
@@ -35,12 +35,6 @@
                                     {!! Form::select('MarketplaceID',$marketplaces, null,['class' => 'form-control']) !!}
                                 </div>
 
-                                <!-- Product Movement Field -->
-                                <div class="form-group col-sm-6">
-                                    {!! Form::label('ProductMovementID', __('Models/ProductMovement.ProductMovementType')) !!}
-                                    {!! Form::select('ProductMovementID',$productmovements  , null,['class' => 'form-control']) !!}
-                                </div>
-
                                <!-- Quantity Field -->
                                 <div class="form-group col-sm-6">
                                     {!! Form::label('Quantity', __('Models/Product.Quantity')) !!}
@@ -49,10 +43,21 @@
 
                                 <!-- Submit Field -->
                                 <div class="form-group col-sm-12">
-                                    {!! Form::submit(__('Buttons.Create'), ['class' => 'btn btn-primary']) !!}
+                                    <button type="submit" name="MovementType" value="Warehouse" class="btn btn-primary">
+                                        {{ __('Models/ProductMovement.WarehouseToInventory') }}
+                                    </button>
+                                    <br>
+                                    <br>
+                                    <button type="submit" name="MovementType" value="Inventory" class="btn btn-success">
+                                        {{ __('Models/ProductMovement.InventoryToWarehouse') }}
+                                    </button>
+                                    <br>
+                                    <br>
                                     <a href="/Admin"
                                        class="btn btn-default">{{ __('Buttons.Cancel') }}</a>
                                 </div>
+
+
 
                             {!! Form::close() !!}
                         </div>
