@@ -25,7 +25,7 @@ class ChatController extends Controller
     public function index()
     {
         $conversations = auth()->user()->conversations();
-        return view('admin.Messages.chat')->with(['users'=>$this->userRepository->all()]);
+        return view('admin.Messages.chat')->with([ 'users'=>$this->userRepository->all(), 'conversations' => $conversations ]);
 
     }
 
