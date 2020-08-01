@@ -58,9 +58,10 @@ class ProductQuantityFinished extends Notification
     {
         return [
             'marketplaceOwnerID' => $this->marketplaceOwnerID,
-            'product' => [
-                'product_name' => $this->product['product_name'],
-                'product_quantity' => $this->product['product_quantity']
+            'message' => $this->product->Name . ' quantity almos finish.',
+            'data' => [
+                'product_name' => $this->product->Name,
+                'product_quantity' => $this->product->Quantity
             ]
         ];
     }

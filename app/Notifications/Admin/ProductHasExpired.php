@@ -32,7 +32,7 @@ class ProductHasExpired extends Notification
      * @param   array $product           
      * @return  void
      */
-    public function __construct(int $marketplaceOwnerID, array $product)
+    public function __construct(int $marketplaceOwnerID, $product)
     {
         $this->marketplaceOwnerID = $marketplaceOwnerID;
         $this->product = $product;
@@ -58,10 +58,10 @@ class ProductHasExpired extends Notification
     {
         return [
             'marketplaceOwnerID' => $this->marketplaceOwnerID,
-            'message' => $this->product['product_name'] . ' has expired.',
+            'message' => $this->product->Name . ' has expired.',
             'data' => [
-                'product_name' => $this->product['product_name'],
-                'expiry_date' => $this->product['expiry_date']
+                'product_name' => $this->product->Name,
+                'expiry_date' => $this->product->ExpiryDate
             ]
         ];
     }
