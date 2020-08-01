@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\{
+    ThrottlesLogins,
+    AuthenticatesUsers
+};
 
 class LoginController extends Controller
 {
 
-    use ThrottlesLogins;
+    use ThrottlesLogins, AuthenticatesUsers;
 
     public $maxAttempts = 5;
     public $decayMinutes = 3;
