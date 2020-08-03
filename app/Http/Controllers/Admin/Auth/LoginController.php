@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Repositories\UserRepository;
 use Illuminate\Foundation\Auth\{
     ThrottlesLogins,
     AuthenticatesUsers
@@ -18,7 +19,12 @@ class LoginController extends Controller
 
     public $maxAttempts = 5;
     public $decayMinutes = 3;
+    private $userRepository;
 
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
 
     public function username()
     {
@@ -89,5 +95,33 @@ class LoginController extends Controller
             ->back()
             ->withInput()
             ->with('error', 'فشل تسجيل الدخول فضلا حاول مرة اخري');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        $this->notifiyUserIfProductExpiry($user);
+        $this->notifiyUserIfProductFinished($user);
+    }
+
+    private function notifiyUserIfProductExpiry($user)
+    {
+        $expiryProducts = Product::where('MarketplaceOwnerID', $this->userRepository->getMyOwner())->whereBetween('ExpiryDate', [now(), now()->addDays(5)])->get();
+        foreach ($expiryProducts as $product) {
+            $user->notify(new \App\Notifications\Admin\ProductHasExpired(
+                    $this->userRepository->getMyOwner(),
+                    $product
+                ));
+        }
+    }
+
+    private function notifiyUserIfProductFinished($user)
+    {
+        $products = Product::where('MarketplaceOwnerID', $this->userRepository->getMyOwner())->where('Quantity', '<=' ,10)->get();
+        foreach ($products as $product) {
+            $user->notify(new \App\Notifications\Admin\ProductQuantityFinished(
+                    $this->userRepository->getMyOwner(),
+                    $product
+                ));
+        }
     }
 }
