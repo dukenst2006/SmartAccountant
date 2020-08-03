@@ -8,7 +8,7 @@
             <th class="text-center">{{__('Models/EmployeeSalaryInfos.Deductions')}}</th>
             <th class="text-center">{{__('Models/EmployeeSalaryInfos.Description')}}</th>
             <th class="text-center">{{__('Models/EmployeeSalaryInfos.PresenceAndDevotion')}}</th>
-
+            <th class="text-center">التاريخ</th>
             <th colspan="3">{{__('Buttons.Action')}}</th>
         </tr>
         </thead>
@@ -30,6 +30,9 @@
                     'Absent' => __('Models/EmployeeSalaryInfos.Absent')
                     ], $employeeSalaryInfo->PresenceAndDevotion,['class' => 'form-control', 'id' => 'PresenceAndDevotion']) !!}
                 </td>
+
+                <td class="text-center">{{ $employeeSalaryInfo->created_at }}</td>
+
                 <td>
                     <form action="{{route('admin.employeeSalaryInfos.destroy',$employeeSalaryInfo)}}" method="post">
                         @csrf
