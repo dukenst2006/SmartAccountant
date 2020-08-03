@@ -15,7 +15,7 @@ class AddValueAndRateInSettingsTable extends Migration
     {
         Schema::table('settings', function (Blueprint $table) {
             $table->unsignedFloat('AbsenceDiscountValue')->nullable();
-            $table->unsignedFloat('AbsenceDiscountRate')->nullable();
+            $table->string('AbsenceDiscountType')->nullable();
         });
     }
 

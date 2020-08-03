@@ -95,14 +95,19 @@
                             </div>
 
                             <div class="form-group col-sm-6">
-                                {!! Form::label('AbsenceDiscountValue', __('General.AbsenceDiscount.AbsenceDiscountValue')) !!}
-                                {!! Form::number('AbsenceDiscountValue', $setting->AbsenceDiscountValue, ['class' => 'form-control']) !!}
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        {!! Form::label('AbsenceDiscountValue', __('General.AbsenceDiscount.AbsenceDiscountValue')) !!}
+                                        {!! Form::number('AbsenceDiscountValue', $setting->AbsenceDiscountValue, ['class' => 'form-control']) !!}
+                                    </div>
+                                    <div class="col-sm-3">
+                                        {!! Form::label('AbsenceDiscountType', __('General.AbsenceDiscount.AbsenceDiscountType')) !!}
+                                        {!! Form::select('AbsenceDiscountType',[ 'Value' => __('General.AbsenceDiscount.Types.Value'), 'Rate' => __('General.AbsenceDiscount.Types.Rate') ], $setting->AbsenceDiscountType,['class' => 'form-control']) !!}
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="form-group col-sm-6">
-                                {!! Form::label('AbsenceDiscountRate', __('General.AbsenceDiscount.AbsenceDiscountRate')) !!}
-                                {!! Form::number('AbsenceDiscountRate', $setting->AbsenceDiscountRate, ['class' => 'form-control']) !!}
-                            </div>
+
 </div>
 <div class="row">
 

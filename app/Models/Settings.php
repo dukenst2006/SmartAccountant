@@ -23,7 +23,7 @@ class Settings extends Model
         'Logo',
         'VAT',
         'AbsenceDiscountValue',
-        'AbsenceDiscountRate'
+        'AbsenceDiscountType'
         ];
 
 

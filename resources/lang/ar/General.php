@@ -94,6 +94,10 @@ return [
     ],
     'AbsenceDiscount' => [
         'AbsenceDiscountValue' => 'قيمة خصم الغياب',
-        'AbsenceDiscountRate'  => 'نسبة خصم الغياب'
+        'AbsenceDiscountType'  => 'نوع الخصم',
+        'Types' => [
+            'Value' => 'مبلغ',
+            'Rate'  => 'نسبة'
+        ]
     ]
 ];
