@@ -93,6 +93,16 @@
                                 {!! Form::label('Currency', __('General.Currency')) !!}
                                 {!! Form::select('Currency',['SAR'=>'ريال','AED'=>'درهم','USD'=>'دولار'], $setting->Currency,['class' => 'form-control']) !!}
                             </div>
+
+                            <div class="form-group col-sm-6">
+                                {!! Form::label('AbsenceDiscountValue', __('General.AbsenceDiscount.AbsenceDiscountValue')) !!}
+                                {!! Form::number('AbsenceDiscountValue', $setting->AbsenceDiscountValue, ['class' => 'form-control']) !!}
+                            </div>
+
+                            <div class="form-group col-sm-6">
+                                {!! Form::label('AbsenceDiscountRate', __('General.AbsenceDiscount.AbsenceDiscountRate')) !!}
+                                {!! Form::number('AbsenceDiscountRate', $setting->AbsenceDiscountRate, ['class' => 'form-control']) !!}
+                            </div>
 </div>
 <div class="row">
 

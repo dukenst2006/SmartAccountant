@@ -91,5 +91,9 @@ return [
       'sex' => 'الجنس',
       'Salary' => 'الراتب',
       'back' => 'رجوع',
-]
+    ],
+    'AbsenceDiscount' => [
+        'AbsenceDiscountValue' => 'قيمة خصم الغياب',
+        'AbsenceDiscountRate'  => 'نسبة خصم الغياب'
+    ]
 ];

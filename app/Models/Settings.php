@@ -22,6 +22,8 @@ class Settings extends Model
         'SerialNumber',
         'Logo',
         'VAT',
+        'AbsenceDiscountValue',
+        'AbsenceDiscountRate'
         ];
 
 
