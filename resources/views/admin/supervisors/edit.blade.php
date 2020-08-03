@@ -1,9 +1,9 @@
 @extends('adminlte::page')
-@section('title', 'Supervisor')
+@section('title', 'موظفى الإدارة')
 
 @section('content_header')
      <h1>
-            Supervisor
+         @lang('Models/Supervisor.SupervisorEmployees')
         </h1>
 @stop
 
@@ -13,10 +13,10 @@
        @include('adminlte-templates::common.errors')
         <div class="card box-primary col-12">
             <div class="card-header text-right">
-                   <h3 class="card-title">Supervisor</h3>
+                   <h3 class="card-title">@lang('Models/Supervisor.SupervisorEmployee')</h3>
 
                </div>
-           <div class="card-body">
+           <div class="card-body" style="padding: 20px !important;">
 
                    {!! Form::model($supervisor, ['route' => ['admin.supervisors.update', $supervisor->id], 'method' => 'patch']) !!}
 

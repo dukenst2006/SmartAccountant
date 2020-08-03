@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'الشركات')
 @section('content')
     <section class="content-header">
         <h1>
@@ -9,7 +9,7 @@
     <div class="content">
         <div class="box box-primary">
             <div class="box-body">
-                <div class="row" style="padding-left: 20px">
+                <div class="row form-shape" style="padding-left: 20px">
                     @include('companies.show_fields')
                     <a href="{{ route('admin.companies.index') }}" class="btn btn-default">
                         @lang('crud.back')

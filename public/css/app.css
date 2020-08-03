@@ -34991,3 +34991,65 @@ a.text-muted:hover {
   color: #ffffff;
 }
 
+.form-shape label {
+  display: block;
+  padding: 10px;
+  color: #FFF;
+  background-color: #4bb481;
+  margin-bottom: 0;
+  max-width: 600px;
+}
+.form-shape p {
+  display: block;
+  padding: 10px;
+  color: #000;
+  background-color: #ffffff;
+  border: 1px solid #DDD;
+  margin-bottom: 10px;
+  max-width: 600px;
+}
+.form-shape textarea {
+  max-width: 600px;
+}
+.content .card-header {
+  background-color: #053395b5 !important;
+  color: #ffffff !important;
+}
+.content  .card-body {
+  padding: 20px !important;
+}
+  .main-chat-usr {
+  color: #343a40;
+}
+.bdg-num {
+  background-color: #61a4d7;
+}
+.more-cht-btn {
+  padding: 9px 10px;
+  background-color: #3f8eca;
+}
+thead tr {
+  background-color: #3f8eca;
+  color: #FFF;
+}
+.chat-syb {
+  height: 83vh;
+}
+.card {
+  padding: 0;
+}
+.chart-modifications, .chart-modifications .chart {
+  overflow: auto;
+}
+.chart-modifications  #chart {
+  margin: auto;
+  }
+.req-title {
+  box-shadow: 1px 1px 3px #DDD, -1px -1px 3px #DDD;
+  padding: 15px 10px;
+  background-color: #FFF;
+  color: #28a745;
+}
+.content-header {
+  margin-bottom: 20px;
+}

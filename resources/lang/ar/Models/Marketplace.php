@@ -5,7 +5,8 @@ use Yajra\DataTables\Html\Column;
 return [
 
     'id' => '',
-    'MarketplaceOwnerID' => '',
+    'MarketplaceOwnerID' => 'معرف  مالك المتجر',
+    'MarketplaceID' => 'معرف المتجر',
     'Name' => 'اسم الفرع',
     'Country' => 'البلد',
     'City' => 'المدينة',

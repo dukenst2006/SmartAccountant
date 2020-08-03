@@ -1,9 +1,10 @@
 @extends('adminlte::page')
-@section('title', 'Expenses Category')
+@section('title', 'اقسام المصروفات الرئيسية')
+
 
 @section('content_header')
      <h1>
-            Expenses Category
+         {{__('Models/Expenses.ExpensesMainCategory')}}
         </h1>
 @stop
 
@@ -13,7 +14,7 @@
        @include('adminlte-templates::common.errors')
         <div class="card box-primary col-12">
             <div class="card-header text-right">
-                   <h3 class="card-title">Expenses Category</h3>
+                   <h3 class="card-title">{{__('General.Edit')}}</h3>
 
                </div>
            <div class="card-body">

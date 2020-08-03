@@ -738,3 +738,159 @@ body:not(.sidebar-mini-md) {
 .chart {
     overflow: auto;
 }
+
+
+
+@page {
+    size: A4;
+    margin: 10px;
+}
+
+@page {
+    size: landscape;
+    margin: 10mm;
+}
+
+table {
+    page-break-inside: auto
+}
+
+tr, .info-ins, input  {
+    page-break-inside: avoid;
+    page-break-after: auto
+}
+
+thead {
+    display: table-header-group;
+}
+
+tfoot {
+    display: table-footer-group;
+}
+
+@media print {
+    .os-viewport {
+        position: relative !important;
+    }
+
+    html.os-html, html.os-html > .os-host {
+        overflow: auto !important;
+    }
+
+
+    .os-host-overflow > .os-padding, .os-host-overflow, .os-host-overflow > .os-padding, .os-host-overflow, .os-host, .os-host-overflow > .os-padding, .os-host-overflow {
+        overflow: auto;
+    !important;
+    }
+
+    .os-host-overflow,
+    .os-host-overflow > .os-padding,
+    .os-scrollbar-auto-hidden,
+    .os-padding + .os-scrollbar-corner,
+    .os-host-resize-disabled.os-host-scrollbar-horizontal-hidden > .os-scrollbar-corner,
+    .os-host-scrollbar-horizontal-hidden > .os-scrollbar-horizontal,
+    .os-host-resize-disabled.os-host-scrollbar-vertical-hidden > .os-scrollbar-corner,
+    .os-host-scrollbar-vertical-hidden > .os-scrollbar-vertical,
+    .os-scrollbar-horizontal.os-scrollbar-auto-hidden + .os-scrollbar-vertical + .os-scrollbar-corner,
+    .os-scrollbar-horizontal + .os-scrollbar-vertical.os-scrollbar-auto-hidden + .os-scrollbar-corner,
+    .os-scrollbar-horizontal.os-scrollbar-auto-hidden + .os-scrollbar-vertical.os-scrollbar-auto-hidden + .os-scrollbar-corner, .os-host, .os-host-overflow > .os-padding {
+
+        visibility: visible !important;
+    }
+
+    .os-host-overflow > .os-padding {
+        overflow: auto !important;
+    }
+
+    .os-host-overflow {
+        overflow: auto !important;
+    }
+
+
+    #btnFetch, #cleardata, .dolamah {
+        display: none;
+    }
+
+    .rest-color {
+        color: #000 !important;
+    }
+
+    .ftn-h {
+        max-width: 95%;
+    }
+
+
+}
+#complete {
+    border-radius: 0 !important;
+    margin-right: -2px !important;
+}
+
+@media (max-width: 767.98px) {
+    #root {
+        margin: 10px 0;
+    }
+
+}
+.form-shape label {
+    display: block;
+    padding: 10px;
+    color: #FFF;
+    background-color: #4bb481;
+    margin-bottom: 0;
+    max-width: 600px;
+}
+.form-shape p {
+    display: block;
+    padding: 10px;
+    color: #000;
+    background-color: #ffffff;
+    border: 1px solid #DDD;
+    margin-bottom: 10px;
+    max-width: 600px;
+}
+.form-shape textarea {
+    max-width: 600px;
+}
+.content .card-header {
+    background-color: #053395b5 !important;
+    color: #ffffff !important;
+}
+.content  .card-body {
+    padding: 20px !important;
+}
+.main-chat-usr {
+    color: #343a40;
+}
+.bdg-num {
+    background-color: #61a4d7;
+}
+.more-cht-btn {
+    padding: 9px 10px;
+    background-color: #3f8eca;
+}
+thead tr {
+    background-color: #3f8eca;
+    color: #FFF;
+}
+.chat-syb {
+    height: 83vh;
+}
+.card {
+    padding: 0;
+}
+.chart-modifications, .chart-modifications .chart {
+    overflow: auto;
+}
+.chart-modifications  #chart {
+    margin: auto;
+}
+.req-title {
+    box-shadow: 1px 1px 3px #DDD, -1px -1px 3px #DDD;
+    padding: 15px 10px;
+    background-color: #FFF;
+    color: #28a745;
+}
+.content-header {
+    margin-bottom: 20px;
+}

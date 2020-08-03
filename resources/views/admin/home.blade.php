@@ -1,9 +1,10 @@
 @extends('adminlte::page')
+@section('title', 'الرئيسية')
 @section('content')
     <div class="container pt-3">
 
 
-        <div class="row w-100 m-0 p-0">
+        <div class="row w-100 m-0 p-0 chart-modifications">
             <div class="col-xl-3 col-md-6 animated bounceInUp">
 
 

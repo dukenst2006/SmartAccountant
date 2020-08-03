@@ -16,7 +16,7 @@
                 <div class="card-body overflow-auto" style="max-height: 500px;">
                     <div class="card-body">
                         {!! Form::open(['route' => 'admin.productmoves.move.to', 'method' => 'post']) !!}
-                        
+
                             {!! Form::token() !!}
 
                             <div class="form-group col-md-12">

@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Employees')
+@section('title', 'موظفى الفروع')
 
 @section('content_header')
     <h1>{{__('General.Titles.Employee')}}</h1>

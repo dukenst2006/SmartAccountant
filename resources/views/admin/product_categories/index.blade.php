@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Product Categories')
+@section('title', 'الأصناف الرئيسية')
 
 @section('content_header')
         <h1>{{__('Models/Product.ProductCategories')}}</h1>
@@ -11,7 +11,7 @@
         {{-- Cards --}}
         <div class="card col-11">
             <div class="card-header">
-                <h3 class="card-title">{{__('Models/Product.ProductCategories')}}</h3>
+                <h3 class="card-title">{{__('General.All')}}</h3>
             </div>
             <div class="card-body card-body table-responsive p-0">
                 @include('flash::message')

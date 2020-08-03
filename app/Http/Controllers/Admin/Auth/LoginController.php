@@ -13,7 +13,8 @@ use Illuminate\Foundation\Auth\{
 class LoginController extends Controller
 {
 
-    use ThrottlesLogins, AuthenticatesUsers;
+
+    use AuthenticatesUsers;
 
     public $maxAttempts = 5;
     public $decayMinutes = 3;

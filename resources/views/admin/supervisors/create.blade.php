@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Supervisors')
+@section('title', 'موظفى الإدارة')
 @section('content_header')
         <h1>
             {{__("menu.Supervisors")}}
@@ -14,7 +14,7 @@
                         {{__('General.Create')}}
                     </h3>
                 </div>
-            <div class="card-body">
+            <div class="card-body" style="padding: 20px !important;">
                     {!! Form::open(['route' => 'admin.supervisors.store']) !!}
                         @include('admin.supervisors.fields')
                     {!! Form::close() !!}

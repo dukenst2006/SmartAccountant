@@ -1,8 +1,8 @@
 @extends('adminlte::page')
-@section('title', 'Expenses')
+@section('title', 'المصروفات')
 
 @section('content_header')
-    <h1>Expense</h1>
+    <h1>المصروفات</h1>
 @stop
 
 
@@ -14,15 +14,15 @@
 
      <div class="card card-primary col-12">
             <div class="card-header">
-                <h3 class="card-title">Expense</h3>
+                <h3 class="card-title">المصروفات</h3>
             </div>
 
 
               <div class="card-body">
 
-                 <form >
+                 <form  class="form-shape">
                     @include('admin.expenses.show_fields')
-                    <a href="{{ route('admin.expenses.index') }}" class="btn btn-warning"><i class="fas fa-backward" style="cursor: pointer;"></i>Back</a>
+                    <a href="{{ route('admin.expenses.index') }}" class="btn btn-info"><i class="fas fa-backward" style="cursor: pointer;"></i> رجوع </a>
                 </form>
 
 

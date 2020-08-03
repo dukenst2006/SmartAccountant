@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Employees')
+@section('title', 'موظفى الفروع')
 
 @section('content_header')
         <h1>    {{__('General.Titles.Employees')}}</h1>
@@ -13,7 +13,7 @@
         <div class="card-header">
                     <h3 class="card-title">{{__("General.Create")}}</h3>
                 </div>
-            <div class="card-body">
+            <div class="card-body" style="padding: 20px !important;">
                     {!! Form::open(['route' => 'admin.employees.store','files'=> true]) !!}
 
                         @include('admin.employees.fields')

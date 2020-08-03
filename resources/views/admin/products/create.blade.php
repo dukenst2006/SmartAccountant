@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Products')
+@section('title', 'المنتجات')
 
 @section('content_header')
         <h1>    @lang('Models/Product.Product') </h1>
@@ -11,7 +11,7 @@
         @include('adminlte-templates::common.errors')
         <div class="card box-primary">
         <div class="card-header">
-                    <h3 class="card-title"> @lang('Models/Product.Product')  </h3>
+                    <h3 class="card-title"> @lang('General.Create')  </h3>
                 </div>
             <div class="card-body" style="padding: 10px !important;">
                     {!! Form::open(['route' => 'admin.products.store','files'=>true]) !!}

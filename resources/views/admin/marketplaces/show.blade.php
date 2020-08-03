@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Marketplaces')
+@section('title', 'المتاجر')
 
 @section('content_header')
     <h1>{{__("menu.Marketplaces")}}</h1>
@@ -17,11 +17,11 @@
 
 
 
-              <div class="card-body">
+              <div class="card-body" style="padding: 20px !important;">
 
-                 <form >
+                 <form class="form-shape" >
                     @include('admin.marketplaces.show_fields')
-                    <a href="{{ route('admin.marketplaces.index') }}" class="btn btn-warning"><i class="fas fa-backward" style="cursor: pointer;"></i>{{__("General.Back")}}</a>
+                    <a href="{{ route('admin.marketplaces.index') }}" class="btn btn-info"><i class="fas fa-backward" style="cursor: pointer;"></i> {{__("General.Back")}} </a>
                 </form>
 
 

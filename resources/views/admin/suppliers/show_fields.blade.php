@@ -20,7 +20,7 @@
 
 
 <!-- Description Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('Description', __('Models/Supplier.Description').':') !!}
     {!! Form::textarea('Description', $supplier->Description, ['class' => 'form-control']) !!}
 </div>

@@ -1,6 +1,6 @@
 <!-- MarketplaceID Field -->
 <div class="form-group">
-    {!! Form::label('MarketplaceID', 'MarketplaceID:') !!}
+    {!! Form::label('MarketplaceID', __('Models/Product.MarketplaceID') .':') !!}
     <p>{{ $productCategory->MarketplaceID }}</p>
 </div>
 

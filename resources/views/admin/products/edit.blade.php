@@ -1,10 +1,10 @@
 @extends('adminlte::page')
-@section('title', 'Product')
+@section('title', 'المنتجات')
 
 @section('content_header')
      <h1>
-            Product
-        </h1>
+         @lang('Models/Product.Product')
+     </h1>
 @stop
 
 @section('content')
@@ -13,7 +13,7 @@
        @include('adminlte-templates::common.errors')
         <div class="card box-primary col-12">
             <div class="card-header text-right">
-                   <h3 class="card-title">Product</h3>
+                   <h3 class="card-title">@lang('General.Edit') </h3>
 
                </div>
            <div class="card-body">

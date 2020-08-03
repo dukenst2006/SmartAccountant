@@ -241,6 +241,18 @@ const Layout = (($) => {
     var sideValHeight = logoHeight + brandHeight;
     $('.sidebar').css('height', "calc(99vh - ".concat(sideValHeight, "px)"));
   }, 3000);
+
+  $('body').removeClass('os-host-overflow os-host');
+  setTimeout(() => {
+    $('body').removeClass('os-host-overflow os-host');
+  }, 100)
+  $('body').removeClass('os-host-overflow os-host');
+  setTimeout(() => {
+    $('body').removeClass('os-host-overflow os-host');
+  }, 1000)
+  setTimeout(() => {
+    $('body').removeClass('os-host-overflow os-host');
+  }, 3000)
   /**
    * jQuery API
    * ====================================================

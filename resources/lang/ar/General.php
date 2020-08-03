@@ -1,4 +1,4 @@
-<?php
+    <?php
 return [
     'Enter initial Capital' =>  "ادخل راس المال الابتدائي",
     'Activate'              =>  "فعال",
@@ -42,6 +42,7 @@ return [
     'minutes' => 'دقيقة',
     'day' => 'يوم',
     'Currency' => 'العملة',
+    'NewBond' => 'سند صرف',
 
 
     'Currencies' =>  [
@@ -71,6 +72,7 @@ return [
         'Suppliers' =>  "الموردين",
         'Branch'    =>  "فرع",
         'Companies' =>  "الشركات",
+        'Safe' =>  "الخزنة",
     ],
     'Product'   =>  [
         'ExcludeFromVAT'    =>  'المنتج ليس خاضع لضريبة القيمة المضافة'

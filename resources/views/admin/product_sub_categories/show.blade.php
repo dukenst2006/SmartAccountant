@@ -1,8 +1,8 @@
 @extends('adminlte::page')
-@section('title', 'Product Sub Categories')
+@section('title', 'الأصناف الفرعية')
 
 @section('content_header')
-    <h1>Product Sub Category</h1>
+    <h1>{{__('Models/Product.ProductSubCategories')}}</h1>
 @stop
 
 
@@ -14,15 +14,15 @@
 
      <div class="card card-primary col-12">
             <div class="card-header">
-                <h3 class="card-title">Product Sub Category</h3>
+                <h3 class="card-title">{{__('Models/Product.ProductSubCategories')}}</h3>
             </div>
 
 
               <div class="card-body">
 
-                 <form >
+                 <form class="form-shape" >
                     @include('admin.product_sub_categories.show_fields')
-                    <a href="{{ route('admin.productSubCategories.index') }}" class="btn btn-warning"><i class="fas fa-backward" style="cursor: pointer;"></i>Back</a>
+                    <a href="{{ route('admin.productSubCategories.index') }}" class="btn btn-warning"><i class="fas fa-backward" style="cursor: pointer;"></i> {{__('General.Back')}}</a>
                 </form>
 
 

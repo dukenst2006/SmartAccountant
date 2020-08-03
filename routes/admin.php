@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 //   return view('home');
 //});
 
-
+Route::redirect('/','/login');
 Route::get('lang/{Language}', 'LocalizationController@index')->name('ChangeLanguage');
 Route::group(['prefix' => 'Admin'], function () {
 //'middleware' => ['role:super-admin'] ,
@@ -79,7 +79,7 @@ Route::group(['prefix' => 'Admin'], function () {
     // BondAmmount
     Route::get('BondAmmount', 'BondsController@CreateBondAmmount')->name('bondsammout.create');
     Route::post('BondAmmount/Store', 'BondsController@storeBondAmmount')->name('bondsammout.store');
-    
+
     Route::get('notifications', 'NotificationController@index')->name('notifications');
 
     Route::group(['namespace' => '\App\Http\Controllers\Reports'], function () {

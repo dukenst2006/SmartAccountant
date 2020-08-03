@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Suppliers')
+@section('title', 'الموردين')
 
 @section('content_header')
     <h1>{{__("General.Titles.Suppliers")}}</h1>
@@ -17,9 +17,9 @@
 
             <div class="card-body">
 
-                <form >
+                <form  class="form-shape">
                     @include('admin.suppliers.show_fields')
-                    <a href="{{ route('admin.suppliers.index') }}" class="btn btn-warning"><i class="fas fa-backward" style="cursor: pointer;"></i>{{__("General.Back")}}</a>
+                    <a href="{{ route('admin.suppliers.index') }}" class="btn btn-info"><i class="fas fa-backward" style="cursor: pointer;"></i> {{__("General.Back")}}</a>
                 </form>
 
 

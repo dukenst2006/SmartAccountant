@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Product Categories')
+@section('title', 'الأصناف الرئيسية')
 
 @section('content_header')
         <h1> {{__('Models/Product.ProductCategories')}}</h1>

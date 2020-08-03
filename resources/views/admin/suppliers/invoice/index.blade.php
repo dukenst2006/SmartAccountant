@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Suppliers')
+@section('title', 'فواتير الموردين ')
 
 @section('content_header')
     <h1>{{__("General.Titles.Suppliers")}}</h1>

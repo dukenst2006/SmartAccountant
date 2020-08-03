@@ -389,6 +389,8 @@ return [/*
 
 
         [
+
+            'role'  => 'User',
             'text' => 'Products',
             'icon' => 'fas fa fa-cube',
             'submenu' => [
@@ -631,7 +633,8 @@ return [/*
         JeroenNoten\LaravelAdminLte\Menu\Filters\SearchFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\ActiveFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
-        JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
+        //JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
+        App\Helpers\MenuPermissionFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\LangFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\DataFilter::class,
     ],

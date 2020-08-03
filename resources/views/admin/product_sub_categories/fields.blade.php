@@ -1,12 +1,12 @@
 <!-- Productcategoryid Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('ProductCategoryID', 'Productcategoryid:') !!}
+    {!! Form::label('ProductCategoryID', __('Models/Product.ProductCategoryID')) !!}
     {!! Form::select('ProductCategoryID',$categories, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Name', 'Name:') !!}
+    {!! Form::label('Name', __('Models/Product.Name')) !!}
     {!! Form::text('Name', null, ['class' => 'form-control']) !!}
 </div>
 

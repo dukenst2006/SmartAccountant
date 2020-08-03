@@ -3,9 +3,7 @@
 return array (
   'singular' => 'ProductMovements',
   'plural' => 'ProductMovements',
-  'fields' => '',
-  'WarehouseToInventory' => 'Warehouse To Inventory',
-  'InventoryToWarehouse' => 'Inventory To Warehouse',
+  'fields' => 
   array (
     'id' => 'Id',
     'UserID' => 'Userid',

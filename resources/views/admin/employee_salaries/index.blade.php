@@ -1,10 +1,11 @@
 @extends('adminlte::page')
+@section('title', 'رواتب الموظفين')
 @section('content')
     <div class="container pt-3">
         <h4 class="col-12 text-center">{{__("menu.EmployeesSalaries")}}</h4>
         <div class="card">
             <div class="card-header">
-                انشاء
+                @lang('General.Create')
             </div>
             <div class="card-body" style="padding: 10px !important;">
                 {!! Form::open(['route' => 'admin.EmployeeSalary.store','files'=> true]) !!}
@@ -56,7 +57,8 @@
                                     <form action="{{route('admin.EmployeeSalary.destroy',$salary)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">حذف</button>
+                                        <button type="submit" class="btn btn-danger">  @lang('General.Delete')
+                                        </button>
                                     </form>
                                 </td>
                             </tr>

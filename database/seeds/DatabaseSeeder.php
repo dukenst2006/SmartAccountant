@@ -13,9 +13,6 @@ class DatabaseSeeder extends Seeder
      */
 
 
-
-
-
     public function run()
     {
         ProductMovementType::create(['Name' => 'من المخزن الرئيسي الي مخزن الفرع']);
@@ -32,6 +29,7 @@ class DatabaseSeeder extends Seeder
 
 
 
+        factory(App\Models\User::class, 10)->create();
         factory(App\Models\MarketplaceOwner::class, 10)->create();
 
 //      factory(App\Models\Stock::class, 10)->create();

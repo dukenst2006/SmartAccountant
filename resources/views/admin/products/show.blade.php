@@ -1,11 +1,9 @@
 @extends('adminlte::page')
-@section('title', 'Products')
+@section('title', 'المنتجات')
 
 @section('content_header')
     <h1>@lang('Models/Product.Product')</h1>
 @stop
-
-
 
 @section('content')
 

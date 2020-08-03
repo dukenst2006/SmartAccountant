@@ -1,8 +1,8 @@
 @extends('adminlte::page')
-@section('title', 'New Bond')
+@section('title', 'سند صرف')
 
 @section('content_header')
-    <h1>سند جديد</h1>
+    <h1>{{__('General.NewBond')}}</h1>
 @stop
 
 @section('content')

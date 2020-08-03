@@ -1,7 +1,7 @@
 <?php
 use Yajra\DataTables\Html\Column;
 return [
-    'Name' => 'أسم الشركة',
+    'Name' => 'اسم الشركة',
     'Address'=>'عنوان الشركة',
     'Country'=>'البلد',
     'PhoneNumber'=>'رقم الجوال',

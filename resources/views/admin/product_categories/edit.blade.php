@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Product Category')
+@section('title', 'الأصناف الرئيسية')
 
 @section('content_header')
      <h1>
@@ -13,7 +13,7 @@
        @include('adminlte-templates::common.errors')
         <div class="card box-primary col-12">
             <div class="card-header text-right">
-                   <h3 class="card-title">{{__('Models/Product.ProductCategories')}}</h3>
+                   <h3 class="card-title">{{__('General.Edit')}}</h3>
 
                </div>
            <div class="card-body">
