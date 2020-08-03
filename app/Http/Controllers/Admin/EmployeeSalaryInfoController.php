@@ -64,4 +64,10 @@ class EmployeeSalaryInfoController extends AppBaseController
         return view('admin.employee_salary_infos.edit',compact('employeeSalaryInfo'));
     }
 
+
+    public function updatePresenceAndDevotion(Request $request,EmployeeSalaryInfo $employeeSalaryInfo){
+        $input = $request->except('_token','_method');
+        $employeeSalaryInfo->update($input);
+        return response()->json(true, 200);
+    }
 }

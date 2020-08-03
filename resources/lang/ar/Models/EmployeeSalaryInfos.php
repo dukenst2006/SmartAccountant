@@ -6,8 +6,8 @@ return [
     'Allowances' => 'المكاقئات',
     'Deductions' => 'الخصومات',
     'Description' => 'وصف',
-
-
-
-
+    'PresenceAndDevotion' => 'حضور وانصراف',
+    'Present' => 'حاضر',
+    'Late' => 'متأخر',
+    'Absent' => 'غائب'
 ];

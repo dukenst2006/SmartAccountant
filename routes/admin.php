@@ -24,6 +24,7 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::resource('supervisors', 'SupervisorController');
     Route::resource('employees', 'EmployeeController');
     Route::resource('employeeSalaryInfos', 'EmployeeSalaryInfoController');
+    Route::post('employeeSalaryInfos/{employeeSalaryInfo}/updatePresenceAndDevotion', 'EmployeeSalaryInfoController@updatePresenceAndDevotion')->name('employeeSalaryInfos.updatePresenceAndDevotion');
     Route::resource('marketplaces', 'MarketplaceController');
     Route::resource('products', 'ProductController');
     Route::get('productmoves', 'ProductMovesController@index')->name('productmoves');

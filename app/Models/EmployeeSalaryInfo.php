@@ -30,7 +30,8 @@ class EmployeeSalaryInfo extends Model
         'EmployeeID',
         'Allowances',
         'Deductions',
-        'Description'
+        'Description',
+        'PresenceAndDevotion'
     ];
 
     /**
@@ -43,7 +44,8 @@ class EmployeeSalaryInfo extends Model
         'EmployeeID' => 'integer',
         'Allowances' => 'float',
         'Deductions' => 'float',
-        'Description' => 'string'
+        'Description' => 'string',
+        'PresenceAndDevotion' => 'string'
     ];
 
     /**
@@ -55,7 +57,8 @@ class EmployeeSalaryInfo extends Model
         'EmployeeID' => 'required',
         'Allowances' => 'required',
         'Deductions' => 'required',
-        'Description' => 'required'
+        'Description' => 'required',
+        'PresenceAndDevotion' => 'required'
     ];
 
     /**
