@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        auth()->loginUsingId(1);
 
 //        $charts->register([
 //            \App\Charts\SampleChart::class
