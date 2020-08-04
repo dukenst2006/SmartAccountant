@@ -66,8 +66,65 @@ class EmployeeSalaryInfoController extends AppBaseController
 
 
     public function updatePresenceAndDevotion(Request $request,EmployeeSalaryInfo $employeeSalaryInfo){
+
+        if($employeeSalaryInfo->created_at->addHour(8) > \Carbon\Carbon::now()) {
+            return response()->json([
+                'status' => 400,
+                'success' => false,
+                'message' => 'انهت المدة الخاصة بتعديل غياب الموظف'
+            ], 200);
+        }
+
+
+        if($request->PresenceAndDevotion != 'Present') {
+            $this->calcEmployeeSalaryAfterDiscount($request, $employeeSalaryInfo->employee);
+        }
+
         $input = $request->except('_token','_method');
         $employeeSalaryInfo->update($input);
-        return response()->json(true, 200);
+
+        return response()->json([
+            'status' => 200,
+            'success' => true,
+            'message' => 'تم التعديل بنجاح'
+        ], 200);
+    }
+
+    private function calcEmployeeSalaryAfterDiscount($request, $employee)
+    {
+        $AbsenceDiscount = auth()->user()->settings;
+        $employeeSalary = $employee->Salary;
+
+        if($request->PresenceAndDevotion == 'Late') {
+            if($AbsenceDiscount->AbsenceDiscountType == 'Value') {
+                $employee->update([
+                    'Salary' => $employeeSalary - $AbsenceDiscount->AbsenceDiscountValue 
+                ]);
+            }
+
+            if($AbsenceDiscount->AbsenceDiscountType == 'Rate') {
+                $employee->update([
+                    'Salary' => ($AbsenceDiscount->AbsenceDiscountValue/100) - $employeeSalary
+                ]);
+            }
+
+            return true;
+        }
+
+        if($request->PresenceAndDevotion == 'Late') {
+            if($AbsenceDiscount->AbsenceDiscountType == 'Value') {
+                $employee->update([
+                    'Salary' => $employeeSalary - ($AbsenceDiscount->AbsenceDiscountValue/2) 
+                ]);
+            }
+
+            if($AbsenceDiscount->AbsenceDiscountType == 'Rate') {
+                $employee->update([
+                    'Salary' => (($AbsenceDiscount->AbsenceDiscountValue/2)/100) - $employeeSalary
+                ]);
+            }
+
+            return true;
+        }
     }
 }

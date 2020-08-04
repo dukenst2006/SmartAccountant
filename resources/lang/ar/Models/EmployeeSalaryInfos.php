@@ -8,6 +8,6 @@ return [
     'Description' => 'وصف',
     'PresenceAndDevotion' => 'حضور وانصراف',
     'Present' => 'حاضر',
-    'Late' => 'متأخر',
+    'Late' => 'نصف متأخر',
     'Absent' => 'غائب'
 ];
