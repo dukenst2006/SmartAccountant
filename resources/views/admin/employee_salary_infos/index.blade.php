@@ -3,7 +3,11 @@
 
 @section('content_header')
     <a href="{{route('admin.employees.show',$employee)}}">
-        <h1 class="mb-3"><i class="fas fa-file-invoice-dollar"></i> {{$employee->User->Name}}</h1>
+        <h1 class="mb-3">
+            <i class="fas fa-file-invoice-dollar"></i> {{$employee->User->Name}}</h1>
+        <br>
+        الفرع {{ $employee->marketplace->Name }}
+
     </a>
 @stop
 
@@ -18,16 +22,6 @@
                 <form class="p-3" action="{{route('admin.employeeSalaryInfos.store')}}" method="post">
                     @csrf
                     <input type="hidden" name="EmployeeID" value="{{$employee->id}}">
-                    <div class="row">
-                        <div class="form-group col-6">
-                            <label for="">{{__('Models/EmployeeSalaryInfos.Allowances')}}</label>
-                            <input type="number" class="form-control" value="0" name="Allowances">
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="">{{__('Models/EmployeeSalaryInfos.Deductions')}}</label>
-                            <input type="number" class="form-control" value="0" name="Deductions">
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label for="">{{__('Models/EmployeeSalaryInfos.Description')}}</label>
                         <textarea name="Description" id="" class="form-control" rows="10"></textarea>
