@@ -11,7 +11,8 @@ use App\Models\Invoice;
 use App\Repositories\{
     InvoiceRepository,
     ProductRepository,
-    EmployeeRepository
+    EmployeeRepository,
+    ProductCategory
 };
 class InvoiceController extends AppBaseController
 {
@@ -31,6 +32,7 @@ class InvoiceController extends AppBaseController
         * @var  RawInvoiceRepository
         */
         private $employeeRepository;
+
     public function __construct(InvoiceRepository $invoiceRepo ,  ProductRepository $productRepo, EmployeeRepository $employeeRepository)
     {
         $this->invoiceRepository = $invoiceRepo;
@@ -53,9 +55,11 @@ class InvoiceController extends AppBaseController
         return view('admin.Invoices.index', compact('rawInvoices'));
     }
     public  function sale(){
+        $ProductCategory = \App\Models\ProductCategory::query()->with(['productSubCategories', 'productSubCategories.products', 'products'])->where("MarketplaceOwnerID", $this->productRepository->GetMyOwner())->where("favourite",true)->get();
         return view('admin.Invoices.createSale')
             ->with(['payment_types'=>$this->invoiceRepository->GetDataForSelect('payment_types'),
-                    'products'=> $this->productRepository->GetTop10InWarehouse()
+                    'products'=> $this->productRepository->GetTop10InWarehouse(),
+                    'ProductCategory' => $ProductCategory
             ]);
     }
 
