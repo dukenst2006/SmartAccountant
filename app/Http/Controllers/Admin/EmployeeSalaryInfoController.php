@@ -66,7 +66,7 @@ class EmployeeSalaryInfoController extends AppBaseController
 
 
     public function updatePresenceAndDevotion(Request $request,EmployeeSalaryInfo $employeeSalaryInfo){
-
+        dd($request->all());
         if($employeeSalaryInfo->created_at->addHour(8) > \Carbon\Carbon::now()) {
             return response()->json([
                 'status' => 400,

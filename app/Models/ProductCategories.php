@@ -28,7 +28,8 @@ class ProductCategories extends Model
 
     public $fillable = [
         'MarketplaceID',
-        'Name'
+        'Name',
+        'favourite'
     ];
 
     /**
@@ -39,7 +40,8 @@ class ProductCategories extends Model
     protected $casts = [
         'id' => 'integer',
         'MarketplaceID' => 'integer',
-        'Name' => 'string'
+        'Name' => 'string',
+        'favourite' => 'integer'
     ];
 
     /**
