@@ -24,11 +24,19 @@
                 <td class="text-center">{{ $employeeSalaryInfo->Description }}</td>
                 
                 <td class="text-center">
-                    {!! Form::select('PresenceAndDevotion',[ 
-                    'Present' => __('Models/EmployeeSalaryInfos.Present'), 
-                    'Late' => __('Models/EmployeeSalaryInfos.Late'),
-                    'Absent' => __('Models/EmployeeSalaryInfos.Absent')
-                    ], $employeeSalaryInfo->PresenceAndDevotion,['class' => 'form-control', 'id' => 'PresenceAndDevotion']) !!}
+                    <form class="p-3" action="{{route('admin.employeeSalaryInfos.update',$employeeSalaryInfo)}}" method="post">
+                        @csrf_field
+                        {{ method_field('POST') }}
+                        <button type="submit" name="type" value="Present" class="btn btn-primary">
+                            {{ __('Models/EmployeeSalaryInfos.Present') }}
+                        </button>
+                        <button type="submit" name="type" value="Late" class="btn btn-warning">
+                            {{ __('Models/EmployeeSalaryInfos.Late') }}
+                        </button>
+                        <button type="submit" name="type" value="Absent" class="btn btn-danger">
+                            {{ __('Models/EmployeeSalaryInfos.Absent') }}
+                        </button>
+                    </form>
                 </td>
 
                 <td class="text-center">{{ $employeeSalaryInfo->created_at }}</td>
