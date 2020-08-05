@@ -98,6 +98,8 @@ class Marketplace extends Model
         'CompanyRegisterImage' => 'required',
     ];
 
+    public $with = ['inventory'];
+
     /**
      * @return BelongsTo
      **/

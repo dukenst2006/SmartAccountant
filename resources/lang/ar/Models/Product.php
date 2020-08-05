@@ -13,6 +13,7 @@ return [
     'Product' => 'المنتج',
     'Products' => 'المنتجات',
     'Quantity' => 'كمية',
+    'MarketplaceID' => 'ID المتجر',
     'QuantityTypeID' => "نوع الكمية",
     'PurchasingPrice' => "سعر الشراء",
     'SellingPrice' => 'سعر البيع',

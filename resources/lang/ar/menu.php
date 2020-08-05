@@ -41,6 +41,7 @@ return [
     'Categories' => 'إدارة الأصناف',
     'MainCategories' => 'الأصناف الرئيسة',
     'SubCategories' => 'الأصناف الفرعية',
+    'ProductMoves' => 'حركات المنتجات',
 
 
     'FinancialManagement' => 'الإدارة المالية',

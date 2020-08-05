@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 //   return view('home');
 //});
 
-
+Route::redirect('/','/login');
 Route::get('lang/{Language}', 'LocalizationController@index')->name('ChangeLanguage');
 Route::group(['prefix' => 'Admin'], function () {
 //'middleware' => ['role:super-admin'] ,
@@ -24,10 +24,15 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::resource('supervisors', 'SupervisorController');
     Route::resource('employees', 'EmployeeController');
     Route::resource('employeeSalaryInfos', 'EmployeeSalaryInfoController');
+    Route::post('employeeSalaryInfos/{employeeSalaryInfo}/updatePresenceAndDevotion', 'EmployeeSalaryInfoController@updatePresenceAndDevotion')->name('employeeSalaryInfos.updatePresenceAndDevotion');
     Route::resource('marketplaces', 'MarketplaceController');
     Route::resource('products', 'ProductController');
+    Route::get('productmoves', 'ProductMovesController@index')->name('productmoves');
+    Route::post('productmoves/move', 'ProductMovesController@move')->name('productmoves.move.to');
     Route::resource('productCategories', 'ProductCategoriesController');
+    Route::get('productCategories/{id}/favourite/{favourite}', 'ProductCategoryController@addRemoveCategoryFromFavourites')->name('productCategories.favourites');
     Route::resource('productSubCategories', 'ProductSubCategoryController');
+    Route::get('productSubCategories/{id}/favourite/{favourite}', 'ProductSubCategoryController@addRemoveSubCategoryFromFavourites')->name('productSubCategories.favourites');
     Route::get('safe', 'SafeController@index')->name('safe');
     Route::resource('productCategories', 'ProductCategoryController');
     Route::resource('productSubCategories', 'ProductSubCategoryController');
@@ -40,6 +45,8 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::resource('supplier-invoice', 'SupplierInvoiceController');
 
     Route::get('chat', 'ChatController@index')->name('chat');
+    Route::post('chat/store', 'ChatController@store')->name('chat.store');
+    Route::post('chat/{conversation}/destroy', 'ChatController@deleteMessages')->name('chat.destroy');
 
     Route::get('sale-invoices', 'InvoiceController@saleInvoicesIndex')->name('invoice.all');
     Route::get('invoicerawcreatesale', 'InvoiceController@sale')->name('invoice.createsale');
@@ -76,6 +83,7 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::get('BondAmmount', 'BondsController@CreateBondAmmount')->name('bondsammout.create');
     Route::post('BondAmmount/Store', 'BondsController@storeBondAmmount')->name('bondsammout.store');
 
+    Route::get('notifications', 'NotificationController@index')->name('notifications');
 
     Route::group(['namespace' => '\App\Http\Controllers\Reports'], function () {
 

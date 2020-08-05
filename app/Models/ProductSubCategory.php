@@ -29,7 +29,8 @@ class ProductSubCategory extends Model
 
     public $fillable = [
         'ProductCategoryID',
-        'Name'
+        'Name',
+        'favourite'
     ];
 
     /**
@@ -40,7 +41,8 @@ class ProductSubCategory extends Model
     protected $casts = [
         'ID' => 'integer',
         'ProductCategoryID' => 'integer',
-        'Name' => 'string'
+        'Name' => 'string',
+        'favourite' => 'boolean'
     ];
 
     /**

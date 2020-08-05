@@ -1,9 +1,9 @@
 @extends('adminlte::page')
-@section('title', 'Suppliers')
+@section('title', 'الموردين')
 
 @section('content_header')
     <h1>
-        Suppliers
+        {{__("General.Titles.Suppliers")}}
     </h1>
 @stop
 
@@ -13,7 +13,7 @@
         @include('adminlte-templates::common.errors')
         <div class="card box-primary col-12">
             <div class="card-header text-right">
-                <h3 class="card-title">Suppliers</h3>
+                <h3 class="card-title">{{__("General.Edit")}}</h3>
 
             </div>
             <div class="card-body">

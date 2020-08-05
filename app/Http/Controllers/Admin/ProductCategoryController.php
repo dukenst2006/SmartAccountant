@@ -12,6 +12,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
 use Response;
+use Illuminate\Http\Request;
 
 class ProductCategoryController extends AppBaseController
 {
@@ -154,6 +155,26 @@ class ProductCategoryController extends AppBaseController
         $this->productCategoryRepository->delete($id);
 
         Flash::success('Product Category deleted successfully.');
+
+        return redirect(route('admin.productCategories.index'));
+    }
+
+    /**
+     * Add or remove category from favourites
+     * 
+     * @param integer  $id  Category ID
+     * @param \Illuminate\Http\Request  $request  Request Object
+     */
+    public function addRemoveCategoryFromFavourites(int $id, int $favourite)
+    {
+        $productCategory = $this->productCategoryRepository->find($id);
+        if (!empty($productCategory)) {
+            $productCategory->favourite = $favourite;
+            $productCategory->save();
+            Flash::success('أضيف الصنف الرئيسي للمفضلات بنجاح');
+        } else {
+            Flash::error('الصنف الرئيسي غير موجود');
+        }
 
         return redirect(route('admin.productCategories.index'));
     }

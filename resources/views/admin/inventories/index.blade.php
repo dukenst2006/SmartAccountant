@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Stocks')
+@section('title', 'مخازن الفروع')
 
 @section('content_header')
     <h1>{{__('Models/Inventory.Header')}}</h1>
@@ -7,8 +7,8 @@
 
 @section('content')
     <div class="row justify-content-center">
-    <div class="col-md-8">
-        <h1>مستوي المنتجات في مخازن الفروع</h1>
+    <div class="col-md-8 my-4 chart-modifications ">
+        <h3 class="text-center my-3">مستوي المنتجات في مخازن الفروع</h3>
 
 
 

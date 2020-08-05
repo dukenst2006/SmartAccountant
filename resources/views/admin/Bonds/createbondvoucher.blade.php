@@ -1,15 +1,15 @@
 @extends('adminlte::page')
-@section('title', 'New Bond')
+@section('title', 'سند صرف')
 
 @section('content_header')
-    <h1>سند جديد</h1>
+    <h1>{{__('General.NewBond')}} </h1>
 @stop
 
 @section('content')
     <div class="row justify-content-center animated bounceInLeft">
 
         <div class="col-md-8">
-            <h2 class="mb-4 text-center" style="font-weight: 800;">إذن صرف كمية من المخزن </h2>
+            <h2 class="mb-4 text-center req-title" style="font-weight: 800;">إذن صرف كمية من المخزن </h2>
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">منتجات المخزن الرئيسي</h3>
@@ -35,25 +35,24 @@
                         <h3 class="card-title">تفاصيل الفاتورة</h3>
                     </div>
                     <div class="card-body p-0 " style="padding: 10px !important;">
-                        <div class="row">
-                            <div class="row col-sm-12 justify-content-center">
+                        <div class="">
+                            <div class="row justify-content-center">
 
-                                <div class="form-group " style="direction: rtl;width: 609px;">
-
-                                    <label class="form-check-label float-right" for="cusname"> اسم الموظف</label>
-
-
-                                    <input name="cusname" id="cusname" type="text" placeholder="اسم الموظف"
-                                           v-model="customrename" class=" text-center form-control input-lg mw-50"
-                                           style="    font-weight: 800;">
+                                <div class="row w-100 m-0 p-0" style="direction: rtl;width: 609px;">
+                                    <div class="form-group col-md-6">
+                                        <label class="form-check-label float-right mb-2" for="cusname"> اسم الموظف</label>
+                                        <input name="cusname" id="cusname" type="text" placeholder="اسم الموظف"
+                                               v-model="customrename" class=" text-center form-control input-lg mw-50"
+                                               style="    font-weight: 800;">
+                                    </div>
                                     <!-- Date Field -->
-                                    <div class="form-group">
+                                    <div class="form-group col-md-6">
                                         {!! Form::label('Date','التاريخ') !!}
                                         {!! Form::date('Date', null, ['class' => 'form-control','id'=>'Date', 'v-model'=>'bonddate'  ]) !!}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12">
+                            <div class="">
                                 <table style="direction: rtl;" id="product_table"
                                        class="table table-bordered table-hover dataTable dtr-inline calculateclass"
                                        role="grid">
@@ -83,12 +82,12 @@
                                         <td v-text="invoice_product.product_no" id='td_barcode'></td>
                                         <td v-text="invoice_product.product_name" id='td_name'></td>
                                         <td><input
-                                                   v-model="invoice_product.product_qty" type='number'
-                                                   class='text-center text-bold' id='td_quantity' value='1' min='0'
-                                                   step='1'></td>
+                                                    v-model="invoice_product.product_qty" type='number'
+                                                    class='text-center text-bold' id='td_quantity' value='1' min='0'
+                                                    step='1'></td>
 
                                         <td>
-                                            <textarea v-model="notes"  class='text-center text-bold' id='td_Notes'>
+                                            <textarea v-model="notes" class='text-center text-bold' id='td_Notes'>
                                             </textarea>
 
                                         </td>
@@ -127,7 +126,8 @@
                         style="font-family: cairo, serif; font-weight: 700;">
 
                     <i class="fas fa-fw fa-save"></i>
-                    حفظ                 </button>
+                    حفظ
+                </button>
 
 
             </div>
@@ -144,7 +144,7 @@
     <script>
         var _token = "{{ csrf_token() }}";
         $.ajaxSetup({headers: {'csrftoken': '{{ csrf_token() }}'}});
-        $.fn.select2.defaults.set( "theme", "bootstrap" );
+        $.fn.select2.defaults.set("theme", "bootstrap");
         $('#productselection').select2({
             theme: "bootstrap",
             width: null,
@@ -170,6 +170,7 @@
             templateResult: formatRepo,
             minimumInputLength: 1,
         });
+
         function formatRepo(product) {
             if (product.loading) {
                 return product.name;
@@ -191,7 +192,7 @@
                 product_name: selection.params.data.Name,
                 product_price: selection.params.data.SellingPrice,
                 product_qty: 1,
-                line_total:selection.params.data.SellingPrice,
+                line_total: selection.params.data.SellingPrice,
             });
 
 
@@ -208,9 +209,9 @@
             data: {
                 customrename: '',
                 notes: '',
-                bonddate:'',
+                bonddate: '',
                 invoice_products: [],
-                products:[],
+                products: [],
                 {{--products:@json($products)--}}
             },
             methods: {
@@ -250,8 +251,8 @@
                             data:
                                 JSON.stringify({
                                     'customername': this.customrename,
-                                    'deliverday':this.deliverday,
-                                    'bonddate':this.bonddate,
+                                    'deliverday': this.deliverday,
+                                    'bonddate': this.bonddate,
                                     'billitems': this.invoice_products,
                                     '_token': _token
                                 }),
@@ -303,8 +304,6 @@
                         this.invoice_products.splice(idx, 1);
                     }
                 },
-
-
 
 
             }

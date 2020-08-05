@@ -20,13 +20,22 @@
                 @method('patch')
                 <input type="hidden" name="EmployeeID" value="{{$employeeSalaryInfo->employee->id}}">
                 <div class="row">
-                    <div class="form-group col-6">
+                    <div class="form-group col-4">
                         <label for="">{{__('Models/EmployeeSalaryInfos.Allowances')}}</label>
                         <input type="number" class="form-control" value="{{$employeeSalaryInfo->Allowances}}" name="Allowances">
                     </div>
-                    <div class="form-group col-6">
+                    <div class="form-group col-4">
                         <label for="">{{__('Models/EmployeeSalaryInfos.Deductions')}}</label>
                         <input type="number" class="form-control" value="{{$employeeSalaryInfo->Deductions}}" name="Deductions">
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="">{{__('Models/EmployeeSalaryInfos.PresenceAndDevotion')}}</label>
+                        {!! Form::select('PresenceAndDevotion',[ 
+                        'Present' => __('Models/EmployeeSalaryInfos.Present'), 
+                        'Late' => __('Models/EmployeeSalaryInfos.Late'),
+                        'Absent' => __('Models/EmployeeSalaryInfos.Absent')
+                        ], $employeeSalaryInfo->PresenceAndDevotion,['class' => 'form-control']) !!}
+
                     </div>
                 </div>
                 <div class="form-group">

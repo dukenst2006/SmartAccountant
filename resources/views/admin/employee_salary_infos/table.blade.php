@@ -7,7 +7,8 @@
             <th class="text-center">{{__('Models/EmployeeSalaryInfos.Allowances')}}</th>
             <th class="text-center">{{__('Models/EmployeeSalaryInfos.Deductions')}}</th>
             <th class="text-center">{{__('Models/EmployeeSalaryInfos.Description')}}</th>
-
+            <th class="text-center">{{__('Models/EmployeeSalaryInfos.PresenceAndDevotion')}}</th>
+            <th class="text-center">التاريخ</th>
             <th colspan="3">{{__('Buttons.Action')}}</th>
         </tr>
         </thead>
@@ -21,6 +22,25 @@
                 <td class="text-center">{{ $employeeSalaryInfo->Deductions }}</td>
 
                 <td class="text-center">{{ $employeeSalaryInfo->Description }}</td>
+                
+                <td class="text-center">
+                    <form class="p-3" action="{{route('admin.employeeSalaryInfos.update',$employeeSalaryInfo)}}" method="post">
+                        @csrf_field
+                        {{ method_field('POST') }}
+                        <button type="submit" name="type" value="Present" class="btn btn-primary">
+                            {{ __('Models/EmployeeSalaryInfos.Present') }}
+                        </button>
+                        <button type="submit" name="type" value="Late" class="btn btn-warning">
+                            {{ __('Models/EmployeeSalaryInfos.Late') }}
+                        </button>
+                        <button type="submit" name="type" value="Absent" class="btn btn-danger">
+                            {{ __('Models/EmployeeSalaryInfos.Absent') }}
+                        </button>
+                    </form>
+                </td>
+
+                <td class="text-center">{{ $employeeSalaryInfo->created_at }}</td>
+
                 <td>
                     <form action="{{route('admin.employeeSalaryInfos.destroy',$employeeSalaryInfo)}}" method="post">
                         @csrf
@@ -39,6 +59,56 @@
     </table>
 </div>
 
+@push('styles')
+<style>
+    select option {
+      margin: 40px;
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    }
 
+    select option[value="Present"] {
+      color: green;
+    }
 
+    select option[value="Late"] {
+      color: blue;
+    }
+
+    select option[value="Absent"] {
+      color: red;
+    }
+</style>
+@endpush
+
+@push('scripts')
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $(document).ready(function(){
+            $("#PresenceAndDevotion").change(function(e){
+                e.preventDefault();
+                let selectedValue = $(this).children("option:selected").val();
+                $.ajax({
+                   type:'POST',
+                    dataType: 'json',
+                    'contentType': 'application/json',
+                   url: '{{route('admin.employeeSalaryInfos.updatePresenceAndDevotion',$employeeSalaryInfo->id)}}',
+                   data: JSON.stringify({
+                            employeeSalaryInfo: {{ $employeeSalaryInfo->id }},
+                            PresenceAndDevotion: selectedValue
+                        }),
+                   success:function(data){
+                        swal.fire("PresenceAndDevotion", "Presence successfully Updated!", "success");
+                   }
+
+                });
+            });
+        });
+    </script>
+@endpush
 

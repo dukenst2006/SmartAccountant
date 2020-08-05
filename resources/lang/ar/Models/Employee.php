@@ -12,5 +12,6 @@ return [
     'EmploymentContractImage' => 'صورة عقد التوظيف',
     'IBAN' => 'رقم الحساب البنكي',
     'Sex' => 'الجنس',
-    'Salary' => 'الراتب'
+    'Salary' => 'الراتب',
+    'create' => 'انشاء'
 ];

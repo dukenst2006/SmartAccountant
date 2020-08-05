@@ -1,4 +1,5 @@
 @extends('adminlte::page')
+@section('title', 'المنتجات')
 @section('content')
     <div class="container pt-3">
 
@@ -12,7 +13,7 @@
                             <option value="{{$M->id}}">{{$M->Name}}</option>
                         @endforeach
                     </select>
-                    <button type="submit" class="btn btn-success">{{__('money.search')}}</button>
+                    <button type="submit" class="btn btn-success mt-2 px-4">{{__('money.search')}}</button>
                 </div>
             </form>
         </div>

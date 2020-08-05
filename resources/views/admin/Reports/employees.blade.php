@@ -1,12 +1,12 @@
 @extends('adminlte::page')
-@section('title', 'Stocks')
+@section('title', 'الموظفين')
 
 @section('content_header')
 @stop
 
 @section('content')
     <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-8 chart-modifications">
 
 
 
@@ -42,7 +42,7 @@
         </div>
         <table class="table table-bordered m-3">
             <thead class="thead-light">
-                <tr>
+                <tr style="background-color: #053395b5 !important;color: #FFF">
                     <td>#</td>
                     <td>{{__('employee.name')}}</td>
                     <td>{{__('Models/Employee.JobTitle')}}</td>

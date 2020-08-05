@@ -20,20 +20,7 @@
 @php( $password_reset_url = $password_reset_url ? url($password_reset_url) : '' )
 @endif
 
-
 @section('auth_body')
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="log-in-t">
     <div class="container " dir="ltr">
         <div class="  main-login flex-column">

@@ -40785,6 +40785,17 @@ var Layout = function ($) {
     var sideValHeight = logoHeight + brandHeight;
     $('.sidebar').css('height', "calc(99vh - ".concat(sideValHeight, "px)"));
   }, 3000);
+  $('body').removeClass('os-host-overflow os-host');
+  setTimeout(function () {
+    $('body').removeClass('os-host-overflow os-host');
+  }, 100);
+  $('body').removeClass('os-host-overflow os-host');
+  setTimeout(function () {
+    $('body').removeClass('os-host-overflow os-host');
+  }, 1000);
+  setTimeout(function () {
+    $('body').removeClass('os-host-overflow os-host');
+  }, 3000);
   /**
    * jQuery API
    * ====================================================

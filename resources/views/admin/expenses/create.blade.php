@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Expenses')
+@section('title', 'المصروفات')
 
 @section('content_header')
         <h1> @lang('Models/Expenses.Expenses')</h1>

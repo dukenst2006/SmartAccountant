@@ -1,9 +1,9 @@
 @extends('adminlte::page')
-@section('title', 'Marketplace')
+@section('title', ' المتاجر')
 
 @section('content_header')
      <h1>
-            {{__("menu.Marketplaces")}}}
+            {{__("menu.Marketplaces")}}
         </h1>
 @stop
 

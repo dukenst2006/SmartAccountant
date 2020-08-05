@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Stocks')
+@section('title', 'المصروفات')
 
 @section('content_header')
 @stop
@@ -43,17 +43,15 @@
                     </form>
                 </div>
             </div>
-
-
-            <div id="chart">
-
-                {!! $expensechart->container() !!}
-
-            </div>
-
-            <table class="table table-bordered text-center">
-                <thead class="thead-dark">
-                    <tr>
+           <div class="chart-modifications">
+               <div id="chart">
+                   {!! $expensechart->container() !!}
+               </div>
+           </div>
+            <div class="overflow-auto">
+                <table class="table table-bordered text-center" style="min-width: 700px">
+                    <thead class="">
+                    <tr style="background-color: #3b5998;color: #FFF">
                         <th>#</th>
                         <th>{{__('Models/Expenses.Price')}}</th>
                         <th>{{__('Models/Expenses.Name')}}</th>
@@ -62,8 +60,8 @@
                         <th>{{__('Models/Expenses.ExpensesMainCategory')}}</th>
                         <th>{{__('Models/Expenses.ExpensesSubCategory')}}</th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     @foreach($expensesTable as $E)
                         <tr>
                             <td>{{$E->id}}</td>
@@ -75,8 +73,9 @@
                             <td>{{$E->expensessubcategory->Name}}</td>
                         </tr>
                     @endforeach
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
             {{$expensesTable->links()}}
         </div>
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBondAmmountsTable extends Migration
+class AddPresenceToEmployeeSalaryInfos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateBondAmmountsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bond_ammounts', function (Blueprint $table) {
-            $table->id();
-            $table->string('client_name');
-            $table->date('ammount_date');
-            $table->double('ammount');
-            $table->timestamps();
+        Schema::table('employee_salary_infos', function (Blueprint $table) {
+            $table->string('PresenceAndDevotion')->nullable();
         });
     }
 
@@ -29,6 +25,8 @@ class CreateBondAmmountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bond_ammounts');
+        Schema::table('employee_salary_infos', function (Blueprint $table) {
+            $table->dropColumn('PresenceAndDevotion');
+        });
     }
 }

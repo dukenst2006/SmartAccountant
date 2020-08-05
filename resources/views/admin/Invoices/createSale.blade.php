@@ -7,7 +7,263 @@
 
 @section('content')
 
+    <!-- Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-xl" style="max-height: 600px; overflow: auto;">
+            <div class="modal-content content">
+                <div class="modal-header card-header">
+                    <h5 class="modal-title" id="productLabel">الأصناف المفضلة</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"
+                            style="margin: -1rem auto -1rem -1rem;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="cep">
+                                <div class="text-center">
+                                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
+                                        النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
+                                        زيادة عدد الحروف التى يولدها التطبيق.</p>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-default border-0 bg-transparent eye-mdl" data-toggle="modal"
+                                            data-target="#productsModal"><i class="fas fa-eye fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="cep">
+                                <div class="text-center">
+                                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
+                                        النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
+                                        زيادة عدد الحروف التى يولدها التطبيق.</p>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-default border-0 bg-transparent eye-mdl" data-toggle="modal"
+                                            data-target="#productsModal"><i class="fas fa-eye fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="cep">
+                                <div class="text-center">
+                                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
+                                        النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
+                                        زيادة عدد الحروف التى يولدها التطبيق.</p>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-default border-0 bg-transparent eye-mdl" data-toggle="modal"
+                                            data-target="#productsModal"><i class="fas fa-eye fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="cep">
+                                <div class="text-center">
+                                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
+                                        النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
+                                        زيادة عدد الحروف التى يولدها التطبيق.</p>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-default border-0 bg-transparent eye-mdl" data-toggle="modal"
+                                            data-target="#productsModal"><i class="fas fa-eye fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="cep">
+                                <div class="text-center">
+                                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
+                                        النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
+                                        زيادة عدد الحروف التى يولدها التطبيق.</p>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-default border-0 bg-transparent eye-mdl" data-toggle="modal"
+                                            data-target="#productsModal"><i class="fas fa-eye fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="cep">
+                                <div class="text-center">
+                                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
+                                        النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
+                                        زيادة عدد الحروف التى يولدها التطبيق.</p>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-default border-0 bg-transparent eye-mdl" data-toggle="modal"
+                                            data-target="#productsModal"><i class="fas fa-eye fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="productsModal" tabindex="-1" role="dialog" aria-labelledby="productsModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content content">
+                <div class="modal-header card-header">
+                    <h5 class="modal-title" id="productsLabel">المنتجات</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"
+                            style="margin: -1rem auto -1rem -1rem;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="cep">
+                                <div class="text-center">
+                                    <img class="w-100 img-pdt"
+                                         src="https://www.webulousthemes.com/wp-content/uploads/2017/02/installation-icon.png"
+                                         alt="">
+                                </div>
+                                <div class="my-3">
+                                    <h5 class="text-center"><b>السعر:</b> <span>5 $</span></h5>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-default border-0 bg-transparent eye-mdl text-success"><i
+                                            class="fas fa-plus-circle fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="cep">
+                                <div class="text-center">
+                                    <img class="w-100 img-pdt"
+                                         src="https://www.webulousthemes.com/wp-content/uploads/2017/02/installation-icon.png"
+                                         alt="">
+                                </div>
+                                <div class="my-3">
+                                    <h5 class="text-center"><b>السعر:</b> <span>5 $</span></h5>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-default border-0 bg-transparent eye-mdl text-success"><i
+                                            class="fas fa-plus-circle fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="cep">
+                                <div class="text-center">
+                                    <img class="w-100 img-pdt"
+                                         src="https://www.webulousthemes.com/wp-content/uploads/2017/02/installation-icon.png"
+                                         alt="">
+                                </div>
+                                <div class="my-3">
+                                    <h5 class="text-center"><b>السعر:</b> <span>5 $</span></h5>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-default border-0 bg-transparent eye-mdl text-success"><i
+                                            class="fas fa-plus-circle fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="cep">
+                                <div class="text-center">
+                                    <img class="w-100 img-pdt"
+                                         src="https://www.webulousthemes.com/wp-content/uploads/2017/02/installation-icon.png"
+                                         alt="">
+                                </div>
+                                <div class="my-3">
+                                    <h5 class="text-center"><b>السعر:</b> <span>5 $</span></h5>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-default border-0 bg-transparent eye-mdl text-success"><i
+                                            class="fas fa-plus-circle fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="cep">
+                                <div class="text-center">
+                                    <img class="w-100 img-pdt"
+                                         src="https://www.webulousthemes.com/wp-content/uploads/2017/02/installation-icon.png"
+                                         alt="">
+                                </div>
+                                <div class="my-3">
+                                    <h5 class="text-center"><b>السعر:</b> <span>5 $</span></h5>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-default border-0 bg-transparent eye-mdl text-success"><i
+                                            class="fas fa-plus-circle fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="cep">
+                                <div class="text-center">
+                                    <img class="w-100 img-pdt"
+                                         src="https://www.webulousthemes.com/wp-content/uploads/2017/02/installation-icon.png"
+                                         alt="">
+                                </div>
+                                <div class="my-3">
+                                    <h5 class="text-center"><b>السعر:</b> <span>5 $</span></h5>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-default border-0 bg-transparent eye-mdl text-success"><i
+                                            class="fas fa-plus-circle fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="cep">
+                                <div class="text-center">
+                                    <img class="w-100 img-pdt"
+                                         src="https://www.webulousthemes.com/wp-content/uploads/2017/02/installation-icon.png"
+                                         alt="">
+                                </div>
+                                <div class="my-3">
+                                    <h5 class="text-center"><b>السعر:</b> <span>5 $</span></h5>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-default border-0 bg-transparent eye-mdl text-success"><i
+                                            class="fas fa-plus-circle fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="cep">
+                                <div class="text-center">
+                                    <img class="w-100 img-pdt"
+                                         src="https://www.webulousthemes.com/wp-content/uploads/2017/02/installation-icon.png"
+                                         alt="">
+                                </div>
+                                <div class="my-3">
+                                    <h5 class="text-center"><b>السعر:</b> <span>5 $</span></h5>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-default border-0 bg-transparent eye-mdl text-success"><i
+                                            class="fas fa-plus-circle fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
     <div class="row justify-content-center animated bounceInLeft">
+        <div class="col-md-12 my-4">
+            <button id="productsFav" class="btn btn-info" data-toggle="modal" data-target="#productModal" ><i class="fas fa-star"></i>   الأصناف المفضلة </button>
+
+
+
+        </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
@@ -424,6 +680,7 @@
 
 @section('adminlte_css')
     <link rel="stylesheet" href="{{asset('css/xselect2-bootstrap.min.css')}}">
+
 
 @endsection
 

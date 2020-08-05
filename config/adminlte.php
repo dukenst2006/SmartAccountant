@@ -389,6 +389,8 @@ return [/*
 
 
         [
+
+            'role'  => 'User',
             'text' => 'Products',
             'icon' => 'fas fa fa-cube',
             'submenu' => [
@@ -404,6 +406,16 @@ return [/*
 
             ],
         ],
+
+
+        [
+            'text' => 'ProductMoves',
+            'icon' => 'fas fa fa-truck-loading',
+            'url' => 'Admin/productmoves',
+        ],
+
+
+
 
         [
             'text' => 'Categories',
@@ -430,12 +442,12 @@ return [/*
             'icon' => 'fas fa-fw fa-donate',
             'icon_color' => 'orange',
             'submenu' => [
-                [
-                    'text' => 'BondVoucher',
-                        'route' => 'admin.bondsvoucher.create',
-                    'icon' => 'fas fa-truck-loading',
-                ],
 
+                [
+                    'text' => 'BondAmount',
+                    'route' => 'admin.bondsammout.create',
+                    'icon' => 'fa fa-donate',
+                ],
                 [
                     'text' => 'Treasury',
                     'route' => 'admin.treasure',
@@ -492,9 +504,9 @@ return [/*
             'icon' => 'fas fa-fw fa-money-bill-alt',
             'submenu' => [
                 [
-                    'text' => 'BondAmount',
-                    'route' => 'admin.bondsammout.create',
-                    'icon' => 'fa fa-donate',
+                    'text' => 'BondVoucher',
+                    'route' => 'admin.bondsvoucher.create',
+                    'icon' => 'fas fa-truck-loading',
                 ],
 
                 [
@@ -621,7 +633,8 @@ return [/*
         JeroenNoten\LaravelAdminLte\Menu\Filters\SearchFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\ActiveFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
-        JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
+        //JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
+        App\Helpers\MenuPermissionFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\LangFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\DataFilter::class,
     ],

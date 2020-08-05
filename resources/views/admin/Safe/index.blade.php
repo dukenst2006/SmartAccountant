@@ -1,15 +1,15 @@
 @extends('adminlte::page')
-@section('title', 'Safe')
+@section('title', 'الخزنة')
 
 @section('content_header')
-    <h1><i class="fas fa-money-bill-wave"></i> الخزنة </h1>
+    <h1><i class="fas fa-money-bill-wave"></i> {{__('General.Titles.Safe')}} </h1>
 @stop
 
 @section('content')
     <div id="root">
             <div class="row justify-content-center animated slideInDown ">
             <div class="card card-primary col-8 overflow-hidden">
-                <div class="card-body">
+                <div class="card-body p-0" style="padding: 0 !important;">
                     <div class="row" style="border-bottom: 5px solid #5b75b5;">
 
                         <div class="form-group col-12 p-3">
@@ -40,9 +40,9 @@
                             <div class="card-header main-bg-blu-color">
                                 <h4 class="mb-0 text-white text-center" >اخر الحركات المالية  مباشر </h4>
                             </div>
-                            <div class="card-body">
+                            <div class="">
                                 <table style="direction: rtl;" id="product_table"
-                                       class="table table-bordered  table-striped table-hover dataTable dtr-inline calculateclass"
+                                       class="table mb-0 table-bordered  table-striped table-hover dataTable dtr-inline calculateclass"
                                        role="grid">
                                     <thead>
                                     <tr class="text-center" role="row">
@@ -109,9 +109,9 @@
                             <div class="card-header main-bg-blu-color">
                                 <h4 class="mb-0 text-white text-center">  اخر الحركات المالية <small style="font-size: 70%;"> ( الحركه الماليه الماضيه يتم تحديثها بتوقيت ١٢ مساءًً )</small></h4>
                             </div>
-                            <div class="card-body">
+                            <div class="">
                                 <table style="direction: rtl;" id="product_table"
-                                       class="table table-bordered  table-striped table-hover dataTable dtr-inline calculateclass"
+                                       class="table mb-0 table-bordered  table-striped table-hover dataTable dtr-inline calculateclass"
                                        role="grid">
                                     <thead>
                                     <tr class="text-center" role="row">

@@ -25,16 +25,19 @@ class ChatController extends Controller
     public function index()
     {
         $conversations = auth()->user()->conversations();
-        return view('admin.Messages.chat')->with(['users'=>$this->userRepository->all()]);
+        return view('admin.Messages.chat')->with([ 'users'=>$this->userRepository->all(), 'conversations' => $conversations ]);
 
     }
 
     public function store()
     {
-        $participants = [auth()->user()->id];
+        // $participants = [auth()->user()->id];
+        $participants = request()->participants;
+        $conversationID = request()->conversationID;
+        $message = request()->message;
         $conversation = Chat::createConversation($participants);
 
-        return response($conversation);
+        return response()->json($conversation, 200);
     }
 
     public function participants($conversationId)
@@ -65,7 +68,7 @@ class ChatController extends Controller
     public function deleteMessages(Conversation $conversation)
     {
         Chat::conversation($conversation)->for(auth()->user())->clear();
-        return true;
+        return response()->json(['success' => true], 200);
     }
 
     public function sendMessage(Request $request, Conversation $conversation)

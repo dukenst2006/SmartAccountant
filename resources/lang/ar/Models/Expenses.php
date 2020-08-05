@@ -10,6 +10,7 @@ return [
         'Date' =>'التاريخ',
         'Expenses' =>'المصروفات',
         'ExpensesCategory' => 'اقسام المصروفات',
+        'ExpensesCategoryID' => 'معرف قسم المصروفات',
         'ExpensesMainCategory' => 'اقسام المصروفات الاساسية',
         'ExpensesSubCategory' => ' اقسام المصروفات الفرعيه',
 

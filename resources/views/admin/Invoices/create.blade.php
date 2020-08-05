@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <div class="form-group col-md-12">
                             <label for="productselection">
-                                Products
+                                المنتجات
                             </label>
                             <select class="form-control select2-selection--single" id="productselection"></select>
                         </div>
@@ -109,13 +109,11 @@
                                                    min="0" step="1">
 
                                             <button @click="completedinvoice" id="complete"
-                                                    class="btn btn-success btn-sm">
+                                                    class="btn btn-success btn-sm rounded-0">
 
                                                 <i class="fas fa-fw fa-check-circle"></i>
 
                                             </button>
-
-
                                         </td>
                                     </tr>
 

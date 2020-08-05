@@ -1,5 +1,6 @@
 @extends('adminlte::page')
-@section('title', 'Expenses Sub Categories')
+@section('title', 'اقسام المصروفات الفرعية')
+
 
 @section('content_header')
         <h1>{{__('Models/Expenses.ExpensesSubCategory')}}</h1>
@@ -11,7 +12,7 @@
         @include('adminlte-templates::common.errors')
         <div class="card box-primary">
         <div class="card-header">
-                    <h3 class="card-title">{{__('Models/Expenses.ExpensesSubCategory')}}</h3>
+                    <h3 class="card-title">{{__('General.Create')}}</h3>
                 </div>
             <div class="card-body">
                     {!! Form::open(['route' => 'admin.expensesSubCategories.store']) !!}

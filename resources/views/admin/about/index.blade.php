@@ -1,15 +1,16 @@
 @extends('adminlte::page')
+@section('title', 'عن البرنامج')
 @section('content')
 
 
 <div class="alert alert-danger alert-dismissible pr-3">
-    <h1><i class="icon fas fa-exclamation-circle"></i> {{__('General.About.Important instruction')}}</h1>
-    ...
+    <h2><i class="icon fas fa-exclamation-circle"></i> {{__('General.About.Important instruction')}}</h2>
+
 </div>
 
 
 <div class="alert alert-success alert-dismissible pr-3">
-    <h4> <i class="icon fas fas fas fa-shield-alt"></i>
+    <h4 class="mb-0"> <i class="icon fas fas fas fa-shield-alt"></i>
         {{__("General.About.You now using licensed version")}}
         1.0</h4>
 </div>
@@ -17,7 +18,7 @@
 
     <div>
 
-        <table class="table table-hover table-dark">
+        <table class="table table-hover table-border">
                 <thead>
                     <tr>
                         <th>#</th>

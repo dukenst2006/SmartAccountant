@@ -1,4 +1,5 @@
 @extends('adminlte::page')
+@section('title', 'اقسام المصروفات')
 @section('content')
     <div class="content-header">
         <div class="container-fluid">

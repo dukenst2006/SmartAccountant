@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Suppliers')
+@section('title', 'فواتير الموردين ')
 
 @section('content_header')
     <h1>{{__('Models/SupplierInvoices.SupplierInvoice')}}</h1>
@@ -56,7 +56,7 @@
                                 {!! Form::textarea('Description',  __('Models/SupplierInvoices.note') , ['class' => 'form-control']) !!}
                             </div>
 
-                            <div class="form-group col-sm-12 dolamah">
+                            <div class="form-group col-sm-12 dolamah text-right">
                                 <button type="submit" class="btn btn-lg btn-success">{{ __('Buttons.Save') }}</button>
                                 <button class="btn btn-lg btn-default">{{ __('Buttons.Cancel') }}</button>
                             </div>

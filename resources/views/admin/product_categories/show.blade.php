@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Product Categories')
+@section('title', 'الأصناف الرئيسية')
 
 @section('content_header')
     <h1>Product Category</h1>
@@ -21,7 +21,7 @@
 
               <div class="card-body">
 
-                 <form >
+                 <form class="form-shape" >
                     @include('admin.product_categories.show_fields')
                     <a href="{{ route('admin.productCategories.index') }}" class="btn btn-warning"><i class="fas fa-backward" style="cursor: pointer;"></i>Back</a>
                 </form>

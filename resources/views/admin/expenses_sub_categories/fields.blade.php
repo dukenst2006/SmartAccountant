@@ -1,12 +1,12 @@
 <!-- Expensescategoryid Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('ExpensesCategoryID', 'قسم المصروفات الفرعية:') !!}
+    {!! Form::label('ExpensesCategoryID', __('Models/ExpensesSubCategory.ExpensesCategoryID')) !!}
     {!! Form::select('ExpensesCategoryID',$categories, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Name', 'الإسم:') !!}
+    {!! Form::label('Name', __('Models/ExpensesSubCategory.Name')) !!}
     {!! Form::text('Name', null, ['class' => 'form-control']) !!}
 </div>
 

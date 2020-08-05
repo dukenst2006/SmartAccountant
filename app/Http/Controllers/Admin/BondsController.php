@@ -67,10 +67,7 @@ class BondsController extends AppBaseController
         $billitems = request()->billitems;
         $productsIDs = array_column(request()->billitems, 'product_no');
         $products = Product::whereIn('id', $productsIDs)->get();
-
 //        foreach ($billitems as $key => $bill) {
-//
-
 //                    $this->BondsVouchersRepository->createNewBondVoucher(request()->customername, request()->bonddate, $bill);
                     $bond = BondsVouchers::create([
                         "MarketplaceOwnerID" => 1,
@@ -80,7 +77,13 @@ class BondsController extends AppBaseController
                     foreach ($billitems as $key => $item){
                         if($products[$key]->id == $item['product_no']) {
                             if($item['product_qty'] <= $products[$key]->Quantity) {
-                                BoundVoucherItem::query()->create(['BondVouchersID'=>$bond->id,'ProductID'=>$item['product_no'],'Quantity'=>$item['product_qty']]);
+                                $bonditem = new BoundVoucherItem();
+                                $bonditem->BondVouchersID = $bond->id;
+                                $bonditem->ProductID = $item['product_no'];
+                                $bonditem->Quantity = $item['product_qty'];
+                                $bonditem->save();
+                            } else {
+                                return response()->json('الكمية المطلوبة اكثر مما يوجد بالمخازن', 400);
                             }
                         }
                     }

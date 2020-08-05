@@ -75,27 +75,42 @@
 <li class="nav-item dropdown mx-2">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
         <i class="far fa-bell"></i>
-        <span class="badge badge-warning navbar-badge">15</span>
+        <span class="badge badge-warning navbar-badge">
+            {{ $notifications->count() }}
+        </span>
     </a>
     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-        <span class="dropdown-item dropdown-header">15 Notifications</span>
+        <span class="dropdown-item dropdown-header">
+            {{ $notifications->count() }} Notifications
+        </span>
         <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
+{{--         <a href="#" class="dropdown-item">
             <i class="fas fa-envelope mr-2"></i> 4 new messages
             <span class="float-left text-muted text-sm">3 mins</span>
-        </a>
-        <div class="dropdown-divider"></div>
+        </a> --}}
+{{--         <div class="dropdown-divider"></div>
         <a href="#" class="dropdown-item">
             <i class="fas fa-users mr-2"></i> 8 friend requests
             <span class="float-left text-muted text-sm">12 hours</span>
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-left text-muted text-sm">2 days</span>
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </a> --}}
+        @if(!empty($notifications))
+        @foreach($notifications as $notification)
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+                <i class="fas fa-file mr-2"></i>
+                {{ $notification->data['message'] }}
+                <span class="float-left text-muted text-sm">
+                    {{ $notification->created_at->diffForHumans() }}
+                </span>
+            </a>
+            <div class="dropdown-divider"></div>
+        @endforeach
+        @else
+            <div class="dropdown-divider"></div>
+                <p class="text-center">لا توجد اشعارات جديدة</p>
+            <div class="dropdown-divider"></div>
+        @endif
+        <a href="{{ route('admin.notifications') }}" class="dropdown-item dropdown-footer">مشاهدة جميع الإشعارات</a>
     </div>
 </li>
 <li class="nav-item dropdown user-menu mx-2">

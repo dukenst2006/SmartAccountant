@@ -44,7 +44,7 @@
         <!-- template rtl version -->
         <link rel="stylesheet" href="{{asset('admin/dist/css/custom-style.css')}}">
     @endif
-
+    @stack('styles')
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -126,6 +126,7 @@
 <script src="{{asset('admin/dist/js/demo.js')}}"></script>
 <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 @yield('javascript')
+@stack('scripts')
 @include('sweetalert::alert')
 </body>
 </html>

@@ -1,7 +1,7 @@
 <div class="table-responsive">
-    <table class="table table table-hover table-bordered table-dark " id="inventories-table ">
+    <table class="table table table-hover table-bordered  " id="inventories-table ">
         <thead>
-        <tr>
+        <tr style="background-color: #053395b5;color: #FFF">
             <th class="text-center">{{__('Models/Marketplace.Name')}}</th>
             <th class="text-center">{{__('Models/Inventory.ProductCount')}}</th>
 

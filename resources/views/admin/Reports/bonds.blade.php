@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Stocks')
+@section('title', 'السندات')
 
 @section('content_header')
 @stop
@@ -106,7 +106,7 @@
             </div>
         </div>
     @else
-            <div class="row text-center"><h1> لا يوجد اي سندات مضافة</h1></div>
+            <div class="row text-center"><h3 class="text-center my-3 w-100"> لا توجد اي سندات مضافة</h3></div>
 
  @endif
 

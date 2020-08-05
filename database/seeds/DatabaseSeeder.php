@@ -13,14 +13,11 @@ class DatabaseSeeder extends Seeder
      */
 
 
-
-
-
     public function run()
     {
-        ProductMovementType::create(['Description' => 'من المخزن الرئيسي الي مخزن الفرع']);
-        ProductMovementType::create([ 'Description'=>'من مخزن الفرع الي المخزن الرئيسي' ]);
-        ProductMovementType::create([ 'Description'=>'سند صرف بضاعه' ]);
+        ProductMovementType::create(['Name' => 'من المخزن الرئيسي الي مخزن الفرع']);
+        ProductMovementType::create([ 'Name'=>'من مخزن الفرع الي المخزن الرئيسي' ]);
+        ProductMovementType::create([ 'Name'=>'سند صرف بضاعه' ]);
 
         $QuantityTypeSeeder =new QuantityTypeSeeder();
         $QuantityTypeSeeder->run();
@@ -32,6 +29,7 @@ class DatabaseSeeder extends Seeder
 
 
 
+        factory(App\Models\User::class, 10)->create();
         factory(App\Models\MarketplaceOwner::class, 10)->create();
 
 //      factory(App\Models\Stock::class, 10)->create();

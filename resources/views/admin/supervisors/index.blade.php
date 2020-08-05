@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Supervisors')
+@section('title', 'موظفى الإدارة')
 
 @section('content_header')
         <h1>{{__("menu.Supervisors")}}</h1>

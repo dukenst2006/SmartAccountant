@@ -1,5 +1,6 @@
 @extends('adminlte::page')
-@section('title', 'Expenses Sub Categories')
+@section('title', 'اقسام المصروفات الفرعية')
+
 
 @section('content_header')
     <h1>{{__('Models/Expenses.ExpensesSubCategory')}}</h1>
@@ -21,9 +22,9 @@
 
               <div class="card-body">
 
-                 <form >
+                 <form class="form-shape" >
                     @include('admin.expenses_sub_categories.show_fields')
-                    <a href="{{ route('admin.expensesSubCategories.index') }}" class="btn btn-warning"><i class="fas fa-backward" style="cursor: pointer;"></i>Back</a>
+                    <a href="{{ route('admin.expensesSubCategories.index') }}" class="btn btn-info"><i class="fas fa-backward" style="cursor: pointer;"></i> رجوع </a>
                 </form>
 
 

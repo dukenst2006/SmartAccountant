@@ -15,6 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        auth()->loginUsingId(1);
+
 //        $charts->register([
 //            \App\Charts\SampleChart::class
 //        ]);
@@ -27,8 +29,11 @@ class AppServiceProvider extends ServiceProvider
 //                $query->time
 //            );
 //        });
-\Schema::defaultStringLength(191);
+		\Schema::defaultStringLength(191);
 
+        view()->composer('vendor.adminlte.partials.navbar.menu-item-dropdown-user-menu', function ($view) {
+            $view->with('notifications', auth()->user()->notifications()                            ->orderBy('created_at', 'DESC'));
+        });
 
     }
 }
