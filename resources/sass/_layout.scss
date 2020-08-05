@@ -779,8 +779,8 @@ tfoot {
 
 
     .os-host-overflow > .os-padding, .os-host-overflow, .os-host-overflow > .os-padding, .os-host-overflow, .os-host, .os-host-overflow > .os-padding, .os-host-overflow {
-        overflow: auto;
-    !important;
+        overflow: auto !important;
+
     }
 
     .os-host-overflow,
@@ -893,4 +893,23 @@ thead tr {
 }
 .content-header {
     margin-bottom: 20px;
+}
+
+.cep {
+    box-shadow: 2px 2px 5px #DDD, -2px -2px 5px #DDD;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.cep p {
+    height: 105px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.eye-mdl {
+    color: #5b75b5;
+}
+.img-pdt {
+    object-fit: cover;
+    height: 150px;
 }
