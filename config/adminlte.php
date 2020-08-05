@@ -246,6 +246,22 @@ return [/*
                 ],
             ],
         ],
+        [
+            'text' => 'MarketplaceOwners',
+            'icon' => 'fas fa fa-market',
+            'submenu' => [
+                [
+                    'text' => 'create',
+                    'route' => 'admin.marketplaceOwner.create',
+                    'icon' => 'fas fa-fw fa-plus-circle',
+                ],
+                [
+                    'text' => 'all',
+                    'route' => 'admin.marketplaceOwner.index',
+                    'icon' => 'fas fa-fw fa-layer-group',
+                ],
+            ],
+        ],
 
 
 

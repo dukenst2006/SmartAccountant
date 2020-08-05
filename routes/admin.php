@@ -101,4 +101,5 @@ Route::group(['prefix' => 'Admin'], function () {
 //    Route::resource('salary_info','EmployeeSalaryInfoController');
     //salary infos for one employee
     Route::get('Employee/{employee}/SalaryInfos','EmployeeController@salaryInfos')->name('SalaryInfos');
+    Route::resource('marketplaceOwner','MarketplaceOwnerController');
 });
