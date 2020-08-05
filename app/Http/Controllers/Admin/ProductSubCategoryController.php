@@ -10,6 +10,7 @@ use App\Repositories\Admin\ProductSubCategoryRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
+use Illuminate\Http\Request;
 
 class ProductSubCategoryController extends AppBaseController
 {
@@ -146,6 +147,26 @@ class ProductSubCategoryController extends AppBaseController
         $this->productSubCategoryRepository->delete($id );
 
         Flash::success('Product Sub Category deleted successfully.');
+
+        return redirect(route('admin.productSubCategories.index'));
+    }
+
+    /**
+     * Add or remove sub category from favourites
+     * 
+     * @param integer  $id  Sub Category ID
+     * @param \Illuminate\Http\Request  $request  Request Object
+     */
+    public function addRemoveSubCategoryFromFavourites(int $id, int $favourite)
+    {
+        $productSubCategory = $this->productSubCategoryRepository->find($id);
+        if (!empty($productSubCategory)) {
+            $productSubCategory->favourite = $favourite;
+            $productSubCategory->save();
+            Flash::success('أضيف الصنف الفرعي للمفضلات بنجاح');
+        } else {
+            Flash::error('الصنف الفرعي غير موجود');
+        }
 
         return redirect(route('admin.productSubCategories.index'));
     }

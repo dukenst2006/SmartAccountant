@@ -30,7 +30,9 @@ Route::group(['prefix' => 'Admin'], function () {
     Route::get('productmoves', 'ProductMovesController@index')->name('productmoves');
     Route::post('productmoves/move', 'ProductMovesController@move')->name('productmoves.move.to');
     Route::resource('productCategories', 'ProductCategoriesController');
+    Route::get('productCategories/{id}/favourite/{favourite}', 'ProductCategoryController@addRemoveCategoryFromFavourites')->name('productCategories.favourites');
     Route::resource('productSubCategories', 'ProductSubCategoryController');
+    Route::get('productSubCategories/{id}/favourite/{favourite}', 'ProductSubCategoryController@addRemoveSubCategoryFromFavourites')->name('productSubCategories.favourites');
     Route::get('safe', 'SafeController@index')->name('safe');
     Route::resource('productCategories', 'ProductCategoryController');
     Route::resource('productSubCategories', 'ProductSubCategoryController');
