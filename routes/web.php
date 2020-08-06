@@ -19,3 +19,5 @@ Auth::routes();
 
 
 Route::redirect('/','/login');
+
+Route::get('/', 'HomeController@index')->name('Home');

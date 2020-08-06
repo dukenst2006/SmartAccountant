@@ -916,3 +916,21 @@ thead tr {
 .os-padding {
     z-index: auto !important;
 }
+/*today*/
+.table th, .table td {
+    font-weight: normal;
+    font-size: 15px;
+}
+.dropdown-menu-lg .dropdown-item {
+    padding: 0.5rem 10px;
+}
+.img-size-z {
+    width: 40px !important;
+}
+label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: 600;
+}
+.form-control {
+    padding: 0px 0.75rem !important;
+    height: calc(2rem + 2px);
+}
