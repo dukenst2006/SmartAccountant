@@ -113,4 +113,7 @@ class Employee extends Model
     {
         return $this->hasMany(EmployeeSalaryInfo::class, 'EmployeeID');
     }
+    public function invoices(){
+        return $this->hasMany(Invoice::class,'UserID','UserID');
+    }
 }

@@ -40,22 +40,38 @@
                 <button type="submit" class="btn btn-success">{{__('money.search')}}</button>
             </form>
         </div>
-        <table class="table table-bordered m-3">
+        <table class="table table-bordered m-3 text-center">
             <thead class="thead-light">
                 <tr style="background-color: #053395b5 !important;color: #FFF">
                     <td>#</td>
                     <td>{{__('employee.name')}}</td>
                     <td>{{__('Models/Employee.JobTitle')}}</td>
                     <td>{{__('Models/Marketplace.Name')}}</td>
+                    <td>{{__('حالة الاتصال')}}</td>
+                    <td>{{__('اخر يوم حضور')}}</td>
+                    <td>{{__('وقت الدخول')}}</td>
+                    <td>{{__('وقت الخروج')}}</td>
+                    <td>{{__('عدد المبيعات')}}</td>
+                    <td>{{__('قيمة المبيعات')}}</td>
                 </tr>
             </thead>
             <tbody>
                 @foreach($employeesTable as $E)
                     <tr>
-                        <td>{{$E->ID}}</td>
+                        <td>{{$E->id}}</td>
                         <td>{{$E->User->Name}}</td>
                         <td>{{$E->JobTitle}}</td>
                         <td>{{$E->MarketPlace->Name}}</td>
+                        <td>{{'غير متصل'}}</td>
+                        @if($E->employeeSalaryInfos->where('PresenceAndDevotion','=','Present')->first() != null)
+                            <td>{{$E->employeeSalaryInfos->where('PresenceAndDevotion','=','Present')->first()->created_at->format('m/d')}}</td>
+                            <td>{{$E->employeeSalaryInfos->where('PresenceAndDevotion','=','Present')->first()->created_at->format('h:i')}}</td>
+                            <td>{{'لم يحدد'}}</td>
+                        @else
+                            <td colspan="3">{{'لم يحدد'}}</td>
+                        @endif
+                        <td>{{$E->invoices->count()}} فاتورة</td>
+                        <td>{{$E->invoices->sum('Paid')}} </td>
                     </tr>
                 @endforeach
             </tbody>

@@ -89,7 +89,7 @@ Route::group(['prefix' => 'Admin'], function () {
 
         Route::get('ProductReport', 'ProductReportController@index')->name('productreport');
         Route::get('MarketplacesReport', 'MarketplacesReportController@index')->name('marketplacesreport');
-        Route::get('EmployeesRepo\rt', 'EmployeesReportController@index')->name('employeesreport');
+        Route::get('EmployeesReport', 'EmployeesReportController@index')->name('employeesreport');
         Route::get('FinancialReport', 'FinancialReportController@index')->name('financialreport');
         Route::get('MostActiveReport', 'MostActiveReportController@index')->name('mostactivereport');
         Route::get('BondsReport', 'BondsReportController@index')->name('bondsreport');
