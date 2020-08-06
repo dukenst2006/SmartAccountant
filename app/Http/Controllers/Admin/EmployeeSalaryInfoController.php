@@ -66,13 +66,9 @@ class EmployeeSalaryInfoController extends AppBaseController
 
 
     public function updatePresenceAndDevotion(Request $request,EmployeeSalaryInfo $employeeSalaryInfo){
-        dd($request->all());
         if($employeeSalaryInfo->created_at->addHour(8) > \Carbon\Carbon::now()) {
-            return response()->json([
-                'status' => 400,
-                'success' => false,
-                'message' => 'انهت المدة الخاصة بتعديل غياب الموظف'
-            ], 200);
+            alert('','انهت المدة الخاصة بتعديل غياب الموظف','error');
+            return redirect()->back();
         }
 
 
@@ -82,12 +78,8 @@ class EmployeeSalaryInfoController extends AppBaseController
 
         $input = $request->except('_token','_method');
         $employeeSalaryInfo->update($input);
-
-        return response()->json([
-            'status' => 200,
-            'success' => true,
-            'message' => 'تم التعديل بنجاح'
-        ], 200);
+        alert('','تم التعديل بنجاح','success');
+        return redirect()->back();
     }
 
     private function calcEmployeeSalaryAfterDiscount($request, $employee)

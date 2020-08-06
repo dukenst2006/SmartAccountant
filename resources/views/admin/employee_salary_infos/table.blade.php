@@ -24,16 +24,16 @@
                 <td class="text-center">{{ $employeeSalaryInfo->Description }}</td>
                 
                 <td class="text-center">
-                    <form class="p-3" action="{{route('admin.employeeSalaryInfos.update',$employeeSalaryInfo)}}" method="post">
-                        @csrf_field
+                    <form class="p-3" action="{{route('admin.employeeSalaryInfos.updatePresenceAndDevotion',$employeeSalaryInfo)}}" method="post">
+                        @csrf
                         {{ method_field('POST') }}
-                        <button type="submit" name="type" value="Present" class="btn btn-primary">
+                        <button type="submit" name="PresenceAndDevotion" value="Present" class="btn btn-primary">
                             {{ __('Models/EmployeeSalaryInfos.Present') }}
                         </button>
-                        <button type="submit" name="type" value="Late" class="btn btn-warning">
+                        <button type="submit" name="PresenceAndDevotion" value="Late" class="btn btn-warning">
                             {{ __('Models/EmployeeSalaryInfos.Late') }}
                         </button>
-                        <button type="submit" name="type" value="Absent" class="btn btn-danger">
+                        <button type="submit" name="PresenceAndDevotion" value="Absent" class="btn btn-danger">
                             {{ __('Models/EmployeeSalaryInfos.Absent') }}
                         </button>
                     </form>
