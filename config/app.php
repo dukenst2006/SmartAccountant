@@ -179,9 +179,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-         Maatwebsite\Excel\ExcelServiceProvider::class,
-    Milon\Barcode\BarcodeServiceProvider::class
-
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+        Milon\Barcode\BarcodeServiceProvider::class
 
 
     ],
