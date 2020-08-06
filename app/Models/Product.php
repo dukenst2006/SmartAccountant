@@ -170,11 +170,14 @@ class Product extends Model
 
     /**
      * This relation return all bonds related to this product.
-     * 
+     *
      * @return HasMany
      **/
     public function bonds()
     {
         return $this->hasMany(Bonds::class);
+    }
+    public function invoices(){
+        return $this->hasMany(InvoiceItem::class,'ProductID','id');
     }
 }

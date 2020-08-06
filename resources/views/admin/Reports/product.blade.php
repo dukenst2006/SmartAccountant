@@ -58,6 +58,8 @@
                     <th>{{__("Models/Product.ExpiryDate")}}</th>
                     <th>{{__("Models/Product.ProductCategoryID")}}</th>
                     <th>{{__("Models/Product.ProductSubCategoryID")}}</th>
+                    <th>{{__("عدد مرات البيع")}}</th>
+                    <th>{{__("قيمة الارباح من المنتج")}}</th>
                     </thead>
                     <tbody>
                     @foreach($products as $P)
@@ -71,6 +73,8 @@
                             <td>{{$P->ExpiryDate}}</td>
                             <td>{{$P->ProductCategory->Name}}</td>
                             <td>{{$P->ProductSubCategory->Name}}</td>
+                            <td>{{$P->invoices->count()}}</td>
+                            <td>{{$P->invoices->count() * ( $P->SellingPrice - $P->PurchasingPrice)}}</td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -98,6 +102,6 @@
 @endsection
 
 @section('customejs')
-    {!! $productchart->script() !!}
+{{--    {!! $productchart->script() !!}--}}
 @endsection
 
