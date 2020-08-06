@@ -47,6 +47,25 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="">{{__('نوع الفواتير')}}</label>
+                                    <select name="type" class="form-control" id="">
+                                        <option value="">
+                                            كل الانواع
+                                            <span>{{@App\Models\Invoice::all()->count()}}</span>
+                                        </option>
+                                        <option value="raw">
+                                            كتابية
+                                            <span>{{@App\Models\Invoice::all()->where('IsRaw',1)->count()}}</span>
+                                        </option>
+                                        <option value="sale">
+                                            الكترونية
+                                            <span>{{@App\Models\Invoice::all()->where('IsRaw',0)->count()}}</span>
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-success">{{__('money.search')}}</button>
                     </form>

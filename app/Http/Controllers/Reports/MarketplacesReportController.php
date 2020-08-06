@@ -47,13 +47,20 @@ class MarketplacesReportController extends AppBaseController
         $to   = ($_GET['to'] ?? null)   == null ? '3000/12/12' : $_GET['to']   ;
         $marketplaceID = ($_GET['MarketPlaceID'] ?? null) == null?0:$_GET['MarketPlaceID'];
         $invoices = Invoice::query()->where('created_at','<=',$to)
-            ->where('created_at','>=',$from)->paginate(10);
-        if ($marketplaceID > 0){
-            $invoices = Invoice::query()->where('created_at','<=',$to)
-                ->where('created_at','>=',$from)
-                ->where('MarketPlaceID','=',$marketplaceID)
-                ->paginate(10);
+            ->where('created_at','>=',$from);
+        if (isset($_GET['type'])){
+            if ($_GET['type'] == 'raw'){
+                $invoices->where('isRaw','=',1);
+            }elseif($_GET['type'] == 'sale'){
+                $invoices->where('isRaw','=',0);
+            }else{
+                //
+            }
         }
+        if ($marketplaceID > 0){
+            $invoices->where('MarketPlaceID','=',$marketplaceID);
+        }
+        $invoices = $invoices->paginate(10);
         return view('admin.Reports.marketplaces',compact('invoices'))->with(['chart'=>$chart]);
     }
 
