@@ -40,8 +40,8 @@ class ProductSubCategoryController extends AppBaseController
      */
     public function create()
     {
-        $categories = $this->productSubCategoryRepository->GetDataForSelect('product_sub_category');
-        return view('admin.product_sub_categories.create'.compact('categories'));
+        $categories = $this->productSubCategoryRepository->GetDataForSelect('product_categories');
+        return view('admin.product_sub_categories.create') ->with(['categories'=> $categories]);
     }
 
     /**
@@ -153,7 +153,7 @@ class ProductSubCategoryController extends AppBaseController
 
     /**
      * Add or remove sub category from favourites
-     * 
+     *
      * @param integer  $id  Sub Category ID
      * @param \Illuminate\Http\Request  $request  Request Object
      */
