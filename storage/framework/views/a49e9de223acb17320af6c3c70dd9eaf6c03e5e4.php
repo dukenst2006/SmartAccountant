@@ -62,7 +62,7 @@
                         <td><?php echo e($E->User->Name); ?></td>
                         <td><?php echo e($E->JobTitle); ?></td>
                         <td><?php echo e($E->MarketPlace->Name); ?></td>
-                        <td><?php echo e('خامل'); ?></td>
+                        <td class="<?php echo e($E->user->CheckOnline() ? 'bg-success' : 'bg-danger'); ?>"><?php echo e($E->user->CheckOnline() ? 'متصل' : 'غير متصل'); ?></td>
                         <?php if($E->employeeSalaryInfos->where('PresenceAndDevotion','=','Present')->first() != null): ?>
                             <td><?php echo e($E->employeeSalaryInfos->where('PresenceAndDevotion','=','Present')->first()->created_at->format('m/d')); ?></td>
                             <td><?php echo e($E->employeeSalaryInfos->where('PresenceAndDevotion','=','Present')->first()->created_at->format('h:i')); ?></td>

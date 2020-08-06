@@ -62,7 +62,7 @@ class HomeController extends Controller
         $usersChart->dataset('المبيعات', 'bar',[16000, 20000,30000,40000,50000,10000,30000,40000,70000,60000,65000,85000])->backgroundcolor("rgb(236, 201, 75)")->color("rgb(236, 201, 75)");
         $usersChart->dataset('حركات المخزن',  'bar',[11000, 8000,5000,6000,8000,10000,12000,20000,30000,15000,10000,50000])->backgroundcolor("rgb(66, 153, 225)")->color("rgb(66, 153, 225)");
         $usersChart->dataset('الخسائر',  'bar',[800, 12000,13000,14000,18000,19000,20000,25000,26000,8000,7000,6000])->backgroundcolor("rgb(225, 0, 38)")->color("rgb(225, 0, 38)");
-
+        $this->LogInActive();
 
         return view('admin.home',compact('usersChart','settings','totalPaid','gains','lose','markets','employees','products'));
 

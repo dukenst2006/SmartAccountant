@@ -62,7 +62,7 @@
                         <td>{{$E->User->Name}}</td>
                         <td>{{$E->JobTitle}}</td>
                         <td>{{$E->MarketPlace->Name}}</td>
-                        <td>{{'غير متصل'}}</td>
+                        <td class="{{$E->user->CheckOnline() ? 'bg-success' : 'bg-danger'}}">{{$E->user->CheckOnline() ? 'متصل' : 'غير متصل'}}</td>
                         @if($E->employeeSalaryInfos->where('PresenceAndDevotion','=','Present')->first() != null)
                             <td>{{$E->employeeSalaryInfos->where('PresenceAndDevotion','=','Present')->first()->created_at->format('m/d')}}</td>
                             <td>{{$E->employeeSalaryInfos->where('PresenceAndDevotion','=','Present')->first()->created_at->format('h:i')}}</td>

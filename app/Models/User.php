@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\LoginActivity;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Musonza\Chat\Traits\Messageable;
@@ -62,10 +63,22 @@ public function settings()
     return $this->hasOne(Settings::class,'UserID','id');
 }
 
-public function marketplace_owner(){
+    public function marketplace_owner(){
         return $this->hasOne(MarketplaceOwner::class,'UserID','id');
-}
-
+    }
+    public function LoginActivities(){
+        return $this->hasMany(LoginActivity::class,'UserID','id');
+    }
+    public function CheckOnline(){
+        $user = $this;
+        $activities = $user->LoginActivities()->orderByDesc('id');
+        if ($activities->first() != null){
+            if ($activities->first()->logout_at == null){
+                return  true;
+            }
+        }
+        return false;
+    }
 
 }
 
