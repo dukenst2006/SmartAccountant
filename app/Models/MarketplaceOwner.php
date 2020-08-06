@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class MarketplaceOwner
@@ -112,5 +113,10 @@ class MarketplaceOwner extends Model
     public function supplierInvoice()
     {
         return $this->hasMany(\App\Models\SupplierInvoice::class, 'MarketplaceOwnerID');
+    }
+    public static function EndedOwners(){
+        $owners = MarketplaceOwner::query()->join('settings','settings.UserID','=','marketplace_owners.UserID')
+            ->where('ProgramEndDate','<',date('Y-m-d',time()))->orderByDesc('marketplace_owners.id');
+        return $owners;
     }
 }

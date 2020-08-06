@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\MarketplaceOwner;
+use App\Models\Settings;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -12,6 +13,9 @@ class MarketplaceOwnerController extends Controller
 {
     public function index(){
         $marketplaceOwners = MarketplaceOwner::query()->orderByDesc('id')->paginate(10);
+        if (isset($_GET['statue']) && $_GET['statue'] == 'ended'){
+            $marketplaceOwners = MarketplaceOwner::EndedOwners()->paginate(10);
+        }
         return view('admin.MarketPlaceOwner.index',compact('marketplaceOwners'));
     }
     public function create(){
@@ -38,6 +42,7 @@ class MarketplaceOwnerController extends Controller
             'Password'  =>  Hash::make($request->get('Password')),
         ]);
         MarketplaceOwner::query()->create(['UserID'=>$user->id,'PhoneNumber' => $request->PhoneNumber]);
+        Settings::query()->create(['UserID'=>$user->id]);
         alert('',__('Done'),'success');
         return redirect()->route('admin.marketplaceOwner.index');
     }

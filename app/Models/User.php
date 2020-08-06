@@ -62,7 +62,10 @@ public function settings()
     return $this->hasOne(Settings::class,'UserID','id');
 }
 
-
+public function marketplace_owner(){
+        return $this->hasOne(MarketplaceOwner::class,'UserID','id');
+}
 
 
 }
+
