@@ -20,7 +20,7 @@ class PermissionSeeder extends Seeder
         $MarketplaceOwner= Role::create(['name' => 'Supervisors']);
 
         $Employee= Role::create(['name' => 'Employee']);
-l
+
 
 
         Permission::create(['name' => 'products']);

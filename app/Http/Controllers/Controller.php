@@ -13,6 +13,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function LogInActive(){
+        if (auth()->check())
         if (auth()->user()->LoginActivities->sortDesc()->first() != null){
             if(Carbon::parse(auth()->user()->LoginActivities->sortDesc()->first()->login_at)->format('d') != date('d',time())){
                 LoginActivity::query()->create([

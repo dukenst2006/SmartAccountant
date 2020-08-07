@@ -16,6 +16,8 @@
 
     {{-- Navbar right links --}}
         <ul class="navbar-nav case-info {{ (app()->getLocale() == "ar") ? 'mr-auto' :"ml-auto"}}">
+
+         @role('MarketplaceOwner')
         <div>
             <span class="ml-2">
             <a href="{{route('admin.settings.index')}}" class="d-inline-block text-danger py-2"><i class="fas fa-cogs"></i> <small>إعدادت البرنامج</small> </a>
@@ -27,6 +29,7 @@
            <span href="" class="d-inline-block text-success py-2">   <small><i class="fas fa-circle"></i>    حالة الإشتراك </small> </span>
         </span>
         </div>
+        @endrole
         {{-- Custom right links --}}
         @yield('content_top_nav_right')
 

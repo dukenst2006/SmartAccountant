@@ -172,20 +172,41 @@ return [/*
             'topnav' => true,
         ],
 
-        ['header' => 'DashboardHeader'],
+        ['header' => 'DashboardHeader' , ['MarketplaceOwner']],
 
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'Main',
             'icon' => 'fas fa-fw fa-tachometer-alt',
             'route' => 'admin.Home',
         ],
         [
+            'role' => ['SystemAdmin'],
             'text' => 'about',
             'route' => 'admin.About',
             'icon' => 'fas fa-fw fa-code-branch',
             'icon_color' => 'dark',
+
         ],
         [
+            'role' => ['SystemAdmin'],
+            'text' => 'MarketplaceOwners',
+            'icon' => 'fas fa-handshake',
+            'submenu' => [
+                [
+                    'text' => 'create',
+                    'route' => 'admin.marketplaceOwner.create',
+                    'icon' => 'fas fa-fw fa-plus-circle',
+                ],
+                [
+                    'text' => 'all',
+                    'route' => 'admin.marketplaceOwner.index',
+                    'icon' => 'fas fa-fw fa-layer-group',
+                ],
+            ],
+        ],
+        [
+            'role' => ['MarketplaceOwner'],
             'text' => 'Settings',
             'icon' => 'fas fa fa-cogs',
             'submenu' => [
@@ -205,9 +226,10 @@ return [/*
             'label_color' => 'danger',
         ],
 
-        ['header' => 'HumanResources'],
+        ['header' => 'HumanResources', ['MarketplaceOwner']],
 
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'Supervisors',
             'icon' => 'fas fa fa-user-tie',
             'submenu' => [
@@ -226,6 +248,7 @@ return [/*
         ],
 
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'Employee',
             'icon' => 'fas fa fa-users',
             'submenu' => [
@@ -241,32 +264,15 @@ return [/*
                 ],
                 [
                     'text' => 'EmployeesSalaries',
-                    'route'=> 'admin.EmployeeSalary.index',
+                    'route' => 'admin.EmployeeSalary.index',
                     'icon' => 'fas fa-fw fa-coins',
                 ],
             ],
         ],
-        [
-            'text' => 'MarketplaceOwners',
-            'icon' => 'fas fa fa-market',
-            'submenu' => [
-                [
-                    'text' => 'create',
-                    'route' => 'admin.marketplaceOwner.create',
-                    'icon' => 'fas fa-fw fa-plus-circle',
-                ],
-                [
-                    'text' => 'all',
-                    'route' => 'admin.marketplaceOwner.index',
-                    'icon' => 'fas fa-fw fa-layer-group',
-                ],
-            ],
-        ],
-
-
 
 
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'AttendingAndLeaving',
             'icon' => 'fas fa fa-exchange-alt',
             'submenu' => [
@@ -285,6 +291,7 @@ return [/*
         ],
 
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'Suppliers',
             'icon' => 'fas fa fa-people-carry',
             'submenu' => [
@@ -301,6 +308,7 @@ return [/*
                 ],
 
                 [
+                    'role' => ['MarketplaceOwner'],
                     'text' => 'SuppliersInvoices',
                     'url' => '#',
                     'icon' => 'fas fa-fw fa-file-invoice-dollar',
@@ -321,10 +329,8 @@ return [/*
                 ],
 
 
-
-
-
                 [
+                    'role' => ['MarketplaceOwner'],
                     'text' => 'Companies',
                     'icon' => 'fas fa fa-city',
                     'submenu' => [
@@ -343,28 +349,24 @@ return [/*
                 ],
 
 
-
-
-
             ],
-
 
 
         ],
 
         [
-
+            'role' => ['MarketplaceOwner'],
             'text' => 'messages',
             'icon' => 'fas fa fa-comments',
-            'route'=>'admin.chat',
+            'route' => 'admin.chat',
             'icon_color' => 'green',
 
         ],
 
 
-
-        ['header' => 'PublicAdministration'],
+        ['header' => 'PublicAdministration', ['MarketplaceOwner']],
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'Marketplaces',
             'icon' => 'fas fa fa-store',
             'icon_color' => 'danger',
@@ -384,6 +386,7 @@ return [/*
 
 
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'Warehouses',
             'icon' => 'fas fa-fw fa-warehouse',
             'url' => 's',
@@ -406,7 +409,7 @@ return [/*
 
         [
 
-            'role'  => 'User',
+            'role' => ['MarketplaceOwner'],
             'text' => 'Products',
             'icon' => 'fas fa fa-cube',
             'submenu' => [
@@ -414,7 +417,7 @@ return [/*
                     'text' => 'create',
                     'route' => 'admin.products.create',
                     'icon' => 'fas fa-fw fa-plus-circle',
-                ],[
+                ], [
                     'text' => 'all',
                     'route' => 'admin.ProductTableView',
                     'icon' => 'fas fa-fw fa-plus-circle',
@@ -425,15 +428,15 @@ return [/*
 
 
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'ProductMoves',
             'icon' => 'fas fa fa-truck-loading',
             'url' => 'Admin/productmoves',
         ],
 
 
-
-
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'Categories',
             'icon' => 'fas fa-fw fa-sitemap',
             'submenu' => [
@@ -451,9 +454,10 @@ return [/*
         ],
 
 
-        ['header' => 'FinancialManagement'],
+        ['header' => 'FinancialManagement', ['MarketplaceOwner']],
 
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'Treasury',
             'icon' => 'fas fa-fw fa-donate',
             'icon_color' => 'orange',
@@ -475,8 +479,8 @@ return [/*
         ],
 
 
-
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'Safe',
             'route' => 'admin.safe',
             'icon' => 'fas fa-fw fa-cash-register',
@@ -484,6 +488,7 @@ return [/*
         ],
 
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'Invoices',
             'url' => '#',
             'icon' => 'fas fa-fw fa-file-invoice-dollar',
@@ -515,6 +520,7 @@ return [/*
 
 
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'Expenses',
             'url' => '#',
             'icon' => 'fas fa-fw fa-money-bill-alt',
@@ -540,6 +546,7 @@ return [/*
 
 
                 [
+                    'role' => ['MarketplaceOwner'],
                     'text' => 'ExpensesCategories',
                     'icon' => 'fas fa fa-city',
                     'submenu' => [
@@ -558,33 +565,32 @@ return [/*
                 ]
 
 
-
-
             ]
         ],
 
 
-        ['header' => 'ReportsAndStatistics'],
+        ['header' => 'ReportsAndStatistics' , ['MarketplaceOwner']],
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'Reports',
             'url' => '#',
             'icon' => 'fas fa fa-chart-pie',
             'submenu' => [
                 [
                     'text' => 'ProductReport',
-                    'route'=>'admin.productreport',
+                    'route' => 'admin.productreport',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
 
                 [
                     'text' => 'MarketplacesReport',
-                    'route'=>'admin.marketplacesreport',
+                    'route' => 'admin.marketplacesreport',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
 
                 [
                     'text' => 'EmployeesReport',
-                    'route'=>'admin.employeesreport',
+                    'route' => 'admin.employeesreport',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
 
@@ -602,26 +608,25 @@ return [/*
 
                 [
                     'text' => 'BondsReport',
-                    'route'=>'admin.bondsreport',
+                    'route' => 'admin.bondsreport',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
 
                 [
                     'text' => 'ExpensesReport',
-                    'route'=>'admin.expensesreport',
+                    'route' => 'admin.expensesreport',
                     'icon' => 'fas fa-fw fa-cubes',
                 ],
-
-
 
 
             ],
         ],
 
-        ['header' => 'SettingsHeader'],
+        ['header' => 'SettingsHeader', ['MarketplaceOwner']],
 
 
         [
+            'role' => ['MarketplaceOwner'],
             'text' => 'Backup',
             'url' => '#',
             'icon' => 'fas fa fa-server',

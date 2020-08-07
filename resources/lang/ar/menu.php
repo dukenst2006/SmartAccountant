@@ -16,6 +16,7 @@ return [
     'about' => 'عن البرنامج',
     'Main' => 'الرئيسية',
     'Notifications' => 'الاشعارات',
+    'MarketplaceOwners' => 'المشتركين',
 
 
 
