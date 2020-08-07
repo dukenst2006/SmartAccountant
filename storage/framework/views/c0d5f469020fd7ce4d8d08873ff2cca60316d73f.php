@@ -1,11 +1,10 @@
-@extends('adminlte::page')
-@section('title', 'فاتوره جديده')
+<?php $__env->startSection('title', 'فاتوره جديده'); ?>
 
-@section('content_header')
+<?php $__env->startSection('content_header'); ?>
     <h1>فاتورة جديده</h1>
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <!-- Modal -->
 
@@ -62,17 +61,18 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            @if(!empty($Favourite))
-                                @foreach($Favourite as $category)
+                            <?php if(!empty($Favourite)): ?>
+                                <?php $__currentLoopData = $Favourite; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <button class="btn btn-default border-0 bg-transparent eye-mdl"
                                                 data-toggle="modal"
 
-                                                data-target="#productsmaincategory{{$category->id}}">
+                                                data-target="#productsmaincategory<?php echo e($category->id); ?>">
                                             <div class="cep">
                                                 <div class="text-center">
                                                     <h4>
-                                                        {{ $category->Name }}
+                                                        <?php echo e($category->Name); ?>
+
                                                     </h4>
                                                 </div>
                                                 <div class="text-center">
@@ -83,7 +83,7 @@
                                         </button>
 
                                     </div>
-                                    <div class="modal fade" id="productsmaincategory{{$category->id}}" tabindex="-1"
+                                    <div class="modal fade" id="productsmaincategory<?php echo e($category->id); ?>" tabindex="-1"
                                          role="dialog" aria-labelledby="productsModalLabel"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-xl">
@@ -98,22 +98,22 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="row">
-                                                        @if(!empty($category->products))
-                                                            @foreach($category->products as $product)
+                                                        <?php if(!empty($category->products)): ?>
+                                                            <?php $__currentLoopData = $category->products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                                     <div class="cep">
                                                                         <div class="text-center">
                                                                             <img class="w-100 img-pdt"
-                                                                                 src="{{ $product->image }}"
-                                                                                 alt="{{ $product->Name }}">
+                                                                                 src="<?php echo e($product->image); ?>"
+                                                                                 alt="<?php echo e($product->Name); ?>">
                                                                         </div>
                                                                         <div class="my-3">
-                                                                            <h5 class="text-center">{{ $product->Name }}</h5>
-                                                                            <h5 class="text-center"><b>السعر:</b> <span>{{ $product->SellingPrice }} $</span>
+                                                                            <h5 class="text-center"><?php echo e($product->Name); ?></h5>
+                                                                            <h5 class="text-center"><b>السعر:</b> <span><?php echo e($product->SellingPrice); ?> $</span>
                                                                             </h5>
                                                                         </div>
                                                                         <div class="text-center">
-                                                                            <button id="{{ $product->id}}"  @click="addNewRow"
+                                                                            <button id="<?php echo e($product->id); ?>"  @click="addNewRow"
                                                                                 class="btn btn-default border-0 bg-transparent eye-mdl text-success">
 
                                                                                 <i class="fas fa-plus-circle fa-2x"></i>
@@ -122,16 +122,16 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            @endforeach
-                                                        @endif
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                @endforeach
-                            @endif
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -232,8 +232,10 @@
                                         <th>المتبقي:</th>
                                         <td v-text="invoice_rest" id="invoce_Rest" class="text-bold text-center">0</td>
 
-                                        {!! Form::label('PaymentTypeID', __('Models/Invoice.PaymentTypeID')) !!}
-                                        {!! Form::select('PaymentTypeID',$payment_types, null,['class' => 'form-control' , 'v-model'=>"Payment_Type"]) !!}
+                                        <?php echo Form::label('PaymentTypeID', __('Models/Invoice.PaymentTypeID')); ?>
+
+                                        <?php echo Form::select('PaymentTypeID',$payment_types, null,['class' => 'form-control' , 'v-model'=>"Payment_Type"]); ?>
+
 
 
                                     </tr>
@@ -278,15 +280,15 @@
 
 
 
-@stop
-@section('css')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('css'); ?>
 
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('customejs')
+<?php $__env->startSection('customejs'); ?>
     <script>
-        var _token = "{{ csrf_token() }}";
-        $.ajaxSetup({headers: {'csrftoken': '{{ csrf_token() }}'}});
+        var _token = "<?php echo e(csrf_token()); ?>";
+        $.ajaxSetup({headers: {'csrftoken': '<?php echo e(csrf_token()); ?>'}});
         $.fn.select2.defaults.set("theme", "bootstrap");
         $('#productselection').select2({
             theme: "bootstrap",
@@ -295,7 +297,7 @@
             cache: true,
             ajax: {
                 placeholder: 'Search for a Products',
-                url: '{{route('product.LiveSearch')}}',
+                url: '<?php echo e(route('product.LiveSearch')); ?>',
                 dataType: 'json',
 
                 data: function (params) {
@@ -352,7 +354,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
-        var _token = "{{ csrf_token() }}";
+        var _token = "<?php echo e(csrf_token()); ?>";
         var app = new Vue({
             el: '#root',
             data: {
@@ -366,7 +368,7 @@
                 deliverday: 1,
                 deliverdate: '',
                 invoice_products: [],
-                products:@json($Products)
+                products:<?php echo json_encode($Products, 15, 512) ?>
             },
             methods: {
                 datacalc() {
@@ -412,7 +414,7 @@
 
                         $.ajax({
                             type: "post",
-                            url: "{{route('admin.invoice.storesaleinvoice')}}",
+                            url: "<?php echo e(route('admin.invoice.storesaleinvoice')); ?>",
                             dataType: 'json',
                             'contentType': 'application/json',
 
@@ -528,11 +530,13 @@
 
 
 
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('adminlte_css')
-    <link rel="stylesheet" href="{{asset('css/xselect2-bootstrap.min.css')}}">
+<?php $__env->startSection('adminlte_css'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('css/xselect2-bootstrap.min.css')); ?>">
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\Laravel-Projects\Smart Accountant\resources\views/admin/Invoices/createSale.blade.php ENDPATH**/ ?>

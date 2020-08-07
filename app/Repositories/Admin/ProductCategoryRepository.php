@@ -3,6 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\ProductCategory;
+use App\Notifications\Products;
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
 
@@ -41,9 +42,16 @@ class ProductCategoryRepository extends BaseRepository
     }
 
 
+    public function GetFavourite()
+    {
 
+        $ProductCategory = $this->allQuery()->with(['products'])
+            ->where("MarketplaceOwnerID", 1)
+            ->where("favourite",true)
+            ->select(['id','Name']) ->get();
 
-
+ return $ProductCategory;
+    }
 
     /**
      * Create model record

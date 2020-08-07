@@ -31,6 +31,23 @@ class ProductSubCategoryRepository extends BaseRepository
         return $this->fieldSearchable;
     }
 
+
+
+
+    public function GetFavourite($CategoriesIds)
+    {
+
+        $ProductSubCategory = $this->allQuery()->with(['products'])
+            ->wherein("ProductCategoryID", $CategoriesIds)
+            ->where("favourite",true)
+            ->select(['id','Name']) ->get();
+
+        return $ProductSubCategory;
+    }
+
+
+
+
     /**
      * Configure the Model
      **/

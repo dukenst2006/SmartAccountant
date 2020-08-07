@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
+
 use App\DataTables\InvoiceDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateInvoiceRequest;
@@ -8,36 +10,64 @@ use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
 use App\Models\Invoice;
-use App\Repositories\{
+use App\Repositories\{Admin\ProductCategoryRepository,
+    Admin\ProductSubCategoryRepository,
     InvoiceRepository,
     ProductRepository,
     EmployeeRepository,
     ProductCategory
 };
+
 class InvoiceController extends AppBaseController
 {
 
 
     //'<img src="data:image/png;base64,' . DNS1D::getBarcodePNG('INVOICE ID ', 'C39+',3,50) . '" alt="barcode"   />'
 
-        /**
-        * @var  InvoiceRepository
-        */
-        private $invoiceRepository;
-        /**
-        * @var  ProductRepository
-        */
-        private $productRepository;
-        /**
-        * @var  RawInvoiceRepository
-        */
-        private $employeeRepository;
+    /**
+     * @var  InvoiceRepository
+     */
+    private $invoiceRepository;
 
-    public function __construct(InvoiceRepository $invoiceRepo ,  ProductRepository $productRepo, EmployeeRepository $employeeRepository)
-    {
+
+    /**
+     * @var  ProductRepository
+     */
+    private $productRepository;
+
+
+    /**
+     *
+     * @var  ProductCategoryRepository
+     */
+    private $productCategoryRepository;
+
+
+    /**
+     *
+     * @var  ProductSubCategoryRepository
+     */
+    private $productSubCategoryRepository;
+
+
+    /**
+     *
+     * @var  RawInvoiceRepository
+     */
+    private $employeeRepository;
+
+    public function __construct(
+        InvoiceRepository $invoiceRepo,
+        ProductRepository $productRepo,
+        EmployeeRepository $employeeRepository,
+        ProductCategoryRepository $productcategoryRepo,
+        ProductSubCategoryRepository $productsubcategoryRepo
+    ) {
         $this->invoiceRepository = $invoiceRepo;
         $this->productRepository = $productRepo;
         $this->employeeRepository = $employeeRepository;
+        $this->productCategoryRepository = $productcategoryRepo;
+        $this->productSubCategoryRepository = $productsubcategoryRepo;
     }
 
     public function saleInvoicesIndex()
@@ -45,21 +75,42 @@ class InvoiceController extends AppBaseController
         $sale_invoices = $this->invoiceRepository->getAllInvoicesWhere(false)->get();
         return view('admin.Invoices.sale_invoices_index', compact('sale_invoices'));
     }
+
     public function showsaleInvoicesDetails(Invoice $invoice)
     {
         return view('admin.Invoices.receipt', compact('invoice'));
     }
+
     public function showRawInvoices()
     {
         $rawInvoices = $this->invoiceRepository->getAllRawInvoices()->get();
         return view('admin.Invoices.index', compact('rawInvoices'));
     }
-    public  function sale(){
-        $ProductCategory = \App\Models\ProductCategory::query()->with(['productSubCategories', 'productSubCategories.products', 'products'])->where("MarketplaceOwnerID", $this->productRepository->GetMyOwner())->where("favourite",true)->get();
+
+    public function sale()
+    {
+
+
+        $FavouriteCategory = $this->productCategoryRepository->GetFavourite();
+        $FavouriteSubCategory = $this->productSubCategoryRepository->GetFavourite($FavouriteCategory->pluck('id')->toArray());
+
+        $Favourite = $FavouriteCategory->merge($FavouriteSubCategory)->sortBy('Name');
+
+
         return view('admin.Invoices.createSale')
-            ->with(['payment_types'=>$this->invoiceRepository->GetDataForSelect('payment_types'),
-                    'products'=> $this->productRepository->GetTop10InWarehouse(),
-                    'ProductCategory' => $ProductCategory
+            ->with([
+                'payment_types' => $this->invoiceRepository->GetDataForSelect('payment_types'),
+                'Favourite' => $Favourite,
+                    'Products' =>
+        $Favourite->pluck('products')->flatten()->map->only(
+            [
+                'id',
+                'Name',
+                'Barcode',
+                'Quantity',
+                'UnlimitedQuantity',
+                'SellingPrice'
+            ])
             ]);
     }
 
@@ -75,9 +126,10 @@ class InvoiceController extends AppBaseController
     {
         $invoice = $this->invoiceRepository->find($id);
         return view('admin.Invoices.createSale')
-            ->with(['payment_types'=>$this->invoiceRepository->GetDataForSelect('payment_types'),
-                    'products'=> $this->productRepository->GetTop10InWarehouse(),
-                    'invoice' => $invoice
+            ->with([
+                'payment_types' => $this->invoiceRepository->GetDataForSelect('payment_types'),
+                'products' => $this->productRepository->GetTop10InWarehouse(),
+                'invoice' => $invoice
             ]);
     }
 
@@ -85,7 +137,7 @@ class InvoiceController extends AppBaseController
     {
         $rawInvoice = $this->invoiceRepository->find($id);
 
-        if(empty($rawInvoice)) {
+        if (empty($rawInvoice)) {
             Flash::error(__('messages.not_found', ['model' => __('models/suppliers.singular')]));
             return redirect(route('admin.suppliers.index'));
         }
@@ -98,11 +150,13 @@ class InvoiceController extends AppBaseController
     }
 
 
-    public  function raw(){
-        $marketplaces = $this->employeeRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID');
+    public function raw()
+    {
+        $marketplaces = $this->employeeRepository->GetDataForSelect('marketplaces', 'MarketplaceOwnerID');
         $payment_types = $this->invoiceRepository->GetDataForSelect('payment_types');
         return view('admin.Invoices.createRaw', compact('marketplaces', 'payment_types'));
     }
+
     public function StoreRawInvoice()
     {
         $this->invoiceRepository->createNewRawInvoice(request()->all());
@@ -119,7 +173,7 @@ class InvoiceController extends AppBaseController
 
     public function editRawInvoice($id)
     {
-        $marketplaces = $this->employeeRepository->GetDataForSelect('marketplaces','MarketplaceOwnerID');
+        $marketplaces = $this->employeeRepository->GetDataForSelect('marketplaces', 'MarketplaceOwnerID');
         $payment_types = $this->invoiceRepository->GetDataForSelect('payment_types');
         $invoice = $this->invoiceRepository->find($id);
         return view('admin.Invoices.edit_raw_invoice', compact('invoice', 'marketplaces', 'payment_types'));
@@ -130,7 +184,7 @@ class InvoiceController extends AppBaseController
     {
         $rawInvoice = $this->invoiceRepository->find($id);
 
-        if(empty($rawInvoice)) {
+        if (empty($rawInvoice)) {
             Flash::error(__('messages.not_found', ['model' => __('models/suppliers.singular')]));
             return redirect(route('admin.suppliers.index'));
         }

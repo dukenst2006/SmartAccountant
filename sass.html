@@ -1,0 +1,27 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click on the button to copy the text from the text field. Try to paste the text (e.g. ctrl+v) afterwards in a different window, to see the effect.</p>
+
+<input type="text" value="Hello World" id="myInput">
+<a href="javascript:copyToClipboard('ffasdasd')">Copy</a>
+<script>
+
+        const copyToClipboard = str => {
+            const el = document.createElement('textarea');
+            el.value = str;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+        };
+
+</script>
+
+</body>
+</html>
+

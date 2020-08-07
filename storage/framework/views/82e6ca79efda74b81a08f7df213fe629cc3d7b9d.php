@@ -129,7 +129,10 @@
             </div>
             <!-- /.card-body -->
             <div class="card-footer" style="display: block;">
-                <form action="#" method="post">
+                <form action="<?php echo e(route('admin.chat.store')); ?>" method="post">
+                    <?php echo csrf_field(); ?>
+                    <?php echo e(method_field('POST')); ?>
+
                     <div class="input-group">
                         <input type="text" name="message" placeholder="Type Message ..." class="form-control">
                         <span class="input-group-append">
@@ -153,7 +156,7 @@
                     <ul class="list-unstyled p-0">
                     <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li class="mx-2">
-                            <a href="#">
+                            <a href="<?php echo e(url('Admin/chat?id=1')); ?>">
                                 <div class="d-flex justify-content-between contact-chat-list" dir="ltr">
                                     <div class="d-flex alight-items-center">
                                         <img class="urs-img-ch" src="http://lorempixel.com/index.php?generator=1&x=100&y=100&cat=people" alt="">
