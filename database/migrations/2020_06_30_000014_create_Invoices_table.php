@@ -25,6 +25,7 @@ class CreateInvoicesTable extends Migration
             $table->unsignedBigInteger('PaymentTypeID');
             $table->boolean('IsRaw')->default(false);
             $table->string('RawFile')->nullable()->default('');
+            $table->string('invoice_code')->nullable()->unique();
             $table->timestamps();
             $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('MarketplaceID')->references('id')->on('marketplaces')->onDelete('cascade');

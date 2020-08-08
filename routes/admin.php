@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 //   return view('home');
 //});
 
-Route::redirect('/','/login');
+
 Route::get('lang/{Language}', 'LocalizationController@index')->name('ChangeLanguage');
 Route::group(['prefix' => 'Admin'], function () {
 //'middleware' => ['role:super-admin'] ,

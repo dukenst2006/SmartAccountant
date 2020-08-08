@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\{Role,Permission};
+use Spatie\Permission\Models\{Role, Permission};
+
 class PermissionSeeder extends Seeder
 {
     /**
@@ -13,22 +14,20 @@ class PermissionSeeder extends Seeder
     {
 
 
-        $SystemAdminRole= Role::create(['name' => 'SystemAdmin']);
+        $SystemAdminRole = Role::create(['name' => 'SystemAdmin']);
 
-        $MarketplaceOwner= Role::create(['name' => 'MarketplaceOwner']);
+        $MarketplaceOwner = Role::create(['name' => 'MarketplaceOwner']);
 
-        $MarketplaceOwner= Role::create(['name' => 'Supervisors']);
+        $MarketplaceOwner = Role::create(['name' => 'Supervisors']);
 
-        $Employee= Role::create(['name' => 'Employee']);
-
-
-
-        Permission::create(['name' => 'products']);
-        Permission::create(['name' => 'Invoices']);
-        Permission::create(['name' => 'Employee']);
-        Permission::create(['name' => 'Marketplaces']);
+        $Employee = Role::create(['name' => 'Employee']);
 
 
+//
+//        Permission::create(['name' => 'products']);
+//        Permission::create(['name' => 'Invoices']);
+//        Permission::create(['name' => 'Employee']);
+//        Permission::create(['name' => 'Marketplaces']);
 
 
     }

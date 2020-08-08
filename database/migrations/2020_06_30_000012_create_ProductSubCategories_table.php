@@ -17,6 +17,7 @@ class CreateProductSubCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('ProductCategoryID');
             $table->string('Name');
+            $table->boolean('favourite')->nullable();
             $table->timestamps();
 
 

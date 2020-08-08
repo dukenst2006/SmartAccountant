@@ -20,6 +20,7 @@ class CreateEmployeeSalaryInfosTable extends Migration
             $table->double('Allowances');  //البدلات
             $table->double('Deductions');   //الخصومات
             $table->string('Description');  //وصف
+            $table->string('PresenceAndDevotion')->nullable();
             $table->timestamps();
 
 

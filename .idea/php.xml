@@ -145,6 +145,14 @@
       <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/rinvex/laravel-support" />
+      <path value="$PROJECT_DIR$/vendor/rinvex/laravel-subscriptions" />
+      <path value="$PROJECT_DIR$/vendor/felixkiss/uniquewith-validator" />
+      <path value="$PROJECT_DIR$/vendor/watson/validating" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-schemaless-attributes" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-sluggable" />
+      <path value="$PROJECT_DIR$/vendor/spatie/eloquent-sortable" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-translatable" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

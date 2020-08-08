@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Models\Inventory;
 use App\Models\Marketplace;
 use App\Models\Safe;
+use App\Models\Settings;
 use App\Models\Stock;
 use App\Models\Warehouse;
 use App\Repositories\BaseRepository;
@@ -40,7 +41,7 @@ class MarketplaceObserver
         //Create The inventory
         $inventory = new Inventory();
         $inventory->MarketplaceID=$marketplace->id;
-       $inventory->WarehouseID= Warehouse::where('MarketplaceOwnerID',$this->WarehouseRepository->GetMyOwner())->first()->id;
+        $inventory->WarehouseID= Warehouse::where('MarketplaceOwnerID',$this->WarehouseRepository->GetMyOwner())->first()->id;
         $inventory->save();
 
 

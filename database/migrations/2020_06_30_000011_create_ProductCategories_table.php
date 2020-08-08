@@ -17,6 +17,7 @@ class CreateProductCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('MarketplaceOwnerID');
             $table->string('Name');
+            $table->boolean('favourite')->nullable();
             $table->timestamps();
 
 

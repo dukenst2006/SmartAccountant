@@ -27,7 +27,7 @@
 
             <div class="  login-cont">
                 <div class="mb-4 mt-5 text-center">
-                    <img class="login-logo" src="{{asset('images/logo.png')}}" alt="">
+                    <img class="login-logo" src="{{asset('Images/logo.png')}}" alt="">
             </div>
             <div class=" login-div ">
                 <div class="my-shadow form-fog pb-0">

@@ -22,6 +22,7 @@ class CreateSupplierInvoicesTable extends Migration
             $table->double('Paid');
             $table->double('Rest');
             $table->string('note')->default('');
+            $table->string('invoice_code')->nullable()->unique();
             $table->timestamps();
 
             $table->foreign('MarketplaceOwnerID')->references('id')->on('marketplace_owners')->onDelete('cascade');

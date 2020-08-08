@@ -23,16 +23,18 @@ class CreateSettingsTable extends Migration
             $table->boolean('ProgramStatus')->default(true);
             $table->date('ProgramEndDate')->default(now());
             $table->bigInteger('Capital')->default(0);  // رأس مال المؤسسة
-            $table->string('AppName')->nullable();
-            $table->string('Email')->nullable();
-            $table->string('PhoneNumber')->nullable();
-            $table->string('Website')->nullable();   // موقع الكتروني
-            $table->string('SerialNumber')->nullable();  // رمز التفعيل
-            $table->string('Logo')->nullable();  // شعار المؤسسة
-            $table->string('Stamp')->nullable();     // صورة ختم المؤسسة
-            $table->double('VAT')->default(0);  // ضريبه القيمة المضافة .. نسبه مؤيه
+            $table->string('AppName')->default("");
+            $table->string('Email')->default("");
+            $table->string('PhoneNumber')->default("");
+            $table->string('Website')->default("");   // موقع الكتروني
+            $table->string('SerialNumber')->default("");  // رمز التفعيل
+            $table->string('Logo')->default("");  // شعار المؤسسة
+            $table->string('Stamp')->default("");     // صورة ختم المؤسسة
+            $table->double('VAT')->default(15);  // ضريبه القيمة المضافة .. نسبه مؤيه
             $table->string('Currency')->default('SAR');  // ضريبه القيمة المضافة .. نسبه مؤيه
             $table->boolean('EnableVAT')->default(true);  // تفعيل حساب الضرائب علي الاسعار.
+            $table->unsignedFloat('AbsenceDiscountValue')->default("100");
+            $table->string('AbsenceDiscountType')->default("Value");
             $table->timestamps();
 
             $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade');

@@ -15,7 +15,6 @@ class CreateCurrenciesTable extends Migration
     {
         Schema::create('currencies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
             $table->morphs('model');
             $table->string('currency_type', 4);
             $table->double('currency_amount', 14, 4)->default('00.00');
