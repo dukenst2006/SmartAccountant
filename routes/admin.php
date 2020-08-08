@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 //   return view('home');
 //});
 
-
 Route::get('lang/{Language}', 'LocalizationController@index')->name('ChangeLanguage');
 Route::group(['prefix' => 'Admin'], function () {
 //'middleware' => ['role:super-admin'] ,
@@ -102,4 +101,5 @@ Route::group(['prefix' => 'Admin'], function () {
     //salary infos for one employee
     Route::get('Employee/{employee}/SalaryInfos','EmployeeController@salaryInfos')->name('SalaryInfos');
     Route::resource('marketplaceOwner','MarketplaceOwnerController');
+    Route::resource('plan','PlanController');
 });

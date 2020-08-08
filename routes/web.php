@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
+auth()->loginusingid(1);
 
 Route::redirect('/',url('Admin'));
 

@@ -361,6 +361,13 @@ return [/*
             'route' => 'admin.chat',
             'icon_color' => 'green',
 
+        ],[
+            'role' => ['MarketplaceOwner'],
+            'text' => 'planes',
+            'icon' => 'fas fa fa-plan',
+            'route' => 'admin.plan.index',
+            'icon_color' => 'green',
+
         ],
 
 

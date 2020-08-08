@@ -17,6 +17,8 @@
 
     
         <ul class="navbar-nav case-info <?php echo e((app()->getLocale() == "ar") ? 'mr-auto' :"ml-auto"); ?>">
+
+         <?php if(auth()->check() && auth()->user()->hasRole('MarketplaceOwner')): ?>
         <div>
             <span class="ml-2">
             <a href="<?php echo e(route('admin.settings.index')); ?>" class="d-inline-block text-danger py-2"><i class="fas fa-cogs"></i> <small>إعدادت البرنامج</small> </a>
@@ -28,6 +30,7 @@
            <span href="" class="d-inline-block text-success py-2">   <small><i class="fas fa-circle"></i>    حالة الإشتراك </small> </span>
         </span>
         </div>
+        <?php endif; ?>
         
         <?php echo $__env->yieldContent('content_top_nav_right'); ?>
 

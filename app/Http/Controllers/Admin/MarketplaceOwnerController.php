@@ -32,7 +32,7 @@ class MarketplaceOwnerController extends Controller
     public function store(Request $request){
         $request->validate([
             'Name'  =>  'required',
-            'Email'  =>  'required',
+            'Email'  =>  'required|unique:usersّّ',
             'PhoneNumber'  =>  'required',
             'Password'  =>  'required',
         ]);
