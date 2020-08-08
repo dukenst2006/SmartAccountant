@@ -29,74 +29,80 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body overflow-auto chat-syb2" style="display: block;">
-                <!-- Conversations are loaded here -->
-                <div class="direct-chat-messages h-100">
-                    <!-- Message. Default to the left -->
-                    <div class="direct-chat-msg">
-                        <div class="direct-chat-infos clearfix">
-                            <span class="direct-chat-name float-left">Alexander Pierce</span>
-                            <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
-                        </div>
-                        <!-- /.direct-chat-infos -->
-                        <img class="direct-chat-img" src="https://lorempixel.com/640/480/?50746" alt="message user image">
-                        <!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                            Is this template really for free? That's unbelievable!
-                        </div>
-                        <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
+                @if(!empty($conversations->items))
+                    @foreach($conversations->items as $item)
+                        <!-- Conversations are loaded here -->
+                        <div class="direct-chat-messages h-100">
+                            <!-- Message. Default to the left -->
+                            <div class="direct-chat-msg">
+                                <div class="direct-chat-infos clearfix">
+                                    <span class="direct-chat-name float-left">Alexander Pierce</span>
+                                    <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                                </div>
+                                <!-- /.direct-chat-infos -->
+                                <img class="direct-chat-img" src="https://lorempixel.com/640/480/?50746" alt="message user image">
+                                <!-- /.direct-chat-img -->
+                                <div class="direct-chat-text">
+                                    Is this template really for free? That's unbelievable!
+                                </div>
+                                <!-- /.direct-chat-text -->
+                            </div>
+                            <!-- /.direct-chat-msg -->
 
-                    <!-- Message to the right -->
-                    <div class="direct-chat-msg right">
-                        <div class="direct-chat-infos clearfix">
-                            <span class="direct-chat-name float-right">Sarah Bullock</span>
-                            <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
-                        </div>
-                        <!-- /.direct-chat-infos -->
-                        <img class="direct-chat-img" src="https://lorempixel.com/640/480/?50746" alt="message user image">
-                        <!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                            You better believe it!
-                        </div>
-                        <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
+                            <!-- Message to the right -->
+                            <div class="direct-chat-msg right">
+                                <div class="direct-chat-infos clearfix">
+                                    <span class="direct-chat-name float-right">Sarah Bullock</span>
+                                    <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                                </div>
+                                <!-- /.direct-chat-infos -->
+                                <img class="direct-chat-img" src="https://lorempixel.com/640/480/?50746" alt="message user image">
+                                <!-- /.direct-chat-img -->
+                                <div class="direct-chat-text">
+                                    You better believe it!
+                                </div>
+                                <!-- /.direct-chat-text -->
+                            </div>
+                            <!-- /.direct-chat-msg -->
 
-                    <!-- Message. Default to the left -->
-                    <div class="direct-chat-msg">
-                        <div class="direct-chat-infos clearfix">
-                            <span class="direct-chat-name float-left">Alexander Pierce</span>
-                            <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
-                        </div>
-                        <!-- /.direct-chat-infos -->
-                        <img class="direct-chat-img" src="https://lorempixel.com/640/480/?50746" alt="message user image">
-                        <!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                            Working with AdminLTE on a great new app! Wanna join?
-                        </div>
-                        <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
+                            <!-- Message. Default to the left -->
+                            <div class="direct-chat-msg">
+                                <div class="direct-chat-infos clearfix">
+                                    <span class="direct-chat-name float-left">Alexander Pierce</span>
+                                    <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
+                                </div>
+                                <!-- /.direct-chat-infos -->
+                                <img class="direct-chat-img" src="https://lorempixel.com/640/480/?50746" alt="message user image">
+                                <!-- /.direct-chat-img -->
+                                <div class="direct-chat-text">
+                                    Working with AdminLTE on a great new app! Wanna join?
+                                </div>
+                                <!-- /.direct-chat-text -->
+                            </div>
+                            <!-- /.direct-chat-msg -->
 
-                    <!-- Message to the right -->
-                    <div class="direct-chat-msg right">
-                        <div class="direct-chat-infos clearfix">
-                            <span class="direct-chat-name float-right">Sarah Bullock</span>
-                            <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
-                        </div>
-                        <!-- /.direct-chat-infos -->
-                        <img class="direct-chat-img" src="https://lorempixel.com/640/480/?50746" alt="message user image">
-                        <!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">
-                            I would love to.
-                        </div>
-                        <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
+                            <!-- Message to the right -->
+                            <div class="direct-chat-msg right">
+                                <div class="direct-chat-infos clearfix">
+                                    <span class="direct-chat-name float-right">Sarah Bullock</span>
+                                    <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
+                                </div>
+                                <!-- /.direct-chat-infos -->
+                                <img class="direct-chat-img" src="https://lorempixel.com/640/480/?50746" alt="message user image">
+                                <!-- /.direct-chat-img -->
+                                <div class="direct-chat-text">
+                                    I would love to.
+                                </div>
+                                <!-- /.direct-chat-text -->
+                            </div>
+                            <!-- /.direct-chat-msg -->
 
-                </div>
-                <!--/.direct-chat-messages-->
+                        </div>
+                        <!--/.direct-chat-messages-->
+                    @endforeach
+                @else
+                    <p class="text-center">بدأ محادثة جديدة</p>
+                @endif
 
                 <!-- Contacts are loaded here -->
                 <div class="direct-chat-contacts">
@@ -132,10 +138,12 @@
                 <form action="{{ route('admin.chat.store') }}" method="post">
                     @csrf
                     {{ method_field('POST') }}
+                    <input type="hidden" name="participant_id" value="{{ (!empty(app('request')->input('participant_id')) ? app('request')->input('participant_id') : null) }}">
+                    <input type="hidden" name="conversationId" value="{{ (!empty(app('request')->input('participant_id')) ? app('request')->input('participant_id') : null) }}">
                     <div class="input-group">
                         <input type="text" name="message" placeholder="Type Message ..." class="form-control">
                         <span class="input-group-append">
-                      <button type="button" class="btn btn-primary">Send</button>
+                      <button type="submit" class="btn btn-primary">ارسال</button>
                     </span>
                     </div>
                 </form>
@@ -154,8 +162,9 @@
                 <div class="card-body overflow-auto">
                     <ul class="list-unstyled p-0">
                     @foreach ($users as $user)
+                    @if($user->id !== auth()->user()->id)
                         <li class="mx-2">
-                            <a href="{{ url('Admin/chat?id=1') }}">
+                            <a href="{{ url('Admin/chat?participant_id=' . $user->id) }}">
                                 <div class="d-flex justify-content-between contact-chat-list" dir="ltr">
                                     <div class="d-flex alight-items-center">
                                         <img class="urs-img-ch" src="http://lorempixel.com/index.php?generator=1&x=100&y=100&cat=people" alt="">
@@ -167,8 +176,8 @@
                                 </div>
                             </a>
                         </li>
-
-                        @endforeach
+                    @endif
+                    @endforeach
                     </ul>
                 </div>
                 <div class="card-footer bg-white">

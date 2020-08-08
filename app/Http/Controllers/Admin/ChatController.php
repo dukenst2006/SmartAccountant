@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
-use Musonza\Chat\Chat;
+// use Musonza\Chat\Chat;
+use \Chat;
 use Musonza\Chat\Models\Conversation;
 
 class ChatController extends Controller
@@ -24,24 +25,24 @@ class ChatController extends Controller
 
     public function index()
     {
-        if(!empty(request()->id)) {
-            $conversations = auth()->user()->conversations();
-        }
-        $conversations = auth()->user()->conversations();
-
+        $user = \App\Models\User::find(request()->participant_id);
+        $chat = Chat::conversations()->between(auth()->user(), $user);
+        dd($chat);
         return view('admin.Messages.chat')->with([ 'users'=>$this->userRepository->all(), 'conversations' => $conversations ]);
 
     }
 
     public function store()
     {
-        // $participants = [auth()->user()->id];
-        $participants = request()->participants;
-        $conversationID = request()->conversationID;
+        $participant = \App\Models\User::find(request()->participant_id);
+        $participants = [auth()->user(), $participant];
         $message = request()->message;
         $conversation = Chat::createConversation($participants);
-
-        return response()->json($conversation, 200);
+        Chat::message($message)
+            ->from(auth()->user())
+            ->to($conversation)
+            ->send();
+        return redirect()->back()->with(['conversation' => $conversation]);
     }
 
     public function participants($conversationId)
