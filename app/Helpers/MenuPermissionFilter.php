@@ -13,11 +13,11 @@ class MenuPermissionFilter implements FilterInterface
 
     public function transform($item)
     {
-        if (isset($item['role'])) {
-            foreach ($item['role'] as $key)
-           if( !auth()->user()->hasRole($key))
-            $item['restricted'] = true;
-        }
+        // if (isset($item['role'])) {
+        //     foreach ($item['role'] as $key)
+        //    if( !auth()->user()->hasRole($key))
+        //     $item['restricted'] = true;
+        // }
 
         return $item;
     }
